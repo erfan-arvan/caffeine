@@ -117,3 +117,16 @@ task memoryOverhead(type: JavaExec, group: 'Benchmarks', description: 'Evaluates
   jvmArgs "-javaagent:${configurations.javaAgent.singleFile}"
   main = 'com.github.benmanes.caffeine.cache.MemoryBenchmark'
 }
+
+task printCombinedClasspath {
+    doLast {
+        def combinedClasspath = files()
+
+        tasks.withType(JavaCompile).each { task ->
+            combinedClasspath += task.classpath
+        }
+
+        println "Combined classpath:"
+        println combinedClasspath.asPath
+    }
+}

@@ -1,0 +1,84 @@
+/*
+ * Copyright 2014 Ben Manes. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package com.github.benmanes.caffeine.testing;
+
+import java.util.function.Supplier;
+import org.hamcrest.Description;
+import org.hamcrest.Description.NullDescription;
+import org.hamcrest.Matcher;
+import org.hamcrest.StringDescription;
+import com.google.common.base.Throwables;
+
+/**
+ * Assists in implementing {@link org.hamcrest.Matcher}s.
+ *
+ * @author ben.manes@gmail.com (Ben Manes)
+ */
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+public final class DescriptionBuilder {
+
+    private final @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Description description;
+
+    private  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean matches;
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public DescriptionBuilder(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Description description) {
+        this.description = (description instanceof NullDescription) ? new StringDescription() : description;
+        this.matches = true;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public <T> @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull DescriptionBuilder expectThat(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Supplier<String> reason, T actual, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Matcher<? super T> matcher) {
+        if (!matcher.matches(actual)) {
+            addError(reason.get(), actual, matcher);
+        }
+        return this;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public <T> @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull DescriptionBuilder expectThat(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String reason, T actual, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Matcher<? super T> matcher) {
+        if (!matcher.matches(actual)) {
+            addError(reason, actual, matcher);
+        }
+        return this;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    private <T> void addError(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String reason, T actual, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Matcher<? super T> matcher) {
+        description.appendText(reason).appendText("\nExpected: ").appendDescriptionOf(matcher).appendText("\n     but: ");
+        matcher.describeMismatch(actual, description);
+        description.appendText("\nLocation: ").appendText(Throwables.getStackTraceAsString(new Exception()));
+        matches = false;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public <T> @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull DescriptionBuilder expected(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String reason) {
+        description.appendText(reason).appendText("\nExpected to not be reachable");
+        description.appendText("\nLocation: ").appendText(Throwables.getStackTraceAsString(new Exception()));
+        matches = false;
+        return this;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Description getDescription() {
+        return description;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean matches() {
+        return matches;
+    }
+}
