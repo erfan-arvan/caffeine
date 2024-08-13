@@ -1,0 +1,25 @@
+warning: The following options were not recognized by any processor: '[verbosity]'
+../dataset/SimplifiedTestCode/src/Game.java:9: error: (argument) $$ 4 $$ game $$ MoveValidator.setGame $$ @UnderInitialization @NonNull GameImpl $$ @Initialized @NonNull Game $$ ( 210, 214 ) $$ incompatible argument for parameter game of MoveValidator.setGame.
+        mValidator.setGame(this);
+                           ^
+  found   : @UnderInitialization @NonNull GameImpl
+  required: @Initialized @NonNull Game
+../dataset/SimplifiedTestCode/src/Game.java:13: error: (initialization.fields.uninitialized) $$ 1 $$ moveValidator $$ ( 264, 289 ) $$ the constructor does not initialize fields: moveValidator
+    public GameImpl() {
+           ^
+../dataset/SimplifiedTestCode/src/Game.java:35: error: (initialization.fields.uninitialized) $$ 1 $$ game $$ ( 717, 762 ) $$ the constructor does not initialize fields: game
+    public PlayerDependentMoveValidator() {
+           ^
+../dataset/SimplifiedTestCode/src/Game.java:38: error: (initialization.fields.uninitialized) $$ 1 $$ game $$ ( 768, 892 ) $$ the constructor does not initialize fields: game
+    public PlayerDependentMoveValidator(Game game) {
+           ^
+../dataset/SimplifiedTestCode/src/Game.java:39: error: (method.invocation) $$ 3 $$ setGame(Game) $$ @UnderInitialization @NonNull PlayerDependentMoveValidator $$ @Initialized @NonNull PlayerDependentMoveValidator $$ ( 825, 843 ) $$ call to setGame(Game) not allowed on the given receiver.
+        this.setGame(game);
+                    ^
+  found   : @UnderInitialization @NonNull PlayerDependentMoveValidator
+  required: @Initialized @NonNull PlayerDependentMoveValidator
+../dataset/SimplifiedTestCode/src/Game.java:52: error: (initialization.fields.uninitialized) $$ 1 $$ game $$ ( 1081, 1117 ) $$ the constructor does not initialize fields: game
+    public SimpleMoveValidator() {
+           ^
+6 errors
+1 warning

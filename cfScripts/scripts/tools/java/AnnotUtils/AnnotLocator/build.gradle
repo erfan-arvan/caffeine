@@ -1,0 +1,24 @@
+plugins {
+    id 'java'
+    id "net.ltgt.errorprone" version "2.0.1" apply false
+    id 'com.github.sherter.google-java-format' version '0.9'
+    id 'maven-publish'
+    id "com.vanniktech.maven.publish"
+}
+
+group = 'edu.ucr.cs.riple.annot-util'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compileOnly deps.apt.autoServiceAnnot
+    annotationProcessor deps.apt.autoService
+    compileOnly deps.build.errorProneCheckApi
+}
+
+test {
+    useJUnitPlatform()
+}

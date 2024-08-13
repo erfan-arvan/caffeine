@@ -1,0 +1,610 @@
+warning: The following options were not recognized by any processor: '[verbosity]'
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/minidraw/standard/StandardDrawingView.java:46: error: (initialization.fields.uninitialized) $$ 1 $$ fLastClick $$ ( 1151, 1655 ) $$ the constructor does not initialize fields: fLastClick
+  public StandardDrawingView(DrawingEditor editor, Dimension size) {
+         ^
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/minidraw/standard/StandardDrawingView.java:48: error: (method.invocation) $$ 3 $$ addMouseListener(java.awt.event.MouseListener) $$ @UnderInitialization(javax.swing.JPanel.class) @NonNull Component $$ @Initialized @NonNull Component $$ ( 1250, 1272 ) $$ call to addMouseListener(java.awt.event.MouseListener) not allowed on the given receiver.
+    addMouseListener(this);
+                    ^
+  found   : @UnderInitialization(javax.swing.JPanel.class) @NonNull Component
+  required: @Initialized @NonNull Component
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/minidraw/standard/StandardDrawingView.java:48: error: (argument) $$ 4 $$ l $$ Component.addMouseListener $$ @UnderInitialization(javax.swing.JPanel.class) @NonNull StandardDrawingView $$ @Initialized @NonNull MouseListener $$ ( 1267, 1271 ) $$ incompatible argument for parameter l of Component.addMouseListener.
+    addMouseListener(this);
+                     ^
+  found   : @UnderInitialization(javax.swing.JPanel.class) @NonNull StandardDrawingView
+  required: @Initialized @NonNull MouseListener
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/minidraw/standard/StandardDrawingView.java:49: error: (method.invocation) $$ 3 $$ addMouseMotionListener(java.awt.event.MouseMotionListener) $$ @UnderInitialization(javax.swing.JPanel.class) @NonNull Component $$ @Initialized @NonNull Component $$ ( 1279, 1307 ) $$ call to addMouseMotionListener(java.awt.event.MouseMotionListener) not allowed on the given receiver.
+    addMouseMotionListener(this);
+                          ^
+  found   : @UnderInitialization(javax.swing.JPanel.class) @NonNull Component
+  required: @Initialized @NonNull Component
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/minidraw/standard/StandardDrawingView.java:49: error: (argument) $$ 4 $$ l $$ Component.addMouseMotionListener $$ @UnderInitialization(javax.swing.JPanel.class) @NonNull StandardDrawingView $$ @Initialized @NonNull MouseMotionListener $$ ( 1302, 1306 ) $$ incompatible argument for parameter l of Component.addMouseMotionListener.
+    addMouseMotionListener(this);
+                           ^
+  found   : @UnderInitialization(javax.swing.JPanel.class) @NonNull StandardDrawingView
+  required: @Initialized @NonNull MouseMotionListener
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/minidraw/standard/StandardDrawingView.java:50: error: (method.invocation) $$ 3 $$ addKeyListener(java.awt.event.KeyListener) $$ @UnderInitialization(javax.swing.JPanel.class) @NonNull Component $$ @Initialized @NonNull Component $$ ( 1314, 1334 ) $$ call to addKeyListener(java.awt.event.KeyListener) not allowed on the given receiver.
+    addKeyListener(this);
+                  ^
+  found   : @UnderInitialization(javax.swing.JPanel.class) @NonNull Component
+  required: @Initialized @NonNull Component
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/minidraw/standard/StandardDrawingView.java:50: error: (argument) $$ 4 $$ l $$ Component.addKeyListener $$ @UnderInitialization(javax.swing.JPanel.class) @NonNull StandardDrawingView $$ @Initialized @NonNull KeyListener $$ ( 1329, 1333 ) $$ incompatible argument for parameter l of Component.addKeyListener.
+    addKeyListener(this);
+                   ^
+  found   : @UnderInitialization(javax.swing.JPanel.class) @NonNull StandardDrawingView
+  required: @Initialized @NonNull KeyListener
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/minidraw/standard/StandardDrawingView.java:52: error: (assignment) $$ 2 $$ @FBCBottom @Nullable NullType $$ @Initialized @NonNull Rectangle $$ ( 1360, 1364 ) $$ incompatible types in assignment.
+    dirtyRectangle = null;
+                     ^
+  found   : @FBCBottom @Nullable NullType
+  required: @Initialized @NonNull Rectangle
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/minidraw/standard/StandardDrawingView.java:59: error: (argument) $$ 4 $$ listener $$ DrawingChangeListenerHandler.addDrawingChangeListener $$ @UnderInitialization(javax.swing.JPanel.class) @NonNull StandardDrawingView $$ @Initialized @NonNull DrawingChangeListener $$ ( 1621, 1625 ) $$ incompatible argument for parameter listener of DrawingChangeListenerHandler.addDrawingChangeListener.
+    editor.drawing().addDrawingChangeListener( this );
+                                               ^
+  found   : @UnderInitialization(javax.swing.JPanel.class) @NonNull StandardDrawingView
+  required: @Initialized @NonNull DrawingChangeListener
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/minidraw/standard/StandardDrawingView.java:61: error: (method.invocation) $$ 3 $$ setSize(java.awt.Dimension) $$ @UnderInitialization(javax.swing.JPanel.class) @NonNull Component $$ @Initialized @NonNull Component $$ ( 1636, 1649 ) $$ call to setSize(java.awt.Dimension) not allowed on the given receiver.
+    setSize(size);
+           ^
+  found   : @UnderInitialization(javax.swing.JPanel.class) @NonNull Component
+  required: @Initialized @NonNull Component
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/minidraw/standard/StandardDrawingView.java:74: error: (assignment) $$ 2 $$ @FBCBottom @Nullable NullType $$ @Initialized @NonNull Rectangle $$ ( 2026, 2030 ) $$ incompatible types in assignment.
+      dirtyRectangle = null;
+                       ^
+  found   : @FBCBottom @Nullable NullType
+  required: @Initialized @NonNull Rectangle
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/minidraw/standard/CompositeFigure.java:68: error: (return) $$ 2 $$ @Initialized @Nullable Figure $$ @Initialized @NonNull Figure $$ ( 1747, 1752 ) $$ incompatible types in return.
+    return found;
+           ^
+  type of expression: @Initialized @Nullable Figure
+  method return type: @Initialized @NonNull Figure
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/minidraw/standard/StdViewWithBackground.java:30: error: (argument) $$ 4 $$ arg3 $$ Graphics.drawImage $$ @FBCBottom @Nullable NullType $$ @Initialized @NonNull ImageObserver $$ ( 863, 867 ) $$ incompatible argument for parameter arg3 of Graphics.drawImage.
+    g.drawImage(background, 0, 0, null );
+                                  ^
+  found   : @FBCBottom @Nullable NullType
+  required: @Initialized @NonNull ImageObserver
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/minidraw/standard/StdViewWithBackground.java:34: error: (argument) $$ 4 $$ arg0 $$ Image.getWidth $$ @FBCBottom @Nullable NullType $$ @Initialized @NonNull ImageObserver $$ ( 968, 972 ) $$ incompatible argument for parameter arg0 of Image.getWidth.
+    return new Dimension( background.getWidth(null),
+                                              ^
+  found   : @FBCBottom @Nullable NullType
+  required: @Initialized @NonNull ImageObserver
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/minidraw/standard/StdViewWithBackground.java:35: error: (argument) $$ 4 $$ arg0 $$ Image.getHeight $$ @FBCBottom @Nullable NullType $$ @Initialized @NonNull ImageObserver $$ ( 1023, 1027 ) $$ incompatible argument for parameter arg0 of Image.getHeight.
+                          background.getHeight(null) );
+                                               ^
+  found   : @FBCBottom @Nullable NullType
+  required: @Initialized @NonNull ImageObserver
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/minidraw/standard/ImageManager.java:58: error: (initialization.static.field.uninitialized) $$ 1 $$ aComponent $$ ( 1885, 1921 ) $$ static field aComponent not initialized
+  private static Component aComponent;
+                           ^
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/minidraw/standard/ImageManager.java:62: error: (initialization.static.field.uninitialized) $$ 1 $$ singleton $$ ( 1972, 2009 ) $$ static field singleton not initialized
+  public static ImageManager singleton;
+                             ^
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/minidraw/standard/ImageManager.java:64: error: (initialization.fields.uninitialized) $$ 1 $$ name2Image $$ ( 2015, 2117 ) $$ the constructor does not initialize fields: name2Image
+  ImageManager(Component c) {
+  ^
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/minidraw/standard/ImageManager.java:66: error: (method.invocation) $$ 3 $$ registerAllImages() $$ @UnderInitialization @NonNull ImageManager $$ @Initialized @NonNull ImageManager $$ ( 2069, 2088 ) $$ call to registerAllImages() not allowed on the given receiver.
+    registerAllImages();
+                     ^
+  found   : @UnderInitialization @NonNull ImageManager
+  required: @Initialized @NonNull ImageManager
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/minidraw/standard/ImageManager.java:67: error: (assignment) $$ 2 $$ @UnderInitialization @NonNull ImageManager $$ @Initialized @NonNull ImageManager $$ ( 2107, 2111 ) $$ incompatible types in assignment.
+    singleton = this;
+                ^
+  found   : @UnderInitialization @NonNull ImageManager
+  required: @Initialized @NonNull ImageManager
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/minidraw/standard/ImageManager.java:106: error: (iterating.over.nullable) $$ 1 $$ gifFileArray $$ ( 3492, 3504 ) $$ iterating over possibly-null reference gifFileArray
+      for ( String s : gifFileArray ) {
+                       ^
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/minidraw/standard/ImageManager.java:147: error: (dereference.of.nullable) $$ 1 $$ url $$ ( 4864, 4867 ) $$ dereference of possibly-null reference url
+                                url.getContent());
+                                ^
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/minidraw/standard/ImageManager.java:149: error: (return) $$ 2 $$ @FBCBottom @Nullable NullType $$ @Initialized @NonNull Image $$ ( 4927, 4931 ) $$ incompatible types in return.
+      return null;
+             ^
+  type of expression: @FBCBottom @Nullable NullType
+  method return type: @Initialized @NonNull Image
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/minidraw/standard/SelectionTool.java:57: error: (assignment) $$ 2 $$ @FBCBottom @Nullable NullType $$ @Initialized @NonNull Figure $$ ( 1892, 1896 ) $$ incompatible types in assignment.
+    draggedFigure = null;
+                    ^
+  found   : @FBCBottom @Nullable NullType
+  required: @Initialized @NonNull Figure
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/minidraw/standard/SelectionTool.java:96: error: (assignment) $$ 2 $$ @FBCBottom @Nullable NullType $$ @Initialized @NonNull Figure $$ ( 2850, 2854 ) $$ incompatible types in assignment.
+    draggedFigure = null;
+                    ^
+  found   : @FBCBottom @Nullable NullType
+  required: @Initialized @NonNull Figure
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/minidraw/standard/ImageFigure.java:33: error: (assignment) $$ 2 $$ @FBCBottom @Nullable NullType $$ @Initialized @NonNull Image $$ ( 877, 881 ) $$ incompatible types in assignment.
+    fImage = null;
+             ^
+  found   : @FBCBottom @Nullable NullType
+  required: @Initialized @NonNull Image
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/minidraw/standard/ImageFigure.java:52: error: (initialization.fields.uninitialized) $$ 1 $$ fDisplayBox $$ ( 1424, 1521 ) $$ the constructor does not initialize fields: fDisplayBox
+  public ImageFigure(Image img, Point origin) {
+         ^
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/minidraw/standard/ImageFigure.java:54: error: (method.invocation) $$ 3 $$ setDisplayBox(java.awt.Point) $$ @UnderInitialization(minidraw.standard.AbstractFigure.class) @NonNull ImageFigure $$ @Initialized @NonNull ImageFigure $$ ( 1494, 1515 ) $$ call to setDisplayBox(java.awt.Point) not allowed on the given receiver.
+    setDisplayBox(origin);
+                 ^
+  found   : @UnderInitialization(minidraw.standard.AbstractFigure.class) @NonNull ImageFigure
+  required: @Initialized @NonNull ImageFigure
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/minidraw/standard/ImageFigure.java:60: error: (initialization.fields.uninitialized) $$ 1 $$ fDisplayBox $$ ( 1691, 1856 ) $$ the constructor does not initialize fields: fDisplayBox
+  public ImageFigure(String name, Point origin) {
+         ^
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/minidraw/standard/ImageFigure.java:63: error: (method.invocation) $$ 3 $$ setDisplayBox(java.awt.Point) $$ @UnderInitialization(minidraw.standard.AbstractFigure.class) @NonNull ImageFigure $$ @Initialized @NonNull ImageFigure $$ ( 1829, 1850 ) $$ call to setDisplayBox(java.awt.Point) not allowed on the given receiver.
+    setDisplayBox(origin);
+                 ^
+  found   : @UnderInitialization(minidraw.standard.AbstractFigure.class) @NonNull ImageFigure
+  required: @Initialized @NonNull ImageFigure
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/minidraw/standard/ImageFigure.java:69: error: (argument) $$ 4 $$ arg0 $$ Image.getWidth $$ @FBCBottom @Nullable NullType $$ @Initialized @NonNull ImageObserver $$ ( 2025, 2029 ) $$ incompatible argument for parameter arg0 of Image.getWidth.
+    fDisplayBox.width = fImage.getWidth(null);
+                                        ^
+  found   : @FBCBottom @Nullable NullType
+  required: @Initialized @NonNull ImageObserver
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/minidraw/standard/ImageFigure.java:70: error: (argument) $$ 4 $$ arg0 $$ Image.getHeight $$ @FBCBottom @Nullable NullType $$ @Initialized @NonNull ImageObserver $$ ( 2075, 2079 ) $$ incompatible argument for parameter arg0 of Image.getHeight.
+    fDisplayBox.height = fImage.getHeight(null);
+                                          ^
+  found   : @FBCBottom @Nullable NullType
+  required: @Initialized @NonNull ImageObserver
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/minidraw/standard/ImageFigure.java:78: error: (argument) $$ 4 $$ arg5 $$ Graphics.drawImage $$ @FBCBottom @Nullable NullType $$ @Initialized @NonNull ImageObserver $$ ( 2284, 2288 ) $$ incompatible argument for parameter arg5 of Graphics.drawImage.
+                  fDisplayBox.width, fDisplayBox.height, null);
+                                                         ^
+  found   : @FBCBottom @Nullable NullType
+  required: @Initialized @NonNull ImageObserver
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/minidraw/standard/StandardDrawing.java:125: error: (assignment) $$ 2 $$ @FBCBottom @Nullable NullType $$ @Initialized @NonNull Thread $$ ( 3441, 3445 ) $$ incompatible types in assignment.
+  private transient Thread    fDrawingLockHolder = null;
+                                                   ^
+  found   : @FBCBottom @Nullable NullType
+  required: @Initialized @NonNull Thread
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/minidraw/standard/StandardDrawing.java:141: error: (assignment) $$ 2 $$ @FBCBottom @Nullable NullType $$ @Initialized @NonNull Thread $$ ( 3879, 3883 ) $$ incompatible types in assignment.
+      fDrawingLockHolder = null;
+                           ^
+  found   : @FBCBottom @Nullable NullType
+  required: @Initialized @NonNull Thread
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/minidraw/standard/handlers/StandardDrawingChangeListenerHandler.java:69: error: (argument) $$ 4 $$ r $$ DrawingChangeEvent constructor $$ @FBCBottom @Nullable NullType $$ @Initialized @NonNull Rectangle $$ ( 1976, 1980 ) $$ incompatible argument for parameter r of DrawingChangeEvent constructor.
+      l.drawingRequestUpdate(new DrawingChangeEvent(source, null));
+                                                            ^
+  found   : @FBCBottom @Nullable NullType
+  required: @Initialized @NonNull Rectangle
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/minidraw/standard/handlers/SelectAreaTracker.java:29: error: (initialization.fields.uninitialized) $$ 1 $$ selectionRectangle $$ ( 777, 955 ) $$ the constructor does not initialize fields: selectionRectangle
+  public SelectAreaTracker(DrawingEditor editor, 
+         ^
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/minidraw/standard/MiniDrawApplication.java:59: error: (initialization.fields.uninitialized) $$ 1 $$ fView, fDrawing, statusField $$ ( 1832, 2358 ) $$ the constructor does not initialize fields: fView, fDrawing, statusField
+  public MiniDrawApplication( String title, Factory f ) {
+         ^
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/minidraw/standard/MiniDrawApplication.java:70: error: (assignment) $$ 2 $$ @UnderInitialization(minidraw.standard.ImageManager.class) @NonNull ImageManager $$ @Initialized @NonNull ImageManager $$ ( 2166, 2188 ) $$ incompatible types in assignment.
+    fImageManager = new ImageManager(this);
+                    ^
+  found   : @UnderInitialization(minidraw.standard.ImageManager.class) @NonNull ImageManager
+  required: @Initialized @NonNull ImageManager
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/minidraw/standard/MiniDrawApplication.java:70: error: (argument) $$ 4 $$ c $$ ImageManager constructor $$ @UnderInitialization(javax.swing.JFrame.class) @NonNull MiniDrawApplication $$ @Initialized @NonNull Component $$ ( 2183, 2187 ) $$ incompatible argument for parameter c of ImageManager constructor.
+    fImageManager = new ImageManager(this);
+                                     ^
+  found   : @UnderInitialization(javax.swing.JFrame.class) @NonNull MiniDrawApplication
+  required: @Initialized @NonNull Component
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/minidraw/standard/MiniDrawApplication.java:77: error: (method.invocation) $$ 3 $$ setLocation(int,int) $$ @UnderInitialization(javax.swing.JFrame.class) @NonNull Window $$ @Initialized @NonNull Window $$ ( 2299, 2321 ) $$ call to setLocation(int,int) not allowed on the given receiver.
+    setLocation( 100, 20 );
+               ^
+  found   : @UnderInitialization(javax.swing.JFrame.class) @NonNull Window
+  required: @Initialized @NonNull Window
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/minidraw/standard/MiniDrawApplication.java:78: error: (method.invocation) $$ 3 $$ setFrameCloseOperation() $$ @UnderInitialization(javax.swing.JFrame.class) @NonNull MiniDrawApplication $$ @Initialized @NonNull MiniDrawApplication $$ ( 2328, 2352 ) $$ call to setFrameCloseOperation() not allowed on the given receiver.
+    setFrameCloseOperation();
+                          ^
+  found   : @UnderInitialization(javax.swing.JFrame.class) @NonNull MiniDrawApplication
+  required: @Initialized @NonNull MiniDrawApplication
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/minidraw/boardgame/BoardActionTool.java:42: error: (assignment) $$ 2 $$ @FBCBottom @Nullable NullType $$ @Initialized @NonNull BoardFigure $$ ( 1328, 1332 ) $$ incompatible types in assignment.
+  private BoardFigure clickedFigure = null;
+                                      ^
+  found   : @FBCBottom @Nullable NullType
+  required: @Initialized @NonNull BoardFigure
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/minidraw/boardgame/BoardActionTool.java:43: error: (assignment) $$ 2 $$ @FBCBottom @Nullable NullType $$ @Initialized @NonNull Figure $$ ( 1368, 1372 ) $$ incompatible types in assignment.
+  private Figure draggedFigure = null;
+                                 ^
+  found   : @FBCBottom @Nullable NullType
+  required: @Initialized @NonNull Figure
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/minidraw/boardgame/BoardActionTool.java:48: error: (assignment) $$ 2 $$ @FBCBottom @Nullable NullType $$ @Initialized @NonNull BoardFigure $$ ( 1517, 1521 ) $$ incompatible types in assignment.
+    clickedFigure = null; draggedFigure = null;
+                    ^
+  found   : @FBCBottom @Nullable NullType
+  required: @Initialized @NonNull BoardFigure
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/minidraw/boardgame/BoardActionTool.java:48: error: (assignment) $$ 2 $$ @FBCBottom @Nullable NullType $$ @Initialized @NonNull Figure $$ ( 1539, 1543 ) $$ incompatible types in assignment.
+    clickedFigure = null; draggedFigure = null;
+                                          ^
+  found   : @FBCBottom @Nullable NullType
+  required: @Initialized @NonNull Figure
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/minidraw/boardgame/BoardActionTool.java:93: error: (assignment) $$ 2 $$ @FBCBottom @Nullable NullType $$ @Initialized @NonNull BoardFigure $$ ( 3090, 3094 ) $$ incompatible types in assignment.
+    clickedFigure = null;
+                    ^
+  found   : @FBCBottom @Nullable NullType
+  required: @Initialized @NonNull BoardFigure
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/minidraw/boardgame/BoardActionTool.java:94: error: (assignment) $$ 2 $$ @FBCBottom @Nullable NullType $$ @Initialized @NonNull Figure $$ ( 3117, 3121 ) $$ incompatible types in assignment.
+    draggedFigure = null;
+                    ^
+  found   : @FBCBottom @Nullable NullType
+  required: @Initialized @NonNull Figure
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/minidraw/boardgame/BoardDrawing.java:79: error: (assignment) $$ 2 $$ @FBCBottom @Nullable NullType $$ @Initialized @NonNull Map<LOCATION extends @Initialized @Nullable Object, @Initialized @NonNull List<@Initialized @NonNull BoardFigure>> $$ ( 3132, 3136 ) $$ incompatible types in assignment.
+  protected Map<LOCATION, List<BoardFigure>> figureMap = null;
+                                                         ^
+  found   : @FBCBottom @Nullable NullType
+  required: @Initialized @NonNull Map<LOCATION extends @Initialized @Nullable Object, @Initialized @NonNull List<@Initialized @NonNull BoardFigure>>
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/minidraw/boardgame/BoardDrawing.java:84: error: (assignment) $$ 2 $$ @FBCBottom @Nullable NullType $$ @Initialized @NonNull Map<@Initialized @NonNull String, @Initialized @NonNull BoardFigure> $$ ( 3284, 3288 ) $$ incompatible types in assignment.
+  protected Map<String, BoardFigure> propMap = null;
+                                               ^
+  found   : @FBCBottom @Nullable NullType
+  required: @Initialized @NonNull Map<@Initialized @NonNull String, @Initialized @NonNull BoardFigure>
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/minidraw/boardgame/BoardDrawing.java:108: error: (method.invocation) $$ 3 $$ buildPieceMap() $$ @UnderInitialization(minidraw.boardgame.BoardDrawing.class) @NonNull BoardDrawing</*RAW*/> $$ @Initialized @NonNull BoardDrawing</*RAW*/> $$ ( 4274, 4289 ) $$ call to buildPieceMap() not allowed on the given receiver.
+    buildPieceMap();
+                 ^
+  found   : @UnderInitialization(minidraw.boardgame.BoardDrawing.class) @NonNull BoardDrawing</*RAW*/>
+  required: @Initialized @NonNull BoardDrawing</*RAW*/>
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/minidraw/boardgame/BoardDrawing.java:109: error: (method.invocation) $$ 3 $$ buildPropMap() $$ @UnderInitialization(minidraw.boardgame.BoardDrawing.class) @NonNull BoardDrawing</*RAW*/> $$ @Initialized @NonNull BoardDrawing</*RAW*/> $$ ( 4296, 4310 ) $$ call to buildPropMap() not allowed on the given receiver.
+    buildPropMap();
+                ^
+  found   : @UnderInitialization(minidraw.boardgame.BoardDrawing.class) @NonNull BoardDrawing</*RAW*/>
+  required: @Initialized @NonNull BoardDrawing</*RAW*/>
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/minidraw/boardgame/BoardDrawing.java:163: error: (argument) $$ 4 $$ arg0 $$ Map.get $$ LOCATION extends @Initialized @Nullable Object $$ @Initialized @NonNull Object $$ ( 6124, 6128 ) $$ incompatible argument for parameter arg0 of Map.get.
+    List<BoardFigure> list = figureMap.get(from);
+                                           ^
+  found   : LOCATION extends @Initialized @Nullable Object
+  required: @Initialized @NonNull Object
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/minidraw/boardgame/BoardDrawing.java:192: error: (argument) $$ 4 $$ arg0 $$ Map.get $$ LOCATION extends @Initialized @Nullable Object $$ @Initialized @NonNull Object $$ ( 7279, 7281 ) $$ incompatible argument for parameter arg0 of Map.get.
+    List<BoardFigure> listTo = figureMap.get(to);
+                                             ^
+  found   : LOCATION extends @Initialized @Nullable Object
+  required: @Initialized @NonNull Object
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/minidraw/boardgame/BoardDrawing.java:231: error: (dereference.of.nullable) $$ 1 $$ f $$ ( 8556, 8557 ) $$ dereference of possibly-null reference f
+    f.changeImage(nameOfImageToShow);
+    ^
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/frs/hotgammon/variants/winnerdeterminers/BearOffWinnerDeterminer.java:12: error: (initialization.fields.uninitialized) $$ 1 $$ game $$ ( 308, 345 ) $$ the constructor does not initialize fields: game
+	public BearOffWinnerDeterminer(){
+	       ^
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/frs/hotgammon/variants/winnerdeterminers/BearOffWinnerDeterminer.java:15: error: (initialization.fields.uninitialized) $$ 1 $$ game $$ ( 351, 420 ) $$ the constructor does not initialize fields: game
+	public BearOffWinnerDeterminer(Game game){
+	       ^
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/frs/hotgammon/variants/winnerdeterminers/BearOffWinnerDeterminer.java:16: error: (method.invocation) $$ 3 $$ setGame(frs.hotgammon.framework.Game) $$ @UnderInitialization @NonNull BearOffWinnerDeterminer $$ @Initialized @NonNull BearOffWinnerDeterminer $$ ( 397, 415 ) $$ call to setGame(frs.hotgammon.framework.Game) not allowed on the given receiver.
+		this.setGame(game);
+		            ^
+  found   : @UnderInitialization @NonNull BearOffWinnerDeterminer
+  required: @Initialized @NonNull BearOffWinnerDeterminer
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/frs/hotgammon/variants/turndeterminers/AceyDeuceyTurnDeterminer.java:11: error: (initialization.fields.uninitialized) $$ 1 $$ game $$ ( 261, 299 ) $$ the constructor does not initialize fields: game
+	public AceyDeuceyTurnDeterminer(){
+	       ^
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/frs/hotgammon/variants/turndeterminers/AceyDeuceyTurnDeterminer.java:14: error: (initialization.fields.uninitialized) $$ 1 $$ game $$ ( 305, 375 ) $$ the constructor does not initialize fields: game
+	public AceyDeuceyTurnDeterminer(Game game){
+	       ^
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/frs/hotgammon/variants/turndeterminers/AceyDeuceyTurnDeterminer.java:15: error: (method.invocation) $$ 3 $$ setGame(frs.hotgammon.framework.Game) $$ @UnderInitialization @NonNull AceyDeuceyTurnDeterminer $$ @Initialized @NonNull AceyDeuceyTurnDeterminer $$ ( 352, 370 ) $$ call to setGame(frs.hotgammon.framework.Game) not allowed on the given receiver.
+		this.setGame(game);
+		            ^
+  found   : @UnderInitialization @NonNull AceyDeuceyTurnDeterminer
+  required: @Initialized @NonNull AceyDeuceyTurnDeterminer
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/frs/hotgammon/variants/turndeterminers/AlternatingTurnDeterminer.java:11: error: (initialization.fields.uninitialized) $$ 1 $$ game $$ ( 262, 301 ) $$ the constructor does not initialize fields: game
+	public AlternatingTurnDeterminer(){
+	       ^
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/frs/hotgammon/variants/turndeterminers/AlternatingTurnDeterminer.java:14: error: (initialization.fields.uninitialized) $$ 1 $$ game $$ ( 307, 378 ) $$ the constructor does not initialize fields: game
+	public AlternatingTurnDeterminer(Game game){
+	       ^
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/frs/hotgammon/variants/turndeterminers/AlternatingTurnDeterminer.java:15: error: (method.invocation) $$ 3 $$ setGame(frs.hotgammon.framework.Game) $$ @UnderInitialization @NonNull AlternatingTurnDeterminer $$ @Initialized @NonNull AlternatingTurnDeterminer $$ ( 355, 373 ) $$ call to setGame(frs.hotgammon.framework.Game) not allowed on the given receiver.
+		this.setGame(game);
+		            ^
+  found   : @UnderInitialization @NonNull AlternatingTurnDeterminer
+  required: @Initialized @NonNull AlternatingTurnDeterminer
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/frs/hotgammon/variants/movevalidators/CompleteMoveValidator.java:18: error: (initialization.fields.uninitialized) $$ 1 $$ game $$ ( 427, 463 ) $$ the constructor does not initialize fields: game
+	public CompleteMoveValidator() {
+	       ^
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/frs/hotgammon/variants/movevalidators/CompleteMoveValidator.java:21: error: (initialization.fields.uninitialized) $$ 1 $$ game $$ ( 469, 537 ) $$ the constructor does not initialize fields: game
+	public CompleteMoveValidator(Game game) {
+	       ^
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/frs/hotgammon/variants/movevalidators/CompleteMoveValidator.java:22: error: (method.invocation) $$ 3 $$ setGame(frs.hotgammon.framework.Game) $$ @UnderInitialization @NonNull CompleteMoveValidator $$ @Initialized @NonNull CompleteMoveValidator $$ ( 514, 532 ) $$ call to setGame(frs.hotgammon.framework.Game) not allowed on the given receiver.
+		this.setGame(game);
+		            ^
+  found   : @UnderInitialization @NonNull CompleteMoveValidator
+  required: @Initialized @NonNull CompleteMoveValidator
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/frs/hotgammon/variants/movevalidators/PlayerDependentMoveValidator.java:14: error: (initialization.fields.uninitialized) $$ 1 $$ game $$ ( 449, 492 ) $$ the constructor does not initialize fields: game
+	public PlayerDependentMoveValidator() {
+	       ^
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/frs/hotgammon/variants/movevalidators/PlayerDependentMoveValidator.java:17: error: (initialization.fields.uninitialized) $$ 1 $$ game $$ ( 498, 573 ) $$ the constructor does not initialize fields: game
+	public PlayerDependentMoveValidator(Game game) {
+	       ^
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/frs/hotgammon/variants/movevalidators/PlayerDependentMoveValidator.java:18: error: (method.invocation) $$ 3 $$ setGame(frs.hotgammon.framework.Game) $$ @UnderInitialization @NonNull PlayerDependentMoveValidator $$ @Initialized @NonNull PlayerDependentMoveValidator $$ ( 550, 568 ) $$ call to setGame(frs.hotgammon.framework.Game) not allowed on the given receiver.
+		this.setGame(game);
+		            ^
+  found   : @UnderInitialization @NonNull PlayerDependentMoveValidator
+  required: @Initialized @NonNull PlayerDependentMoveValidator
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/frs/hotgammon/variants/movevalidators/SimpleMoveValidator.java:13: error: (initialization.fields.uninitialized) $$ 1 $$ game $$ ( 329, 362 ) $$ the constructor does not initialize fields: game
+	public SimpleMoveValidator(){
+	       ^
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/frs/hotgammon/variants/movevalidators/SimpleMoveValidator.java:16: error: (initialization.fields.uninitialized) $$ 1 $$ game $$ ( 368, 434 ) $$ the constructor does not initialize fields: game
+	public SimpleMoveValidator(Game game) {
+	       ^
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/frs/hotgammon/variants/movevalidators/SimpleMoveValidator.java:17: error: (method.invocation) $$ 3 $$ setGame(frs.hotgammon.framework.Game) $$ @UnderInitialization @NonNull SimpleMoveValidator $$ @Initialized @NonNull SimpleMoveValidator $$ ( 411, 429 ) $$ call to setGame(frs.hotgammon.framework.Game) not allowed on the given receiver.
+		this.setGame(game);
+		            ^
+  found   : @UnderInitialization @NonNull SimpleMoveValidator
+  required: @Initialized @NonNull SimpleMoveValidator
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/frs/hotgammon/variants/factories/AlphaMonFactory.java:16: error: (initialization.field.uninitialized) $$ 1 $$ game $$ ( 619, 637 ) $$ the default constructor does not initialize field game
+	private Game game;
+	             ^
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/frs/hotgammon/variants/factories/EpsilonMonFactory.java:16: error: (initialization.field.uninitialized) $$ 1 $$ game $$ ( 618, 636 ) $$ the default constructor does not initialize field game
+	private Game game;
+	             ^
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/frs/hotgammon/variants/factories/DeltaMonFactory.java:16: error: (initialization.field.uninitialized) $$ 1 $$ game $$ ( 617, 635 ) $$ the default constructor does not initialize field game
+	private Game game;
+	             ^
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/frs/hotgammon/variants/factories/GammaMonFactory.java:16: error: (initialization.field.uninitialized) $$ 1 $$ game $$ ( 618, 636 ) $$ the default constructor does not initialize field game
+	private Game game;
+	             ^
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/frs/hotgammon/variants/factories/BetaMonFactory.java:16: error: (initialization.field.uninitialized) $$ 1 $$ game $$ ( 620, 638 ) $$ the default constructor does not initialize field game
+	private Game game;
+	             ^
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/frs/hotgammon/variants/factories/SemiMonFactory.java:19: error: (initialization.field.uninitialized) $$ 1 $$ game $$ ( 839, 857 ) $$ the default constructor does not initialize field game
+	private Game game;
+	             ^
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/frs/hotgammon/variants/factories/HandicapMonFactory.java:16: error: (initialization.field.uninitialized) $$ 1 $$ game $$ ( 631, 649 ) $$ the default constructor does not initialize field game
+	private Game game;
+	             ^
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/frs/hotgammon/tests/preGuiTests/stubs/Fixed_BlackStarts_SemiMonFactory.java:19: error: (initialization.field.uninitialized) $$ 1 $$ game $$ ( 862, 880 ) $$ the default constructor does not initialize field game
+	private Game game;
+	             ^
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/frs/hotgammon/tests/preGuiTests/stubs/Fixed_RedStarts_EpsilonMonFactory.java:16: error: (initialization.field.uninitialized) $$ 1 $$ game $$ ( 639, 657 ) $$ the default constructor does not initialize field game
+	private Game game;
+	             ^
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/frs/hotgammon/tests/preGuiTests/stubs/Fixed_BlackStarts_EpsilonMonFactory.java:16: error: (initialization.field.uninitialized) $$ 1 $$ game $$ ( 641, 659 ) $$ the default constructor does not initialize field game
+	private Game game;
+	             ^
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/frs/hotgammon/tests/preGuiTests/stubs/Fixed_RedStarts_SemiMonFactory.java:19: error: (initialization.field.uninitialized) $$ 1 $$ game $$ ( 860, 878 ) $$ the default constructor does not initialize field game
+	private Game game;
+	             ^
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/frs/hotgammon/tests/preGuiTests/BlackStartsEpsilonMonTests.java:14: error: (initialization.field.uninitialized) $$ 1 $$ game $$ ( 343, 365 ) $$ the default constructor does not initialize field game
+	private GameImpl game;
+	                 ^
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/frs/hotgammon/common/GameImpl.java:34: error: (initialization.fields.uninitialized) $$ 1 $$ gameBoard, playerInTurn, diceRoll $$ ( 948, 1315 ) $$ the constructor does not initialize fields: gameBoard, playerInTurn, diceRoll
+  public GameImpl(MoveValidator mValidator, WinnerDeterminer wDeterminer, TurnDeterminer tDeterminer, RollDeterminer drDeterminer){
+         ^
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/frs/hotgammon/common/GameImpl.java:35: error: (argument) $$ 4 $$ game $$ MoveValidator.setGame $$ @UnderInitialization @NonNull GameImpl $$ @Initialized @NonNull Game $$ ( 1101, 1105 ) $$ incompatible argument for parameter game of MoveValidator.setGame.
+	  mValidator.setGame(this);
+	                     ^
+  found   : @UnderInitialization @NonNull GameImpl
+  required: @Initialized @NonNull Game
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/frs/hotgammon/common/GameImpl.java:36: error: (argument) $$ 4 $$ game $$ WinnerDeterminer.setGame $$ @UnderInitialization @NonNull GameImpl $$ @Initialized @NonNull Game $$ ( 1132, 1136 ) $$ incompatible argument for parameter game of WinnerDeterminer.setGame.
+	  wDeterminer.setGame(this);
+	                      ^
+  found   : @UnderInitialization @NonNull GameImpl
+  required: @Initialized @NonNull Game
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/frs/hotgammon/common/GameImpl.java:37: error: (argument) $$ 4 $$ game $$ TurnDeterminer.setGame $$ @UnderInitialization @NonNull GameImpl $$ @Initialized @NonNull Game $$ ( 1163, 1167 ) $$ incompatible argument for parameter game of TurnDeterminer.setGame.
+	  tDeterminer.setGame(this);
+	                      ^
+  found   : @UnderInitialization @NonNull GameImpl
+  required: @Initialized @NonNull Game
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/frs/hotgammon/common/GameImpl.java:44: error: (initialization.fields.uninitialized) $$ 1 $$ gameBoard, playerInTurn, diceRoll, moveValidator, winnerDeterminer, turnDeterminer, diceRollDeterminer $$ ( 1323, 1389 ) $$ the constructor does not initialize fields: gameBoard, playerInTurn, diceRoll, moveValidator, winnerDeterminer, turnDeterminer, diceRollDeterminer
+  public GameImpl(MonFactory factory){
+         ^
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/frs/hotgammon/common/GameImpl.java:45: error: (method.invocation) $$ 3 $$ setFactory(frs.hotgammon.MonFactory) $$ @UnderInitialization @NonNull GameImpl $$ @Initialized @NonNull GameImpl $$ ( 1364, 1383 ) $$ call to setFactory(frs.hotgammon.MonFactory) not allowed on the given receiver.
+	  setFactory(factory);
+	            ^
+  found   : @UnderInitialization @NonNull GameImpl
+  required: @Initialized @NonNull GameImpl
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/frs/hotgammon/tests/preGuiTests/GammaMonTests.java:19: error: (initialization.field.uninitialized) $$ 1 $$ game $$ ( 623, 645 ) $$ the default constructor does not initialize field game
+	private GameImpl game;
+	                 ^
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/frs/hotgammon/tests/preGuiTests/BetaMonTests.java:18: error: (initialization.field.uninitialized) $$ 1 $$ game $$ ( 576, 598 ) $$ the default constructor does not initialize field game
+	private GameImpl game;
+	                 ^
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/frs/hotgammon/tests/preGuiTests/DeltaMonTests.java:19: error: (initialization.field.uninitialized) $$ 1 $$ game $$ ( 535, 557 ) $$ the default constructor does not initialize field game
+	private GameImpl game;
+	                 ^
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/frs/hotgammon/tests/preGuiTests/mariatests/GammaMonTests.java:19: error: (initialization.field.uninitialized) $$ 1 $$ game $$ ( 634, 656 ) $$ the default constructor does not initialize field game
+	private GameImpl game;
+	                 ^
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/frs/hotgammon/tests/preGuiTests/mariatests/BetaMonTests.java:19: error: (initialization.field.uninitialized) $$ 1 $$ game $$ ( 635, 649 ) $$ the default constructor does not initialize field game
+	GameImpl game;
+	         ^
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/frs/hotgammon/tests/preGuiTests/mariatests/DeltaMonTests.java:18: error: (initialization.field.uninitialized) $$ 1 $$ game $$ ( 544, 566 ) $$ the default constructor does not initialize field game
+	private GameImpl game;
+	                 ^
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/frs/hotgammon/tests/preGuiTests/mariatests/BoardTests.java:16: error: (initialization.field.uninitialized) $$ 1 $$ board $$ ( 328, 340 ) $$ the default constructor does not initialize field board
+	Board board;
+	      ^
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/frs/hotgammon/tests/preGuiTests/RedStartsEpsilonMonTests.java:14: error: (initialization.field.uninitialized) $$ 1 $$ game $$ ( 339, 361 ) $$ the default constructor does not initialize field game
+	private GameImpl game;
+	                 ^
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/frs/hotgammon/tests/preGuiTests/BoardTests.java:14: error: (initialization.field.uninitialized) $$ 1 $$ b $$ ( 286, 306 ) $$ the default constructor does not initialize field b
+	private BoardImpl b;
+	                  ^
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/frs/hotgammon/tests/AlternatingTurnTests.java:51: error: (argument) $$ 4 $$ placements $$ GameImpl.configure $$ @FBCBottom @Nullable NullType $$ @Initialized @NonNull Placement @Initialized @NonNull [] $$ ( 2172, 2176 ) $$ incompatible argument for parameter placements of GameImpl.configure.
+			game.configure(null);
+			               ^
+  found   : @FBCBottom @Nullable NullType
+  required: @Initialized @NonNull Placement @Initialized @NonNull []
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/frs/hotgammon/tests/AlternatingTurnTests.java:100: error: (argument) $$ 4 $$ placements $$ GameImpl.configure $$ @FBCBottom @Nullable NullType $$ @Initialized @NonNull Placement @Initialized @NonNull [] $$ ( 3512, 3516 ) $$ incompatible argument for parameter placements of GameImpl.configure.
+		game.configure(null);
+		               ^
+  found   : @FBCBottom @Nullable NullType
+  required: @Initialized @NonNull Placement @Initialized @NonNull []
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/frs/hotgammon/tests/AlternatingTurnTests.java:133: error: (argument) $$ 4 $$ placements $$ GameImpl.configure $$ @FBCBottom @Nullable NullType $$ @Initialized @NonNull Placement @Initialized @NonNull [] $$ ( 4324, 4328 ) $$ incompatible argument for parameter placements of GameImpl.configure.
+		game.configure(null);
+		               ^
+  found   : @FBCBottom @Nullable NullType
+  required: @Initialized @NonNull Placement @Initialized @NonNull []
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/frs/hotgammon/tests/GammaMonTests.java:19: error: (initialization.field.uninitialized) $$ 1 $$ game $$ ( 611, 633 ) $$ the default constructor does not initialize field game
+	private GameImpl game;
+	                 ^
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/frs/hotgammon/tests/CoreTests.java:228: error: (argument) $$ 4 $$ placements $$ GameImpl.configure $$ @FBCBottom @Nullable NullType $$ @Initialized @NonNull Placement @Initialized @NonNull [] $$ ( 6758, 6762 ) $$ incompatible argument for parameter placements of GameImpl.configure.
+			game.configure(null);
+			               ^
+  found   : @FBCBottom @Nullable NullType
+  required: @Initialized @NonNull Placement @Initialized @NonNull []
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/frs/hotgammon/tests/CoreTests.java:295: error: (argument) $$ 4 $$ placements $$ GameImpl.configure $$ @FBCBottom @Nullable NullType $$ @Initialized @NonNull Placement @Initialized @NonNull [] $$ ( 8800, 8804 ) $$ incompatible argument for parameter placements of GameImpl.configure.
+			game.configure(null);
+			               ^
+  found   : @FBCBottom @Nullable NullType
+  required: @Initialized @NonNull Placement @Initialized @NonNull []
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/frs/hotgammon/tests/BetaMonTests.java:18: error: (initialization.field.uninitialized) $$ 1 $$ game $$ ( 564, 586 ) $$ the default constructor does not initialize field game
+	private GameImpl game;
+	                 ^
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/frs/hotgammon/tests/BetaMonTests.java:82: error: (argument) $$ 4 $$ placements $$ GameImpl.configure $$ @FBCBottom @Nullable NullType $$ @Initialized @NonNull Placement @Initialized @NonNull [] $$ ( 2359, 2363 ) $$ incompatible argument for parameter placements of GameImpl.configure.
+		game.configure( null);
+		                ^
+  found   : @FBCBottom @Nullable NullType
+  required: @Initialized @NonNull Placement @Initialized @NonNull []
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/frs/hotgammon/tests/DeltaMonTests.java:19: error: (initialization.field.uninitialized) $$ 1 $$ game $$ ( 523, 545 ) $$ the default constructor does not initialize field game
+	private GameImpl game;
+	                 ^
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/frs/hotgammon/tests/visual/Maria_ShowCheckersAndDice.java:64: error: (method.invocation) $$ 3 $$ put(K,V) $$ @UnderInitialization(<anonymous java.util.HashMap<java.lang.String,minidraw.framework.Tool>>.class) @NonNull HashMap</*RAW*/> $$ @Initialized @NonNull HashMap</*RAW*/> $$ ( 2262, 2309 ) $$ call to put(K,V) not allowed on the given receiver.
+		put( HotGammonTool.DIE_ROLL_TOOL, dieRollTool );
+		   ^
+  found   : @UnderInitialization(<anonymous java.util.HashMap<java.lang.String,minidraw.framework.Tool>>.class) @NonNull HashMap</*RAW*/>
+  required: @Initialized @NonNull HashMap</*RAW*/>
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/frs/hotgammon/tests/visual/Maria_ShowCheckersAndDice.java:65: error: (method.invocation) $$ 3 $$ put(K,V) $$ @UnderInitialization(<anonymous java.util.HashMap<java.lang.String,minidraw.framework.Tool>>.class) @NonNull HashMap</*RAW*/> $$ @Initialized @NonNull HashMap</*RAW*/> $$ ( 2314, 2354 ) $$ call to put(K,V) not allowed on the given receiver.
+		put( HotGammonTool.MOVE_TOOL, moveTool );
+		   ^
+  found   : @UnderInitialization(<anonymous java.util.HashMap<java.lang.String,minidraw.framework.Tool>>.class) @NonNull HashMap</*RAW*/>
+  required: @Initialized @NonNull HashMap</*RAW*/>
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/frs/hotgammon/tests/visual/Maria_ShowCheckersAndDice.java:66: error: (method.invocation) $$ 3 $$ put(K,V) $$ @UnderInitialization(<anonymous java.util.HashMap<java.lang.String,minidraw.framework.Tool>>.class) @NonNull HashMap</*RAW*/> $$ @Initialized @NonNull HashMap</*RAW*/> $$ ( 2359, 2407 ) $$ call to put(K,V) not allowed on the given receiver.
+		put( HotGammonTool.GAME_OVER_TOOL, gameOverTool);
+		   ^
+  found   : @UnderInitialization(<anonymous java.util.HashMap<java.lang.String,minidraw.framework.Tool>>.class) @NonNull HashMap</*RAW*/>
+  required: @Initialized @NonNull HashMap</*RAW*/>
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/frs/hotgammon/tests/stub/StubGame1.java:25: error: (initialization.fields.uninitialized) $$ 1 $$ loneRiderHere1, loneRiderHere2 $$ ( 727, 768 ) $$ the constructor does not initialize fields: loneRiderHere1, loneRiderHere2
+  public StubGame1() {
+         ^
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/frs/hotgammon/tests/stub/StubGame1.java:26: error: (method.invocation) $$ 3 $$ newGame() $$ @UnderInitialization @NonNull StubGame1 $$ @Initialized @NonNull StubGame1 $$ ( 753, 762 ) $$ call to newGame() not allowed on the given receiver.
+    newGame();
+           ^
+  found   : @UnderInitialization @NonNull StubGame1
+  required: @Initialized @NonNull StubGame1
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/frs/hotgammon/tests/BoardTests.java:14: error: (initialization.field.uninitialized) $$ 1 $$ b $$ ( 274, 294 ) $$ the default constructor does not initialize field b
+	private BoardImpl b;
+	                  ^
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/frs/hotgammon/common/VisualGameImpl.java:41: error: (initialization.fields.uninitialized) $$ 1 $$ gameBoard, playerInTurn, diceRoll, turnMoves $$ ( 1052, 1425 ) $$ the constructor does not initialize fields: gameBoard, playerInTurn, diceRoll, turnMoves
+  public VisualGameImpl(MoveValidator mValidator, WinnerDeterminer wDeterminer, TurnDeterminer tDeterminer, RollDeterminer drDeterminer){
+         ^
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/frs/hotgammon/common/VisualGameImpl.java:42: error: (argument) $$ 4 $$ game $$ MoveValidator.setGame $$ @UnderInitialization @NonNull VisualGameImpl $$ @Initialized @NonNull Game $$ ( 1211, 1215 ) $$ incompatible argument for parameter game of MoveValidator.setGame.
+	  mValidator.setGame(this);
+	                     ^
+  found   : @UnderInitialization @NonNull VisualGameImpl
+  required: @Initialized @NonNull Game
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/frs/hotgammon/common/VisualGameImpl.java:43: error: (argument) $$ 4 $$ game $$ WinnerDeterminer.setGame $$ @UnderInitialization @NonNull VisualGameImpl $$ @Initialized @NonNull Game $$ ( 1242, 1246 ) $$ incompatible argument for parameter game of WinnerDeterminer.setGame.
+	  wDeterminer.setGame(this);
+	                      ^
+  found   : @UnderInitialization @NonNull VisualGameImpl
+  required: @Initialized @NonNull Game
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/frs/hotgammon/common/VisualGameImpl.java:44: error: (argument) $$ 4 $$ game $$ TurnDeterminer.setGame $$ @UnderInitialization @NonNull VisualGameImpl $$ @Initialized @NonNull Game $$ ( 1273, 1277 ) $$ incompatible argument for parameter game of TurnDeterminer.setGame.
+	  tDeterminer.setGame(this);
+	                      ^
+  found   : @UnderInitialization @NonNull VisualGameImpl
+  required: @Initialized @NonNull Game
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/frs/hotgammon/common/VisualGameImpl.java:51: error: (initialization.fields.uninitialized) $$ 1 $$ gameBoard, playerInTurn, diceRoll, moveValidator, winnerDeterminer, turnDeterminer, diceRollDeterminer, turnMoves $$ ( 1433, 1505 ) $$ the constructor does not initialize fields: gameBoard, playerInTurn, diceRoll, moveValidator, winnerDeterminer, turnDeterminer, diceRollDeterminer, turnMoves
+  public VisualGameImpl(MonFactory factory){
+         ^
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/frs/hotgammon/common/VisualGameImpl.java:52: error: (method.invocation) $$ 3 $$ setFactory(frs.hotgammon.MonFactory) $$ @UnderInitialization @NonNull VisualGameImpl $$ @Initialized @NonNull VisualGameImpl $$ ( 1480, 1499 ) $$ call to setFactory(frs.hotgammon.MonFactory) not allowed on the given receiver.
+	  setFactory(factory);
+	            ^
+  found   : @UnderInitialization @NonNull VisualGameImpl
+  required: @Initialized @NonNull VisualGameImpl
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/frs/hotgammon/common/VisualGameImpl.java:559: error: (initialization.fields.uninitialized) $$ 1 $$ move, associatedMoveToBar $$ ( 16003, 16030 ) $$ the constructor does not initialize fields: move, associatedMoveToBar
+		  public MoveRecord(){
+		         ^
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/frs/hotgammon/view/tools/MoveTool.java:42: error: (initialization.fields.uninitialized) $$ 1 $$ originalPt $$ ( 1269, 1459 ) $$ the constructor does not initialize fields: originalPt
+	public MoveTool(DrawingEditor editor, Game game) {
+	       ^
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/frs/hotgammon/view/tools/MoveTool.java:48: error: (assignment) $$ 2 $$ @FBCBottom @Nullable NullType $$ @Initialized @NonNull Figure $$ ( 1450, 1454 ) $$ incompatible types in assignment.
+		draggedFigure = null;
+		                ^
+  found   : @FBCBottom @Nullable NullType
+  required: @Initialized @NonNull Figure
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/frs/hotgammon/view/tools/MoveTool.java:115: error: (assignment) $$ 2 $$ @FBCBottom @Nullable NullType $$ @Initialized @NonNull Figure $$ ( 3281, 3285 ) $$ incompatible types in assignment.
+	   draggedFigure = null;
+	                   ^
+  found   : @FBCBottom @Nullable NullType
+  required: @Initialized @NonNull Figure
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/frs/hotgammon/view/tools/HotGammonTool.java:19: error: (initialization.fields.uninitialized) $$ 1 $$ currentTool $$ ( 561, 743 ) $$ the constructor does not initialize fields: currentTool
+	public HotGammonTool( DrawingEditor editor, Game game, String initialState, HashMap<String,Tool> states) {
+	       ^
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/frs/hotgammon/view/tools/HotGammonTool.java:22: error: (method.invocation) $$ 3 $$ setState(java.lang.String) $$ @UnderInitialization(minidraw.standard.AbstractTool.class) @NonNull HotGammonTool $$ @Initialized @NonNull HotGammonTool $$ ( 716, 738 ) $$ call to setState(java.lang.String) not allowed on the given receiver.
+		setState(initialState);
+		        ^
+  found   : @UnderInitialization(minidraw.standard.AbstractTool.class) @NonNull HotGammonTool
+  required: @Initialized @NonNull HotGammonTool
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/frs/hotgammon/view/tools/HotGammonTool.java:41: error: (assignment) $$ 2 $$ @Initialized @Nullable Tool $$ @Initialized @NonNull Tool $$ ( 1120, 1139 ) $$ incompatible types in assignment.
+		this.currentTool = states.get(toolKey);
+		                             ^
+  found   : @Initialized @Nullable Tool
+  required: @Initialized @NonNull Tool
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/frs/hotgammon/view/HotGammonApplication.java:27: error: (method.invocation) $$ 3 $$ setLayout(java.awt.LayoutManager) $$ @UnderInitialization(frs.hotgammon.view.HotGammonApplication.class) @NonNull JFrame $$ @Initialized @NonNull JFrame $$ ( 663, 697 ) $$ call to setLayout(java.awt.LayoutManager) not allowed on the given receiver.
+	this.setLayout(new BorderLayout());
+	              ^
+  found   : @UnderInitialization(frs.hotgammon.view.HotGammonApplication.class) @NonNull JFrame
+  required: @Initialized @NonNull JFrame
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/frs/hotgammon/view/HotGammonApplication.java:33: error: (method.invocation) $$ 3 $$ newGameButtonCalled() $$ @UnderInitialization(frs.hotgammon.view.HotGammonApplication.class) @NonNull HotGammonApplication $$ @Initialized @NonNull HotGammonApplication $$ ( 842, 863 ) $$ call to newGameButtonCalled() not allowed on the given receiver.
+	    		 newGameButtonCalled();
+	    		                    ^
+  found   : @UnderInitialization(frs.hotgammon.view.HotGammonApplication.class) @NonNull HotGammonApplication
+  required: @Initialized @NonNull HotGammonApplication
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/frs/hotgammon/view/HotGammonDrawing.java:25: error: (initialization.fields.uninitialized) $$ 1 $$ subject $$ ( 776, 851 ) $$ the constructor does not initialize fields: subject
+	public HotGammonDrawing(DrawingEditor editor){
+	       ^
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/frs/hotgammon/view/HotGammonDrawing.java:31: error: (method.invocation) $$ 3 $$ setGame(frs.hotgammon.framework.Game) $$ @UnderInitialization(frs.hotgammon.view.HotGammonDrawing.class) @NonNull HotGammonDrawing $$ @Initialized @NonNull HotGammonDrawing $$ ( 935, 948 ) $$ call to setGame(frs.hotgammon.framework.Game) not allowed on the given receiver.
+		setGame(game);
+		       ^
+  found   : @UnderInitialization(frs.hotgammon.view.HotGammonDrawing.class) @NonNull HotGammonDrawing
+  required: @Initialized @NonNull HotGammonDrawing
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/frs/hotgammon/view/Convert.java:37: error: (dereference.of.nullable) $$ 1 $$ r $$ ( 1157, 1158 ) $$ dereference of possibly-null reference r
+      if (r.contains(x,y)) {
+          ^
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/frs/hotgammon/view/Convert.java:41: error: (return) $$ 2 $$ @FBCBottom @Nullable NullType $$ @Initialized @NonNull Location $$ ( 1223, 1227 ) $$ incompatible types in return.
+    return null;
+           ^
+  type of expression: @FBCBottom @Nullable NullType
+  method return type: @Initialized @NonNull Location
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/frs/hotgammon/view/Convert.java:56: error: (dereference.of.nullable) $$ 1 $$ box $$ ( 1775, 1778 ) $$ dereference of possibly-null reference box
+    int newx = box.x + (box.width - size) / 2;
+               ^
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/frs/hotgammon/view/Convert.java:95: error: (initialization.static.field.uninitialized) $$ 1 $$ mapLocation2Rectangle $$ ( 2958, 3019 ) $$ static field mapLocation2Rectangle not initialized
+  private static Map<Location,Rectangle> mapLocation2Rectangle;
+                                         ^
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/assignments/frs/chap5/TestBreakthrough.java:25: error: (initialization.field.uninitialized) $$ 1 $$ game $$ ( 721, 739 ) $$ the default constructor does not initialize field game
+  Breakthrough game;
+               ^
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/assignments/frs/chap5/BreakthroughImpl.java:44: error: (return) $$ 2 $$ @FBCBottom @Nullable NullType $$ @Initialized @NonNull PlayerType $$ ( 1204, 1208 ) $$ incompatible types in return.
+	  return null;
+	         ^
+  type of expression: @FBCBottom @Nullable NullType
+  method return type: @Initialized @NonNull PlayerType
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/assignments/frs/chap30/SnapToGridLogoPuzzle.java:47: error: (return) $$ 2 $$ @FBCBottom @Nullable NullType $$ @Initialized @NonNull JTextField $$ ( 1578, 1582 ) $$ incompatible types in return.
+    return null;
+           ^
+  type of expression: @FBCBottom @Nullable NullType
+  method return type: @Initialized @NonNull JTextField
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/assignments/frs/chap30/SnapToGridSelectionTool.java:45: error: (assignment) $$ 2 $$ @FBCBottom @Nullable NullType $$ @Initialized @NonNull Figure $$ ( 1538, 1542 ) $$ incompatible types in assignment.
+    draggedFigure = null;
+                    ^
+  found   : @FBCBottom @Nullable NullType
+  required: @Initialized @NonNull Figure
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/assignments/frs/chap30/SnapToGridSelectionTool.java:84: error: (assignment) $$ 2 $$ @FBCBottom @Nullable NullType $$ @Initialized @NonNull Figure $$ ( 2496, 2500 ) $$ incompatible types in assignment.
+    draggedFigure = null;
+                    ^
+  found   : @FBCBottom @Nullable NullType
+  required: @Initialized @NonNull Figure
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/assignments/farmer/FarmerImpl.java:10: error: (initialization.field.uninitialized) $$ 1 $$ plowStrategy $$ ( 267, 301 ) $$ the default constructor does not initialize field plowStrategy
+	private PlowStrategy plowStrategy;
+	                     ^
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/assignments/farmer/FarmerImpl.java:11: error: (initialization.field.uninitialized) $$ 1 $$ plantStrategy $$ ( 304, 340 ) $$ the default constructor does not initialize field plantStrategy
+	private PlantStrategy plantStrategy;
+	                      ^
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/assignments/farmer/FarmerImpl.java:12: error: (initialization.field.uninitialized) $$ 1 $$ weedControlStrategy $$ ( 343, 391 ) $$ the default constructor does not initialize field weedControlStrategy
+	private WeedControlStrategy weedControlStrategy;
+	                            ^
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/assignments/farmer/FarmerImpl.java:13: error: (initialization.field.uninitialized) $$ 1 $$ harvestStrategy $$ ( 394, 434 ) $$ the default constructor does not initialize field harvestStrategy
+	private HarvestStrategy harvestStrategy;
+	                        ^
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/assignments/farmer/FarmerImpl.java:14: error: (initialization.field.uninitialized) $$ 1 $$ marketStrategy $$ ( 437, 475 ) $$ the default constructor does not initialize field marketStrategy
+	private MarketStrategy marketStrategy;
+	                       ^
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/assignments/farmer/tests/AmishFarmerTests.java:23: error: (initialization.field.uninitialized) $$ 1 $$ f $$ ( 615, 624 ) $$ the default constructor does not initialize field f
+	Farmer f;
+	       ^
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/assignments/farmer/tests/OrganicFarmerTests.java:22: error: (initialization.field.uninitialized) $$ 1 $$ f $$ ( 617, 626 ) $$ the default constructor does not initialize field f
+	Farmer f;
+	       ^
+../dataset/url49526af437_Maria_G_CS325_tgz-pJ8-assignments_farmer_FarmerImplJ8/src/assignments/farmer/tests/ConventionalFarmerTests.java:23: error: (initialization.field.uninitialized) $$ 1 $$ f $$ ( 630, 639 ) $$ the default constructor does not initialize field f
+	Farmer f;
+	       ^
+149 errors
+1 warning

@@ -1,0 +1,27 @@
+// This file is for classes that appear in JDK 8 but not in JDK 11.
+
+@UIPackage
+package javax.swing;
+
+import org.checkerframework.checker.guieffect.qual.*;
+@UIType class JComponent extends Container implements Serializable, HasGetTransferHandler {
+    @SafeEffect void revalidate();
+}
+
+@UIType class SwingUtilities implements SwingConstants {
+    @SafeEffect static void invokeLater(@UI Runnable doRun);
+    @SafeEffect static void invokeAndWait(@UI Runnable doRun);
+}
+
+@UIType class UIManager implements Serializable {
+    @SafeEffect static void setLookAndFeel(LookAndFeel newLookAndFeel);
+    @SafeEffect static void setLookAndFeel(String classname);
+}
+
+@UIPackage package javax.swing.text;
+public abstract class JTextComponent extends JComponent implements Scrollable, Accessible {
+    @SafeEffect public void setText(String t);
+}
+
+@UIPackage
+package javax.swing.event;

@@ -1,0 +1,12 @@
+../dataset/SimplifiedTestCode/src/Game.java:32: error: (initialization.field.write.initialized) $$ 1 $$ this.game $$ ( 688, 697 ) $$ storing values that are possibly under initialization in the field of initialized objects is not permitted
+        this.game = game;
+            ^
+../dataset/SimplifiedTestCode/src/Game.java:39: error: (method.invocation) $$ 3 $$ setGame(Game) $$ @UnderInitialization(PlayerDependentMoveValidator.class) @NonNull PlayerDependentMoveValidator $$ @Initialized @NonNull PlayerDependentMoveValidator $$ ( 825, 843 ) $$ call to setGame(Game) not allowed on the given receiver.
+        this.setGame(game);
+                    ^
+  found   : @UnderInitialization(PlayerDependentMoveValidator.class) @NonNull PlayerDependentMoveValidator
+  required: @Initialized @NonNull PlayerDependentMoveValidator
+../dataset/SimplifiedTestCode/src/Game.java:49: error: (initialization.field.write.initialized) $$ 1 $$ this.game $$ ( 1052, 1061 ) $$ storing values that are possibly under initialization in the field of initialized objects is not permitted
+        this.game = game;
+            ^
+3 errors

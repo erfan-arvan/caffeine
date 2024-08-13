@@ -1,0 +1,308 @@
+// This file is for classes that appear in JDK 8 but not in JDK 11.
+
+package java.util;
+
+import org.checkerframework.checker.interning.qual.UsesObjectEquals;
+import org.checkerframework.checker.interning.qual.Interned;
+
+@UsesObjectEquals class XMLUtils {}
+
+/*
+TODO: Attributes does not declare a toString method.
+This declaration then pollutes java.lang.Object.toString, making
+any override illegal.
+
+package java.util.jar;
+
+public class Attributes implements Map<Object,Object>, Cloneable {
+  public @Interned String toString();
+}
+*/
+
+package javax.management;
+
+public class MBeanServerPermission extends BasicPermission {
+  static @Interned String getCanonicalName(int mask);
+}
+
+package javax.swing;
+
+public class DefaultListCellRenderer extends JLabel
+    implements ListCellRenderer<Object>, Serializable
+{
+    protected void firePropertyChange(@Interned String propertyName, Object oldValue, Object newValue);
+}
+
+package javax.swing.tree;
+
+public class DefaultTreeCellRenderer extends JLabel implements TreeCellRenderer
+{
+  protected void firePropertyChange(@Interned String propertyName, Object oldValue, Object newValue);
+}
+
+package javax.swing.table;
+
+public class DefaultTableCellRenderer extends JLabel
+    implements TableCellRenderer, Serializable
+{
+  protected void firePropertyChange(@Interned String propertyName, Object oldValue, Object newValue);
+}
+
+package javax.swing.plaf.basic;
+public class BasicHTML {
+     public static final @Interned String propertyKey = "html";
+     public static final @Interned String documentBaseKey = "html.base";
+}
+package javax.swing.plaf.basic;
+class BasicRootPaneUI extends RootPaneUI implements PropertyChangeListener {
+    public class Actions {
+             public static final @Interned String PRESS = "press";
+             public static final @Interned String RELEASE = "release";
+             public static final @Interned String POST_POPUP = "postPopup";
+    }
+}
+package javax.swing.plaf.basic;
+class BasicSliderUI extends SliderUI {
+    public class Actions {
+             public static final @Interned String MIN_SCROLL_INCREMENT = "minScroll";
+             public static final @Interned String MAX_SCROLL_INCREMENT = "maxScroll";
+    }
+}
+package javax.swing.plaf.metal;
+public class MetalScrollBarUI {
+     public static final @Interned String FREE_STANDING_PROP = "JScrollBar.isFreeStanding";
+}
+package javax.swing.plaf.nimbus;
+public class NimbusStyle {
+     public static final @Interned String LARGE_KEY = "large";
+     public static final @Interned String SMALL_KEY = "small";
+     public static final @Interned String MINI_KEY = "mini";
+}
+package javax.swing.text.html;
+public class FormView {
+     public static final @Interned String SUBMIT = new String("Submit Query");
+     public static final @Interned String RESET = new String("Reset");
+}
+package javax.swing.text.html;
+public class HTML {
+     public static final @Interned String NULL_ATTRIBUTE_VALUE = "#DEFAULT";
+}
+package javax.swing.text.html;
+public class HTMLDocument {
+     public static final @Interned String AdditionalComments = "AdditionalComments";
+}
+package javax.swing.text.html;
+public class HTMLEditorKit {
+     public static final @Interned String DEFAULT_CSS = "default.css";
+     public static final @Interned String  BOLD_ACTION = "html-bold-action";
+     public static final @Interned String  ITALIC_ACTION = "html-italic-action";
+     public static final @Interned String  PARA_INDENT_LEFT = "html-para-indent-left";
+     public static final @Interned String  PARA_INDENT_RIGHT = "html-para-indent-right";
+     public static final @Interned String  FONT_CHANGE_BIGGER = "html-font-bigger";
+     public static final @Interned String  FONT_CHANGE_SMALLER = "html-font-smaller";
+     public static final @Interned String  COLOR_ACTION = "html-color-action";
+     public static final @Interned String  LOGICAL_STYLE_ACTION = "html-logical-style-action";
+     public static final @Interned String  IMG_ALIGN_TOP = "html-image-align-top";
+     public static final @Interned String  IMG_ALIGN_MIDDLE = "html-image-align-middle";
+     public static final @Interned String  IMG_ALIGN_BOTTOM = "html-image-align-bottom";
+     public static final @Interned String  IMG_BORDER = "html-image-border";
+}
+package javax.swing.text;
+public class AbstractDocument {
+     public static final @Interned String ParagraphElementName = "paragraph";
+     public static final @Interned String ContentElementName = "content";
+     public static final @Interned String SectionElementName = "section";
+     public static final @Interned String BidiElementName = "bidi level";
+     public static final @Interned String ElementNameAttribute = "$ename";
+}
+package javax.swing.text;
+public class DefaultEditorKit {
+     public static final @Interned String EndOfLineStringProperty = "__EndOfLine__";
+     public static final @Interned String insertContentAction = "insert-content";
+     public static final @Interned String insertBreakAction = "insert-break";
+     public static final @Interned String insertTabAction = "insert-tab";
+     public static final @Interned String deletePrevCharAction = "delete-previous";
+     public static final @Interned String deleteNextCharAction = "delete-next";
+     public static final @Interned String deleteNextWordAction = "delete-next-word";
+     public static final @Interned String deletePrevWordAction = "delete-previous-word";
+     public static final @Interned String readOnlyAction = "set-read-only";
+     public static final @Interned String writableAction = "set-writable";
+     public static final @Interned String cutAction = "cut-to-clipboard";
+     public static final @Interned String copyAction = "copy-to-clipboard";
+     public static final @Interned String pasteAction = "paste-from-clipboard";
+     public static final @Interned String beepAction = "beep";
+     public static final @Interned String pageUpAction = "page-up";
+     public static final @Interned String pageDownAction = "page-down";
+     public static final @Interned String forwardAction = "caret-forward";
+     public static final @Interned String backwardAction = "caret-backward";
+     public static final @Interned String selectionForwardAction = "selection-forward";
+     public static final @Interned String selectionBackwardAction = "selection-backward";
+     public static final @Interned String upAction = "caret-up";
+     public static final @Interned String downAction = "caret-down";
+     public static final @Interned String selectionUpAction = "selection-up";
+     public static final @Interned String selectionDownAction = "selection-down";
+     public static final @Interned String beginWordAction = "caret-begin-word";
+     public static final @Interned String endWordAction = "caret-end-word";
+     public static final @Interned String selectionBeginWordAction = "selection-begin-word";
+     public static final @Interned String selectionEndWordAction = "selection-end-word";
+     public static final @Interned String previousWordAction = "caret-previous-word";
+     public static final @Interned String nextWordAction = "caret-next-word";
+     public static final @Interned String selectionPreviousWordAction = "selection-previous-word";
+     public static final @Interned String selectionNextWordAction = "selection-next-word";
+     public static final @Interned String beginLineAction = "caret-begin-line";
+     public static final @Interned String endLineAction = "caret-end-line";
+     public static final @Interned String selectionBeginLineAction = "selection-begin-line";
+     public static final @Interned String selectionEndLineAction = "selection-end-line";
+     public static final @Interned String beginParagraphAction = "caret-begin-paragraph";
+     public static final @Interned String endParagraphAction = "caret-end-paragraph";
+     public static final @Interned String selectionBeginParagraphAction = "selection-begin-paragraph";
+     public static final @Interned String selectionEndParagraphAction = "selection-end-paragraph";
+     public static final @Interned String beginAction = "caret-begin";
+     public static final @Interned String endAction = "caret-end";
+     public static final @Interned String selectionBeginAction = "selection-begin";
+     public static final @Interned String selectionEndAction = "selection-end";
+     public static final @Interned String selectWordAction = "select-word";
+     public static final @Interned String selectLineAction = "select-line";
+     public static final @Interned String selectParagraphAction = "select-paragraph";
+     public static final @Interned String selectAllAction = "select-all";
+     public static final @Interned String defaultKeyTypedAction = "default-typed";
+}
+package javax.swing.text;
+public class Document {
+     public static final @Interned String StreamDescriptionProperty = "stream";
+     public static final @Interned String TitleProperty = "title";
+}
+package javax.swing.text;
+public class JTextComponent {
+     public static final @Interned String FOCUS_ACCELERATOR_KEY = "focusAcceleratorKey";
+     public static final @Interned String DEFAULT_KEYMAP = "default";
+}
+package javax.swing.text;
+public class PlainDocument {
+     public static final @Interned String tabSizeAttribute = "tabSize";
+     public static final @Interned String lineLimitAttribute = "lineLimit";
+}
+package javax.swing.text;
+public class StyleConstants {
+     public static final @Interned String ComponentElementName = "component";
+     public static final @Interned String IconElementName = "icon";
+}
+package javax.swing.text;
+public class StyleContext {
+     public static final @Interned String DEFAULT_STYLE = "default";
+}
+package javax.swing.tree;
+public class DefaultTreeSelectionModel {
+     public static final @Interned String          SELECTION_MODE_PROPERTY = "selectionMode";
+}
+package javax.swing.undo;
+public class StateEditable {
+     public static final @Interned String RCSID = "$Id: StateEditable.java,v 1.2 1997/09/08 19:39:08 marklin Exp $";
+}
+package javax.swing;
+public class AbstractButton {
+     public static final @Interned String MODEL_CHANGED_PROPERTY = "model";
+     public static final @Interned String TEXT_CHANGED_PROPERTY = "text";
+     public static final @Interned String MNEMONIC_CHANGED_PROPERTY = "mnemonic";
+     public static final @Interned String MARGIN_CHANGED_PROPERTY = "margin";
+     public static final @Interned String VERTICAL_ALIGNMENT_CHANGED_PROPERTY = "verticalAlignment";
+     public static final @Interned String HORIZONTAL_ALIGNMENT_CHANGED_PROPERTY = "horizontalAlignment";
+     public static final @Interned String VERTICAL_TEXT_POSITION_CHANGED_PROPERTY = "verticalTextPosition";
+     public static final @Interned String HORIZONTAL_TEXT_POSITION_CHANGED_PROPERTY = "horizontalTextPosition";
+     public static final @Interned String BORDER_PAINTED_CHANGED_PROPERTY = "borderPainted";
+     public static final @Interned String FOCUS_PAINTED_CHANGED_PROPERTY = "focusPainted";
+     public static final @Interned String ROLLOVER_ENABLED_CHANGED_PROPERTY = "rolloverEnabled";
+     public static final @Interned String CONTENT_AREA_FILLED_CHANGED_PROPERTY = "contentAreaFilled";
+     public static final @Interned String ICON_CHANGED_PROPERTY = "icon";
+     public static final @Interned String PRESSED_ICON_CHANGED_PROPERTY = "pressedIcon";
+     public static final @Interned String SELECTED_ICON_CHANGED_PROPERTY = "selectedIcon";
+     public static final @Interned String ROLLOVER_ICON_CHANGED_PROPERTY = "rolloverIcon";
+     public static final @Interned String ROLLOVER_SELECTED_ICON_CHANGED_PROPERTY = "rolloverSelectedIcon";
+     public static final @Interned String DISABLED_ICON_CHANGED_PROPERTY = "disabledIcon";
+     public static final @Interned String DISABLED_SELECTED_ICON_CHANGED_PROPERTY = "disabledSelectedIcon";
+}
+package javax.swing;
+public class Action {
+     public static final @Interned String DEFAULT = "Default";
+     public static final @Interned String NAME = "Name";
+     public static final @Interned String SHORT_DESCRIPTION = "ShortDescription";
+     public static final @Interned String LONG_DESCRIPTION = "LongDescription";
+     public static final @Interned String SMALL_ICON = "SmallIcon";
+     public static final @Interned String ACTION_COMMAND_KEY = "ActionCommandKey";
+     public static final @Interned String ACCELERATOR_KEY="AcceleratorKey";
+     public static final @Interned String MNEMONIC_KEY="MnemonicKey";
+     public static final @Interned String SELECTED_KEY = "SwingSelectedKey";
+     public static final @Interned String LARGE_ICON_KEY = "SwingLargeIconKey";
+}
+package javax.swing;
+public class JCheckBox {
+     public static final @Interned String BORDER_PAINTED_FLAT_CHANGED_PROPERTY = "borderPaintedFlat";
+}
+package javax.swing;
+public class JColorChooser {
+     public static final @Interned String      SELECTION_MODEL_PROPERTY = "selectionModel";
+     public static final @Interned String      PREVIEW_PANEL_PROPERTY = "previewPanel";
+     public static final @Interned String      CHOOSER_PANELS_PROPERTY = "chooserPanels";
+}
+package javax.swing;
+public class JComponent {
+     public static final @Interned String TOOL_TIP_TEXT_KEY = "ToolTipText";
+}
+package javax.swing;
+public class JEditorPane {
+     public static final @Interned String W3C_LENGTH_UNITS = "JEditorPane.w3cLengthUnits";
+     public static final @Interned String HONOR_DISPLAY_PROPERTIES = "JEditorPane.honorDisplayProperties";
+}
+package javax.swing;
+public class JFileChooser {
+     public static final @Interned String CANCEL_SELECTION = "CancelSelection";
+     public static final @Interned String APPROVE_SELECTION = "ApproveSelection";
+     public static final @Interned String APPROVE_BUTTON_TEXT_CHANGED_PROPERTY = "ApproveButtonTextChangedProperty";
+     public static final @Interned String APPROVE_BUTTON_TOOL_TIP_TEXT_CHANGED_PROPERTY = "ApproveButtonToolTipTextChangedProperty";
+     public static final @Interned String APPROVE_BUTTON_MNEMONIC_CHANGED_PROPERTY = "ApproveButtonMnemonicChangedProperty";
+     public static final @Interned String CONTROL_BUTTONS_ARE_SHOWN_CHANGED_PROPERTY = "ControlButtonsAreShownChangedProperty";
+     public static final @Interned String DIRECTORY_CHANGED_PROPERTY = "directoryChanged";
+     public static final @Interned String SELECTED_FILE_CHANGED_PROPERTY = "SelectedFileChangedProperty";
+     public static final @Interned String SELECTED_FILES_CHANGED_PROPERTY = "SelectedFilesChangedProperty";
+     public static final @Interned String MULTI_SELECTION_ENABLED_CHANGED_PROPERTY = "MultiSelectionEnabledChangedProperty";
+     public static final @Interned String FILE_SYSTEM_VIEW_CHANGED_PROPERTY = "FileSystemViewChanged";
+     public static final @Interned String FILE_VIEW_CHANGED_PROPERTY = "fileViewChanged";
+     public static final @Interned String FILE_HIDING_CHANGED_PROPERTY = "FileHidingChanged";
+     public static final @Interned String FILE_FILTER_CHANGED_PROPERTY = "fileFilterChanged";
+     public static final @Interned String FILE_SELECTION_MODE_CHANGED_PROPERTY = "fileSelectionChanged";
+     public static final @Interned String ACCESSORY_CHANGED_PROPERTY = "AccessoryChangedProperty";
+     public static final @Interned String ACCEPT_ALL_FILE_FILTER_USED_CHANGED_PROPERTY = "acceptAllFileFilterUsedChanged";
+     public static final @Interned String DIALOG_TITLE_CHANGED_PROPERTY = "DialogTitleChangedProperty";
+     public static final @Interned String DIALOG_TYPE_CHANGED_PROPERTY = "DialogTypeChangedProperty";
+     public static final @Interned String CHOOSABLE_FILE_FILTER_CHANGED_PROPERTY = "ChoosableFileFilterChangedProperty";
+}
+package javax.swing;
+public class JOptionPane {
+     public static final @Interned String      ICON_PROPERTY = "icon";
+     public static final @Interned String      MESSAGE_PROPERTY = "message";
+     public static final @Interned String      VALUE_PROPERTY = "value";
+     public static final @Interned String      OPTIONS_PROPERTY = "options";
+     public static final @Interned String      INITIAL_VALUE_PROPERTY = "initialValue";
+     public static final @Interned String      MESSAGE_TYPE_PROPERTY = "messageType";
+     public static final @Interned String      OPTION_TYPE_PROPERTY = "optionType";
+     public static final @Interned String      SELECTION_VALUES_PROPERTY = "selectionValues";
+     public static final @Interned String      INITIAL_SELECTION_VALUE_PROPERTY = "initialSelectionValue";
+     public static final @Interned String      INPUT_VALUE_PROPERTY = "inputValue";
+     public static final @Interned String      WANTS_INPUT_PROPERTY = "wantsInput";
+}
+package javax.swing;
+public class JTextField {
+     public static final @Interned String notifyAction = "notify-field-accept";
+}
+package javax.swing;
+public class SpringLayout {
+     public static final @Interned String NORTH  = "North";
+     public static final @Interned String SOUTH  = "South";
+     public static final @Interned String EAST   = "East";
+     public static final @Interned String WEST   = "West";
+     public static final @Interned String HORIZONTAL_CENTER   = "HorizontalCenter";
+     public static final @Interned String VERTICAL_CENTER   = "VerticalCenter";
+     public static final @Interned String BASELINE   = "Baseline";
+     public static final @Interned String WIDTH = "Width";
+     public static final @Interned String HEIGHT = "Height";
+}

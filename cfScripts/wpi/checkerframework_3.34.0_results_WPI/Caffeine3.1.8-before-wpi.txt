@@ -1,0 +1,7 @@
+../dataset/Caffeine3.1.8/src/nodes/com/github/benmanes/caffeine/cache/PD.java:16: error: cannot access References
+import com.github.benmanes.caffeine.cache.References.SoftValueReference;
+                                         ^
+  bad class file: ../dataset/Caffeine3.1.8/classpath/com/github/benmanes/caffeine/cache/References.class
+    class file has wrong version 55.0, should be 53.0
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+1 error

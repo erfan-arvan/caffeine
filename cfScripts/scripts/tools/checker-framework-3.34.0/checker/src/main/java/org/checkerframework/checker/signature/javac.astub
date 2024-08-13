@@ -1,0 +1,9 @@
+import org.checkerframework.checker.signature.qual.*;
+
+package javax.lang.model.element;
+
+// This fake override does not work yet because it depends on an annotation on a formal parameter,
+// and currently fake overrides affect only return types.
+// interface Name {
+//     @PolySignature String toString(@PolySignature Name this);
+// }

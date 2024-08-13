@@ -1,0 +1,70 @@
+../dataset/cache2k-495a6491028d8eaa0ed9371ca974290d99c4686e/src/main/java/org/cache2k/Cache.java:885: error: (type.argument) $$ 4 $$ K $$ ConcurrentMap $$ K extends @Initialized @Nullable Object $$ @Initialized @NonNull Object $$ ( 38842, 38843 ) $$ incompatible type argument for type parameter K of ConcurrentMap.
+  ConcurrentMap<K, V> asMap();
+                ^
+  found   : K extends @Initialized @Nullable Object
+  required: @Initialized @NonNull Object
+../dataset/cache2k-495a6491028d8eaa0ed9371ca974290d99c4686e/src/main/java/org/cache2k/Cache.java:885: error: (type.argument) $$ 4 $$ V $$ ConcurrentMap $$ V extends @Initialized @Nullable Object $$ @Initialized @NonNull Object $$ ( 38845, 38846 ) $$ incompatible type argument for type parameter V of ConcurrentMap.
+  ConcurrentMap<K, V> asMap();
+                   ^
+  found   : V extends @Initialized @Nullable Object
+  required: @Initialized @NonNull Object
+../dataset/cache2k-495a6491028d8eaa0ed9371ca974290d99c4686e/src/main/java/org/cache2k/Cache2kBuilder.java:136: error: (method.invocation) $$ 3 $$ withConfig(org.cache2k.config.Cache2kConfig<K,V>) $$ @UnderInitialization(org.cache2k.Cache2kBuilder.class) @NonNull Cache2kBuilder</*RAW*/> $$ @Initialized @NonNull Cache2kBuilder</*RAW*/> $$ ( 4588, 4603 ) $$ call to withConfig(org.cache2k.config.Cache2kConfig<K,V>) not allowed on the given receiver.
+    withConfig(cfg);
+              ^
+  found   : @UnderInitialization(org.cache2k.Cache2kBuilder.class) @NonNull Cache2kBuilder</*RAW*/>
+  required: @Initialized @NonNull Cache2kBuilder</*RAW*/>
+../dataset/cache2k-495a6491028d8eaa0ed9371ca974290d99c4686e/src/main/java/org/cache2k/config/CustomizationReferenceSupplier.java:39: error: (argument) $$ 4 $$ obj $$ Cache2kConfig.checkNull $$ T extends @Initialized @Nullable Object $$ @Initialized @NonNull Object $$ ( 1214, 1217 ) $$ incompatible argument for parameter obj of Cache2kConfig.checkNull.
+    Cache2kConfig.checkNull(obj);
+                            ^
+  found   : T extends @Initialized @Nullable Object
+  required: @Initialized @NonNull Object
+../dataset/cache2k-495a6491028d8eaa0ed9371ca974290d99c4686e/src/main/java/org/cache2k/config/CacheTypeCapture.java:49: error: (dereference.of.nullable) $$ 1 $$ ((ParameterizedType)this.getClass().getGenericSuperclass()) $$ ( 1527, 1587 ) $$ dereference of possibly-null reference ((ParameterizedType)this.getClass().getGenericSuperclass())
+      ((ParameterizedType) this.getClass().getGenericSuperclass()).getActualTypeArguments()[0]);
+      ^
+../dataset/cache2k-495a6491028d8eaa0ed9371ca974290d99c4686e/src/main/java/org/cache2k/config/CacheTypeCapture.java:154: error: (dereference.of.nullable) $$ 1 $$ s $$ ( 3583, 3584 ) $$ dereference of possibly-null reference s
+      if (s.startsWith(langPrefix)) {
+          ^
+../dataset/cache2k-495a6491028d8eaa0ed9371ca974290d99c4686e/src/main/java/org/cache2k/config/CacheTypeCapture.java:207: error: (dereference.of.nullable) $$ 1 $$ td $$ ( 4660, 4662 ) $$ dereference of possibly-null reference td
+      while (td.isArray()) {
+             ^
+../dataset/cache2k-495a6491028d8eaa0ed9371ca974290d99c4686e/src/main/java/org/cache2k/config/CacheTypeCapture.java:215: error: (dereference.of.nullable) $$ 1 $$ td $$ ( 4831, 4833 ) $$ dereference of possibly-null reference td
+      while (td.isArray()) {
+             ^
+../dataset/cache2k-495a6491028d8eaa0ed9371ca974290d99c4686e/src/main/java/org/cache2k/config/CustomizationSupplierByClassName.java:78: error: (argument) $$ 4 $$ name $$ ClassLoader.loadClass $$ @Initialized @MonotonicNonNull String $$ @Initialized @NonNull String $$ ( 2119, 2128 ) $$ incompatible argument for parameter name of ClassLoader.loadClass.
+        .loadClass(className).getConstructor().newInstance();
+                   ^
+  found   : @Initialized @MonotonicNonNull String
+  required: @Initialized @NonNull String
+../dataset/cache2k-495a6491028d8eaa0ed9371ca974290d99c4686e/src/main/java/org/cache2k/config/CustomizationSupplierByClassName.java:89: error: (dereference.of.nullable) $$ 1 $$ className $$ ( 2538, 2547 ) $$ dereference of possibly-null reference className
+    return className.equals(that.className);
+           ^
+../dataset/cache2k-495a6491028d8eaa0ed9371ca974290d99c4686e/src/main/java/org/cache2k/integration/Loaders.java:42: error: (argument) $$ 4 $$ value $$ RefreshedTimeWrapper constructor $$ V extends @Initialized @Nullable Object $$ @Initialized @NonNull Object $$ ( 1243, 1248 ) $$ incompatible argument for parameter value of RefreshedTimeWrapper constructor.
+    return new RefreshedTimeWrapper<V>(value, refreshedTimeInMillis);
+                                       ^
+  found   : V extends @Initialized @Nullable Object
+  required: @Initialized @NonNull Object
+../dataset/cache2k-495a6491028d8eaa0ed9371ca974290d99c4686e/src/main/java/org/cache2k/AbstractCache.java:216: error: (type.argument) $$ 4 $$ K $$ ConcurrentMap $$ K extends @Initialized @Nullable Object $$ @Initialized @NonNull Object $$ ( 5172, 5173 ) $$ incompatible type argument for type parameter K of ConcurrentMap.
+  public ConcurrentMap<K, V> asMap() {
+                       ^
+  found   : K extends @Initialized @Nullable Object
+  required: @Initialized @NonNull Object
+../dataset/cache2k-495a6491028d8eaa0ed9371ca974290d99c4686e/src/main/java/org/cache2k/AbstractCache.java:216: error: (type.argument) $$ 4 $$ V $$ ConcurrentMap $$ V extends @Initialized @Nullable Object $$ @Initialized @NonNull Object $$ ( 5175, 5176 ) $$ incompatible type argument for type parameter V of ConcurrentMap.
+  public ConcurrentMap<K, V> asMap() {
+                          ^
+  found   : V extends @Initialized @Nullable Object
+  required: @Initialized @NonNull Object
+../dataset/cache2k-495a6491028d8eaa0ed9371ca974290d99c4686e/src/main/java/org/cache2k/ForwardingCache.java:235: error: (type.argument) $$ 4 $$ K $$ ConcurrentMap $$ K extends @Initialized @Nullable Object $$ @Initialized @NonNull Object $$ ( 5392, 5393 ) $$ incompatible type argument for type parameter K of ConcurrentMap.
+  public ConcurrentMap<K, V> asMap() {
+                       ^
+  found   : K extends @Initialized @Nullable Object
+  required: @Initialized @NonNull Object
+../dataset/cache2k-495a6491028d8eaa0ed9371ca974290d99c4686e/src/main/java/org/cache2k/ForwardingCache.java:235: error: (type.argument) $$ 4 $$ V $$ ConcurrentMap $$ V extends @Initialized @Nullable Object $$ @Initialized @NonNull Object $$ ( 5395, 5396 ) $$ incompatible type argument for type parameter V of ConcurrentMap.
+  public ConcurrentMap<K, V> asMap() {
+                          ^
+  found   : V extends @Initialized @Nullable Object
+  required: @Initialized @NonNull Object
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+15 errors

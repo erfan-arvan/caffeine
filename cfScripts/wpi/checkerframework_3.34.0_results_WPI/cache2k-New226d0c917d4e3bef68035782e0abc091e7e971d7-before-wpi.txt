@@ -1,0 +1,10 @@
+../dataset/cache2k-New226d0c917d4e3bef68035782e0abc091e7e971d7/src/main/java11/module-info.java:24: error: module not found: kotlin.annotations.jvm
+  requires static kotlin.annotations.jvm;
+                                    ^
+../dataset/cache2k-New226d0c917d4e3bef68035782e0abc091e7e971d7/src/main/java11/module-info.java:25: error: module not found: jsr305
+  requires static jsr305;
+                  ^
+../dataset/cache2k-New226d0c917d4e3bef68035782e0abc091e7e971d7/src/main/java11/module-info.java:26: error: module not found: org.checkerframework.checker.qual
+  requires static org.checkerframework.checker.qual;
+                                              ^
+3 errors

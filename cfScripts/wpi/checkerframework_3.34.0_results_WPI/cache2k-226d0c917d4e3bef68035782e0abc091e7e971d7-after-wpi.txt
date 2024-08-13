@@ -1,0 +1,40 @@
+../dataset/cache2k-226d0c917d4e3bef68035782e0abc091e7e971d7/src/main/java/org/cache2k/operation/package-info.java:5: error: class, interface, or enum expected
+ */Api
+   ^
+../dataset/cache2k-226d0c917d4e3bef68035782e0abc091e7e971d7/src/main/java/org/cache2k/config/package-info.java:5: error: class, interface, or enum expected
+ */Api
+   ^
+../dataset/cache2k-226d0c917d4e3bef68035782e0abc091e7e971d7/src/main/java/org/cache2k/integration/package-info.java:5: error: class, interface, or enum expected
+ */Api @Deprecated
+   ^
+../dataset/cache2k-226d0c917d4e3bef68035782e0abc091e7e971d7/src/main/java/org/cache2k/integration/package-info.java:6: error: class, interface, or enum expected
+package org.cache2k.integration;
+^
+../dataset/cache2k-226d0c917d4e3bef68035782e0abc091e7e971d7/src/main/java/org/cache2k/processor/MutableCacheEntry.java:82: error: <identifier> expected
+  @OverrideThrowable getException();
+                                 ^
+../dataset/cache2k-226d0c917d4e3bef68035782e0abc091e7e971d7/src/main/java/org/cache2k/processor/MutableCacheEntry.java:94: error: <identifier> expected
+  @OverrideLoadExceptionInfo<K, V> getExceptionInfo();
+                                                   ^
+../dataset/cache2k-226d0c917d4e3bef68035782e0abc091e7e971d7/src/main/java/org/cache2k/processor/package-info.java:5: error: class, interface, or enum expected
+ */Api
+   ^
+../dataset/cache2k-226d0c917d4e3bef68035782e0abc091e7e971d7/src/main/java/org/cache2k/io/package-info.java:5: error: class, interface, or enum expected
+ */Api
+   ^
+../dataset/cache2k-226d0c917d4e3bef68035782e0abc091e7e971d7/src/main/java/org/cache2k/Cache.java:146: error: <identifier> expected
+  @OverrideV get(K key);
+                ^
+../dataset/cache2k-226d0c917d4e3bef68035782e0abc091e7e971d7/src/main/java/org/cache2k/spi/package-info.java:6: error: class, interface, or enum expected
+ */Api
+   ^
+../dataset/cache2k-226d0c917d4e3bef68035782e0abc091e7e971d7/src/main/java/org/cache2k/expiry/package-info.java:5: error: class, interface, or enum expected
+ */Api
+   ^
+../dataset/cache2k-226d0c917d4e3bef68035782e0abc091e7e971d7/src/main/java/org/cache2k/event/package-info.java:5: error: class, interface, or enum expected
+ */Api
+   ^
+../dataset/cache2k-226d0c917d4e3bef68035782e0abc091e7e971d7/src/main/java/org/cache2k/package-info.java:12: error: class, interface, or enum expected
+ */Api
+   ^
+13 errors

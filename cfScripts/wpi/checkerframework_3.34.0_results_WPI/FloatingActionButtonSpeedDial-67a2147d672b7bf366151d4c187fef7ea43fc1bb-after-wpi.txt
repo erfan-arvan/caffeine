@@ -1,0 +1,108 @@
+../dataset/FloatingActionButtonSpeedDial-67a2147d672b7bf366151d4c187fef7ea43fc1bb/src/main/java/com/leinardi/android/speeddial/SpeedDialActionItem.java:137: error: (argument) $$ 4 $$ val $$ Parcel.writeString $$ @Initialized @MonotonicNonNull String $$ @Initialized @NonNull String $$ ( 3995, 4006 ) $$ incompatible argument for parameter val of Parcel.writeString.
+        dest.writeString(this.mLabel);
+                             ^
+  found   : @Initialized @MonotonicNonNull String
+  required: @Initialized @NonNull String
+../dataset/FloatingActionButtonSpeedDial-67a2147d672b7bf366151d4c187fef7ea43fc1bb/src/main/java/com/leinardi/android/speeddial/SpeedDialView.java:460: error: package R does not exist
+            setElevation(getResources().getDimension(R.dimen.sd_close_elevation));
+                                                      ^
+../dataset/FloatingActionButtonSpeedDial-67a2147d672b7bf366151d4c187fef7ea43fc1bb/src/main/java/com/leinardi/android/speeddial/SpeedDialView.java:462: error: package R does not exist
+        TypedArray attr = context.obtainStyledAttributes(attrs, R.styleable.SpeedDialView, 0, 0);
+                                                                 ^
+../dataset/FloatingActionButtonSpeedDial-67a2147d672b7bf366151d4c187fef7ea43fc1bb/src/main/java/com/leinardi/android/speeddial/SpeedDialView.java:464: error: package R does not exist
+            @DrawableRes int openDrawableRes = attr.getResourceId(R.styleable.SpeedDialView_srcCompat, NOT_SET);
+                                                                   ^
+../dataset/FloatingActionButtonSpeedDial-67a2147d672b7bf366151d4c187fef7ea43fc1bb/src/main/java/com/leinardi/android/speeddial/SpeedDialView.java:466: error: package R does not exist
+                openDrawableRes = attr.getResourceId(R.styleable.SpeedDialView_srcCompat, NOT_SET);
+                                                      ^
+../dataset/FloatingActionButtonSpeedDial-67a2147d672b7bf366151d4c187fef7ea43fc1bb/src/main/java/com/leinardi/android/speeddial/SpeedDialView.java:471: error: package R does not exist
+            int closeDrawableRes = attr.getResourceId(R.styleable.SpeedDialView_sdFabCloseSrc, NOT_SET);
+                                                       ^
+../dataset/FloatingActionButtonSpeedDial-67a2147d672b7bf366151d4c187fef7ea43fc1bb/src/main/java/com/leinardi/android/speeddial/SpeedDialView.java:475: error: package R does not exist
+            mExpansionMode = attr.getInt(R.styleable.SpeedDialView_sdExpansionMode, mExpansionMode);
+                                          ^
+../dataset/FloatingActionButtonSpeedDial-67a2147d672b7bf366151d4c187fef7ea43fc1bb/src/main/java/com/leinardi/android/speeddial/SpeedDialView.java:476: error: package R does not exist
+            mRotateOnToggle = attr.getBoolean(R.styleable.SpeedDialView_sdFabRotateOnToggle, mRotateOnToggle);
+                                               ^
+../dataset/FloatingActionButtonSpeedDial-67a2147d672b7bf366151d4c187fef7ea43fc1bb/src/main/java/com/leinardi/android/speeddial/SpeedDialView.java:545: error: package R does not exist
+                setElevation(getResources().getDimension(R.dimen.sd_open_elevation));
+                                                          ^
+../dataset/FloatingActionButtonSpeedDial-67a2147d672b7bf366151d4c187fef7ea43fc1bb/src/main/java/com/leinardi/android/speeddial/SpeedDialView.java:555: error: package R does not exist
+                setElevation(getResources().getDimension(R.dimen.sd_close_elevation));
+                                                          ^
+../dataset/FloatingActionButtonSpeedDial-67a2147d672b7bf366151d4c187fef7ea43fc1bb/src/main/java/com/leinardi/android/speeddial/SpeedDialView.java:592: error: package R does not exist
+        Animation anim = AnimationUtils.loadAnimation(getContext(), R.anim.sd_scale_fade_and_translate_in);
+                                                                     ^
+../dataset/FloatingActionButtonSpeedDial-67a2147d672b7bf366151d4c187fef7ea43fc1bb/src/main/java/com/leinardi/android/speeddial/SpeedDialView.java:622: error: package R does not exist
+            Animation animation = AnimationUtils.loadAnimation(getContext(), R.anim.sd_fade_and_translate_in);
+                                                                              ^
+../dataset/FloatingActionButtonSpeedDial-67a2147d672b7bf366151d4c187fef7ea43fc1bb/src/main/java/com/leinardi/android/speeddial/SpeedDialView.java:687: error: package android.support.design.R does not exist
+                    android.support.design.R.styleable.FloatingActionButton_Behavior_Layout);
+                                            ^
+../dataset/FloatingActionButtonSpeedDial-67a2147d672b7bf366151d4c187fef7ea43fc1bb/src/main/java/com/leinardi/android/speeddial/FabWithLabelView.java:157: error: package R does not exist
+            labelColor = ResourcesCompat.getColor(getResources(), R.color.sd_label_text_color,
+                                                                   ^
+../dataset/FloatingActionButtonSpeedDial-67a2147d672b7bf366151d4c187fef7ea43fc1bb/src/main/java/com/leinardi/android/speeddial/FabWithLabelView.java:163: error: package R does not exist
+            labelBackgroundColor = ResourcesCompat.getColor(getResources(), R.color.cardview_light_background,
+                                                                             ^
+../dataset/FloatingActionButtonSpeedDial-67a2147d672b7bf366151d4c187fef7ea43fc1bb/src/main/java/com/leinardi/android/speeddial/FabWithLabelView.java:210: error: package R does not exist
+        View rootView = inflate(context, R.layout.sd_fab_with_label_view, this);
+                                          ^
+../dataset/FloatingActionButtonSpeedDial-67a2147d672b7bf366151d4c187fef7ea43fc1bb/src/main/java/com/leinardi/android/speeddial/FabWithLabelView.java:212: error: package R does not exist
+        mFab = rootView.findViewById(R.id.fab);
+                                      ^
+../dataset/FloatingActionButtonSpeedDial-67a2147d672b7bf366151d4c187fef7ea43fc1bb/src/main/java/com/leinardi/android/speeddial/FabWithLabelView.java:213: error: package R does not exist
+        mLabelTextView = rootView.findViewById(R.id.label);
+                                                ^
+../dataset/FloatingActionButtonSpeedDial-67a2147d672b7bf366151d4c187fef7ea43fc1bb/src/main/java/com/leinardi/android/speeddial/FabWithLabelView.java:214: error: package R does not exist
+        mLabelCardView = rootView.findViewById(R.id.label_container);
+                                                ^
+../dataset/FloatingActionButtonSpeedDial-67a2147d672b7bf366151d4c187fef7ea43fc1bb/src/main/java/com/leinardi/android/speeddial/FabWithLabelView.java:222: error: package R does not exist
+                R.styleable.FabWithLabelView, 0, 0);
+                 ^
+../dataset/FloatingActionButtonSpeedDial-67a2147d672b7bf366151d4c187fef7ea43fc1bb/src/main/java/com/leinardi/android/speeddial/FabWithLabelView.java:225: error: package R does not exist
+            @DrawableRes int src = attr.getResourceId(R.styleable.FabWithLabelView_srcCompat, NOT_SET);
+                                                       ^
+../dataset/FloatingActionButtonSpeedDial-67a2147d672b7bf366151d4c187fef7ea43fc1bb/src/main/java/com/leinardi/android/speeddial/FabWithLabelView.java:227: error: package R does not exist
+                src = attr.getResourceId(R.styleable.FabWithLabelView_android_src, NOT_SET);
+                                          ^
+../dataset/FloatingActionButtonSpeedDial-67a2147d672b7bf366151d4c187fef7ea43fc1bb/src/main/java/com/leinardi/android/speeddial/FabWithLabelView.java:230: error: package R does not exist
+            String labelText = attr.getString(R.styleable.FabWithLabelView_fabLabel);
+                                               ^
+../dataset/FloatingActionButtonSpeedDial-67a2147d672b7bf366151d4c187fef7ea43fc1bb/src/main/java/com/leinardi/android/speeddial/FabWithLabelView.java:233: error: package R does not exist
+            fabBackgroundColor = attr.getColor(R.styleable.FabWithLabelView_fabBackgroundColor, fabBackgroundColor);
+                                                ^
+../dataset/FloatingActionButtonSpeedDial-67a2147d672b7bf366151d4c187fef7ea43fc1bb/src/main/java/com/leinardi/android/speeddial/FabWithLabelView.java:236: error: package R does not exist
+            labelColor = attr.getColor(R.styleable.FabWithLabelView_fabLabelColor, labelColor);
+                                        ^
+../dataset/FloatingActionButtonSpeedDial-67a2147d672b7bf366151d4c187fef7ea43fc1bb/src/main/java/com/leinardi/android/speeddial/FabWithLabelView.java:239: error: package R does not exist
+            labelBackgroundColor = attr.getColor(R.styleable.FabWithLabelView_fabLabelBackgroundColor,
+                                                  ^
+../dataset/FloatingActionButtonSpeedDial-67a2147d672b7bf366151d4c187fef7ea43fc1bb/src/main/java/com/leinardi/android/speeddial/FabWithLabelView.java:242: error: package R does not exist
+            boolean labelClickable = attr.getBoolean(R.styleable.FabWithLabelView_fabLabelClickable, true);
+                                                      ^
+../dataset/FloatingActionButtonSpeedDial-67a2147d672b7bf366151d4c187fef7ea43fc1bb/src/main/java/com/leinardi/android/speeddial/FabWithLabelView.java:253: error: package R does not exist
+        int normalFabSizePx = getContext().getResources().getDimensionPixelSize(R.dimen.sd_fab_normal_size);
+                                                                                 ^
+../dataset/FloatingActionButtonSpeedDial-67a2147d672b7bf366151d4c187fef7ea43fc1bb/src/main/java/com/leinardi/android/speeddial/FabWithLabelView.java:254: error: package R does not exist
+        int miniFabSizePx = getContext().getResources().getDimensionPixelSize(R.dimen.sd_fab_mini_size);
+                                                                               ^
+../dataset/FloatingActionButtonSpeedDial-67a2147d672b7bf366151d4c187fef7ea43fc1bb/src/main/java/com/leinardi/android/speeddial/FabWithLabelView.java:255: error: package R does not exist
+        int fabSideMarginPx = getContext().getResources().getDimensionPixelSize(R.dimen.sd_fab_side_margin);
+                                                                                 ^
+../dataset/FloatingActionButtonSpeedDial-67a2147d672b7bf366151d4c187fef7ea43fc1bb/src/main/java/com/leinardi/android/speeddial/SpeedDialOverlayLayout.java:115: error: package R does not exist
+        TypedArray attr = context.getTheme().obtainStyledAttributes(attrs, R.styleable.SpeedDialOverlayLayout, 0, 0);
+                                                                            ^
+../dataset/FloatingActionButtonSpeedDial-67a2147d672b7bf366151d4c187fef7ea43fc1bb/src/main/java/com/leinardi/android/speeddial/SpeedDialOverlayLayout.java:116: error: package R does not exist
+        int overlayColor = ResourcesCompat.getColor(getResources(), R.color.sd_overlay_color, context.getTheme());
+                                                                     ^
+../dataset/FloatingActionButtonSpeedDial-67a2147d672b7bf366151d4c187fef7ea43fc1bb/src/main/java/com/leinardi/android/speeddial/SpeedDialOverlayLayout.java:118: error: package R does not exist
+            overlayColor = attr.getColor(R.styleable.SpeedDialOverlayLayout_android_background, overlayColor);
+                                          ^
+../dataset/FloatingActionButtonSpeedDial-67a2147d672b7bf366151d4c187fef7ea43fc1bb/src/main/java/com/leinardi/android/speeddial/SpeedDialOverlayLayout.java:119: error: package R does not exist
+            mClickableOverlay = attr.getBoolean(R.styleable.SpeedDialOverlayLayout_clickable_overlay, true);
+                                                 ^
+../dataset/FloatingActionButtonSpeedDial-67a2147d672b7bf366151d4c187fef7ea43fc1bb/src/main/java/com/leinardi/android/speeddial/SpeedDialOverlayLayout.java:126: error: package R does not exist
+            setElevation(getResources().getDimension(R.dimen.sd_overlay_elevation));
+                                                      ^
+35 errors

@@ -1,0 +1,272 @@
+../dataset/meal-planner-534de2074178ed4cfd34a23cad1212f76016ad9e/src/test/java/de/zuellich/meal_planner/FixtureBasedTest.java:17: error: (argument) $$ 4 $$ name $$ Class.getResourceAsStream $$ @Initialized @Nullable String $$ @Initialized @NonNull String $$ ( 525, 529 ) $$ incompatible argument for parameter name of Class.getResourceAsStream.
+    try (InputStream in = FixtureBasedTest.class.getResourceAsStream(path)) {
+                                                                     ^
+  found   : @Initialized @Nullable String
+  required: @Initialized @NonNull String
+../dataset/meal-planner-534de2074178ed4cfd34a23cad1212f76016ad9e/src/test/java/de/zuellich/meal_planner/FixtureBasedTest.java:18: error: (argument) $$ 4 $$ source $$ Scanner constructor $$ @Initialized @Nullable InputStream $$ @Initialized @NonNull InputStream $$ ( 570, 572 ) $$ incompatible argument for parameter source of Scanner constructor.
+      Scanner scanner = new Scanner(in, "UTF-8").useDelimiter("\\A");
+                                    ^
+  found   : @Initialized @Nullable InputStream
+  required: @Initialized @NonNull InputStream
+../dataset/meal-planner-534de2074178ed4cfd34a23cad1212f76016ad9e/src/test/java/de/zuellich/meal_planner/pinterest/services/BoardServiceCachingTest.java:42: error: (dereference.of.nullable) $$ 1 $$ restTemplateToMock $$ ( 1524, 1542 ) $$ dereference of possibly-null reference restTemplateToMock
+    when(restTemplateToMock.getForEntity(eq(BoardService.USERS_BOARDS), any()))
+         ^
+../dataset/meal-planner-534de2074178ed4cfd34a23cad1212f76016ad9e/src/test/java/de/zuellich/meal_planner/pinterest/services/BoardServiceCachingTest.java:48: error: (dereference.of.nullable) $$ 1 $$ boardService $$ ( 1715, 1727 ) $$ dereference of possibly-null reference boardService
+    List<Board> boards = boardService.getBoards();
+                         ^
+../dataset/meal-planner-534de2074178ed4cfd34a23cad1212f76016ad9e/src/test/java/de/zuellich/meal_planner/pinterest/services/BoardServiceCachingTest.java:50: error: (dereference.of.nullable) $$ 1 $$ boards $$ ( 1834, 1840 ) $$ dereference of possibly-null reference boards
+        "Make sure the rest template first returns an empty list of boards", boards.isEmpty());
+                                                                             ^
+../dataset/meal-planner-534de2074178ed4cfd34a23cad1212f76016ad9e/src/test/java/de/zuellich/meal_planner/pinterest/services/BoardServiceCachingTest.java:53: error: (dereference.of.nullable) $$ 1 $$ verify(restTemplateToMock) $$ ( 1888, 1914 ) $$ dereference of possibly-null reference verify(restTemplateToMock)
+    verify(restTemplateToMock).getForEntity(eq(BoardService.USERS_BOARDS), any());
+          ^
+../dataset/meal-planner-534de2074178ed4cfd34a23cad1212f76016ad9e/src/test/java/de/zuellich/meal_planner/pinterest/services/BoardServiceCachingTest.java:53: error: (monotonic) $$ 3 $$ MonotonicNonNull $$ MonotonicNonNull $$ @FBCBottom @MonotonicNonNull OAuth2RestOperations $$ ( 1895, 1913 ) $$ cannot assign MonotonicNonNull to MonotonicNonNull (monotonic type).
+    verify(restTemplateToMock).getForEntity(eq(BoardService.USERS_BOARDS), any());
+           ^
+  type of right-hand-side: @FBCBottom @MonotonicNonNull OAuth2RestOperations
+../dataset/meal-planner-534de2074178ed4cfd34a23cad1212f76016ad9e/src/test/java/de/zuellich/meal_planner/pinterest/services/BoardServiceCachingTest.java:54: error: (argument) $$ 4 $$ mocks $$ Mockito.verifyNoMoreInteractions $$ @FBCBottom @MonotonicNonNull OAuth2RestOperations $$ @Initialized @NonNull Object $$ ( 1996, 2014 ) $$ incompatible argument for parameter mocks of Mockito.verifyNoMoreInteractions.
+    verifyNoMoreInteractions(restTemplateToMock);
+                             ^
+  found   : @FBCBottom @MonotonicNonNull OAuth2RestOperations
+  required: @Initialized @NonNull Object
+../dataset/meal-planner-534de2074178ed4cfd34a23cad1212f76016ad9e/src/main/java/de/zuellich/meal_planner/pinterest/datatypes/Pin.java:36: error: (dereference.of.nullable) $$ 1 $$ article $$ ( 893, 900 ) $$ dereference of possibly-null reference article
+    if (article.containsKey("name")) {
+        ^
+../dataset/meal-planner-534de2074178ed4cfd34a23cad1212f76016ad9e/src/main/java/de/zuellich/meal_planner/pinterest/datatypes/Pin.java:37: error: (dereference.of.nullable) $$ 1 $$ article.get("name") $$ ( 937, 956 ) $$ dereference of possibly-null reference article.get("name")
+      name = article.get("name").toString();
+                        ^
+../dataset/meal-planner-534de2074178ed4cfd34a23cad1212f76016ad9e/src/test/java/de/zuellich/meal_planner/pinterest/services/BoardServicePinsTest.java:70: error: (dereference.of.nullable) $$ 1 $$ this.service $$ ( 2937, 2949 ) $$ dereference of possibly-null reference this.service
+    List<Pin> pins = this.service.getPins("exampleBoard");
+                         ^
+../dataset/meal-planner-534de2074178ed4cfd34a23cad1212f76016ad9e/src/test/java/de/zuellich/meal_planner/pinterest/services/BoardServicePinsTest.java:72: error: (argument) $$ 4 $$ actual $$ Assert.assertEquals $$ @Initialized @Nullable String $$ @Initialized @NonNull Object $$ ( 3063, 3076 ) $$ incompatible argument for parameter actual of Assert.assertEquals.
+    assertEquals("Irischer Rindfleischeintopf mit Guinness", pin.getName());
+                                                                        ^
+  found   : @Initialized @Nullable String
+  required: @Initialized @NonNull Object
+../dataset/meal-planner-534de2074178ed4cfd34a23cad1212f76016ad9e/src/test/java/de/zuellich/meal_planner/pinterest/services/BoardServicePinsTest.java:77: error: (dereference.of.nullable) $$ 1 $$ this.service $$ ( 3164, 3176 ) $$ dereference of possibly-null reference this.service
+    List<Pin> pins = this.service.getPins("exampleBoard");
+                         ^
+../dataset/meal-planner-534de2074178ed4cfd34a23cad1212f76016ad9e/src/test/java/de/zuellich/meal_planner/pinterest/services/BoardServicePinsTest.java:81: error: (argument) $$ 4 $$ actual $$ Assert.assertEquals $$ @Initialized @Nullable String $$ @Initialized @NonNull Object $$ ( 3411, 3432 ) $$ incompatible argument for parameter actual of Assert.assertEquals.
+        pin.getOriginalLink());
+                           ^
+  found   : @Initialized @Nullable String
+  required: @Initialized @NonNull Object
+../dataset/meal-planner-534de2074178ed4cfd34a23cad1212f76016ad9e/src/test/java/de/zuellich/meal_planner/pinterest/services/BoardServiceTest.java:68: error: (dereference.of.nullable) $$ 1 $$ boards $$ ( 3047, 3053 ) $$ dereference of possibly-null reference boards
+    assertEquals("Two boards are returned.", 2, boards.size());
+                                                ^
+../dataset/meal-planner-534de2074178ed4cfd34a23cad1212f76016ad9e/src/test/java/de/zuellich/meal_planner/pinterest/services/BoardServiceTest.java:71: error: (argument) $$ 4 $$ actual $$ Assert.assertEquals $$ @Initialized @Nullable String $$ @Initialized @NonNull Object $$ ( 3162, 3176 ) $$ incompatible argument for parameter actual of Assert.assertEquals.
+    assertEquals("https://www.pinterest.com/auser/board-name1/", board.getUrl());
+                                                                             ^
+  found   : @Initialized @Nullable String
+  required: @Initialized @NonNull Object
+../dataset/meal-planner-534de2074178ed4cfd34a23cad1212f76016ad9e/src/test/java/de/zuellich/meal_planner/pinterest/services/BoardServiceTest.java:72: error: (argument) $$ 4 $$ actual $$ Assert.assertEquals $$ @Initialized @Nullable String $$ @Initialized @NonNull Object $$ ( 3201, 3214 ) $$ incompatible argument for parameter actual of Assert.assertEquals.
+    assertEquals("1", board.getId());
+                                 ^
+  found   : @Initialized @Nullable String
+  required: @Initialized @NonNull Object
+../dataset/meal-planner-534de2074178ed4cfd34a23cad1212f76016ad9e/src/test/java/de/zuellich/meal_planner/pinterest/services/BoardServiceTest.java:73: error: (argument) $$ 4 $$ actual $$ Assert.assertEquals $$ @Initialized @Nullable String $$ @Initialized @NonNull Object $$ ( 3250, 3265 ) $$ incompatible argument for parameter actual of Assert.assertEquals.
+    assertEquals("Board Name 1", board.getName());
+                                              ^
+  found   : @Initialized @Nullable String
+  required: @Initialized @NonNull Object
+../dataset/meal-planner-534de2074178ed4cfd34a23cad1212f76016ad9e/src/test/java/de/zuellich/meal_planner/pinterest/services/BoardServiceTest.java:76: error: (argument) $$ 4 $$ actual $$ Assert.assertEquals $$ @Initialized @Nullable String $$ @Initialized @NonNull Object $$ ( 3356, 3370 ) $$ incompatible argument for parameter actual of Assert.assertEquals.
+    assertEquals("https://www.pinterest.com/auser/board2/", board.getUrl());
+                                                                        ^
+  found   : @Initialized @Nullable String
+  required: @Initialized @NonNull Object
+../dataset/meal-planner-534de2074178ed4cfd34a23cad1212f76016ad9e/src/test/java/de/zuellich/meal_planner/pinterest/services/BoardServiceTest.java:77: error: (argument) $$ 4 $$ actual $$ Assert.assertEquals $$ @Initialized @Nullable String $$ @Initialized @NonNull Object $$ ( 3395, 3408 ) $$ incompatible argument for parameter actual of Assert.assertEquals.
+    assertEquals("2", board.getId());
+                                 ^
+  found   : @Initialized @Nullable String
+  required: @Initialized @NonNull Object
+../dataset/meal-planner-534de2074178ed4cfd34a23cad1212f76016ad9e/src/test/java/de/zuellich/meal_planner/pinterest/services/BoardServiceTest.java:78: error: (argument) $$ 4 $$ actual $$ Assert.assertEquals $$ @Initialized @Nullable String $$ @Initialized @NonNull Object $$ ( 3438, 3453 ) $$ incompatible argument for parameter actual of Assert.assertEquals.
+    assertEquals("Board2", board.getName());
+                                        ^
+  found   : @Initialized @Nullable String
+  required: @Initialized @NonNull Object
+../dataset/meal-planner-534de2074178ed4cfd34a23cad1212f76016ad9e/src/test/java/de/zuellich/meal_planner/pinterest/services/BoardServiceTest.java:108: error: (dereference.of.nullable) $$ 1 $$ pin.getId() $$ ( 4550, 4561 ) $$ dereference of possibly-null reference pin.getId()
+      assertFalse("Pin's id should be set.", pin.getId().isEmpty());
+                                                      ^
+../dataset/meal-planner-534de2074178ed4cfd34a23cad1212f76016ad9e/src/test/java/de/zuellich/meal_planner/pinterest/services/BoardServiceTest.java:109: error: (dereference.of.nullable) $$ 1 $$ pin.getOriginalLink() $$ ( 4621, 4642 ) $$ dereference of possibly-null reference pin.getOriginalLink()
+      assertFalse("Pin's link should be set.", pin.getOriginalLink().isEmpty());
+                                                                  ^
+../dataset/meal-planner-534de2074178ed4cfd34a23cad1212f76016ad9e/src/test/java/de/zuellich/meal_planner/pinterest/services/BoardServiceTest.java:141: error: (dereference.of.nullable) $$ 1 $$ resultBoard $$ ( 5983, 5994 ) $$ dereference of possibly-null reference resultBoard
+    assertEquals("The board name is returned.", "Board name", resultBoard.getName());
+                                                              ^
+../dataset/meal-planner-534de2074178ed4cfd34a23cad1212f76016ad9e/src/test/java/de/zuellich/meal_planner/pinterest/services/BoardServiceTest.java:141: error: (argument) $$ 4 $$ actual $$ Assert.assertEquals $$ @Initialized @Nullable String $$ @Initialized @NonNull Object $$ ( 5983, 6004 ) $$ incompatible argument for parameter actual of Assert.assertEquals.
+    assertEquals("The board name is returned.", "Board name", resultBoard.getName());
+                                                                                 ^
+  found   : @Initialized @Nullable String
+  required: @Initialized @NonNull Object
+../dataset/meal-planner-534de2074178ed4cfd34a23cad1212f76016ad9e/src/test/java/de/zuellich/meal_planner/pinterest/services/BoardServiceTest.java:145: error: (argument) $$ 4 $$ actual $$ Assert.assertEquals $$ @Initialized @Nullable String $$ @Initialized @NonNull Object $$ ( 6126, 6146 ) $$ incompatible argument for parameter actual of Assert.assertEquals.
+        resultBoard.getUrl());
+                          ^
+  found   : @Initialized @Nullable String
+  required: @Initialized @NonNull Object
+../dataset/meal-planner-534de2074178ed4cfd34a23cad1212f76016ad9e/src/test/java/de/zuellich/meal_planner/pinterest/services/BoardServiceTest.java:146: error: (argument) $$ 4 $$ actual $$ Assert.assertEquals $$ @Initialized @Nullable String $$ @Initialized @NonNull Object $$ ( 6218, 6237 ) $$ incompatible argument for parameter actual of Assert.assertEquals.
+    assertEquals("The board id is returned.", "1111111111111111111", resultBoard.getId());
+                                                                                      ^
+  found   : @Initialized @Nullable String
+  required: @Initialized @NonNull Object
+../dataset/meal-planner-534de2074178ed4cfd34a23cad1212f76016ad9e/src/test/java/de/zuellich/meal_planner/pinterest/services/BoardServiceTest.java:148: error: (dereference.of.nullable) $$ 1 $$ result.getPins() $$ ( 6285, 6301 ) $$ dereference of possibly-null reference result.getPins()
+    assertEquals("5 Pins are returned.", 5, result.getPins().size());
+                                                          ^
+../dataset/meal-planner-534de2074178ed4cfd34a23cad1212f76016ad9e/src/test/java/de/zuellich/meal_planner/algorithms/schema_org/SchemaOrgParserTest.java:48: error: (argument) $$ 4 $$ expected $$ Assert.assertEquals $$ @FBCBottom @MonotonicNonNull Recipe $$ @Initialized @NonNull Object $$ ( 1903, 1917 ) $$ incompatible argument for parameter expected of Assert.assertEquals.
+    assertEquals(expectedRecipe, recipe);
+                 ^
+  found   : @FBCBottom @MonotonicNonNull Recipe
+  required: @Initialized @NonNull Object
+../dataset/meal-planner-534de2074178ed4cfd34a23cad1212f76016ad9e/src/test/java/de/zuellich/meal_planner/algorithms/schema_org/SchemaOrgQuirksModeParserTest.java:52: error: (argument) $$ 4 $$ expected $$ Assert.assertEquals $$ @FBCBottom @MonotonicNonNull Recipe $$ @Initialized @NonNull Object $$ ( 1924, 1938 ) $$ incompatible argument for parameter expected of Assert.assertEquals.
+    assertEquals(expectedRecipe, parsedRecipe);
+                 ^
+  found   : @FBCBottom @MonotonicNonNull Recipe
+  required: @Initialized @NonNull Object
+../dataset/meal-planner-534de2074178ed4cfd34a23cad1212f76016ad9e/src/test/java/de/zuellich/meal_planner/algorithms/schema_org/SchemaOrgRecipeScannerTest.java:37: error: (argument) $$ 4 $$ actual $$ Assert.assertEquals $$ @Initialized @Nullable String $$ @Initialized @NonNull Object $$ ( 1377, 1395 ) $$ incompatible argument for parameter actual of Assert.assertEquals.
+    assertEquals("The scanner provides an empty string as URL.", "", recipe.getSource());
+                                                                                     ^
+  found   : @Initialized @Nullable String
+  required: @Initialized @NonNull Object
+../dataset/meal-planner-534de2074178ed4cfd34a23cad1212f76016ad9e/src/test/java/de/zuellich/meal_planner/algorithms/AmountParserTest.java:20: error: (dereference.of.nullable) $$ 1 $$ instance $$ ( 357, 365 ) $$ dereference of possibly-null reference instance
+    assertEquals(1f, instance.parseAmount("1"), 0);
+                     ^
+../dataset/meal-planner-534de2074178ed4cfd34a23cad1212f76016ad9e/src/test/java/de/zuellich/meal_planner/algorithms/AmountParserTest.java:26: error: (dereference.of.nullable) $$ 1 $$ instance $$ ( 518, 526 ) $$ dereference of possibly-null reference instance
+    assertEquals(-1f, instance.parseAmount("-1"), 0);
+                      ^
+../dataset/meal-planner-534de2074178ed4cfd34a23cad1212f76016ad9e/src/test/java/de/zuellich/meal_planner/algorithms/AmountParserTest.java:32: error: (dereference.of.nullable) $$ 1 $$ instance $$ ( 686, 694 ) $$ dereference of possibly-null reference instance
+    assertEquals(0.125f, instance.parseAmount("1/8"), 0);
+                         ^
+../dataset/meal-planner-534de2074178ed4cfd34a23cad1212f76016ad9e/src/test/java/de/zuellich/meal_planner/algorithms/AmountParserTest.java:40: error: (dereference.of.nullable) $$ 1 $$ instance $$ ( 971, 979 ) $$ dereference of possibly-null reference instance
+    assertEquals(0f, instance.parseAmount(null), 0);
+                     ^
+../dataset/meal-planner-534de2074178ed4cfd34a23cad1212f76016ad9e/src/test/java/de/zuellich/meal_planner/algorithms/AmountParserTest.java:46: error: (dereference.of.nullable) $$ 1 $$ instance $$ ( 1140, 1148 ) $$ dereference of possibly-null reference instance
+    assertEquals(0.5f, instance.parseAmount("½"), 0);
+                       ^
+../dataset/meal-planner-534de2074178ed4cfd34a23cad1212f76016ad9e/src/test/java/de/zuellich/meal_planner/algorithms/AmountParserTest.java:53: error: (dereference.of.nullable) $$ 1 $$ instance $$ ( 1366, 1374 ) $$ dereference of possibly-null reference instance
+    assertEquals(3.5f, instance.parseAmount("3 ½"), 0);
+                       ^
+../dataset/meal-planner-534de2074178ed4cfd34a23cad1212f76016ad9e/src/test/java/de/zuellich/meal_planner/algorithms/AmountParserTest.java:58: error: (dereference.of.nullable) $$ 1 $$ instance $$ ( 1489, 1497 ) $$ dereference of possibly-null reference instance
+    assertEquals(0f, instance.parseAmount("Not a number."), 0);
+                     ^
+../dataset/meal-planner-534de2074178ed4cfd34a23cad1212f76016ad9e/src/main/java/de/zuellich/meal_planner/algorithms/AmountParser.java:132: error: (unboxing.of.nullable) $$ 1 $$ fractionLookup.get(usedFraction) $$ ( 3682, 3714 ) $$ unboxing a possibly-null reference fractionLookup.get(usedFraction)
+    return Float.parseFloat(withoutUnicodeFraction) + fractionLookup.get(usedFraction);
+                                                                        ^
+../dataset/meal-planner-534de2074178ed4cfd34a23cad1212f76016ad9e/src/test/java/de/zuellich/meal_planner/algorithms/IngredientUnitLookupTest.java:21: error: (dereference.of.nullable) $$ 1 $$ instance $$ ( 459, 467 ) $$ dereference of possibly-null reference instance
+    IngredientUnit cupUnit = instance.byShorthand(IngredientUnit.CUP.getShorthand());
+                             ^
+../dataset/meal-planner-534de2074178ed4cfd34a23cad1212f76016ad9e/src/test/java/de/zuellich/meal_planner/algorithms/IngredientUnitLookupTest.java:27: error: (dereference.of.nullable) $$ 1 $$ instance $$ ( 647, 655 ) $$ dereference of possibly-null reference instance
+    IngredientUnit cloveUnit = instance.byPlural(IngredientUnit.CLOVE.getPlural());
+                               ^
+../dataset/meal-planner-534de2074178ed4cfd34a23cad1212f76016ad9e/src/test/java/de/zuellich/meal_planner/algorithms/IngredientUnitLookupTest.java:33: error: (dereference.of.nullable) $$ 1 $$ instance $$ ( 840, 848 ) $$ dereference of possibly-null reference instance
+    IngredientUnit teaspoonUnit = instance.bySingular(IngredientUnit.TSP.getSingular());
+                                  ^
+../dataset/meal-planner-534de2074178ed4cfd34a23cad1212f76016ad9e/src/test/java/de/zuellich/meal_planner/algorithms/IngredientUnitLookupTest.java:39: error: (dereference.of.nullable) $$ 1 $$ instance $$ ( 1021, 1029 ) $$ dereference of possibly-null reference instance
+    IngredientUnit unit = instance.lookup(IngredientUnit.CLOVE.getShorthand());
+                          ^
+../dataset/meal-planner-534de2074178ed4cfd34a23cad1212f76016ad9e/src/test/java/de/zuellich/meal_planner/algorithms/IngredientUnitLookupTest.java:51: error: (dereference.of.nullable) $$ 1 $$ instance $$ ( 1580, 1588 ) $$ dereference of possibly-null reference instance
+    IngredientUnit actual = instance.byShorthand("notAnUnitActually");
+                            ^
+../dataset/meal-planner-534de2074178ed4cfd34a23cad1212f76016ad9e/src/main/java/de/zuellich/meal_planner/algorithms/IngredientUnitLookup.java:20: error: (method.invocation) $$ 3 $$ setupLookupTable() $$ @UnderInitialization(de.zuellich.meal_planner.algorithms.IngredientUnitLookup.class) @NonNull IngredientUnitLookup $$ @Initialized @NonNull IngredientUnitLookup $$ ( 550, 568 ) $$ call to setupLookupTable() not allowed on the given receiver.
+    setupLookupTable();
+                    ^
+  found   : @UnderInitialization(de.zuellich.meal_planner.algorithms.IngredientUnitLookup.class) @NonNull IngredientUnitLookup
+  required: @Initialized @NonNull IngredientUnitLookup
+../dataset/meal-planner-534de2074178ed4cfd34a23cad1212f76016ad9e/src/main/java/de/zuellich/meal_planner/algorithms/IngredientUnitLookup.java:56: error: (dereference.of.nullable) $$ 1 $$ byShorthand $$ ( 1530, 1541 ) $$ dereference of possibly-null reference byShorthand
+    IngredientUnit result = byShorthand.get(shorthand);
+                            ^
+../dataset/meal-planner-534de2074178ed4cfd34a23cad1212f76016ad9e/src/main/java/de/zuellich/meal_planner/algorithms/IngredientUnitLookup.java:72: error: (dereference.of.nullable) $$ 1 $$ byPlural $$ ( 1902, 1910 ) $$ dereference of possibly-null reference byPlural
+    IngredientUnit result = byPlural.get(plural);
+                            ^
+../dataset/meal-planner-534de2074178ed4cfd34a23cad1212f76016ad9e/src/main/java/de/zuellich/meal_planner/algorithms/IngredientUnitLookup.java:109: error: (dereference.of.nullable) $$ 1 $$ bySingular $$ ( 2873, 2883 ) $$ dereference of possibly-null reference bySingular
+    IngredientUnit result = bySingular.get(search);
+                            ^
+../dataset/meal-planner-534de2074178ed4cfd34a23cad1212f76016ad9e/src/test/java/de/zuellich/meal_planner/algorithms/RecipeServiceTest.java:57: error: (argument) $$ 4 $$ arg0 $$ OngoingStubbing.thenReturn $$ @Initialized @Nullable Recipe $$ @Initialized @NonNull Recipe $$ ( 2145, 2153 ) $$ incompatible argument for parameter arg0 of OngoingStubbing.thenReturn.
+    when(schemaOrgParser.parse(anyString())).thenReturn(expected);
+                                                        ^
+  found   : @Initialized @Nullable Recipe
+  required: @Initialized @NonNull Recipe
+../dataset/meal-planner-534de2074178ed4cfd34a23cad1212f76016ad9e/src/test/java/de/zuellich/meal_planner/algorithms/IngredientMatcherTest.java:21: error: (dereference.of.nullable) $$ 1 $$ matcher $$ ( 517, 524 ) $$ dereference of possibly-null reference matcher
+    IngredientMatcher.IngredientMatcherResult matcherResult = matcher.match("100g steak");
+                                                              ^
+../dataset/meal-planner-534de2074178ed4cfd34a23cad1212f76016ad9e/src/test/java/de/zuellich/meal_planner/algorithms/IngredientMatcherTest.java:31: error: (dereference.of.nullable) $$ 1 $$ matcher $$ ( 869, 876 ) $$ dereference of possibly-null reference matcher
+    IngredientMatcher.IngredientMatcherResult matcherResult = matcher.match("1 egg");
+                                                              ^
+../dataset/meal-planner-534de2074178ed4cfd34a23cad1212f76016ad9e/src/test/java/de/zuellich/meal_planner/algorithms/IngredientMatcherTest.java:41: error: (dereference.of.nullable) $$ 1 $$ matcher $$ ( 1274, 1281 ) $$ dereference of possibly-null reference matcher
+    IngredientMatcher.IngredientMatcherResult matcherResult = matcher.match("1 egg (hard)");
+                                                              ^
+../dataset/meal-planner-534de2074178ed4cfd34a23cad1212f76016ad9e/src/test/java/de/zuellich/meal_planner/algorithms/IngredientMatcherTest.java:57: error: (dereference.of.nullable) $$ 1 $$ matcher $$ ( 2022, 2029 ) $$ dereference of possibly-null reference matcher
+    IngredientMatcher.IngredientMatcherResult matcherResult = matcher.match("1/2 cup water");
+                                                              ^
+../dataset/meal-planner-534de2074178ed4cfd34a23cad1212f76016ad9e/src/test/java/de/zuellich/meal_planner/algorithms/IngredientMatcherTest.java:79: error: (dereference.of.nullable) $$ 1 $$ matcher $$ ( 2897, 2904 ) $$ dereference of possibly-null reference matcher
+    IngredientMatcher.IngredientMatcherResult matcherResult = matcher.match("");
+                                                              ^
+../dataset/meal-planner-534de2074178ed4cfd34a23cad1212f76016ad9e/src/test/java/de/zuellich/meal_planner/algorithms/IngredientMatcherTest.java:89: error: (dereference.of.nullable) $$ 1 $$ matcher $$ ( 3292, 3299 ) $$ dereference of possibly-null reference matcher
+    IngredientMatcher.IngredientMatcherResult matcherResult = matcher.match("Salt & pepper");
+                                                              ^
+../dataset/meal-planner-534de2074178ed4cfd34a23cad1212f76016ad9e/src/main/java/de/zuellich/meal_planner/algorithms/IngredientMatcher.java:49: error: (dereference.of.nullable) $$ 1 $$ matcher.group(2) $$ ( 1886, 1902 ) $$ dereference of possibly-null reference matcher.group(2)
+    String rawUnit = matcher.group(2).trim();
+                                  ^
+../dataset/meal-planner-534de2074178ed4cfd34a23cad1212f76016ad9e/src/main/java/de/zuellich/meal_planner/algorithms/IngredientMatcher.java:50: error: (dereference.of.nullable) $$ 1 $$ matcher.group(3) $$ ( 1932, 1948 ) $$ dereference of possibly-null reference matcher.group(3)
+    String rawName = matcher.group(3).trim();
+                                  ^
+../dataset/meal-planner-534de2074178ed4cfd34a23cad1212f76016ad9e/src/test/java/de/zuellich/meal_planner/controller/ParseTest.java:43: error: (dereference.of.nullable) $$ 1 $$ testRestTemplate $$ ( 1345, 1361 ) $$ dereference of possibly-null reference testRestTemplate
+        testRestTemplate.withBasicAuth("test", "test").getForEntity(url, Map.class);
+        ^
+../dataset/meal-planner-534de2074178ed4cfd34a23cad1212f76016ad9e/src/test/java/de/zuellich/meal_planner/controller/ParseTest.java:55: error: (dereference.of.nullable) $$ 1 $$ testRestTemplate $$ ( 1819, 1835 ) $$ dereference of possibly-null reference testRestTemplate
+        testRestTemplate.withBasicAuth("test", "test").getForEntity(url, Map.class);
+        ^
+../dataset/meal-planner-534de2074178ed4cfd34a23cad1212f76016ad9e/src/test/java/de/zuellich/meal_planner/SSLUtil.java:18: error: (return) $$ 2 $$ null (NullType) $$ @Initialized @NonNull X509Certificate @Initialized @NonNull [] $$ ( 590, 594 ) $$ incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull X509Certificate @Initialized @NonNull []
+../dataset/meal-planner-534de2074178ed4cfd34a23cad1212f76016ad9e/src/main/java/de/zuellich/meal_planner/pinterest/oauth2/ResourceConfiguration.java:39: error: (argument) $$ 4 $$ clientId $$ BaseOAuth2ProtectedResourceDetails.setClientId $$ @FBCBottom @MonotonicNonNull String $$ @Initialized @NonNull String $$ ( 1517, 1525 ) $$ incompatible argument for parameter clientId of BaseOAuth2ProtectedResourceDetails.setClientId.
+    resourceDetails.setClientId(clientId);
+                                ^
+  found   : @FBCBottom @MonotonicNonNull String
+  required: @Initialized @NonNull String
+../dataset/meal-planner-534de2074178ed4cfd34a23cad1212f76016ad9e/src/main/java/de/zuellich/meal_planner/pinterest/oauth2/ResourceConfiguration.java:40: error: (argument) $$ 4 $$ clientSecret $$ BaseOAuth2ProtectedResourceDetails.setClientSecret $$ @FBCBottom @MonotonicNonNull String $$ @Initialized @NonNull String $$ ( 1564, 1576 ) $$ incompatible argument for parameter clientSecret of BaseOAuth2ProtectedResourceDetails.setClientSecret.
+    resourceDetails.setClientSecret(clientSecret);
+                                    ^
+  found   : @FBCBottom @MonotonicNonNull String
+  required: @Initialized @NonNull String
+../dataset/meal-planner-534de2074178ed4cfd34a23cad1212f76016ad9e/src/main/java/de/zuellich/meal_planner/pinterest/oauth2/ResourceConfiguration.java:41: error: (argument) $$ 4 $$ accessTokenUri $$ BaseOAuth2ProtectedResourceDetails.setAccessTokenUri $$ @FBCBottom @MonotonicNonNull String $$ @Initialized @NonNull String $$ ( 1617, 1631 ) $$ incompatible argument for parameter accessTokenUri of BaseOAuth2ProtectedResourceDetails.setAccessTokenUri.
+    resourceDetails.setAccessTokenUri(accessTokenUri);
+                                      ^
+  found   : @FBCBottom @MonotonicNonNull String
+  required: @Initialized @NonNull String
+../dataset/meal-planner-534de2074178ed4cfd34a23cad1212f76016ad9e/src/main/java/de/zuellich/meal_planner/pinterest/oauth2/ResourceConfiguration.java:42: error: (argument) $$ 4 $$ userAuthorizationUri $$ AbstractRedirectResourceDetails.setUserAuthorizationUri $$ @FBCBottom @MonotonicNonNull String $$ @Initialized @NonNull String $$ ( 1678, 1694 ) $$ incompatible argument for parameter userAuthorizationUri of AbstractRedirectResourceDetails.setUserAuthorizationUri.
+    resourceDetails.setUserAuthorizationUri(authorizationUri);
+                                            ^
+  found   : @FBCBottom @MonotonicNonNull String
+  required: @Initialized @NonNull String
+../dataset/meal-planner-534de2074178ed4cfd34a23cad1212f76016ad9e/src/main/java/de/zuellich/meal_planner/pinterest/services/BoardService.java:55: error: (argument) $$ 4 $$ arg1 $$ Map.put $$ @Initialized @Nullable String $$ @Initialized @NonNull String $$ ( 1891, 1898 ) $$ incompatible argument for parameter arg1 of Map.put.
+      requestParameter.put("id", boardId);
+                                 ^
+  found   : @Initialized @Nullable String
+  required: @Initialized @NonNull String
+../dataset/meal-planner-534de2074178ed4cfd34a23cad1212f76016ad9e/src/main/java/de/zuellich/meal_planner/pinterest/services/BoardService.java:64: error: (argument) $$ 4 $$ arg0 $$ List.addAll $$ @Initialized @Nullable List<@Initialized @NonNull Pin> $$ @Initialized @NonNull Collection<? extends @Initialized @NonNull Pin> $$ ( 2197, 2225 ) $$ incompatible argument for parameter arg0 of List.addAll.
+      result.addAll(response.getBody().getPins());
+                                              ^
+  found   : @Initialized @Nullable List<@Initialized @NonNull Pin>
+  required: @Initialized @NonNull Collection<? extends @Initialized @NonNull Pin>
+../dataset/meal-planner-534de2074178ed4cfd34a23cad1212f76016ad9e/src/main/java/de/zuellich/meal_planner/algorithms/RecipeFetcherService.java:12: error: (argument) $$ 4 $$ url $$ Jsoup.connect $$ @Initialized @Nullable String $$ @Initialized @NonNull String $$ ( 322, 325 ) $$ incompatible argument for parameter url of Jsoup.connect.
+    return Jsoup.connect(url).get().html();
+                         ^
+  found   : @Initialized @Nullable String
+  required: @Initialized @NonNull String
+../dataset/meal-planner-534de2074178ed4cfd34a23cad1212f76016ad9e/src/main/java/de/zuellich/meal_planner/controller/PinterestExplorer.java:50: error: (type.arguments.not.inferred) $$ 2 $$ ResponseEntity.ok $$ @Initialized @Nullable List<@Initialized @NonNull Board> <: @Initialized @NonNull List<@Initialized @NonNull Board> $$ ( 1962, 1987 ) $$ Could not infer type arguments for ResponseEntity.ok
+    return ResponseEntity.ok(boards);
+                            ^
+  unsatisfiable constraint: @Initialized @Nullable List<@Initialized @NonNull Board> <: @Initialized @NonNull List<@Initialized @NonNull Board>
+../dataset/meal-planner-534de2074178ed4cfd34a23cad1212f76016ad9e/src/main/java/de/zuellich/meal_planner/controller/PinterestExplorer.java:64: error: (iterating.over.nullable) $$ 1 $$ boards $$ ( 2448, 2454 ) $$ iterating over possibly-null reference boards
+    for (Board board : boards) {
+                       ^
+../dataset/meal-planner-534de2074178ed4cfd34a23cad1212f76016ad9e/src/main/java/de/zuellich/meal_planner/controller/PinterestExplorer.java:73: error: (dereference.of.nullable) $$ 1 $$ recipe.getSource() $$ ( 2804, 2822 ) $$ dereference of possibly-null reference recipe.getSource()
+          if (recipe.getSource().isEmpty()) {
+                              ^
+../dataset/meal-planner-534de2074178ed4cfd34a23cad1212f76016ad9e/src/main/java/de/zuellich/meal_planner/controller/PinterestExplorer.java:81: error: (dereference.of.nullable) $$ 1 $$ e.getCause() $$ ( 3066, 3078 ) $$ dereference of possibly-null reference e.getCause()
+          System.out.println("!! Error downloading pin: " + e.getCause().getMessage());
+                                                                      ^
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+71 errors

@@ -1,0 +1,14 @@
+plugins {
+    id 'java'
+    id "net.ltgt.errorprone" version "2.0.1" apply false
+    id "com.vanniktech.maven.publish" version "0.25.3" apply false
+}
+
+group = 'org.example'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+apply from: "gradle/dependencies.gradle"

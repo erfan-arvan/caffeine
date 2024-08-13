@@ -1,0 +1,529 @@
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/test/java/org/spacious_team/table_wrapper/csv/CsvTableRowTest.java:21: error: package org.junit.jupiter.params does not exist
+import org.junit.jupiter.params.ParameterizedTest;
+                               ^
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/test/java/org/spacious_team/table_wrapper/csv/CsvTableRowTest.java:22: error: package org.junit.jupiter.params.provider does not exist
+import org.junit.jupiter.params.provider.Arguments;
+                                        ^
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/test/java/org/spacious_team/table_wrapper/csv/CsvTableRowTest.java:23: error: package org.junit.jupiter.params.provider does not exist
+import org.junit.jupiter.params.provider.MethodSource;
+                                        ^
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/test/java/org/spacious_team/table_wrapper/csv/CsvTableRowTest.java:27: error: package org.junit.jupiter.api does not exist
+import static org.junit.jupiter.api.Assertions.assertEquals;
+                                   ^
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/test/java/org/spacious_team/table_wrapper/csv/CsvTableRowTest.java:27: error: static import only from classes and interfaces
+import static org.junit.jupiter.api.Assertions.assertEquals;
+^
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/test/java/org/spacious_team/table_wrapper/csv/CsvTableRowTest.java:28: error: package org.junit.jupiter.api does not exist
+import static org.junit.jupiter.api.Assertions.assertNull;
+                                   ^
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/test/java/org/spacious_team/table_wrapper/csv/CsvTableRowTest.java:28: error: static import only from classes and interfaces
+import static org.junit.jupiter.api.Assertions.assertNull;
+^
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/test/java/org/spacious_team/table_wrapper/csv/CsvTableRowTest.java:63: error: cannot find symbol
+    private static Stream<Arguments> indexAndRow() {
+                          ^
+  symbol:   class Arguments
+  location: class CsvTableRowTest
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/test/java/org/spacious_team/table_wrapper/csv/CsvTableCellTest.java:21: error: package org.junit.jupiter.params does not exist
+import org.junit.jupiter.params.ParameterizedTest;
+                               ^
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/test/java/org/spacious_team/table_wrapper/csv/CsvTableCellTest.java:22: error: package org.junit.jupiter.params.provider does not exist
+import org.junit.jupiter.params.provider.ValueSource;
+                                        ^
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/test/java/org/spacious_team/table_wrapper/csv/CsvTableCellTest.java:24: error: package org.junit.jupiter.api does not exist
+import static org.junit.jupiter.api.Assertions.assertEquals;
+                                   ^
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/test/java/org/spacious_team/table_wrapper/csv/CsvTableCellTest.java:24: error: static import only from classes and interfaces
+import static org.junit.jupiter.api.Assertions.assertEquals;
+^
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/main/java/org/spacious_team/table_wrapper/csv/CsvReportPage.java:21: error: package com.univocity.parsers.csv does not exist
+import com.univocity.parsers.csv.CsvParser;
+                                ^
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/main/java/org/spacious_team/table_wrapper/csv/CsvReportPage.java:22: error: package com.univocity.parsers.csv does not exist
+import com.univocity.parsers.csv.CsvParserSettings;
+                                ^
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/main/java/org/spacious_team/table_wrapper/csv/CsvReportPage.java:23: error: package org.spacious_team.table_wrapper.api does not exist
+import org.spacious_team.table_wrapper.api.AbstractReportPage;
+                                          ^
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/main/java/org/spacious_team/table_wrapper/csv/CsvReportPage.java:24: error: package org.spacious_team.table_wrapper.api does not exist
+import org.spacious_team.table_wrapper.api.TableCellAddress;
+                                          ^
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/main/java/org/spacious_team/table_wrapper/csv/CsvReportPage.java:38: error: cannot find symbol
+public class CsvReportPage extends AbstractReportPage<CsvTableRow> {
+                                   ^
+  symbol: class AbstractReportPage
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/main/java/org/spacious_team/table_wrapper/csv/CsvTableRow.java:21: error: package lombok does not exist
+import lombok.Getter;
+             ^
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/main/java/org/spacious_team/table_wrapper/csv/CsvTableRow.java:22: error: package org.spacious_team.table_wrapper.api does not exist
+import org.spacious_team.table_wrapper.api.AbstractReportPageRow;
+                                          ^
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/main/java/org/spacious_team/table_wrapper/csv/CsvTableRow.java:23: error: package org.spacious_team.table_wrapper.api does not exist
+import org.spacious_team.table_wrapper.api.TableCell;
+                                          ^
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/main/java/org/spacious_team/table_wrapper/csv/CsvTableRow.java:27: error: package org.spacious_team.table_wrapper.api does not exist
+import static org.spacious_team.table_wrapper.api.TableCellAddress.NOT_FOUND;
+                                                 ^
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/main/java/org/spacious_team/table_wrapper/csv/CsvTableRow.java:27: error: static import only from classes and interfaces
+import static org.spacious_team.table_wrapper.api.TableCellAddress.NOT_FOUND;
+^
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/main/java/org/spacious_team/table_wrapper/csv/CsvTableHelper.java:21: error: package org.spacious_team.table_wrapper.api does not exist
+import org.spacious_team.table_wrapper.api.TableCellAddress;
+                                          ^
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/main/java/org/spacious_team/table_wrapper/csv/CsvTableHelper.java:26: error: package org.spacious_team.table_wrapper.api does not exist
+import static org.spacious_team.table_wrapper.api.TableCellAddress.NOT_FOUND;
+                                                 ^
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/main/java/org/spacious_team/table_wrapper/csv/CsvTableHelper.java:26: error: static import only from classes and interfaces
+import static org.spacious_team.table_wrapper.api.TableCellAddress.NOT_FOUND;
+^
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/main/java/org/spacious_team/table_wrapper/csv/CsvTableRow.java:30: error: cannot find symbol
+public class CsvTableRow extends AbstractReportPageRow {
+                                 ^
+  symbol: class AbstractReportPageRow
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/main/java/org/spacious_team/table_wrapper/csv/CsvReportPage.java:52: error: cannot find symbol
+    public CsvReportPage(InputStream inputStream, Charset charset, CsvParserSettings csvParserSettings) throws IOException {
+                                                                   ^
+  symbol:   class CsvParserSettings
+  location: class CsvReportPage
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/main/java/org/spacious_team/table_wrapper/csv/CsvReportPage.java:63: error: cannot find symbol
+    public static CsvParserSettings getDefaultCsvParserSettings() {
+                  ^
+  symbol:   class CsvParserSettings
+  location: class CsvReportPage
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/main/java/org/spacious_team/table_wrapper/csv/CsvReportPage.java:70: error: cannot find symbol
+    public TableCellAddress find(Object value, int startRow, int endRow, int startColumn, int endColumn) {
+           ^
+  symbol:   class TableCellAddress
+  location: class CsvReportPage
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/main/java/org/spacious_team/table_wrapper/csv/CsvReportPage.java:75: error: cannot find symbol
+    public TableCellAddress find(int startRow, int endRow, int startColumn, int endColumn, Predicate<Object> cellValuePredicate) {
+           ^
+  symbol:   class TableCellAddress
+  location: class CsvReportPage
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/main/java/org/spacious_team/table_wrapper/csv/CsvTableCell.java:21: error: package lombok does not exist
+import lombok.EqualsAndHashCode;
+             ^
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/main/java/org/spacious_team/table_wrapper/csv/CsvTableCell.java:22: error: package lombok does not exist
+import lombok.Getter;
+             ^
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/main/java/org/spacious_team/table_wrapper/csv/CsvTableCell.java:23: error: package lombok does not exist
+import lombok.RequiredArgsConstructor;
+             ^
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/main/java/org/spacious_team/table_wrapper/csv/CsvTableCell.java:24: error: package org.spacious_team.table_wrapper.api does not exist
+import org.spacious_team.table_wrapper.api.AbstractTableCell;
+                                          ^
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/main/java/org/spacious_team/table_wrapper/csv/CsvTableCell.java:28: error: package lombok does not exist
+import static lombok.AccessLevel.PACKAGE;
+                    ^
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/main/java/org/spacious_team/table_wrapper/csv/CsvTableCell.java:28: error: static import only from classes and interfaces
+import static lombok.AccessLevel.PACKAGE;
+^
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/main/java/org/spacious_team/table_wrapper/csv/CsvTableCell.java:31: error: cannot find symbol
+public class CsvTableCell extends AbstractTableCell<CsvTableCell.RowAndIndex> {
+                                  ^
+  symbol: class AbstractTableCell
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/main/java/org/spacious_team/table_wrapper/csv/CsvTableCell.java:30: error: cannot find symbol
+@EqualsAndHashCode(of = {"rowAndIndex"}, callSuper = false)
+ ^
+  symbol: class EqualsAndHashCode
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/main/java/org/spacious_team/table_wrapper/csv/CsvTableCell.java:50: error: cannot find symbol
+    @RequiredArgsConstructor
+     ^
+  symbol:   class RequiredArgsConstructor
+  location: class CsvTableCell
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/main/java/org/spacious_team/table_wrapper/csv/CsvTableRow.java:73: error: cannot find symbol
+    public Iterator<TableCell> iterator() {
+                    ^
+  symbol:   class TableCell
+  location: class CsvTableRow
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/main/java/org/spacious_team/table_wrapper/csv/CsvTableHelper.java:30: error: cannot find symbol
+    static TableCellAddress find(String[][] table, Object expected,
+           ^
+  symbol:   class TableCellAddress
+  location: class CsvTableHelper
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/main/java/org/spacious_team/table_wrapper/csv/CsvTableHelper.java:36: error: cannot find symbol
+    static TableCellAddress find(String[][] table, int startRow, int endRow, int startColumn, int endColumn,
+           ^
+  symbol:   class TableCellAddress
+  location: class CsvTableHelper
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/main/java/org/spacious_team/table_wrapper/csv/CsvTableHelper.java:50: error: cannot find symbol
+    static TableCellAddress find(String[] row, int rowNum, int startColumn, int endColumn, Predicate<String> predicate) {
+           ^
+  symbol:   class TableCellAddress
+  location: class CsvTableHelper
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/main/java/org/spacious_team/table_wrapper/csv/CsvTable.java:21: error: package lombok does not exist
+import lombok.AccessLevel;
+             ^
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/main/java/org/spacious_team/table_wrapper/csv/CsvTable.java:22: error: package lombok does not exist
+import lombok.Getter;
+             ^
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/main/java/org/spacious_team/table_wrapper/csv/CsvTable.java:23: error: package lombok does not exist
+import lombok.ToString;
+             ^
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/main/java/org/spacious_team/table_wrapper/csv/CsvTable.java:24: error: package org.spacious_team.table_wrapper.api does not exist
+import org.spacious_team.table_wrapper.api.AbstractReportPage;
+                                          ^
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/main/java/org/spacious_team/table_wrapper/csv/CsvTable.java:25: error: package org.spacious_team.table_wrapper.api does not exist
+import org.spacious_team.table_wrapper.api.AbstractTable;
+                                          ^
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/main/java/org/spacious_team/table_wrapper/csv/CsvTable.java:26: error: package org.spacious_team.table_wrapper.api does not exist
+import org.spacious_team.table_wrapper.api.CellDataAccessObject;
+                                          ^
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/main/java/org/spacious_team/table_wrapper/csv/CsvTable.java:27: error: package org.spacious_team.table_wrapper.api does not exist
+import org.spacious_team.table_wrapper.api.Table;
+                                          ^
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/main/java/org/spacious_team/table_wrapper/csv/CsvTable.java:28: error: package org.spacious_team.table_wrapper.api does not exist
+import org.spacious_team.table_wrapper.api.TableCellRange;
+                                          ^
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/main/java/org/spacious_team/table_wrapper/csv/CsvTable.java:29: error: package org.spacious_team.table_wrapper.api does not exist
+import org.spacious_team.table_wrapper.api.TableColumnDescription;
+                                          ^
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/main/java/org/spacious_team/table_wrapper/csv/CsvTable.java:32: error: cannot find symbol
+public class CsvTable extends AbstractTable<CsvTableRow> {
+                              ^
+  symbol: class AbstractTable
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/main/java/org/spacious_team/table_wrapper/csv/CsvTable.java:31: error: cannot find symbol
+@ToString(callSuper = true)
+ ^
+  symbol: class ToString
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/main/java/org/spacious_team/table_wrapper/csv/CsvTable.java:35: error: cannot find symbol
+    private final CellDataAccessObject<?, CsvTableRow> cellDataAccessObject = CsvCellDataAccessObject.INSTANCE;
+                  ^
+  symbol:   class CellDataAccessObject
+  location: class CsvTable
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/main/java/org/spacious_team/table_wrapper/csv/CsvTable.java:37: error: cannot find symbol
+    protected CsvTable(AbstractReportPage<CsvTableRow> reportPage,
+                       ^
+  symbol:   class AbstractReportPage
+  location: class CsvTable
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/main/java/org/spacious_team/table_wrapper/csv/CsvTable.java:39: error: cannot find symbol
+                       TableCellRange tableRange,
+                       ^
+  symbol:   class TableCellRange
+  location: class CsvTable
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/main/java/org/spacious_team/table_wrapper/csv/CsvTable.java:40: error: cannot find symbol
+                       Class<? extends TableColumnDescription> headerDescription,
+                                       ^
+  symbol:   class TableColumnDescription
+  location: class CsvTable
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/main/java/org/spacious_team/table_wrapper/csv/CsvTable.java:45: error: cannot find symbol
+    public CsvTable(AbstractTable<CsvTableRow> table, int appendDataRowsToTop, int appendDataRowsToBottom) {
+                    ^
+  symbol:   class AbstractTable
+  location: class CsvTable
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/main/java/org/spacious_team/table_wrapper/csv/CsvTable.java:50: error: cannot find symbol
+    public Table subTable(int topRows, int bottomRows) {
+           ^
+  symbol:   class Table
+  location: class CsvTable
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/main/java/org/spacious_team/table_wrapper/csv/CsvTableFactory.java:21: error: package org.spacious_team.table_wrapper.api does not exist
+import org.spacious_team.table_wrapper.api.AbstractTableFactory;
+                                          ^
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/main/java/org/spacious_team/table_wrapper/csv/CsvTableFactory.java:22: error: package org.spacious_team.table_wrapper.api does not exist
+import org.spacious_team.table_wrapper.api.ReportPage;
+                                          ^
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/main/java/org/spacious_team/table_wrapper/csv/CsvTableFactory.java:23: error: package org.spacious_team.table_wrapper.api does not exist
+import org.spacious_team.table_wrapper.api.Table;
+                                          ^
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/main/java/org/spacious_team/table_wrapper/csv/CsvTableFactory.java:24: error: package org.spacious_team.table_wrapper.api does not exist
+import org.spacious_team.table_wrapper.api.TableCellRange;
+                                          ^
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/main/java/org/spacious_team/table_wrapper/csv/CsvTableFactory.java:25: error: package org.spacious_team.table_wrapper.api does not exist
+import org.spacious_team.table_wrapper.api.TableColumnDescription;
+                                          ^
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/main/java/org/spacious_team/table_wrapper/csv/CsvTableFactory.java:28: error: cannot find symbol
+public class CsvTableFactory extends AbstractTableFactory<CsvReportPage> {
+                                     ^
+  symbol: class AbstractTableFactory
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/main/java/org/spacious_team/table_wrapper/csv/CsvTableFactory.java:35: error: cannot find symbol
+    public Table create(ReportPage reportPage,
+                        ^
+  symbol:   class ReportPage
+  location: class CsvTableFactory
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/main/java/org/spacious_team/table_wrapper/csv/CsvTableFactory.java:37: error: cannot find symbol
+                        TableCellRange tableRange,
+                        ^
+  symbol:   class TableCellRange
+  location: class CsvTableFactory
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/main/java/org/spacious_team/table_wrapper/csv/CsvTableFactory.java:38: error: cannot find symbol
+                        Class<? extends TableColumnDescription> headerDescription,
+                                        ^
+  symbol:   class TableColumnDescription
+  location: class CsvTableFactory
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/main/java/org/spacious_team/table_wrapper/csv/CsvTableFactory.java:35: error: cannot find symbol
+    public Table create(ReportPage reportPage,
+           ^
+  symbol:   class Table
+  location: class CsvTableFactory
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/main/java/org/spacious_team/table_wrapper/csv/CsvCellDataAccessObject.java:21: error: package lombok does not exist
+import lombok.Getter;
+             ^
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/main/java/org/spacious_team/table_wrapper/csv/CsvCellDataAccessObject.java:22: error: package lombok does not exist
+import lombok.Setter;
+             ^
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/main/java/org/spacious_team/table_wrapper/csv/CsvCellDataAccessObject.java:23: error: package org.spacious_team.table_wrapper.api does not exist
+import org.spacious_team.table_wrapper.api.CellDataAccessObject;
+                                          ^
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/main/java/org/spacious_team/table_wrapper/csv/CsvCellDataAccessObject.java:32: error: cannot find symbol
+public class CsvCellDataAccessObject implements CellDataAccessObject<RowAndIndex, CsvTableRow> {
+                                                ^
+  symbol: class CellDataAccessObject
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/test/java/org/spacious_team/table_wrapper/csv/CsvTableRowTest.java:32: error: cannot find symbol
+    @ParameterizedTest
+     ^
+  symbol:   class ParameterizedTest
+  location: class CsvTableRowTest
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/test/java/org/spacious_team/table_wrapper/csv/CsvTableRowTest.java:33: error: cannot find symbol
+    @MethodSource("indexAndRow")
+     ^
+  symbol:   class MethodSource
+  location: class CsvTableRowTest
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/test/java/org/spacious_team/table_wrapper/csv/CsvTableRowTest.java:45: error: cannot find symbol
+    @ParameterizedTest
+     ^
+  symbol:   class ParameterizedTest
+  location: class CsvTableRowTest
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/test/java/org/spacious_team/table_wrapper/csv/CsvTableRowTest.java:46: error: cannot find symbol
+    @MethodSource("indexAndRow")
+     ^
+  symbol:   class MethodSource
+  location: class CsvTableRowTest
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/test/java/org/spacious_team/table_wrapper/csv/CsvTableRowTest.java:56: error: cannot find symbol
+    @ParameterizedTest
+     ^
+  symbol:   class ParameterizedTest
+  location: class CsvTableRowTest
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/test/java/org/spacious_team/table_wrapper/csv/CsvTableRowTest.java:57: error: cannot find symbol
+    @MethodSource("indexAndRow")
+     ^
+  symbol:   class MethodSource
+  location: class CsvTableRowTest
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/test/java/org/spacious_team/table_wrapper/csv/CsvTableCellTest.java:28: error: cannot find symbol
+    @ParameterizedTest
+     ^
+  symbol:   class ParameterizedTest
+  location: class CsvTableCellTest
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/test/java/org/spacious_team/table_wrapper/csv/CsvTableCellTest.java:29: error: cannot find symbol
+    @ValueSource(ints = {1, 2, 3, 4, 5})
+     ^
+  symbol:   class ValueSource
+  location: class CsvTableCellTest
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/main/java/org/spacious_team/table_wrapper/csv/CsvTableRow.java:34: error: cannot find symbol
+    @Getter
+     ^
+  symbol:   class Getter
+  location: class CsvTableRow
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/main/java/org/spacious_team/table_wrapper/csv/CsvTableCell.java:33: error: cannot find symbol
+    @Getter(PACKAGE)
+     ^
+  symbol:   class Getter
+  location: class CsvTableCell
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/main/java/org/spacious_team/table_wrapper/csv/CsvTableCell.java:33: error: cannot find symbol
+    @Getter(PACKAGE)
+            ^
+  symbol:   variable PACKAGE
+  location: class CsvTableCell
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/main/java/org/spacious_team/table_wrapper/csv/CsvTableCell.java:53: error: cannot find symbol
+        @Getter
+         ^
+  symbol:   class Getter
+  location: class RowAndIndex
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/main/java/org/spacious_team/table_wrapper/csv/CsvTable.java:34: error: cannot find symbol
+    @Getter(AccessLevel.PROTECTED)
+     ^
+  symbol:   class Getter
+  location: class CsvTable
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/main/java/org/spacious_team/table_wrapper/csv/CsvTable.java:34: error: cannot find symbol
+    @Getter(AccessLevel.PROTECTED)
+            ^
+  symbol:   variable AccessLevel
+  location: class CsvTable
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/main/java/org/spacious_team/table_wrapper/csv/CsvCellDataAccessObject.java:34: error: cannot find symbol
+    @Setter
+     ^
+  symbol:   class Setter
+  location: class CsvCellDataAccessObject
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/main/java/org/spacious_team/table_wrapper/csv/CsvCellDataAccessObject.java:35: error: cannot find symbol
+    @Getter
+     ^
+  symbol:   class Getter
+  location: class CsvCellDataAccessObject
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/test/java/org/spacious_team/table_wrapper/csv/CsvTableRowTest.java:38: error: cannot find symbol
+            assertNull(csvRow.getCell(colNum));
+            ^
+  symbol:   method assertNull(CsvTableCell)
+  location: class CsvTableRowTest
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/test/java/org/spacious_team/table_wrapper/csv/CsvTableRowTest.java:41: error: cannot find symbol
+            assertEquals(cell, csvRow.getCell(colNum));
+            ^
+  symbol:   method assertEquals(CsvTableCell,CsvTableCell)
+  location: class CsvTableRowTest
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/test/java/org/spacious_team/table_wrapper/csv/CsvTableRowTest.java:50: error: cannot find symbol
+            assertEquals(-1, csv.getFirstCellNum());
+            ^
+  symbol:   method assertEquals(int,int)
+  location: class CsvTableRowTest
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/test/java/org/spacious_team/table_wrapper/csv/CsvTableRowTest.java:52: error: cannot find symbol
+            assertEquals(0, csv.getFirstCellNum());
+            ^
+  symbol:   method assertEquals(int,int)
+  location: class CsvTableRowTest
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/test/java/org/spacious_team/table_wrapper/csv/CsvTableRowTest.java:60: error: cannot find symbol
+        assertEquals(row.length - 1, csv.getLastCellNum());
+        ^
+  symbol:   method assertEquals(int,int)
+  location: class CsvTableRowTest
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/test/java/org/spacious_team/table_wrapper/csv/CsvTableRowTest.java:66: error: cannot find symbol
+                Arguments.of(1, row, 10),
+                ^
+  symbol:   variable Arguments
+  location: class CsvTableRowTest
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/test/java/org/spacious_team/table_wrapper/csv/CsvTableRowTest.java:67: error: cannot find symbol
+                Arguments.of(5, row, 2),
+                ^
+  symbol:   variable Arguments
+  location: class CsvTableRowTest
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/test/java/org/spacious_team/table_wrapper/csv/CsvTableRowTest.java:68: error: cannot find symbol
+                Arguments.of(8, new String[]{}, 11)
+                ^
+  symbol:   variable Arguments
+  location: class CsvTableRowTest
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/test/java/org/spacious_team/table_wrapper/csv/CsvTableCellTest.java:32: error: constructor RowAndIndex in class RowAndIndex cannot be applied to given types;
+        CsvTableCell.RowAndIndex rowAndIndex = new CsvTableCell.RowAndIndex(row, colNum);
+                                               ^
+  required: no arguments
+  found: String[],int
+  reason: actual and formal argument lists differ in length
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/test/java/org/spacious_team/table_wrapper/csv/CsvTableCellTest.java:34: error: cannot find symbol
+        assertEquals(colNum, csv.getColumnIndex());
+        ^
+  symbol:   method assertEquals(int,int)
+  location: class CsvTableCellTest
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/main/java/org/spacious_team/table_wrapper/csv/CsvReportPage.java:54: error: cannot find symbol
+            CsvParser parser = new CsvParser(csvParserSettings);
+            ^
+  symbol:   class CsvParser
+  location: class CsvReportPage
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/main/java/org/spacious_team/table_wrapper/csv/CsvReportPage.java:54: error: cannot find symbol
+            CsvParser parser = new CsvParser(csvParserSettings);
+                                   ^
+  symbol:   class CsvParser
+  location: class CsvReportPage
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/main/java/org/spacious_team/table_wrapper/csv/CsvReportPage.java:64: error: cannot find symbol
+        CsvParserSettings settings = new CsvParserSettings();
+        ^
+  symbol:   class CsvParserSettings
+  location: class CsvReportPage
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/main/java/org/spacious_team/table_wrapper/csv/CsvReportPage.java:64: error: cannot find symbol
+        CsvParserSettings settings = new CsvParserSettings();
+                                         ^
+  symbol:   class CsvParserSettings
+  location: class CsvReportPage
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/main/java/org/spacious_team/table_wrapper/csv/CsvReportPage.java:69: error: method does not override or implement a method from a supertype
+    @Override
+    ^
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/main/java/org/spacious_team/table_wrapper/csv/CsvReportPage.java:74: error: method does not override or implement a method from a supertype
+    @Override
+    ^
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/main/java/org/spacious_team/table_wrapper/csv/CsvReportPage.java:79: error: method does not override or implement a method from a supertype
+    @Override
+    ^
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/main/java/org/spacious_team/table_wrapper/csv/CsvReportPage.java:84: error: method does not override or implement a method from a supertype
+    @Override
+    ^
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/main/java/org/spacious_team/table_wrapper/csv/CsvTableHelper.java:42: error: cannot find symbol
+            TableCellAddress address = find(row, rowNum, startColumn, endColumn, predicate);
+            ^
+  symbol:   class TableCellAddress
+  location: class CsvTableHelper
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/main/java/org/spacious_team/table_wrapper/csv/CsvTableHelper.java:43: error: cannot find symbol
+            if (address != NOT_FOUND) {
+                           ^
+  symbol:   variable NOT_FOUND
+  location: class CsvTableHelper
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/main/java/org/spacious_team/table_wrapper/csv/CsvTableHelper.java:47: error: cannot find symbol
+        return NOT_FOUND;
+               ^
+  symbol:   variable NOT_FOUND
+  location: class CsvTableHelper
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/main/java/org/spacious_team/table_wrapper/csv/CsvTableHelper.java:56: error: cannot find symbol
+                return new TableCellAddress(rowNum, i);
+                           ^
+  symbol:   class TableCellAddress
+  location: class CsvTableHelper
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/main/java/org/spacious_team/table_wrapper/csv/CsvTableHelper.java:59: error: cannot find symbol
+        return NOT_FOUND;
+               ^
+  symbol:   variable NOT_FOUND
+  location: class CsvTableHelper
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/main/java/org/spacious_team/table_wrapper/csv/CsvTableRow.java:44: error: method does not override or implement a method from a supertype
+    @Override
+    ^
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/main/java/org/spacious_team/table_wrapper/csv/CsvTableRow.java:57: error: method does not override or implement a method from a supertype
+    @Override
+    ^
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/main/java/org/spacious_team/table_wrapper/csv/CsvTableRow.java:62: error: method does not override or implement a method from a supertype
+    @Override
+    ^
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/main/java/org/spacious_team/table_wrapper/csv/CsvTableRow.java:67: error: method does not override or implement a method from a supertype
+    @Override
+    ^
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/main/java/org/spacious_team/table_wrapper/csv/CsvTableRow.java:69: error: cannot find symbol
+        return CsvTableHelper.find(row, rowNum, 0, row.length, equalsPredicate(value)) != NOT_FOUND;
+                                                                                          ^
+  symbol:   variable NOT_FOUND
+  location: class CsvTableRow
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/main/java/org/spacious_team/table_wrapper/csv/CsvTableRow.java:72: error: method does not override or implement a method from a supertype
+    @Override
+    ^
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/main/java/org/spacious_team/table_wrapper/csv/CsvTableRow.java:83: error: cannot find symbol
+            public TableCell next() {
+                   ^
+  symbol: class TableCell
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/main/java/org/spacious_team/table_wrapper/csv/CsvTableRow.java:77: error: method does not override or implement a method from a supertype
+            @Override
+            ^
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/main/java/org/spacious_team/table_wrapper/csv/CsvTableRow.java:82: error: method does not override or implement a method from a supertype
+            @Override
+            ^
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/main/java/org/spacious_team/table_wrapper/csv/CsvTableCell.java:37: error: constructor RowAndIndex in class RowAndIndex cannot be applied to given types;
+        return new CsvTableCell(new RowAndIndex(row, columnIndex));
+                                ^
+  required: no arguments
+  found: String[],int
+  reason: actual and formal argument lists differ in length
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/main/java/org/spacious_team/table_wrapper/csv/CsvTableCell.java:45: error: method does not override or implement a method from a supertype
+    @Override
+    ^
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/main/java/org/spacious_team/table_wrapper/csv/CsvTableCell.java:47: error: cannot find symbol
+        return rowAndIndex.getColumnIndex();
+                          ^
+  symbol:   method getColumnIndex()
+  location: variable rowAndIndex of type RowAndIndex
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/main/java/org/spacious_team/table_wrapper/csv/CsvTableCell.java:52: error: variable row not initialized in the default constructor
+        private final String[] row;
+                               ^
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/main/java/org/spacious_team/table_wrapper/csv/CsvTableCell.java:54: error: variable columnIndex not initialized in the default constructor
+        private final int columnIndex;
+                          ^
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/main/java/org/spacious_team/table_wrapper/csv/CsvTable.java:49: error: method does not override or implement a method from a supertype
+    @Override
+    ^
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/main/java/org/spacious_team/table_wrapper/csv/CsvTableFactory.java:34: error: method does not override or implement a method from a supertype
+    @Override
+    ^
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/main/java/org/spacious_team/table_wrapper/csv/CsvCellDataAccessObject.java:38: error: method does not override or implement a method from a supertype
+    @Override
+    ^
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/main/java/org/spacious_team/table_wrapper/csv/CsvCellDataAccessObject.java:40: error: cannot find symbol
+        return row.getCell(cellIndex).getRowAndIndex();
+                                     ^
+  symbol:   method getRowAndIndex()
+  location: class CsvTableCell
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/main/java/org/spacious_team/table_wrapper/csv/CsvCellDataAccessObject.java:43: error: method does not override or implement a method from a supertype
+    @Override
+    ^
+../dataset/table-wrapper-csv-pre-impl-095c0d1fde40176d4694e26f74d2785250a15fdc/src/main/java/org/spacious_team/table_wrapper/csv/CsvCellDataAccessObject.java:48: error: method does not override or implement a method from a supertype
+    @Override
+    ^
+133 errors

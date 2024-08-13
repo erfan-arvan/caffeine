@@ -1,0 +1,304 @@
+warning: The following options were not recognized by any processor: '[verbosity]'
+../dataset/cache2k-495a6491028d8eaa0ed9371ca974290d99c4686e/src/main/java/org/cache2k/Cache.java:885: error: (type.argument) $$ 4 $$ K $$ ConcurrentMap $$ K extends @Initialized @Nullable Object $$ @Initialized @NonNull Object $$ ( 38842, 38843 ) $$ incompatible type argument for type parameter K of ConcurrentMap.
+  ConcurrentMap<K, V> asMap();
+                ^
+  found   : K extends @Initialized @Nullable Object
+  required: @Initialized @NonNull Object
+../dataset/cache2k-495a6491028d8eaa0ed9371ca974290d99c4686e/src/main/java/org/cache2k/Cache.java:885: error: (type.argument) $$ 4 $$ V $$ ConcurrentMap $$ V extends @Initialized @Nullable Object $$ @Initialized @NonNull Object $$ ( 38845, 38846 ) $$ incompatible type argument for type parameter V of ConcurrentMap.
+  ConcurrentMap<K, V> asMap();
+                   ^
+  found   : V extends @Initialized @Nullable Object
+  required: @Initialized @NonNull Object
+../dataset/cache2k-495a6491028d8eaa0ed9371ca974290d99c4686e/src/main/java/org/cache2k/CacheEntry.java:77: error: (return) $$ 2 $$ @Initialized @Nullable Throwable $$ @Initialized @NonNull Throwable $$ ( 2783, 2824 ) $$ incompatible types in return.
+    return info != null ? info.getException() : null;
+                        ^
+  type of expression: @Initialized @Nullable Throwable
+  method return type: @Initialized @NonNull Throwable
+../dataset/cache2k-495a6491028d8eaa0ed9371ca974290d99c4686e/src/main/java/org/cache2k/config/Cache2kConfig.java:81: error: (initialization.field.uninitialized) $$ 1 $$ name $$ ( 3116, 3136 ) $$ the default constructor does not initialize field name
+  private String name;
+                 ^
+../dataset/cache2k-495a6491028d8eaa0ed9371ca974290d99c4686e/src/main/java/org/cache2k/config/Cache2kConfig.java:83: error: (initialization.field.uninitialized) $$ 1 $$ keyType $$ ( 3175, 3204 ) $$ the default constructor does not initialize field keyType
+  private CacheType<K> keyType;
+                       ^
+../dataset/cache2k-495a6491028d8eaa0ed9371ca974290d99c4686e/src/main/java/org/cache2k/config/Cache2kConfig.java:84: error: (initialization.field.uninitialized) $$ 1 $$ valueType $$ ( 3207, 3238 ) $$ the default constructor does not initialize field valueType
+  private CacheType<V> valueType;
+                       ^
+../dataset/cache2k-495a6491028d8eaa0ed9371ca974290d99c4686e/src/main/java/org/cache2k/config/Cache2kConfig.java:86: error: (assignment) $$ 2 $$ @FBCBottom @Nullable NullType $$ @Initialized @NonNull Duration $$ ( 3320, 3324 ) $$ incompatible types in assignment.
+  private Duration expireAfterWrite = null;
+                                      ^
+  found   : @FBCBottom @Nullable NullType
+  required: @Initialized @NonNull Duration
+../dataset/cache2k-495a6491028d8eaa0ed9371ca974290d99c4686e/src/main/java/org/cache2k/config/Cache2kConfig.java:87: error: (assignment) $$ 2 $$ @FBCBottom @Nullable NullType $$ @Initialized @NonNull Duration $$ ( 3356, 3360 ) $$ incompatible types in assignment.
+  private Duration timerLag = null;
+                              ^
+  found   : @FBCBottom @Nullable NullType
+  required: @Initialized @NonNull Duration
+../dataset/cache2k-495a6491028d8eaa0ed9371ca974290d99c4686e/src/main/java/org/cache2k/config/Cache2kConfig.java:105: error: (initialization.field.uninitialized) $$ 1 $$ loaderExecutor $$ ( 3932, 3997 ) $$ the default constructor does not initialize field loaderExecutor
+  private CustomizationSupplier<? extends Executor> loaderExecutor;
+                                                    ^
+../dataset/cache2k-495a6491028d8eaa0ed9371ca974290d99c4686e/src/main/java/org/cache2k/config/Cache2kConfig.java:106: error: (initialization.field.uninitialized) $$ 1 $$ refreshExecutor $$ ( 4000, 4066 ) $$ the default constructor does not initialize field refreshExecutor
+  private CustomizationSupplier<? extends Executor> refreshExecutor;
+                                                    ^
+../dataset/cache2k-495a6491028d8eaa0ed9371ca974290d99c4686e/src/main/java/org/cache2k/config/Cache2kConfig.java:107: error: (initialization.field.uninitialized) $$ 1 $$ asyncListenerExecutor $$ ( 4069, 4141 ) $$ the default constructor does not initialize field asyncListenerExecutor
+  private CustomizationSupplier<? extends Executor> asyncListenerExecutor;
+                                                    ^
+../dataset/cache2k-495a6491028d8eaa0ed9371ca974290d99c4686e/src/main/java/org/cache2k/config/Cache2kConfig.java:108: error: (initialization.field.uninitialized) $$ 1 $$ executor $$ ( 4144, 4203 ) $$ the default constructor does not initialize field executor
+  private CustomizationSupplier<? extends Executor> executor;
+                                                    ^
+../dataset/cache2k-495a6491028d8eaa0ed9371ca974290d99c4686e/src/main/java/org/cache2k/config/Cache2kConfig.java:109: error: (initialization.field.uninitialized) $$ 1 $$ expiryPolicy $$ ( 4206, 4279 ) $$ the default constructor does not initialize field expiryPolicy
+  private CustomizationSupplier<? extends ExpiryPolicy<K, V>> expiryPolicy;
+                                                              ^
+../dataset/cache2k-495a6491028d8eaa0ed9371ca974290d99c4686e/src/main/java/org/cache2k/config/Cache2kConfig.java:110: error: (initialization.field.uninitialized) $$ 1 $$ resiliencePolicy $$ ( 4282, 4363 ) $$ the default constructor does not initialize field resiliencePolicy
+  private CustomizationSupplier<? extends ResiliencePolicy<K, V>> resiliencePolicy;
+                                                                  ^
+../dataset/cache2k-495a6491028d8eaa0ed9371ca974290d99c4686e/src/main/java/org/cache2k/config/Cache2kConfig.java:111: error: (initialization.field.uninitialized) $$ 1 $$ loader $$ ( 4366, 4432 ) $$ the default constructor does not initialize field loader
+  private CustomizationSupplier<? extends CacheLoader<K, V>> loader;
+                                                             ^
+../dataset/cache2k-495a6491028d8eaa0ed9371ca974290d99c4686e/src/main/java/org/cache2k/config/Cache2kConfig.java:112: error: (initialization.field.uninitialized) $$ 1 $$ writer $$ ( 4435, 4501 ) $$ the default constructor does not initialize field writer
+  private CustomizationSupplier<? extends CacheWriter<K, V>> writer;
+                                                             ^
+../dataset/cache2k-495a6491028d8eaa0ed9371ca974290d99c4686e/src/main/java/org/cache2k/config/Cache2kConfig.java:113: error: (initialization.field.uninitialized) $$ 1 $$ advancedLoader $$ ( 4504, 4586 ) $$ the default constructor does not initialize field advancedLoader
+  private CustomizationSupplier<? extends AdvancedCacheLoader<K, V>> advancedLoader;
+                                                                     ^
+../dataset/cache2k-495a6491028d8eaa0ed9371ca974290d99c4686e/src/main/java/org/cache2k/config/Cache2kConfig.java:114: error: (initialization.field.uninitialized) $$ 1 $$ asyncLoader $$ ( 4589, 4665 ) $$ the default constructor does not initialize field asyncLoader
+  private CustomizationSupplier<? extends AsyncCacheLoader<K, V>> asyncLoader;
+                                                                  ^
+../dataset/cache2k-495a6491028d8eaa0ed9371ca974290d99c4686e/src/main/java/org/cache2k/config/Cache2kConfig.java:115: error: (initialization.field.uninitialized) $$ 1 $$ exceptionPropagator $$ ( 4668, 4752 ) $$ the default constructor does not initialize field exceptionPropagator
+  private CustomizationSupplier<? extends ExceptionPropagator<K>> exceptionPropagator;
+                                                                  ^
+../dataset/cache2k-495a6491028d8eaa0ed9371ca974290d99c4686e/src/main/java/org/cache2k/config/Cache2kConfig.java:116: error: (initialization.field.uninitialized) $$ 1 $$ weigher $$ ( 4755, 4818 ) $$ the default constructor does not initialize field weigher
+  private CustomizationSupplier<? extends Weigher<K, V>> weigher;
+                                                         ^
+../dataset/cache2k-495a6491028d8eaa0ed9371ca974290d99c4686e/src/main/java/org/cache2k/config/Cache2kConfig.java:118: error: (initialization.field.uninitialized) $$ 1 $$ listeners $$ ( 4822, 4899 ) $$ the default constructor does not initialize field listeners
+  private CustomizationCollection<CacheEntryOperationListener<K, V>> listeners;
+                                                                     ^
+../dataset/cache2k-495a6491028d8eaa0ed9371ca974290d99c4686e/src/main/java/org/cache2k/config/Cache2kConfig.java:119: error: (initialization.field.uninitialized) $$ 1 $$ asyncListeners $$ ( 4902, 4984 ) $$ the default constructor does not initialize field asyncListeners
+  private CustomizationCollection<CacheEntryOperationListener<K, V>> asyncListeners;
+                                                                     ^
+../dataset/cache2k-495a6491028d8eaa0ed9371ca974290d99c4686e/src/main/java/org/cache2k/config/Cache2kConfig.java:120: error: (initialization.field.uninitialized) $$ 1 $$ lifecycleListeners $$ ( 4987, 5072 ) $$ the default constructor does not initialize field lifecycleListeners
+  private Collection<CustomizationSupplier<CacheLifecycleListener>> lifecycleListeners;
+                                                                    ^
+../dataset/cache2k-495a6491028d8eaa0ed9371ca974290d99c4686e/src/main/java/org/cache2k/config/Cache2kConfig.java:121: error: (initialization.field.uninitialized) $$ 1 $$ features $$ ( 5075, 5105 ) $$ the default constructor does not initialize field features
+  private Set<Feature> features;
+                       ^
+../dataset/cache2k-495a6491028d8eaa0ed9371ca974290d99c4686e/src/main/java/org/cache2k/config/Cache2kConfig.java:122: error: (initialization.field.uninitialized) $$ 1 $$ sections $$ ( 5108, 5142 ) $$ the default constructor does not initialize field sections
+  private SectionContainer sections;
+                           ^
+../dataset/cache2k-495a6491028d8eaa0ed9371ca974290d99c4686e/src/main/java/org/cache2k/config/Cache2kConfig.java:223: error: (assignment) $$ 2 $$ @FBCBottom @Nullable NullType $$ @Initialized @NonNull CacheType<V extends @Initialized @Nullable Object> $$ ( 7399, 7403 ) $$ incompatible types in assignment.
+      valueType = null;
+                  ^
+  found   : @FBCBottom @Nullable NullType
+  required: @Initialized @NonNull CacheType<V extends @Initialized @Nullable Object>
+../dataset/cache2k-495a6491028d8eaa0ed9371ca974290d99c4686e/src/main/java/org/cache2k/config/Cache2kConfig.java:242: error: (assignment) $$ 2 $$ @FBCBottom @Nullable NullType $$ @Initialized @NonNull CacheType<V extends @Initialized @Nullable Object> $$ ( 7817, 7821 ) $$ incompatible types in assignment.
+      valueType = null;
+                  ^
+  found   : @FBCBottom @Nullable NullType
+  required: @Initialized @NonNull CacheType<V extends @Initialized @Nullable Object>
+../dataset/cache2k-495a6491028d8eaa0ed9371ca974290d99c4686e/src/main/java/org/cache2k/config/Cache2kConfig.java:263: error: (assignment) $$ 2 $$ @FBCBottom @Nullable NullType $$ @Initialized @NonNull Duration $$ ( 8340, 8344 ) $$ incompatible types in assignment.
+      v = null;
+          ^
+  found   : @FBCBottom @Nullable NullType
+  required: @Initialized @NonNull Duration
+../dataset/cache2k-495a6491028d8eaa0ed9371ca974290d99c4686e/src/main/java/org/cache2k/Cache2kBuilder.java:107: error: (argument) $$ 4 $$ keyType $$ Cache2kBuilder constructor $$ @FBCBottom @Nullable NullType $$ @Initialized @NonNull CacheType</*RAW*/> $$ ( 3684, 3688 ) $$ incompatible argument for parameter keyType of Cache2kBuilder constructor.
+    return new Cache2kBuilder(null, null);
+                              ^
+  found   : @FBCBottom @Nullable NullType
+  required: @Initialized @NonNull CacheType</*RAW*/>
+../dataset/cache2k-495a6491028d8eaa0ed9371ca974290d99c4686e/src/main/java/org/cache2k/Cache2kBuilder.java:107: error: (argument) $$ 4 $$ valueType $$ Cache2kBuilder constructor $$ @FBCBottom @Nullable NullType $$ @Initialized @NonNull CacheType</*RAW*/> $$ ( 3690, 3694 ) $$ incompatible argument for parameter valueType of Cache2kBuilder constructor.
+    return new Cache2kBuilder(null, null);
+                                    ^
+  found   : @FBCBottom @Nullable NullType
+  required: @Initialized @NonNull CacheType</*RAW*/>
+../dataset/cache2k-495a6491028d8eaa0ed9371ca974290d99c4686e/src/main/java/org/cache2k/Cache2kBuilder.java:132: error: (assignment) $$ 2 $$ @FBCBottom @Nullable NullType $$ @Initialized @NonNull Cache2kConfig<K extends @Initialized @Nullable Object, V extends @Initialized @Nullable Object> $$ ( 4486, 4490 ) $$ incompatible types in assignment.
+  private Cache2kConfig<K, V> config = null;
+                                       ^
+  found   : @FBCBottom @Nullable NullType
+  required: @Initialized @NonNull Cache2kConfig<K extends @Initialized @Nullable Object, V extends @Initialized @Nullable Object>
+../dataset/cache2k-495a6491028d8eaa0ed9371ca974290d99c4686e/src/main/java/org/cache2k/Cache2kBuilder.java:133: error: (assignment) $$ 2 $$ @FBCBottom @Nullable NullType $$ @Initialized @NonNull CacheManager $$ ( 4525, 4529 ) $$ incompatible types in assignment.
+  private CacheManager manager = null;
+                                 ^
+  found   : @FBCBottom @Nullable NullType
+  required: @Initialized @NonNull CacheManager
+../dataset/cache2k-495a6491028d8eaa0ed9371ca974290d99c4686e/src/main/java/org/cache2k/Cache2kBuilder.java:135: error: (initialization.fields.uninitialized) $$ 1 $$ keyType, valueType $$ ( 4534, 4608 ) $$ the constructor does not initialize fields: keyType, valueType
+  private Cache2kBuilder(Cache2kConfig<K, V> cfg) {
+          ^
+../dataset/cache2k-495a6491028d8eaa0ed9371ca974290d99c4686e/src/main/java/org/cache2k/Cache2kBuilder.java:136: error: (method.invocation) $$ 3 $$ withConfig(org.cache2k.config.Cache2kConfig<K,V>) $$ @UnderInitialization @NonNull Cache2kBuilder</*RAW*/> $$ @Initialized @NonNull Cache2kBuilder</*RAW*/> $$ ( 4588, 4603 ) $$ call to withConfig(org.cache2k.config.Cache2kConfig<K,V>) not allowed on the given receiver.
+    withConfig(cfg);
+              ^
+  found   : @UnderInitialization @NonNull Cache2kBuilder</*RAW*/>
+  required: @Initialized @NonNull Cache2kBuilder</*RAW*/>
+../dataset/cache2k-495a6491028d8eaa0ed9371ca974290d99c4686e/src/main/java/org/cache2k/io/ResiliencePolicy.java:59: error: (argument) $$ 4 $$ v $$ Cache2kConfig.setResiliencePolicy $$ @FBCBottom @Nullable NullType $$ @Initialized @NonNull CustomizationSupplier<? extends @Initialized @NonNull ResiliencePolicy<K extends @Initialized @Nullable Object, V extends @Initialized @Nullable Object>> $$ ( 1963, 1967 ) $$ incompatible argument for parameter v of Cache2kConfig.setResiliencePolicy.
+    b.config().setResiliencePolicy(null);
+                                   ^
+  found   : @FBCBottom @Nullable NullType
+  required: @Initialized @NonNull CustomizationSupplier<? extends @Initialized @NonNull ResiliencePolicy<K extends @Initialized @Nullable Object, V extends @Initialized @Nullable Object>>
+../dataset/cache2k-495a6491028d8eaa0ed9371ca974290d99c4686e/src/main/java/org/cache2k/config/SectionContainer.java:67: error: (return) $$ 2 $$ T[ extends @Initialized @NonNull ConfigSection</*RAW TYPE ARGUMENT:*/ ?[ extends @Initialized @NonNull ConfigSection</*RAW TYPE ARGUMENT:*/ ?, /*RAW TYPE ARGUMENT:*/ ?[ extends @Initialized @NonNull SectionBuilder</*RAW TYPE ARGUMENT:*/ ?, /*RAW TYPE ARGUMENT:*/ ?> super @Initialized @NonNull Void]> super @Initialized @NonNull Void], /*RAW TYPE ARGUMENT:*/ ?[ extends @Initialized @NonNull SectionBuilder</*RAW TYPE ARGUMENT:*/ ?, /*RAW TYPE ARGUMENT:*/ ?[ extends @Initialized @NonNull ConfigSection</*RAW TYPE ARGUMENT:*/ ?, /*RAW TYPE ARGUMENT:*/ ?> super @Initialized @NonNull Void]> super @Initialized @NonNull Void]> super @Initialized @Nullable Void] $$ T[ extends @Initialized @NonNull ConfigSection</*RAW TYPE ARGUMENT:*/ ?[ extends @Initialized @NonNull ConfigSection<SELF[ extends @Initialized @NonNull ConfigSection<SELF, B[ extends @Initialized @NonNull SectionBuilder<B, SELF> super @Initialized @NonNull Void]> super @Initialized @NonNull Void], B[ extends @Initialized @NonNull SectionBuilder<B, SELF[ extends @Initialized @NonNull ConfigSection<SELF, B> super @Initialized @NonNull Void]> super @Initialized @NonNull Void]> super @Initialized @NonNull Void], /*RAW TYPE ARGUMENT:*/ ?[ extends @Initialized @NonNull SectionBuilder<B[ extends @Initialized @NonNull SectionBuilder<B, SELF[ extends @Initialized @NonNull ConfigSection<SELF, B> super @Initialized @NonNull Void]> super @Initialized @NonNull Void], SELF[ extends @Initialized @NonNull ConfigSection<SELF, B[ extends @Initialized @NonNull SectionBuilder<B, SELF> super @Initialized @NonNull Void]> super @Initialized @NonNull Void]> super @Initialized @NonNull Void]> super @Initialized @NonNull Void] $$ ( 2167, 2196 ) $$ incompatible types in return.
+    return getSection(sectionType, null);
+                     ^
+  type of expression: T[ extends @Initialized @NonNull ConfigSection</*RAW TYPE ARGUMENT:*/ ?[ extends @Initialized @NonNull ConfigSection</*RAW TYPE ARGUMENT:*/ ?, /*RAW TYPE ARGUMENT:*/ ?[ extends @Initialized @NonNull SectionBuilder</*RAW TYPE ARGUMENT:*/ ?, /*RAW TYPE ARGUMENT:*/ ?> super @Initialized @NonNull Void]> super @Initialized @NonNull Void], /*RAW TYPE ARGUMENT:*/ ?[ extends @Initialized @NonNull SectionBuilder</*RAW TYPE ARGUMENT:*/ ?, /*RAW TYPE ARGUMENT:*/ ?[ extends @Initialized @NonNull ConfigSection</*RAW TYPE ARGUMENT:*/ ?, /*RAW TYPE ARGUMENT:*/ ?> super @Initialized @NonNull Void]> super @Initialized @NonNull Void]> super @Initialized @Nullable Void]
+  method return type: T[ extends @Initialized @NonNull ConfigSection</*RAW TYPE ARGUMENT:*/ ?[ extends @Initialized @NonNull ConfigSection<SELF[ extends @Initialized @NonNull ConfigSection<SELF, B[ extends @Initialized @NonNull SectionBuilder<B, SELF> super @Initialized @NonNull Void]> super @Initialized @NonNull Void], B[ extends @Initialized @NonNull SectionBuilder<B, SELF[ extends @Initialized @NonNull ConfigSection<SELF, B> super @Initialized @NonNull Void]> super @Initialized @NonNull Void]> super @Initialized @NonNull Void], /*RAW TYPE ARGUMENT:*/ ?[ extends @Initialized @NonNull SectionBuilder<B[ extends @Initialized @NonNull SectionBuilder<B, SELF[ extends @Initialized @NonNull ConfigSection<SELF, B> super @Initialized @NonNull Void]> super @Initialized @NonNull Void], SELF[ extends @Initialized @NonNull ConfigSection<SELF, B[ extends @Initialized @NonNull SectionBuilder<B, SELF> super @Initialized @NonNull Void]> super @Initialized @NonNull Void]> super @Initialized @NonNull Void]> super @Initialized @NonNull Void]
+../dataset/cache2k-495a6491028d8eaa0ed9371ca974290d99c4686e/src/main/java/org/cache2k/config/SectionContainer.java:67: error: (type.arguments.not.inferred) $$ 2 $$ SectionContainer.getSection $$ T extends @Initialized @NonNull ConfigSection</*RAW*/> <: T extends @Initialized @NonNull ConfigSection</*RAW*/> $$ ( 2167, 2196 ) $$ Could not infer type arguments for SectionContainer.getSection
+    return getSection(sectionType, null);
+                     ^
+  unsatisfiable constraint: T extends @Initialized @NonNull ConfigSection</*RAW*/> <: T extends @Initialized @NonNull ConfigSection</*RAW*/>
+../dataset/cache2k-495a6491028d8eaa0ed9371ca974290d99c4686e/src/main/java/org/cache2k/config/CustomizationReferenceSupplier.java:39: error: (argument) $$ 4 $$ obj $$ Cache2kConfig.checkNull $$ T extends @Initialized @Nullable Object $$ @Initialized @NonNull Object $$ ( 1214, 1217 ) $$ incompatible argument for parameter obj of Cache2kConfig.checkNull.
+    Cache2kConfig.checkNull(obj);
+                            ^
+  found   : T extends @Initialized @Nullable Object
+  required: @Initialized @NonNull Object
+../dataset/cache2k-495a6491028d8eaa0ed9371ca974290d99c4686e/src/main/java/org/cache2k/config/CustomizationReferenceSupplier.java:49: error: (override.param) $$ 7 $$ other $$ @Initialized @NonNull Object $$ @Initialized @Nullable Object $$ /*DECL*/ @Initialized @NonNull CustomizationReferenceSupplier<T/*DECL*/  extends @Initialized @Nullable Object> $$ @Initialized @NonNull boolean equals(@Initialized @NonNull CustomizationReferenceSupplier<T extends @Initialized @Nullable Object> this, @Initialized @NonNull Object p0) $$ @Initialized @NonNull Object $$ @Initialized @NonNull boolean equals(@Initialized @NonNull Object this, @Initialized @Nullable Object p0) $$ ( 1362, 1374 ) $$ Incompatible parameter type for other.
+  public boolean equals(Object other) {
+                               ^
+  found   : @Initialized @NonNull Object
+  required: @Initialized @Nullable Object
+  Consequence: method in /*DECL*/ @Initialized @NonNull CustomizationReferenceSupplier<T/*DECL*/  extends @Initialized @Nullable Object>
+    @Initialized @NonNull boolean equals(@Initialized @NonNull CustomizationReferenceSupplier<T extends @Initialized @Nullable Object> this, @Initialized @NonNull Object p0)
+  cannot override method in @Initialized @NonNull Object
+    @Initialized @NonNull boolean equals(@Initialized @NonNull Object this, @Initialized @Nullable Object p0)
+../dataset/cache2k-495a6491028d8eaa0ed9371ca974290d99c4686e/src/main/java/org/cache2k/config/CustomizationReferenceSupplier.java:57: error: (dereference.of.nullable) $$ 1 $$ object $$ ( 1614, 1620 ) $$ dereference of possibly-null reference object
+    return object.equals(obj.object);
+           ^
+../dataset/cache2k-495a6491028d8eaa0ed9371ca974290d99c4686e/src/main/java/org/cache2k/config/CustomizationReferenceSupplier.java:62: error: (dereference.of.nullable) $$ 1 $$ object $$ ( 1695, 1701 ) $$ dereference of possibly-null reference object
+    return object.hashCode();
+           ^
+../dataset/cache2k-495a6491028d8eaa0ed9371ca974290d99c4686e/src/main/java/org/cache2k/integration/LoadDetail.java:49: error: (return) $$ 2 $$ @FBCBottom @Nullable NullType $$ @Initialized @NonNull LoadDetail<V extends @Initialized @Nullable Object> $$ ( 1274, 1278 ) $$ incompatible types in return.
+    return null;
+           ^
+  type of expression: @FBCBottom @Nullable NullType
+  method return type: @Initialized @NonNull LoadDetail<V extends @Initialized @Nullable Object>
+../dataset/cache2k-495a6491028d8eaa0ed9371ca974290d99c4686e/src/main/java/org/cache2k/config/ToggleFeature.java:84: error: (return) $$ 2 $$ @FBCBottom @Nullable NullType $$ T extends @Initialized @NonNull ToggleFeature $$ ( 2784, 2788 ) $$ incompatible types in return.
+    return null;
+           ^
+  type of expression: @FBCBottom @Nullable NullType
+  method return type: T extends @Initialized @NonNull ToggleFeature
+../dataset/cache2k-495a6491028d8eaa0ed9371ca974290d99c4686e/src/main/java/org/cache2k/config/ToggleFeature.java:131: error: (override.param) $$ 7 $$ o $$ @Initialized @NonNull Object $$ @Initialized @Nullable Object $$ /*DECL*/ @Initialized @NonNull ToggleFeature $$ @Initialized @NonNull boolean equals(@Initialized @NonNull ToggleFeature this, @Initialized @NonNull Object p0) $$ @Initialized @NonNull Object $$ @Initialized @NonNull boolean equals(@Initialized @NonNull Object this, @Initialized @Nullable Object p0) $$ ( 3887, 3895 ) $$ Incompatible parameter type for o.
+  public final boolean equals(Object o) {
+                                     ^
+  found   : @Initialized @NonNull Object
+  required: @Initialized @Nullable Object
+  Consequence: method in /*DECL*/ @Initialized @NonNull ToggleFeature
+    @Initialized @NonNull boolean equals(@Initialized @NonNull ToggleFeature this, @Initialized @NonNull Object p0)
+  cannot override method in @Initialized @NonNull Object
+    @Initialized @NonNull boolean equals(@Initialized @NonNull Object this, @Initialized @Nullable Object p0)
+../dataset/cache2k-495a6491028d8eaa0ed9371ca974290d99c4686e/src/main/java/org/cache2k/config/CacheTypeCapture.java:49: error: (dereference.of.nullable) $$ 1 $$ ((ParameterizedType)this.getClass().getGenericSuperclass()) $$ ( 1527, 1587 ) $$ dereference of possibly-null reference ((ParameterizedType)this.getClass().getGenericSuperclass())
+      ((ParameterizedType) this.getClass().getGenericSuperclass()).getActualTypeArguments()[0]);
+      ^
+../dataset/cache2k-495a6491028d8eaa0ed9371ca974290d99c4686e/src/main/java/org/cache2k/config/CacheTypeCapture.java:85: error: (override.param) $$ 7 $$ o $$ @Initialized @NonNull Object $$ @Initialized @Nullable Object $$ /*DECL*/ @Initialized @NonNull CacheTypeCapture<T/*DECL*/  extends @Initialized @Nullable Object> $$ @Initialized @NonNull boolean equals(@Initialized @NonNull CacheTypeCapture<T extends @Initialized @Nullable Object> this, @Initialized @NonNull Object p0) $$ @Initialized @NonNull Object $$ @Initialized @NonNull boolean equals(@Initialized @NonNull Object this, @Initialized @Nullable Object p0) $$ ( 2299, 2307 ) $$ Incompatible parameter type for o.
+  public boolean equals(Object o) {
+                               ^
+  found   : @Initialized @NonNull Object
+  required: @Initialized @Nullable Object
+  Consequence: method in /*DECL*/ @Initialized @NonNull CacheTypeCapture<T/*DECL*/  extends @Initialized @Nullable Object>
+    @Initialized @NonNull boolean equals(@Initialized @NonNull CacheTypeCapture<T extends @Initialized @Nullable Object> this, @Initialized @NonNull Object p0)
+  cannot override method in @Initialized @NonNull Object
+    @Initialized @NonNull boolean equals(@Initialized @NonNull Object this, @Initialized @Nullable Object p0)
+../dataset/cache2k-495a6491028d8eaa0ed9371ca974290d99c4686e/src/main/java/org/cache2k/config/CacheTypeCapture.java:103: error: (return) $$ 2 $$ @FBCBottom @Nullable NullType $$ @Initialized @NonNull CacheType<? extends @Initialized @Nullable Object> $$ ( 2649, 2653 ) $$ incompatible types in return.
+      return null;
+             ^
+  type of expression: @FBCBottom @Nullable NullType
+  method return type: @Initialized @NonNull CacheType<? extends @Initialized @Nullable Object>
+../dataset/cache2k-495a6491028d8eaa0ed9371ca974290d99c4686e/src/main/java/org/cache2k/config/CacheTypeCapture.java:108: error: (return) $$ 2 $$ @FBCBottom @Nullable NullType $$ @Initialized @NonNull Class<T extends @Initialized @Nullable Object> $$ ( 2721, 2725 ) $$ incompatible types in return.
+      return null;
+             ^
+  type of expression: @FBCBottom @Nullable NullType
+  method return type: @Initialized @NonNull Class<T extends @Initialized @Nullable Object>
+../dataset/cache2k-495a6491028d8eaa0ed9371ca974290d99c4686e/src/main/java/org/cache2k/config/CacheTypeCapture.java:113: error: (return) $$ 2 $$ @FBCBottom @Nullable NullType $$ @Initialized @NonNull CacheType<? extends @Initialized @Nullable Object> @Initialized @NonNull [] $$ ( 2808, 2812 ) $$ incompatible types in return.
+      return null;
+             ^
+  type of expression: @FBCBottom @Nullable NullType
+  method return type: @Initialized @NonNull CacheType<? extends @Initialized @Nullable Object> @Initialized @NonNull []
+../dataset/cache2k-495a6491028d8eaa0ed9371ca974290d99c4686e/src/main/java/org/cache2k/config/CacheTypeCapture.java:162: error: (argument) $$ 4 $$ s $$ OfClass.shortenName $$ @Initialized @Nullable String $$ @Initialized @NonNull String $$ ( 3764, 3787 ) $$ incompatible argument for parameter s of OfClass.shortenName.
+      return shortenName(type.getCanonicalName());
+                                              ^
+  found   : @Initialized @Nullable String
+  required: @Initialized @NonNull String
+../dataset/cache2k-495a6491028d8eaa0ed9371ca974290d99c4686e/src/main/java/org/cache2k/config/CacheTypeCapture.java:166: error: (override.param) $$ 7 $$ o $$ @Initialized @NonNull Object $$ @Initialized @Nullable Object $$ /*DECL*/ @Initialized @NonNull OfClass<T/*DECL*/  extends @Initialized @Nullable Object> $$ @Initialized @NonNull boolean equals(@Initialized @NonNull OfClass<T extends @Initialized @Nullable Object> this, @Initialized @NonNull Object p0) $$ @Initialized @NonNull Object $$ @Initialized @NonNull boolean equals(@Initialized @NonNull Object this, @Initialized @Nullable Object p0) $$ ( 3837, 3845 ) $$ Incompatible parameter type for o.
+    public boolean equals(Object o) {
+                                 ^
+  found   : @Initialized @NonNull Object
+  required: @Initialized @Nullable Object
+  Consequence: method in /*DECL*/ @Initialized @NonNull OfClass<T/*DECL*/  extends @Initialized @Nullable Object>
+    @Initialized @NonNull boolean equals(@Initialized @NonNull OfClass<T extends @Initialized @Nullable Object> this, @Initialized @NonNull Object p0)
+  cannot override method in @Initialized @NonNull Object
+    @Initialized @NonNull boolean equals(@Initialized @NonNull Object this, @Initialized @Nullable Object p0)
+../dataset/cache2k-495a6491028d8eaa0ed9371ca974290d99c4686e/src/main/java/org/cache2k/config/CacheTypeCapture.java:237: error: (override.param) $$ 7 $$ o $$ @Initialized @NonNull Object $$ @Initialized @Nullable Object $$ /*DECL*/ @Initialized @NonNull OfArray $$ @Initialized @NonNull boolean equals(@Initialized @NonNull OfArray this, @Initialized @NonNull Object p0) $$ @Initialized @NonNull Object $$ @Initialized @NonNull boolean equals(@Initialized @NonNull Object this, @Initialized @Nullable Object p0) $$ ( 5367, 5375 ) $$ Incompatible parameter type for o.
+    public boolean equals(Object o) {
+                                 ^
+  found   : @Initialized @NonNull Object
+  required: @Initialized @Nullable Object
+  Consequence: method in /*DECL*/ @Initialized @NonNull OfArray
+    @Initialized @NonNull boolean equals(@Initialized @NonNull OfArray this, @Initialized @NonNull Object p0)
+  cannot override method in @Initialized @NonNull Object
+    @Initialized @NonNull boolean equals(@Initialized @NonNull Object this, @Initialized @Nullable Object p0)
+../dataset/cache2k-495a6491028d8eaa0ed9371ca974290d99c4686e/src/main/java/org/cache2k/config/CacheTypeCapture.java:281: error: (argument) $$ 4 $$ s $$ OfClass.shortenName $$ @Initialized @Nullable String $$ @Initialized @NonNull String $$ ( 6358, 6381 ) $$ incompatible argument for parameter s of OfClass.shortenName.
+        OfClass.shortenName(type.getCanonicalName()) + "<" + arrayToString(typeArguments) + '>';
+                                                 ^
+  found   : @Initialized @Nullable String
+  required: @Initialized @NonNull String
+../dataset/cache2k-495a6491028d8eaa0ed9371ca974290d99c4686e/src/main/java/org/cache2k/config/CacheTypeCapture.java:285: error: (override.param) $$ 7 $$ o $$ @Initialized @NonNull Object $$ @Initialized @Nullable Object $$ /*DECL*/ @Initialized @NonNull OfGeneric<T/*DECL*/  extends @Initialized @Nullable Object> $$ @Initialized @NonNull boolean equals(@Initialized @NonNull OfGeneric<T extends @Initialized @Nullable Object> this, @Initialized @NonNull Object p0) $$ @Initialized @NonNull Object $$ @Initialized @NonNull boolean equals(@Initialized @NonNull Object this, @Initialized @Nullable Object p0) $$ ( 6474, 6482 ) $$ Incompatible parameter type for o.
+    public boolean equals(Object o) {
+                                 ^
+  found   : @Initialized @NonNull Object
+  required: @Initialized @Nullable Object
+  Consequence: method in /*DECL*/ @Initialized @NonNull OfGeneric<T/*DECL*/  extends @Initialized @Nullable Object>
+    @Initialized @NonNull boolean equals(@Initialized @NonNull OfGeneric<T extends @Initialized @Nullable Object> this, @Initialized @NonNull Object p0)
+  cannot override method in @Initialized @NonNull Object
+    @Initialized @NonNull boolean equals(@Initialized @NonNull Object this, @Initialized @Nullable Object p0)
+../dataset/cache2k-495a6491028d8eaa0ed9371ca974290d99c4686e/src/main/java/org/cache2k/config/CustomizationSupplierByClassName.java:37: error: (initialization.fields.uninitialized) $$ 1 $$ className $$ ( 1037, 1082 ) $$ the constructor does not initialize fields: className
+  public CustomizationSupplierByClassName() { }
+         ^
+../dataset/cache2k-495a6491028d8eaa0ed9371ca974290d99c4686e/src/main/java/org/cache2k/config/CustomizationSupplierByClassName.java:85: error: (override.param) $$ 7 $$ other $$ @Initialized @NonNull Object $$ @Initialized @Nullable Object $$ /*DECL*/ @Initialized @NonNull CustomizationSupplierByClassName<T/*DECL*/  extends @Initialized @Nullable Object> $$ @Initialized @NonNull boolean equals(@Initialized @NonNull CustomizationSupplierByClassName<T extends @Initialized @Nullable Object> this, @Initialized @NonNull Object p0) $$ @Initialized @NonNull Object $$ @Initialized @NonNull boolean equals(@Initialized @NonNull Object this, @Initialized @Nullable Object p0) $$ ( 2307, 2319 ) $$ Incompatible parameter type for other.
+  public boolean equals(Object other) {
+                               ^
+  found   : @Initialized @NonNull Object
+  required: @Initialized @Nullable Object
+  Consequence: method in /*DECL*/ @Initialized @NonNull CustomizationSupplierByClassName<T/*DECL*/  extends @Initialized @Nullable Object>
+    @Initialized @NonNull boolean equals(@Initialized @NonNull CustomizationSupplierByClassName<T extends @Initialized @Nullable Object> this, @Initialized @NonNull Object p0)
+  cannot override method in @Initialized @NonNull Object
+    @Initialized @NonNull boolean equals(@Initialized @NonNull Object this, @Initialized @Nullable Object p0)
+../dataset/cache2k-495a6491028d8eaa0ed9371ca974290d99c4686e/src/main/java/org/cache2k/config/Cache2kManagerConfig.java:32: error: (assignment) $$ 2 $$ @FBCBottom @Nullable NullType $$ @Initialized @NonNull String $$ ( 1030, 1034 ) $$ incompatible types in assignment.
+  private String version = null;
+                           ^
+  found   : @FBCBottom @Nullable NullType
+  required: @Initialized @NonNull String
+../dataset/cache2k-495a6491028d8eaa0ed9371ca974290d99c4686e/src/main/java/org/cache2k/config/Cache2kManagerConfig.java:33: error: (assignment) $$ 2 $$ @FBCBottom @Nullable NullType $$ @Initialized @NonNull String $$ ( 1074, 1078 ) $$ incompatible types in assignment.
+  private String defaultManagerName = null;
+                                      ^
+  found   : @FBCBottom @Nullable NullType
+  required: @Initialized @NonNull String
+../dataset/cache2k-495a6491028d8eaa0ed9371ca974290d99c4686e/src/main/java/org/cache2k/config/Cache2kManagerConfig.java:106: error: (return) $$ 2 $$ @FBCBottom @Nullable NullType $$ @Initialized @NonNull Cache2kManagerConfig $$ ( 2940, 2944 ) $$ incompatible types in return.
+      return null;
+             ^
+  type of expression: @FBCBottom @Nullable NullType
+  method return type: @Initialized @NonNull Cache2kManagerConfig
+../dataset/cache2k-495a6491028d8eaa0ed9371ca974290d99c4686e/src/main/java/org/cache2k/integration/Loaders.java:42: error: (argument) $$ 4 $$ value $$ RefreshedTimeWrapper constructor $$ V extends @Initialized @Nullable Object $$ @Initialized @NonNull Object $$ ( 1243, 1248 ) $$ incompatible argument for parameter value of RefreshedTimeWrapper constructor.
+    return new RefreshedTimeWrapper<V>(value, refreshedTimeInMillis);
+                                       ^
+  found   : V extends @Initialized @Nullable Object
+  required: @Initialized @NonNull Object
+../dataset/cache2k-495a6491028d8eaa0ed9371ca974290d99c4686e/src/main/java/org/cache2k/AbstractCache.java:216: error: (type.argument) $$ 4 $$ K $$ ConcurrentMap $$ K extends @Initialized @Nullable Object $$ @Initialized @NonNull Object $$ ( 5172, 5173 ) $$ incompatible type argument for type parameter K of ConcurrentMap.
+  public ConcurrentMap<K, V> asMap() {
+                       ^
+  found   : K extends @Initialized @Nullable Object
+  required: @Initialized @NonNull Object
+../dataset/cache2k-495a6491028d8eaa0ed9371ca974290d99c4686e/src/main/java/org/cache2k/AbstractCache.java:216: error: (type.argument) $$ 4 $$ V $$ ConcurrentMap $$ V extends @Initialized @Nullable Object $$ @Initialized @NonNull Object $$ ( 5175, 5176 ) $$ incompatible type argument for type parameter V of ConcurrentMap.
+  public ConcurrentMap<K, V> asMap() {
+                          ^
+  found   : V extends @Initialized @Nullable Object
+  required: @Initialized @NonNull Object
+../dataset/cache2k-495a6491028d8eaa0ed9371ca974290d99c4686e/src/main/java/org/cache2k/ForwardingCache.java:235: error: (type.argument) $$ 4 $$ K $$ ConcurrentMap $$ K extends @Initialized @Nullable Object $$ @Initialized @NonNull Object $$ ( 5392, 5393 ) $$ incompatible type argument for type parameter K of ConcurrentMap.
+  public ConcurrentMap<K, V> asMap() {
+                       ^
+  found   : K extends @Initialized @Nullable Object
+  required: @Initialized @NonNull Object
+../dataset/cache2k-495a6491028d8eaa0ed9371ca974290d99c4686e/src/main/java/org/cache2k/ForwardingCache.java:235: error: (type.argument) $$ 4 $$ V $$ ConcurrentMap $$ V extends @Initialized @Nullable Object $$ @Initialized @NonNull Object $$ ( 5395, 5396 ) $$ incompatible type argument for type parameter V of ConcurrentMap.
+  public ConcurrentMap<K, V> asMap() {
+                          ^
+  found   : V extends @Initialized @Nullable Object
+  required: @Initialized @NonNull Object
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+64 errors
+1 warning

@@ -1,0 +1,4 @@
+rootProject.name = 'AnnotUtils'
+include 'AnnotLocator'
+include 'AnnotRemover'
+

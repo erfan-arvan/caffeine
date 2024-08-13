@@ -1,0 +1,859 @@
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/TableCell.java:21: error: package javax.annotation does not exist
+import javax.annotation.Nullable;
+                       ^
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/ReportPage.java:21: error: package javax.annotation does not exist
+import javax.annotation.Nullable;
+                       ^
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/Table.java:21: error: package javax.annotation does not exist
+import javax.annotation.Nullable;
+                       ^
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/TableRow.java:21: error: package javax.annotation does not exist
+import javax.annotation.Nullable;
+                       ^
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/ReportPageRow.java:21: error: package javax.annotation does not exist
+import javax.annotation.Nullable;
+                       ^
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/TableCellRange.java:21: error: package lombok does not exist
+import lombok.EqualsAndHashCode;
+             ^
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/TableCellRange.java:22: error: package lombok does not exist
+import lombok.Getter;
+             ^
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/TableCellRange.java:23: error: package lombok does not exist
+import lombok.RequiredArgsConstructor;
+             ^
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/TableCellRange.java:24: error: package lombok does not exist
+import lombok.ToString;
+             ^
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/TableCellRange.java:29: error: cannot find symbol
+@Getter
+ ^
+  symbol: class Getter
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/TableCellRange.java:30: error: cannot find symbol
+@EqualsAndHashCode
+ ^
+  symbol: class EqualsAndHashCode
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/TableCellRange.java:31: error: cannot find symbol
+@ToString
+ ^
+  symbol: class ToString
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/TableCellRange.java:32: error: cannot find symbol
+@RequiredArgsConstructor
+ ^
+  symbol: class RequiredArgsConstructor
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/TableCellAddress.java:21: error: package lombok does not exist
+import lombok.EqualsAndHashCode;
+             ^
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/TableCellAddress.java:22: error: package lombok does not exist
+import lombok.Getter;
+             ^
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/TableCellAddress.java:23: error: package lombok does not exist
+import lombok.RequiredArgsConstructor;
+             ^
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/TableCellAddress.java:24: error: package lombok does not exist
+import lombok.ToString;
+             ^
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/TableCellAddress.java:26: error: cannot find symbol
+@Getter
+ ^
+  symbol: class Getter
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/TableCellAddress.java:27: error: cannot find symbol
+@EqualsAndHashCode
+ ^
+  symbol: class EqualsAndHashCode
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/TableCellAddress.java:28: error: cannot find symbol
+@ToString
+ ^
+  symbol: class ToString
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/TableCellAddress.java:29: error: cannot find symbol
+@RequiredArgsConstructor
+ ^
+  symbol: class RequiredArgsConstructor
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/ConstantPositionTableColumn.java:21: error: package lombok does not exist
+import lombok.RequiredArgsConstructor;
+             ^
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/ConstantPositionTableColumn.java:22: error: package lombok does not exist
+import lombok.ToString;
+             ^
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/ConstantPositionTableColumn.java:24: error: cannot find symbol
+@ToString
+ ^
+  symbol: class ToString
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/ConstantPositionTableColumn.java:25: error: cannot find symbol
+@RequiredArgsConstructor(staticName = "of")
+ ^
+  symbol: class RequiredArgsConstructor
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/RelativePositionTableColumn.java:22: error: package lombok does not exist
+import lombok.RequiredArgsConstructor;
+             ^
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/RelativePositionTableColumn.java:23: error: package lombok does not exist
+import lombok.ToString;
+             ^
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/RelativePositionTableColumn.java:25: error: cannot find symbol
+@ToString
+ ^
+  symbol: class ToString
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/RelativePositionTableColumn.java:26: error: cannot find symbol
+@RequiredArgsConstructor(staticName = "of")
+ ^
+  symbol: class RequiredArgsConstructor
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/AbstractTableFactory.java:21: error: package lombok does not exist
+import lombok.AccessLevel;
+             ^
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/AbstractTableFactory.java:22: error: package lombok does not exist
+import lombok.RequiredArgsConstructor;
+             ^
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/AbstractTableFactory.java:28: error: cannot find symbol
+@RequiredArgsConstructor(access = AccessLevel.PROTECTED)
+ ^
+  symbol: class RequiredArgsConstructor
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/CellDataAccessObject.java:21: error: package javax.annotation does not exist
+import javax.annotation.Nullable;
+                       ^
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/AnyOfTableColumn.java:21: error: package lombok does not exist
+import lombok.EqualsAndHashCode;
+             ^
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/AnyOfTableColumn.java:22: error: package lombok does not exist
+import lombok.RequiredArgsConstructor;
+             ^
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/AnyOfTableColumn.java:23: error: package lombok does not exist
+import lombok.ToString;
+             ^
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/AnyOfTableColumn.java:27: error: cannot find symbol
+@ToString
+ ^
+  symbol: class ToString
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/AnyOfTableColumn.java:28: error: cannot find symbol
+@EqualsAndHashCode
+ ^
+  symbol: class EqualsAndHashCode
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/AnyOfTableColumn.java:29: error: cannot find symbol
+@RequiredArgsConstructor
+ ^
+  symbol: class RequiredArgsConstructor
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/AbstractReportPage.java:21: error: package javax.annotation does not exist
+import javax.annotation.Nullable;
+                       ^
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/AbstractReportPageRow.java:21: error: package lombok does not exist
+import lombok.RequiredArgsConstructor;
+             ^
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/AbstractReportPageRow.java:28: error: cannot find symbol
+    @RequiredArgsConstructor
+     ^
+  symbol:   class RequiredArgsConstructor
+  location: class AbstractReportPageRow
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/AbstractTableCell.java:21: error: package lombok does not exist
+import lombok.AccessLevel;
+             ^
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/AbstractTableCell.java:22: error: package lombok does not exist
+import lombok.Getter;
+             ^
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/AbstractTableCell.java:23: error: package lombok does not exist
+import lombok.RequiredArgsConstructor;
+             ^
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/AbstractTableCell.java:25: error: package javax.annotation does not exist
+import javax.annotation.Nullable;
+                       ^
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/AbstractTableCell.java:30: error: cannot find symbol
+@Getter(AccessLevel.PROTECTED)
+ ^
+  symbol: class Getter
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/AbstractTableCell.java:31: error: cannot find symbol
+@RequiredArgsConstructor(access = AccessLevel.PROTECTED)
+ ^
+  symbol: class RequiredArgsConstructor
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/MultiLineTableColumn.java:21: error: package lombok does not exist
+import lombok.RequiredArgsConstructor;
+             ^
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/MultiLineTableColumn.java:22: error: package lombok does not exist
+import lombok.ToString;
+             ^
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/MultiLineTableColumn.java:35: error: cannot find symbol
+@ToString
+ ^
+  symbol: class ToString
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/MultiLineTableColumn.java:36: error: cannot find symbol
+@RequiredArgsConstructor
+ ^
+  symbol: class RequiredArgsConstructor
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/AbstractTable.java:21: error: package lombok does not exist
+import lombok.Getter;
+             ^
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/AbstractTable.java:22: error: package lombok does not exist
+import lombok.ToString;
+             ^
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/AbstractTable.java:23: error: package lombok.extern.slf4j does not exist
+import lombok.extern.slf4j.Slf4j;
+                          ^
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/AbstractTable.java:25: error: package javax.annotation does not exist
+import javax.annotation.Nullable;
+                       ^
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/AbstractTable.java:42: error: cannot find symbol
+@Slf4j
+ ^
+  symbol: class Slf4j
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/AbstractTable.java:43: error: cannot find symbol
+@ToString(of = {"tableName"})
+ ^
+  symbol: class ToString
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/MutableTableRow.java:21: error: package lombok does not exist
+import lombok.AccessLevel;
+             ^
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/MutableTableRow.java:22: error: package lombok does not exist
+import lombok.Data;
+             ^
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/MutableTableRow.java:23: error: package lombok does not exist
+import lombok.Setter;
+             ^
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/MutableTableRow.java:25: error: package javax.annotation does not exist
+import javax.annotation.Nullable;
+                       ^
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/MutableTableRow.java:37: error: cannot find symbol
+@Data
+ ^
+  symbol: class Data
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/TableColumnImpl.java:21: error: package lombok does not exist
+import lombok.EqualsAndHashCode;
+             ^
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/TableColumnImpl.java:22: error: package lombok does not exist
+import lombok.ToString;
+             ^
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/TableColumnImpl.java:24: error: package javax.annotation does not exist
+import javax.annotation.Nullable;
+                       ^
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/TableColumnImpl.java:27: error: cannot find symbol
+@ToString
+ ^
+  symbol: class ToString
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/TableColumnImpl.java:28: error: cannot find symbol
+@EqualsAndHashCode
+ ^
+  symbol: class EqualsAndHashCode
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/NonNullByDefault.java:21: error: package javax.annotation does not exist
+import javax.annotation.Nonnull;
+                       ^
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/NonNullByDefault.java:22: error: package javax.annotation.meta does not exist
+import javax.annotation.meta.TypeQualifierDefault;
+                            ^
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/NonNullByDefault.java:39: error: cannot find symbol
+@Nonnull
+ ^
+  symbol: class Nonnull
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/NonNullByDefault.java:40: error: cannot find symbol
+@TypeQualifierDefault({
+ ^
+  symbol: class TypeQualifierDefault
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/TableCell.java:34: error: cannot find symbol
+    @Nullable
+     ^
+  symbol:   class Nullable
+  location: interface TableCell
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/TableCell.java:76: error: cannot find symbol
+    default Object getValueOrDefault(@Nullable Object defaultValue) {
+                                      ^
+  symbol:   class Nullable
+  location: interface TableCell
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/TableCell.java:75: error: cannot find symbol
+    @Nullable
+     ^
+  symbol:   class Nullable
+  location: interface TableCell
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/Table.java:72: error: cannot find symbol
+    @Nullable
+     ^
+  symbol:   class Nullable
+  location: interface Table
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/Table.java:78: error: cannot find symbol
+    @Nullable
+     ^
+  symbol:   class Nullable
+  location: interface Table
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/Table.java:84: error: cannot find symbol
+    @Nullable
+     ^
+  symbol:   class Nullable
+  location: interface Table
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/TableRow.java:34: error: cannot find symbol
+    @Nullable
+     ^
+  symbol:   class Nullable
+  location: interface TableRow
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/TableRow.java:40: error: cannot find symbol
+    @Nullable
+     ^
+  symbol:   class Nullable
+  location: interface TableRow
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/TableRow.java:82: error: cannot find symbol
+    default Object getCellValueOrDefault(TableColumnDescription column, @Nullable Object defaultValue) {
+                                                                         ^
+  symbol:   class Nullable
+  location: interface TableRow
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/TableRow.java:81: error: cannot find symbol
+    @Nullable
+     ^
+  symbol:   class Nullable
+  location: interface TableRow
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/ReportPageRow.java:29: error: cannot find symbol
+    @Nullable
+     ^
+  symbol:   class Nullable
+  location: interface ReportPageRow
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/ReportPage.java:156: error: cannot find symbol
+    default TableCellAddress findByPrefix(@Nullable String prefix, int startRow, int endRow, int startColumn, int endColumn) {
+                                           ^
+  symbol:   class Nullable
+  location: interface ReportPage
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/ReportPage.java:165: error: cannot find symbol
+    @Nullable
+     ^
+  symbol:   class Nullable
+  location: interface ReportPage
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/ReportPage.java:187: error: cannot find symbol
+    @Nullable
+     ^
+  symbol:   class Nullable
+  location: interface ReportPage
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/ReportPage.java:195: error: cannot find symbol
+    @Nullable
+     ^
+  symbol:   class Nullable
+  location: interface ReportPage
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/ReportPage.java:205: error: cannot find symbol
+    default TableCellRange getTableCellRange(@Nullable String firstRowPrefix,
+                                              ^
+  symbol:   class Nullable
+  location: interface ReportPage
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/ReportPage.java:207: error: cannot find symbol
+                                             @Nullable String lastRowPrefix) {
+                                              ^
+  symbol:   class Nullable
+  location: interface ReportPage
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/ReportPage.java:220: error: cannot find symbol
+    default TableCellRange getTableCellRange(@Nullable Predicate<Object> firstRowFinder,
+                                              ^
+  symbol:   class Nullable
+  location: interface ReportPage
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/ReportPage.java:222: error: cannot find symbol
+                                             @Nullable Predicate<Object> lastRowFinder) {
+                                              ^
+  symbol:   class Nullable
+  location: interface ReportPage
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/ReportPage.java:247: error: cannot find symbol
+    default TableCellRange getTableCellRange(@Nullable String firstRowPrefix, int headersRowCount) {
+                                              ^
+  symbol:   class Nullable
+  location: interface ReportPage
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/ReportPage.java:259: error: cannot find symbol
+    default TableCellRange getTableCellRange(@Nullable Predicate<Object> firstRowFinder, int headersRowCount) {
+                                              ^
+  symbol:   class Nullable
+  location: interface ReportPage
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/AbstractTableFactory.java:28: error: cannot find symbol
+@RequiredArgsConstructor(access = AccessLevel.PROTECTED)
+                                  ^
+  symbol: variable AccessLevel
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/CellDataAccessObject.java:41: error: cannot find symbol
+    @Nullable
+     ^
+  symbol:   class Nullable
+  location: interface CellDataAccessObject<C,R>
+  where C,R are type-variables:
+    C extends Object declared in interface CellDataAccessObject
+    R extends ReportPageRow declared in interface CellDataAccessObject
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/CellDataAccessObject.java:44: error: cannot find symbol
+    @Nullable
+     ^
+  symbol:   class Nullable
+  location: interface CellDataAccessObject<C,R>
+  where C,R are type-variables:
+    C extends Object declared in interface CellDataAccessObject
+    R extends ReportPageRow declared in interface CellDataAccessObject
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/CellDataAccessObject.java:125: error: cannot find symbol
+    @Nullable
+     ^
+  symbol:   class Nullable
+  location: interface CellDataAccessObject<C,R>
+  where C,R are type-variables:
+    C extends Object declared in interface CellDataAccessObject
+    R extends ReportPageRow declared in interface CellDataAccessObject
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/AbstractReportPage.java:28: error: cannot find symbol
+    @Nullable
+     ^
+  symbol:   class Nullable
+  location: class AbstractReportPage<T>
+  where T is a type-variable:
+    T extends ReportPageRow declared in class AbstractReportPage
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/AbstractTableCell.java:30: error: cannot find symbol
+@Getter(AccessLevel.PROTECTED)
+        ^
+  symbol: variable AccessLevel
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/AbstractTableCell.java:31: error: cannot find symbol
+@RequiredArgsConstructor(access = AccessLevel.PROTECTED)
+                                  ^
+  symbol: variable AccessLevel
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/AbstractTableCell.java:37: error: cannot find symbol
+    @Nullable
+     ^
+  symbol:   class Nullable
+  location: class AbstractTableCell<T>
+  where T is a type-variable:
+    T extends Object declared in class AbstractTableCell
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/AbstractTable.java:46: error: cannot find symbol
+    @Getter
+     ^
+  symbol:   class Getter
+  location: class AbstractTable<R>
+  where R is a type-variable:
+    R extends ReportPageRow declared in class AbstractTable
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/AbstractTable.java:49: error: cannot find symbol
+    @Getter
+     ^
+  symbol:   class Getter
+  location: class AbstractTable<R>
+  where R is a type-variable:
+    R extends ReportPageRow declared in class AbstractTable
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/AbstractTable.java:51: error: cannot find symbol
+    @Getter
+     ^
+  symbol:   class Getter
+  location: class AbstractTable<R>
+  where R is a type-variable:
+    R extends ReportPageRow declared in class AbstractTable
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/AbstractTable.java:53: error: cannot find symbol
+    @Getter
+     ^
+  symbol:   class Getter
+  location: class AbstractTable<R>
+  where R is a type-variable:
+    R extends ReportPageRow declared in class AbstractTable
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/AbstractTable.java:235: error: cannot find symbol
+    @Nullable
+     ^
+  symbol:   class Nullable
+  location: class AbstractTable<R>
+  where R is a type-variable:
+    R extends ReportPageRow declared in class AbstractTable
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/AbstractTable.java:241: error: cannot find symbol
+    @Nullable
+     ^
+  symbol:   class Nullable
+  location: class AbstractTable<R>
+  where R is a type-variable:
+    R extends ReportPageRow declared in class AbstractTable
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/AbstractTable.java:248: error: cannot find symbol
+    @Nullable
+     ^
+  symbol:   class Nullable
+  location: class AbstractTable<R>
+  where R is a type-variable:
+    R extends ReportPageRow declared in class AbstractTable
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/AbstractTable.java:255: error: cannot find symbol
+    @Nullable
+     ^
+  symbol:   class Nullable
+  location: class AbstractTable<R>
+  where R is a type-variable:
+    R extends ReportPageRow declared in class AbstractTable
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/MutableTableRow.java:43: error: cannot find symbol
+    @Setter(AccessLevel.PACKAGE)
+     ^
+  symbol:   class Setter
+  location: class MutableTableRow<T>
+  where T is a type-variable:
+    T extends ReportPageRow declared in class MutableTableRow
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/MutableTableRow.java:43: error: cannot find symbol
+    @Setter(AccessLevel.PACKAGE)
+            ^
+  symbol:   variable AccessLevel
+  location: class MutableTableRow<T>
+  where T is a type-variable:
+    T extends ReportPageRow declared in class MutableTableRow
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/MutableTableRow.java:46: error: cannot find symbol
+    @Nullable
+     ^
+  symbol:   class Nullable
+  location: class MutableTableRow<T>
+  where T is a type-variable:
+    T extends ReportPageRow declared in class MutableTableRow
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/MutableTableRow.java:81: error: cannot find symbol
+    @Nullable
+     ^
+  symbol:   class Nullable
+  location: class MutableTableRow<T>
+  where T is a type-variable:
+    T extends ReportPageRow declared in class MutableTableRow
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/TableFactory.java:128: error: cannot find symbol
+                    reportPage.find(range.getFirstRow(), range.getFirstRow() + 1, tableNameFinder);
+                                                              ^
+  symbol:   method getFirstRow()
+  location: variable range of type TableCellRange
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/TableFactory.java:128: error: cannot find symbol
+                    reportPage.find(range.getFirstRow(), range.getFirstRow() + 1, tableNameFinder);
+                                         ^
+  symbol:   method getFirstRow()
+  location: variable range of type TableCellRange
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/TableFactory.java:155: error: cannot find symbol
+                    reportPage.find(range.getFirstRow(), range.getFirstRow() + 1, tableNameFinder);
+                                                              ^
+  symbol:   method getFirstRow()
+  location: variable range of type TableCellRange
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/TableFactory.java:155: error: cannot find symbol
+                    reportPage.find(range.getFirstRow(), range.getFirstRow() + 1, tableNameFinder);
+                                         ^
+  symbol:   method getFirstRow()
+  location: variable range of type TableCellRange
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/ReportPage.java:168: error: cannot find symbol
+        @Nullable ReportPageRow row = getRow(address.getRow());
+         ^
+  symbol:   class Nullable
+  location: interface ReportPage
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/ReportPage.java:168: error: cannot find symbol
+        @Nullable ReportPageRow row = getRow(address.getRow());
+                                                    ^
+  symbol:   method getRow()
+  location: variable address of type TableCellAddress
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/ReportPage.java:170: error: cannot find symbol
+            for (@Nullable TableCell cell : row) {
+                  ^
+  symbol:   class Nullable
+  location: interface ReportPage
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/ReportPage.java:171: error: cannot find symbol
+                if (cell != null && cell.getColumnIndex() > address.getColumn()) {
+                                                                   ^
+  symbol:   method getColumn()
+  location: variable address of type TableCellAddress
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/ReportPage.java:172: error: cannot find symbol
+                    @Nullable Object value = cell.getValue();
+                     ^
+  symbol:   class Nullable
+  location: interface ReportPage
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/ReportPage.java:197: error: cannot find symbol
+        @Nullable ReportPageRow row = getRow(address.getRow());
+         ^
+  symbol:   class Nullable
+  location: interface ReportPage
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/ReportPage.java:197: error: cannot find symbol
+        @Nullable ReportPageRow row = getRow(address.getRow());
+                                                    ^
+  symbol:   method getRow()
+  location: variable address of type TableCellAddress
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/ReportPage.java:198: error: cannot find symbol
+        return (row == null) ? null : row.getCell(address.getColumn());
+                                                         ^
+  symbol:   method getColumn()
+  location: variable address of type TableCellAddress
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/ReportPage.java:230: error: cannot find symbol
+        ReportPageRow firstRow = requireNonNull(getRow(startAddress.getRow()), "Row not found");
+                                                                   ^
+  symbol:   method getRow()
+  location: variable startAddress of type TableCellAddress
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/ReportPage.java:231: error: cannot find symbol
+        TableCellAddress endAddress = find(startAddress.getRow() + headersRowCount + 1, lastRowFinder);
+                                                       ^
+  symbol:   method getRow()
+  location: variable startAddress of type TableCellAddress
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/ReportPage.java:235: error: cannot find symbol
+        ReportPageRow lastRow = requireNonNull(getRow(endAddress.getRow()), "Row not found");
+                                                                ^
+  symbol:   method getRow()
+  location: variable endAddress of type TableCellAddress
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/ReportPage.java:238: error: cannot find symbol
+                endAddress.getRow(),
+                          ^
+  symbol:   method getRow()
+  location: variable endAddress of type TableCellAddress
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/ReportPage.java:237: error: cannot find symbol
+                startAddress.getRow(),
+                            ^
+  symbol:   method getRow()
+  location: variable startAddress of type TableCellAddress
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/ReportPage.java:267: error: cannot find symbol
+        ReportPageRow firstRow = requireNonNull(getRow(startAddress.getRow()), "Row not found");
+                                                                   ^
+  symbol:   method getRow()
+  location: variable startAddress of type TableCellAddress
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/ReportPage.java:268: error: cannot find symbol
+        int lastRowNum = findEmptyRow(startAddress.getRow() + headersRowCount + 1);
+                                                  ^
+  symbol:   method getRow()
+  location: variable startAddress of type TableCellAddress
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/ReportPage.java:274: error: cannot find symbol
+        if (lastRowNum < startAddress.getRow()) {
+                                     ^
+  symbol:   method getRow()
+  location: variable startAddress of type TableCellAddress
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/ReportPage.java:275: error: cannot find symbol
+            lastRowNum = startAddress.getRow();
+                                     ^
+  symbol:   method getRow()
+  location: variable startAddress of type TableCellAddress
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/ReportPage.java:279: error: cannot find symbol
+                startAddress.getRow(),
+                            ^
+  symbol:   method getRow()
+  location: variable startAddress of type TableCellAddress
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/ReportPage.java:296: error: cannot find symbol
+            @Nullable ReportPageRow row = getRow(lastRowNum);
+             ^
+  symbol:   class Nullable
+  location: interface ReportPage
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/ReportPage.java:300: error: cannot find symbol
+            for (@Nullable TableCell cell : row) {
+                  ^
+  symbol:   class Nullable
+  location: interface ReportPage
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/ReportPage.java:301: error: cannot find symbol
+                @Nullable Object value;
+                 ^
+  symbol:   class Nullable
+  location: interface ReportPage
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/TableCellRange.java:42: error: cannot find symbol
+        return containsRow(address.getRow()) && containsColumn(address.getColumn());
+                                  ^
+  symbol:   method getRow()
+  location: variable address of type TableCellAddress
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/TableCellRange.java:42: error: cannot find symbol
+        return containsRow(address.getRow()) && containsColumn(address.getColumn());
+                                                                      ^
+  symbol:   method getColumn()
+  location: variable address of type TableCellAddress
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/TableCellRange.java:58: error: constructor TableCellRange in class TableCellRange cannot be applied to given types;
+        return new TableCellRange(firstRow - number, lastRow, firstColumn, lastColumn);
+               ^
+  required: no arguments
+  found:    int,int,int,int
+  reason: actual and formal argument lists differ in length
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/TableCellRange.java:65: error: constructor TableCellRange in class TableCellRange cannot be applied to given types;
+        return new TableCellRange(firstRow, lastRow + number, firstColumn, lastColumn);
+               ^
+  required: no arguments
+  found:    int,int,int,int
+  reason: actual and formal argument lists differ in length
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/TableCellRange.java:74: error: constructor TableCellRange in class TableCellRange cannot be applied to given types;
+        return new TableCellRange(firstRow, lastRow, firstColumn - number, lastColumn);
+               ^
+  required: no arguments
+  found:    int,int,int,int
+  reason: actual and formal argument lists differ in length
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/TableCellRange.java:82: error: constructor TableCellRange in class TableCellRange cannot be applied to given types;
+        return new TableCellRange(firstRow, lastRow, firstColumn, lastColumn + number);
+               ^
+  required: no arguments
+  found:    int,int,int,int
+  reason: actual and formal argument lists differ in length
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/TableCellRange.java:88: error: constructor TableCellRange in class TableCellRange cannot be applied to given types;
+            super(0, 0, 0, 0);
+            ^
+  required: no arguments
+  found:    int,int,int,int
+  reason: actual and formal argument lists differ in length
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/TableCellRange.java:36: error: variable firstRow not initialized in the default constructor
+    private final int firstRow;
+                      ^
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/TableCellRange.java:37: error: variable lastRow not initialized in the default constructor
+    private final int lastRow;
+                      ^
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/TableCellRange.java:38: error: variable firstColumn not initialized in the default constructor
+    private final int firstColumn;
+                      ^
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/TableCellRange.java:39: error: variable lastColumn not initialized in the default constructor
+    private final int lastColumn;
+                      ^
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/TableCellAddress.java:31: error: constructor TableCellAddress in class TableCellAddress cannot be applied to given types;
+    public static final TableCellAddress NOT_FOUND = new TableCellAddress(-1, -1);
+                                                     ^
+  required: no arguments
+  found:    int,int
+  reason: actual and formal argument lists differ in length
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/TableCellAddress.java:33: error: variable row not initialized in the default constructor
+    private final int row;
+                      ^
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/TableCellAddress.java:34: error: variable column not initialized in the default constructor
+    private final int column;
+                      ^
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/ConstantPositionTableColumn.java:27: error: variable columnIndex not initialized in the default constructor
+    private final int columnIndex;
+                      ^
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/RelativePositionTableColumn.java:28: error: variable relatedTableColumn not initialized in the default constructor
+    private final TableColumn relatedTableColumn;
+                              ^
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/RelativePositionTableColumn.java:29: error: variable relatedOffset not initialized in the default constructor
+    private final int relatedOffset;
+                      ^
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/AbstractTableFactory.java:31: error: variable reportPageType not initialized in the default constructor
+    private final Class<T> reportPageType;
+                           ^
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/CellDataAccessObject.java:58: error: cannot find symbol
+        @Nullable Object value = getValue(cell);
+         ^
+  symbol:   class Nullable
+  location: interface CellDataAccessObject<C,R>
+  where C,R are type-variables:
+    C extends Object declared in interface CellDataAccessObject
+    R extends ReportPageRow declared in interface CellDataAccessObject
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/CellDataAccessObject.java:72: error: cannot find symbol
+        @Nullable Object value = getValue(cell);
+         ^
+  symbol:   class Nullable
+  location: interface CellDataAccessObject<C,R>
+  where C,R are type-variables:
+    C extends Object declared in interface CellDataAccessObject
+    R extends ReportPageRow declared in interface CellDataAccessObject
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/CellDataAccessObject.java:127: error: cannot find symbol
+        @Nullable C cell = getCell(row, cellIndex);
+         ^
+  symbol:   class Nullable
+  location: interface CellDataAccessObject<C,R>
+  where C,R are type-variables:
+    C extends Object declared in interface CellDataAccessObject
+    R extends ReportPageRow declared in interface CellDataAccessObject
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/AnyOfTableColumn.java:35: error: constructor AnyOfTableColumn in class AnyOfTableColumn cannot be applied to given types;
+        return new AnyOfTableColumn(columns);
+               ^
+  required: no arguments
+  found:    TableColumn[]
+  reason: actual and formal argument lists differ in length
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/AnyOfTableColumn.java:32: error: variable columns not initialized in the default constructor
+    private final TableColumn[] columns;
+                                ^
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/AbstractReportPageRow.java:31: error: variable innerIterator not initialized in the default constructor
+        private final Iterator<T> innerIterator;
+                                  ^
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/AbstractReportPageRow.java:32: error: variable converter not initialized in the default constructor
+        private final Function<T, TableCell> converter;
+                                             ^
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/AbstractTableCell.java:34: error: variable cell not initialized in the default constructor
+    private final T cell;
+                    ^
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/AbstractTableCell.java:35: error: variable dao not initialized in the default constructor
+    private final CellDataAccessObject<T, ?> dao;
+                                             ^
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/MultiLineTableColumn.java:44: error: constructor MultiLineTableColumn in class MultiLineTableColumn cannot be applied to given types;
+        return new MultiLineTableColumn(rowDescriptors);
+               ^
+  required: no arguments
+  found:    TableColumn[]
+  reason: actual and formal argument lists differ in length
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/MultiLineTableColumn.java:48: error: constructor MultiLineTableColumn in class MultiLineTableColumn cannot be applied to given types;
+        return new MultiLineTableColumn(Arrays.stream(rowDescriptors)
+               ^
+  required: no arguments
+  found:    TableColumn[]
+  reason: actual and formal argument lists differ in length
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/MultiLineTableColumn.java:38: error: variable rowDescriptors not initialized in the default constructor
+    private final TableColumn[] rowDescriptors;
+                                ^
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/AbstractTable.java:82: error: cannot find symbol
+                        getColumnIndices(this.headerDescription).max().orElse(tableRange.getLastColumn()));
+                                                                                        ^
+  symbol:   method getLastColumn()
+  location: variable tableRange of type TableCellRange
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/AbstractTable.java:81: error: cannot find symbol
+                        getColumnIndices(this.headerDescription).min().orElse(tableRange.getFirstColumn()),
+                                                                                        ^
+  symbol:   method getFirstColumn()
+  location: variable tableRange of type TableCellRange
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/AbstractTable.java:80: error: cannot find symbol
+                        tableRange.getLastRow(),
+                                  ^
+  symbol:   method getLastRow()
+  location: variable tableRange of type TableCellRange
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/AbstractTable.java:79: error: cannot find symbol
+                        tableRange.getFirstRow(),
+                                  ^
+  symbol:   method getFirstRow()
+  location: variable tableRange of type TableCellRange
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/AbstractTable.java:101: error: cannot find symbol
+        return tableRange.getLastRow() - tableRange.getFirstRow() + 1;
+                         ^
+  symbol:   method getLastRow()
+  location: variable tableRange of type TableCellRange
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/AbstractTable.java:101: error: cannot find symbol
+        return tableRange.getLastRow() - tableRange.getFirstRow() + 1;
+                                                   ^
+  symbol:   method getFirstRow()
+  location: variable tableRange of type TableCellRange
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/AbstractTable.java:110: error: cannot find symbol
+            headerRows[i] = reportPage.getRow(tableRange.getFirstRow() + 1 + i);
+                                                        ^
+  symbol:   method getFirstRow()
+  location: variable tableRange of type TableCellRange
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/AbstractTable.java:161: error: cannot find symbol
+        for (@Nullable TableRow row : this) {
+              ^
+  symbol:   class Nullable
+  location: class AbstractTable<R>
+  where R is a type-variable:
+    R extends ReportPageRow declared in class AbstractTable
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/AbstractTable.java:166: error: cannot find symbol
+                    log.warn("Не могу распарсить таблицу '{}' в {}, строка {}",
+                    ^
+  symbol:   variable log
+  location: class AbstractTable<R>
+  where R is a type-variable:
+    R extends ReportPageRow declared in class AbstractTable
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/AbstractTable.java:178: error: cannot find symbol
+        @Nullable T equalsObject = null;
+         ^
+  symbol:   class Nullable
+  location: class AbstractTable<R>
+  where R is a type-variable:
+    R extends ReportPageRow declared in class AbstractTable
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/AbstractTable.java:215: error: cannot infer type arguments for MutableTableRow<>
+                new MutableTableRow<>(AbstractTable.this, getCellDataAccessObject());
+                ^
+  reason: cannot infer type-variable(s) T
+    (actual and formal argument lists differ in length)
+  where T is a type-variable:
+    T extends ReportPageRow declared in class MutableTableRow
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/AbstractTable.java:226: error: cannot find symbol
+            @Nullable R row;
+             ^
+  symbol:   class Nullable
+  location: class AbstractTable<R>.TableIterator
+  where R is a type-variable:
+    R extends ReportPageRow declared in class AbstractTable
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/AbstractTable.java:228: error: cannot find symbol
+                row = getRow(tableRange.getFirstRow() + (i++));
+                                       ^
+  symbol:   method getFirstRow()
+  location: variable tableRange of type TableCellRange
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/AbstractTable.java:230: error: cannot find symbol
+            tableRow.setRow(row);
+                    ^
+  symbol:   method setRow(R)
+  location: variable tableRow of type MutableTableRow<R>
+  where R is a type-variable:
+    R extends ReportPageRow declared in class AbstractTable
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/AbstractTable.java:258: error: cannot infer type arguments for MutableTableRow<>
+            MutableTableRow<R> tableRow = new MutableTableRow<>(this, getCellDataAccessObject());
+                                          ^
+  reason: cannot infer type-variable(s) T
+    (actual and formal argument lists differ in length)
+  where T is a type-variable:
+    T extends ReportPageRow declared in class MutableTableRow
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/AbstractTable.java:259: error: cannot find symbol
+            tableRow.setRow(getRow(address.getRow()));
+                                          ^
+  symbol:   method getRow()
+  location: variable address of type TableCellAddress
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/MutableTableRow.java:38: error: MutableTableRow is not abstract and does not override abstract method getTable() in TableRow
+class MutableTableRow<T extends ReportPageRow> implements TableRow {
+^
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/MutableTableRow.java:40: error: variable table not initialized in the default constructor
+    private final Table table;
+                        ^
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/MutableTableRow.java:41: error: variable dao not initialized in the default constructor
+    private final CellDataAccessObject<?, T> dao;
+                                             ^
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/TableColumnImpl.java:48: error: cannot find symbol
+            for (@Nullable TableCell cell : header) {
+                  ^
+  symbol:   class Nullable
+  location: class TableColumnImpl
+../dataset/table-wrapper-api-0dda92e5468e5677a7773f5ca62ed2ba1b719cf6/src/main/java/org/spacious_team/table_wrapper/api/TableColumnImpl.java:49: error: cannot find symbol
+                @Nullable Object value;
+                 ^
+  symbol:   class Nullable
+  location: class TableColumnImpl
+189 errors

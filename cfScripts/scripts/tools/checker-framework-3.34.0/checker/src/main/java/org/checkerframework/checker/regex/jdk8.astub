@@ -1,0 +1,17 @@
+// This file is for classes that appear in JDK 8 but not in JDK 11.
+
+import org.checkerframework.checker.regex.qual.*;
+
+package javax.swing.plaf.synth;
+
+class DefaultSynthStyleFactory extends SynthStyleFactory {
+    public synchronized void addStyle(DefaultSynthStyle style,
+                         @Regex String path, int type) throws PatternSyntaxException;
+}
+
+package javax.swing;
+
+public abstract class RowFilter<M,I> {
+    public static <M,I> RowFilter<M,I> regexFilter(@Regex String regex,
+                                                       int... indices);
+}

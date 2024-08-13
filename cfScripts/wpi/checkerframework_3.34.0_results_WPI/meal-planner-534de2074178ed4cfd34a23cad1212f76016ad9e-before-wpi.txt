@@ -1,0 +1,186 @@
+warning: The following options were not recognized by any processor: '[verbosity]'
+../dataset/meal-planner-534de2074178ed4cfd34a23cad1212f76016ad9e/src/test/java/de/zuellich/meal_planner/FixtureBasedTest.java:18: error: (argument) $$ 4 $$ source $$ Scanner constructor $$ @Initialized @Nullable InputStream $$ @Initialized @NonNull InputStream $$ ( 570, 572 ) $$ incompatible argument for parameter source of Scanner constructor.
+      Scanner scanner = new Scanner(in, "UTF-8").useDelimiter("\\A");
+                                    ^
+  found   : @Initialized @Nullable InputStream
+  required: @Initialized @NonNull InputStream
+../dataset/meal-planner-534de2074178ed4cfd34a23cad1212f76016ad9e/src/test/java/de/zuellich/meal_planner/pinterest/services/BoardServiceCachingTest.java:30: error: (initialization.field.uninitialized) $$ 1 $$ restTemplateToMock $$ ( 1147, 1206 ) $$ the default constructor does not initialize field restTemplateToMock
+  @Autowired private OAuth2RestOperations restTemplateToMock;
+                                          ^
+../dataset/meal-planner-534de2074178ed4cfd34a23cad1212f76016ad9e/src/test/java/de/zuellich/meal_planner/pinterest/services/BoardServiceCachingTest.java:32: error: (initialization.field.uninitialized) $$ 1 $$ boardService $$ ( 1210, 1256 ) $$ the default constructor does not initialize field boardService
+  @Autowired private IBoardService boardService;
+                                   ^
+../dataset/meal-planner-534de2074178ed4cfd34a23cad1212f76016ad9e/src/main/java/de/zuellich/meal_planner/pinterest/datatypes/Board.java:8: error: (initialization.field.uninitialized) $$ 1 $$ id $$ ( 113, 131 ) $$ the default constructor does not initialize field id
+  private String id;
+                 ^
+../dataset/meal-planner-534de2074178ed4cfd34a23cad1212f76016ad9e/src/main/java/de/zuellich/meal_planner/pinterest/datatypes/Board.java:10: error: (initialization.field.uninitialized) $$ 1 $$ name $$ ( 135, 155 ) $$ the default constructor does not initialize field name
+  private String name;
+                 ^
+../dataset/meal-planner-534de2074178ed4cfd34a23cad1212f76016ad9e/src/main/java/de/zuellich/meal_planner/pinterest/datatypes/Board.java:12: error: (initialization.field.uninitialized) $$ 1 $$ url $$ ( 159, 178 ) $$ the default constructor does not initialize field url
+  private String url;
+                 ^
+../dataset/meal-planner-534de2074178ed4cfd34a23cad1212f76016ad9e/src/main/java/de/zuellich/meal_planner/pinterest/datatypes/Board.java:39: error: (override.param) $$ 7 $$ o $$ @Initialized @NonNull Object $$ @Initialized @Nullable Object $$ /*DECL*/ @Initialized @NonNull Board $$ @Initialized @NonNull boolean equals(@Initialized @NonNull Board this, @Initialized @NonNull Object p0) $$ @Initialized @NonNull Object $$ @Initialized @NonNull boolean equals(@Initialized @NonNull Object this, @Initialized @Nullable Object p0) $$ ( 540, 548 ) $$ Incompatible parameter type for o.
+  public boolean equals(Object o) {
+                               ^
+  found   : @Initialized @NonNull Object
+  required: @Initialized @Nullable Object
+  Consequence: method in /*DECL*/ @Initialized @NonNull Board
+    @Initialized @NonNull boolean equals(@Initialized @NonNull Board this, @Initialized @NonNull Object p0)
+  cannot override method in @Initialized @NonNull Object
+    @Initialized @NonNull boolean equals(@Initialized @NonNull Object this, @Initialized @Nullable Object p0)
+../dataset/meal-planner-534de2074178ed4cfd34a23cad1212f76016ad9e/src/main/java/de/zuellich/meal_planner/pinterest/datatypes/Pin.java:24: error: (initialization.fields.uninitialized) $$ 1 $$ id, originalLink, note, name $$ ( 571, 586 ) $$ the constructor does not initialize fields: id, originalLink, note, name
+  public Pin() {}
+         ^
+../dataset/meal-planner-534de2074178ed4cfd34a23cad1212f76016ad9e/src/main/java/de/zuellich/meal_planner/pinterest/datatypes/Pin.java:27: error: (initialization.fields.uninitialized) $$ 1 $$ id, originalLink, note $$ ( 590, 1031 ) $$ the constructor does not initialize fields: id, originalLink, note
+  public Pin(@JsonProperty("metadata") Map<String, Object> metadata) {
+         ^
+../dataset/meal-planner-534de2074178ed4cfd34a23cad1212f76016ad9e/src/main/java/de/zuellich/meal_planner/pinterest/datatypes/Pin.java:36: error: (dereference.of.nullable) $$ 1 $$ article $$ ( 893, 900 ) $$ dereference of possibly-null reference article
+    if (article.containsKey("name")) {
+        ^
+../dataset/meal-planner-534de2074178ed4cfd34a23cad1212f76016ad9e/src/main/java/de/zuellich/meal_planner/pinterest/datatypes/Pin.java:37: error: (dereference.of.nullable) $$ 1 $$ article.get("name") $$ ( 937, 956 ) $$ dereference of possibly-null reference article.get("name")
+      name = article.get("name").toString();
+                        ^
+../dataset/meal-planner-534de2074178ed4cfd34a23cad1212f76016ad9e/src/main/java/de/zuellich/meal_planner/pinterest/datatypes/Pin.java:62: error: (override.param) $$ 7 $$ o $$ @Initialized @NonNull Object $$ @Initialized @Nullable Object $$ /*DECL*/ @Initialized @NonNull Pin $$ @Initialized @NonNull boolean equals(@Initialized @NonNull Pin this, @Initialized @NonNull Object p0) $$ @Initialized @NonNull Object $$ @Initialized @NonNull boolean equals(@Initialized @NonNull Object this, @Initialized @Nullable Object p0) $$ ( 1333, 1341 ) $$ Incompatible parameter type for o.
+  public boolean equals(Object o) {
+                               ^
+  found   : @Initialized @NonNull Object
+  required: @Initialized @Nullable Object
+  Consequence: method in /*DECL*/ @Initialized @NonNull Pin
+    @Initialized @NonNull boolean equals(@Initialized @NonNull Pin this, @Initialized @NonNull Object p0)
+  cannot override method in @Initialized @NonNull Object
+    @Initialized @NonNull boolean equals(@Initialized @NonNull Object this, @Initialized @Nullable Object p0)
+../dataset/meal-planner-534de2074178ed4cfd34a23cad1212f76016ad9e/src/main/java/de/zuellich/meal_planner/pinterest/datatypes/BoardListing.java:11: error: (initialization.field.uninitialized) $$ 1 $$ board $$ ( 230, 250 ) $$ the default constructor does not initialize field board
+  private Board board;
+                ^
+../dataset/meal-planner-534de2074178ed4cfd34a23cad1212f76016ad9e/src/main/java/de/zuellich/meal_planner/pinterest/datatypes/BoardListing.java:13: error: (initialization.field.uninitialized) $$ 1 $$ pins $$ ( 254, 277 ) $$ the default constructor does not initialize field pins
+  private List<Pin> pins;
+                    ^
+../dataset/meal-planner-534de2074178ed4cfd34a23cad1212f76016ad9e/src/test/java/de/zuellich/meal_planner/pinterest/services/BoardServicePinsTest.java:27: error: (initialization.field.uninitialized) $$ 1 $$ service $$ ( 1350, 1380 ) $$ the default constructor does not initialize field service
+  private IBoardService service;
+                        ^
+../dataset/meal-planner-534de2074178ed4cfd34a23cad1212f76016ad9e/src/test/java/de/zuellich/meal_planner/algorithms/schema_org/SchemaOrgParserTest.java:24: error: (initialization.field.uninitialized) $$ 1 $$ inputRecipePath $$ ( 897, 952 ) $$ the default constructor does not initialize field inputRecipePath
+  @Parameterized.Parameter public String inputRecipePath;
+                                         ^
+../dataset/meal-planner-534de2074178ed4cfd34a23cad1212f76016ad9e/src/test/java/de/zuellich/meal_planner/algorithms/schema_org/SchemaOrgParserTest.java:27: error: (initialization.field.uninitialized) $$ 1 $$ expectedRecipe $$ ( 1030, 1089 ) $$ the default constructor does not initialize field expectedRecipe
+  public Recipe expectedRecipe;
+                ^
+../dataset/meal-planner-534de2074178ed4cfd34a23cad1212f76016ad9e/src/main/java/de/zuellich/meal_planner/datatypes/Recipe.java:25: error: (override.param) $$ 7 $$ o $$ @Initialized @NonNull Object $$ @Initialized @Nullable Object $$ /*DECL*/ @Initialized @NonNull Recipe $$ @Initialized @NonNull boolean equals(@Initialized @NonNull Recipe this, @Initialized @NonNull Object p0) $$ @Initialized @NonNull Object $$ @Initialized @NonNull boolean equals(@Initialized @NonNull Object this, @Initialized @Nullable Object p0) $$ ( 610, 618 ) $$ Incompatible parameter type for o.
+  public boolean equals(Object o) {
+                               ^
+  found   : @Initialized @NonNull Object
+  required: @Initialized @Nullable Object
+  Consequence: method in /*DECL*/ @Initialized @NonNull Recipe
+    @Initialized @NonNull boolean equals(@Initialized @NonNull Recipe this, @Initialized @NonNull Object p0)
+  cannot override method in @Initialized @NonNull Object
+    @Initialized @NonNull boolean equals(@Initialized @NonNull Object this, @Initialized @Nullable Object p0)
+../dataset/meal-planner-534de2074178ed4cfd34a23cad1212f76016ad9e/src/main/java/de/zuellich/meal_planner/datatypes/Ingredient.java:33: error: (override.param) $$ 7 $$ o $$ @Initialized @NonNull Object $$ @Initialized @Nullable Object $$ /*DECL*/ @Initialized @NonNull Ingredient $$ @Initialized @NonNull boolean equals(@Initialized @NonNull Ingredient this, @Initialized @NonNull Object p0) $$ @Initialized @NonNull Object $$ @Initialized @NonNull boolean equals(@Initialized @NonNull Object this, @Initialized @Nullable Object p0) $$ ( 555, 563 ) $$ Incompatible parameter type for o.
+  public boolean equals(Object o) {
+                               ^
+  found   : @Initialized @NonNull Object
+  required: @Initialized @Nullable Object
+  Consequence: method in /*DECL*/ @Initialized @NonNull Ingredient
+    @Initialized @NonNull boolean equals(@Initialized @NonNull Ingredient this, @Initialized @NonNull Object p0)
+  cannot override method in @Initialized @NonNull Object
+    @Initialized @NonNull boolean equals(@Initialized @NonNull Object this, @Initialized @Nullable Object p0)
+../dataset/meal-planner-534de2074178ed4cfd34a23cad1212f76016ad9e/src/test/java/de/zuellich/meal_planner/algorithms/schema_org/SchemaOrgQuirksModeParserTest.java:25: error: (initialization.field.uninitialized) $$ 1 $$ recipeSourcePath $$ ( 914, 970 ) $$ the default constructor does not initialize field recipeSourcePath
+  @Parameterized.Parameter public String recipeSourcePath;
+                                         ^
+../dataset/meal-planner-534de2074178ed4cfd34a23cad1212f76016ad9e/src/test/java/de/zuellich/meal_planner/algorithms/schema_org/SchemaOrgQuirksModeParserTest.java:28: error: (initialization.field.uninitialized) $$ 1 $$ expectedRecipe $$ ( 974, 1033 ) $$ the default constructor does not initialize field expectedRecipe
+  public Recipe expectedRecipe;
+                ^
+../dataset/meal-planner-534de2074178ed4cfd34a23cad1212f76016ad9e/src/test/java/de/zuellich/meal_planner/algorithms/AmountParserTest.java:11: error: (initialization.field.uninitialized) $$ 1 $$ instance $$ ( 183, 213 ) $$ the default constructor does not initialize field instance
+  private AmountParser instance;
+                       ^
+../dataset/meal-planner-534de2074178ed4cfd34a23cad1212f76016ad9e/src/test/java/de/zuellich/meal_planner/algorithms/AmountParserTest.java:40: error: (argument) $$ 4 $$ raw $$ AmountParser.parseAmount $$ @FBCBottom @Nullable NullType $$ @Initialized @NonNull String $$ ( 992, 996 ) $$ incompatible argument for parameter raw of AmountParser.parseAmount.
+    assertEquals(0f, instance.parseAmount(null), 0);
+                                          ^
+  found   : @FBCBottom @Nullable NullType
+  required: @Initialized @NonNull String
+../dataset/meal-planner-534de2074178ed4cfd34a23cad1212f76016ad9e/src/main/java/de/zuellich/meal_planner/algorithms/AmountParser.java:132: error: (unboxing.of.nullable) $$ 1 $$ fractionLookup.get(usedFraction) $$ ( 3682, 3714 ) $$ unboxing a possibly-null reference fractionLookup.get(usedFraction)
+    return Float.parseFloat(withoutUnicodeFraction) + fractionLookup.get(usedFraction);
+                                                                        ^
+../dataset/meal-planner-534de2074178ed4cfd34a23cad1212f76016ad9e/src/test/java/de/zuellich/meal_planner/algorithms/IngredientUnitLookupTest.java:12: error: (initialization.field.uninitialized) $$ 1 $$ instance $$ ( 249, 287 ) $$ the default constructor does not initialize field instance
+  private IngredientUnitLookup instance;
+                               ^
+../dataset/meal-planner-534de2074178ed4cfd34a23cad1212f76016ad9e/src/main/java/de/zuellich/meal_planner/algorithms/IngredientUnitLookup.java:12: error: (initialization.static.field.uninitialized) $$ 1 $$ instance $$ ( 255, 300 ) $$ static field instance not initialized
+  private static IngredientUnitLookup instance;
+                                      ^
+../dataset/meal-planner-534de2074178ed4cfd34a23cad1212f76016ad9e/src/main/java/de/zuellich/meal_planner/algorithms/IngredientUnitLookup.java:19: error: (initialization.fields.uninitialized) $$ 1 $$ byShorthand, byPlural, bySingular $$ ( 513, 573 ) $$ the constructor does not initialize fields: byShorthand, byPlural, bySingular
+  private IngredientUnitLookup() {
+          ^
+../dataset/meal-planner-534de2074178ed4cfd34a23cad1212f76016ad9e/src/main/java/de/zuellich/meal_planner/algorithms/IngredientUnitLookup.java:20: error: (method.invocation) $$ 3 $$ setupLookupTable() $$ @UnderInitialization @NonNull IngredientUnitLookup $$ @Initialized @NonNull IngredientUnitLookup $$ ( 550, 568 ) $$ call to setupLookupTable() not allowed on the given receiver.
+    setupLookupTable();
+                    ^
+  found   : @UnderInitialization @NonNull IngredientUnitLookup
+  required: @Initialized @NonNull IngredientUnitLookup
+../dataset/meal-planner-534de2074178ed4cfd34a23cad1212f76016ad9e/src/test/java/de/zuellich/meal_planner/algorithms/RecipeServiceTest.java:42: error: (argument) $$ 4 $$ expected $$ RecipeServiceTest.getMockedParserFactory $$ @FBCBottom @Nullable NullType $$ @Initialized @NonNull Recipe $$ ( 1696, 1700 ) $$ incompatible argument for parameter expected of RecipeServiceTest.getMockedParserFactory.
+    RecipeParserFactory factory = getMockedParserFactory(null);
+                                                         ^
+  found   : @FBCBottom @Nullable NullType
+  required: @Initialized @NonNull Recipe
+../dataset/meal-planner-534de2074178ed4cfd34a23cad1212f76016ad9e/src/test/java/de/zuellich/meal_planner/algorithms/IngredientMatcherTest.java:12: error: (initialization.field.uninitialized) $$ 1 $$ matcher $$ ( 235, 269 ) $$ the default constructor does not initialize field matcher
+  private IngredientMatcher matcher;
+                            ^
+../dataset/meal-planner-534de2074178ed4cfd34a23cad1212f76016ad9e/src/main/java/de/zuellich/meal_planner/algorithms/IngredientMatcher.java:49: error: (dereference.of.nullable) $$ 1 $$ matcher.group(2) $$ ( 1886, 1902 ) $$ dereference of possibly-null reference matcher.group(2)
+    String rawUnit = matcher.group(2).trim();
+                                  ^
+../dataset/meal-planner-534de2074178ed4cfd34a23cad1212f76016ad9e/src/main/java/de/zuellich/meal_planner/algorithms/IngredientMatcher.java:50: error: (dereference.of.nullable) $$ 1 $$ matcher.group(3) $$ ( 1932, 1948 ) $$ dereference of possibly-null reference matcher.group(3)
+    String rawName = matcher.group(3).trim();
+                                  ^
+../dataset/meal-planner-534de2074178ed4cfd34a23cad1212f76016ad9e/src/test/java/de/zuellich/meal_planner/controller/PinterestExplorerTest.java:22: error: (initialization.field.uninitialized) $$ 1 $$ testRestTemplate $$ ( 690, 743 ) $$ the default constructor does not initialize field testRestTemplate
+  @Autowired private TestRestTemplate testRestTemplate;
+                                      ^
+../dataset/meal-planner-534de2074178ed4cfd34a23cad1212f76016ad9e/src/test/java/de/zuellich/meal_planner/controller/ParseTest.java:31: error: (initialization.field.uninitialized) $$ 1 $$ testRestTemplate $$ ( 1006, 1059 ) $$ the default constructor does not initialize field testRestTemplate
+  @Autowired private TestRestTemplate testRestTemplate;
+                                      ^
+../dataset/meal-planner-534de2074178ed4cfd34a23cad1212f76016ad9e/src/test/java/de/zuellich/meal_planner/SSLUtil.java:18: error: (return) $$ 2 $$ @FBCBottom @Nullable NullType $$ @Initialized @NonNull X509Certificate @Initialized @NonNull [] $$ ( 590, 594 ) $$ incompatible types in return.
+            return null;
+                   ^
+  type of expression: @FBCBottom @Nullable NullType
+  method return type: @Initialized @NonNull X509Certificate @Initialized @NonNull []
+../dataset/meal-planner-534de2074178ed4cfd34a23cad1212f76016ad9e/src/main/java/de/zuellich/meal_planner/pinterest/datatypes/BoardList.java:10: error: (initialization.field.uninitialized) $$ 1 $$ boards $$ ( 228, 287 ) $$ the default constructor does not initialize field boards
+  private List<Board> boards;
+                      ^
+../dataset/meal-planner-534de2074178ed4cfd34a23cad1212f76016ad9e/src/main/java/de/zuellich/meal_planner/pinterest/datatypes/PinList.java:12: error: (initialization.field.uninitialized) $$ 1 $$ pins $$ ( 272, 327 ) $$ the default constructor does not initialize field pins
+  private List<Pin> pins;
+                    ^
+../dataset/meal-planner-534de2074178ed4cfd34a23cad1212f76016ad9e/src/main/java/de/zuellich/meal_planner/pinterest/datatypes/PinList.java:15: error: (initialization.field.uninitialized) $$ 1 $$ page $$ ( 331, 394 ) $$ the default constructor does not initialize field page
+  private PagingInformation page;
+                            ^
+../dataset/meal-planner-534de2074178ed4cfd34a23cad1212f76016ad9e/src/main/java/de/zuellich/meal_planner/pinterest/datatypes/PagingInformation.java:9: error: (initialization.field.uninitialized) $$ 1 $$ cursor $$ ( 205, 227 ) $$ the default constructor does not initialize field cursor
+  private String cursor;
+                 ^
+../dataset/meal-planner-534de2074178ed4cfd34a23cad1212f76016ad9e/src/main/java/de/zuellich/meal_planner/pinterest/datatypes/PagingInformation.java:11: error: (initialization.field.uninitialized) $$ 1 $$ next $$ ( 231, 251 ) $$ the default constructor does not initialize field next
+  private String next;
+                 ^
+../dataset/meal-planner-534de2074178ed4cfd34a23cad1212f76016ad9e/src/main/java/de/zuellich/meal_planner/pinterest/datatypes/BoardRequest.java:12: error: (initialization.field.uninitialized) $$ 1 $$ board $$ ( 261, 313 ) $$ the default constructor does not initialize field board
+  private Board board;
+                ^
+../dataset/meal-planner-534de2074178ed4cfd34a23cad1212f76016ad9e/src/main/java/de/zuellich/meal_planner/pinterest/oauth2/ResourceConfiguration.java:20: error: (initialization.field.uninitialized) $$ 1 $$ clientId $$ ( 889, 957 ) $$ the default constructor does not initialize field clientId
+  private String clientId;
+                 ^
+../dataset/meal-planner-534de2074178ed4cfd34a23cad1212f76016ad9e/src/main/java/de/zuellich/meal_planner/pinterest/oauth2/ResourceConfiguration.java:23: error: (initialization.field.uninitialized) $$ 1 $$ clientSecret $$ ( 961, 1037 ) $$ the default constructor does not initialize field clientSecret
+  private String clientSecret;
+                 ^
+../dataset/meal-planner-534de2074178ed4cfd34a23cad1212f76016ad9e/src/main/java/de/zuellich/meal_planner/pinterest/oauth2/ResourceConfiguration.java:26: error: (initialization.field.uninitialized) $$ 1 $$ accessTokenUri $$ ( 1041, 1121 ) $$ the default constructor does not initialize field accessTokenUri
+  private String accessTokenUri;
+                 ^
+../dataset/meal-planner-534de2074178ed4cfd34a23cad1212f76016ad9e/src/main/java/de/zuellich/meal_planner/pinterest/oauth2/ResourceConfiguration.java:29: error: (initialization.field.uninitialized) $$ 1 $$ authorizationUri $$ ( 1125, 1209 ) $$ the default constructor does not initialize field authorizationUri
+  private String authorizationUri;
+                 ^
+../dataset/meal-planner-534de2074178ed4cfd34a23cad1212f76016ad9e/src/main/java/de/zuellich/meal_planner/algorithms/schema_org/SchemaOrgFormatDetector.java:56: error: (override.param) $$ 7 $$ o $$ @Initialized @NonNull Object $$ @Initialized @Nullable Object $$ /*DECL*/ @Initialized @NonNull SchemaOrgFormatDetector $$ @Initialized @NonNull boolean equals(@Initialized @NonNull SchemaOrgFormatDetector this, @Initialized @NonNull Object p0) $$ @Initialized @NonNull Object $$ @Initialized @NonNull boolean equals(@Initialized @NonNull Object this, @Initialized @Nullable Object p0) $$ ( 1689, 1697 ) $$ Incompatible parameter type for o.
+  public boolean equals(Object o) {
+                               ^
+  found   : @Initialized @NonNull Object
+  required: @Initialized @Nullable Object
+  Consequence: method in /*DECL*/ @Initialized @NonNull SchemaOrgFormatDetector
+    @Initialized @NonNull boolean equals(@Initialized @NonNull SchemaOrgFormatDetector this, @Initialized @NonNull Object p0)
+  cannot override method in @Initialized @NonNull Object
+    @Initialized @NonNull boolean equals(@Initialized @NonNull Object this, @Initialized @Nullable Object p0)
+../dataset/meal-planner-534de2074178ed4cfd34a23cad1212f76016ad9e/src/main/java/de/zuellich/meal_planner/controller/PinterestExplorer.java:81: error: (dereference.of.nullable) $$ 1 $$ e.getCause() $$ ( 3066, 3078 ) $$ dereference of possibly-null reference e.getCause()
+          System.out.println("!! Error downloading pin: " + e.getCause().getMessage());
+                                                                      ^
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+47 errors
+1 warning

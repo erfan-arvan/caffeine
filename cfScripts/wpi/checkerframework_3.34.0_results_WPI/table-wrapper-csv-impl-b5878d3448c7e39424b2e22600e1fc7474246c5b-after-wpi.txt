@@ -1,0 +1,55 @@
+../dataset/table-wrapper-csv-impl-b5878d3448c7e39424b2e22600e1fc7474246c5b/src/test/java/org/spacious_team/table_wrapper/csv/CsvTableRowTest.java:64: error: cannot find symbol
+        assertEquals(rowNum, csvTableRow.getRowNum());
+                                        ^
+  symbol:   method getRowNum()
+  location: variable csvTableRow of type CsvTableRow
+../dataset/table-wrapper-csv-impl-b5878d3448c7e39424b2e22600e1fc7474246c5b/src/test/java/org/spacious_team/table_wrapper/csv/CsvTableCellTest.java:150: error: constructor CsvCellDataAccessObject in class CsvCellDataAccessObject cannot be applied to given types;
+        CsvCellDataAccessObject dao = new CsvCellDataAccessObject(DateTimeFormatter.ISO_DATE_TIME);
+                                      ^
+  required: no arguments
+  found:    DateTimeFormatter
+  reason: actual and formal argument lists differ in length
+../dataset/table-wrapper-csv-impl-b5878d3448c7e39424b2e22600e1fc7474246c5b/src/main/java/org/spacious_team/table_wrapper/csv/CsvTableRow.java:33: error: CsvTableRow is not abstract and does not override abstract method getRowNum() in ReportPageRow
+public class CsvTableRow extends AbstractReportPageRow {
+       ^
+../dataset/table-wrapper-csv-impl-b5878d3448c7e39424b2e22600e1fc7474246c5b/src/main/java/org/spacious_team/table_wrapper/csv/CsvTableCell.java:37: error: constructor RowAndIndex in class RowAndIndex cannot be applied to given types;
+        return new CsvTableCell(new RowAndIndex(row, columnIndex));
+                                ^
+  required: no arguments
+  found:    String[],int
+  reason: actual and formal argument lists differ in length
+../dataset/table-wrapper-csv-impl-b5878d3448c7e39424b2e22600e1fc7474246c5b/src/main/java/org/spacious_team/table_wrapper/csv/CsvTableCell.java:41: error: constructor RowAndIndex in class RowAndIndex cannot be applied to given types;
+        return new CsvTableCell(new RowAndIndex(row, columnIndex), dao);
+                                ^
+  required: no arguments
+  found:    String[],int
+  reason: actual and formal argument lists differ in length
+../dataset/table-wrapper-csv-impl-b5878d3448c7e39424b2e22600e1fc7474246c5b/src/main/java/org/spacious_team/table_wrapper/csv/CsvTableCell.java:55: error: cannot find symbol
+        return rowAndIndex.getColumnIndex();
+                          ^
+  symbol:   method getColumnIndex()
+  location: variable rowAndIndex of type RowAndIndex
+../dataset/table-wrapper-csv-impl-b5878d3448c7e39424b2e22600e1fc7474246c5b/src/main/java/org/spacious_team/table_wrapper/csv/CsvTableCell.java:60: error: variable row not initialized in the default constructor
+        private final String[] row;
+                               ^
+../dataset/table-wrapper-csv-impl-b5878d3448c7e39424b2e22600e1fc7474246c5b/src/main/java/org/spacious_team/table_wrapper/csv/CsvTableCell.java:62: error: variable columnIndex not initialized in the default constructor
+        private final int columnIndex;
+                          ^
+../dataset/table-wrapper-csv-impl-b5878d3448c7e39424b2e22600e1fc7474246c5b/src/main/java/org/spacious_team/table_wrapper/csv/CsvCellDataAccessObject.java:33: error: constructor CsvCellDataAccessObject in class CsvCellDataAccessObject cannot be applied to given types;
+    public static final CsvCellDataAccessObject INSTANCE = new CsvCellDataAccessObject(null);
+                                                           ^
+  required: no arguments
+  found:    <null>
+  reason: actual and formal argument lists differ in length
+../dataset/table-wrapper-csv-impl-b5878d3448c7e39424b2e22600e1fc7474246c5b/src/main/java/org/spacious_team/table_wrapper/csv/CsvCellDataAccessObject.java:41: error: cannot find symbol
+        return row.getCell(cellIndex).getRowAndIndex();
+                                     ^
+  symbol:   method getRowAndIndex()
+  location: class CsvTableCell
+../dataset/table-wrapper-csv-impl-b5878d3448c7e39424b2e22600e1fc7474246c5b/src/main/java/org/spacious_team/table_wrapper/csv/CsvCellDataAccessObject.java:37: error: variable dateTimeFormatter not initialized in the default constructor
+    public final DateTimeFormatter dateTimeFormatter;
+                                   ^
+../dataset/table-wrapper-csv-impl-b5878d3448c7e39424b2e22600e1fc7474246c5b/src/main/java/org/spacious_team/table_wrapper/csv/CsvTable.java:33: error: CsvTable is not abstract and does not override abstract method getCellDataAccessObject() in AbstractTable
+public class CsvTable extends AbstractTable<CsvTableRow> {
+       ^
+12 errors
