@@ -1,0 +1,57 @@
+/*
+ * Copyright 2014 Ben Manes. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package com.github.benmanes.caffeine.cache.stats;
+
+/**
+ * A {@link StatsCounter} implementation that does not record any cache events.
+ *
+ * @author ben.manes@gmail.com (Ben Manes)
+ */
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.KeyForSubchecker")
+enum DisabledStatsCounter implements StatsCounter {
+
+    INSTANCE;
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public void recordHits( DisabledStatsCounter this,   int count) {
+    }
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public void recordMisses( DisabledStatsCounter this,   int count) {
+    }
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public void recordLoadSuccess( DisabledStatsCounter this,   long loadTime) {
+    }
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public void recordLoadFailure( DisabledStatsCounter this,   long loadTime) {
+    }
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public void recordEviction( DisabledStatsCounter this) {
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public  CacheStats snapshot( DisabledStatsCounter this) {
+        return CacheStats.empty();
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public  String toString( DisabledStatsCounter this) {
+        return snapshot().toString();
+    }
+}

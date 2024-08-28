@@ -189,7 +189,7 @@ ext {
     ],
     jmhReport: "gradle.plugin.io.morethan.jmhreport:gradle-jmh-report:${pluginVersions.jmhReport}",
     nexus: "com.bmuschko:gradle-nexus-plugin:${pluginVersions.nexus}",
-    propdeps: "io.spring.gradle:propdeps-plugin:${pluginVersions.propdeps}",
+    propdeps: "io.spring.gradle:propdeps-plugin:0.0.8-SNAPSHOT",
     semanticVersioning: "io.ehdev:gradle-semantic-versioning:${pluginVersions.semanticVersioning}",
     shadow: "com.github.jengelman.gradle.plugins:shadow:${pluginVersions.shadow}",
     sonarqube: "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:${pluginVersions.sonarqube}",

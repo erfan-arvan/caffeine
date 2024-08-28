@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metatype:MetaData xmlns:metatype="http://www.osgi.org/xmlns/metatype/v1.2.0" localization="OSGI-INF/l10n/org.apache.jackrabbit.oak.security.authentication.AuthenticationConfigurationImpl$Configuration">
+  <OCD id="org.apache.jackrabbit.oak.security.authentication.AuthenticationConfigurationImpl$Configuration" name="Apache Jackrabbit Oak AuthenticationConfiguration" description="">
+    <AD id="org.apache.jackrabbit.oak.authentication.appName" type="String" name="Application Name" description="Application named used for JAAS authentication" default="jackrabbit.oak"/>
+    <AD id="org.apache.jackrabbit.oak.authentication.configSpiName" type="String" name="JAAS Config SPI Name" description="Name of JAAS Configuration Spi. This needs to be set to JAAS config provider name if JAAS authentication is managed by Felix JAAS Support with its Global Configuration Policy set to 'default'."/>
+  </OCD>
+  <Designate pid="org.apache.jackrabbit.oak.security.authentication.AuthenticationConfigurationImpl">
+    <Object ocdref="org.apache.jackrabbit.oak.security.authentication.AuthenticationConfigurationImpl$Configuration"/>
+  </Designate>
+</metatype:MetaData>

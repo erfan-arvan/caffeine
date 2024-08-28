@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.3.0" name="org.apache.jackrabbit.oak.plugins.observation.ChangeCollectorProvider" immediate="true" activate="activate" modified="modified">
+  <implementation class="org.apache.jackrabbit.oak.plugins.observation.ChangeCollectorProvider"/>
+  <service>
+    <provide interface="org.apache.jackrabbit.oak.spi.commit.ValidatorProvider"/>
+    <provide interface="org.apache.jackrabbit.oak.spi.commit.EditorProvider"/>
+  </service>
+  <property name="maxItems" type="Integer" value="50"/>
+  <property name="type" type="String" value="changeCollectorProvider"/>
+  <property name="enabled" type="Boolean" value="true"/>
+  <property name="maxPathDepth" type="Integer" value="9"/>
+</scr:component>

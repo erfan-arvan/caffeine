@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.3.0" name="org.apache.jackrabbit.oak.security.authentication.AuthenticationConfigurationImpl" activate="activate">
+  <implementation class="org.apache.jackrabbit.oak.security.authentication.AuthenticationConfigurationImpl"/>
+  <service>
+    <provide interface="org.apache.jackrabbit.oak.spi.security.authentication.AuthenticationConfiguration"/>
+    <provide interface="org.apache.jackrabbit.oak.spi.security.SecurityConfiguration"/>
+  </service>
+  <property name="org.apache.jackrabbit.oak.authentication.appName" type="String" value="jackrabbit.oak"/>
+</scr:component>

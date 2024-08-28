@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metatype:MetaData xmlns:metatype="http://www.osgi.org/xmlns/metatype/v1.2.0" localization="OSGI-INF/l10n/org.apache.jackrabbit.oak.plugins.observation.ChangeCollectorProvider$Configuration">
+  <OCD id="org.apache.jackrabbit.oak.plugins.observation.ChangeCollectorProvider$Configuration" name="Apache Jackrabbit Oak Change Collector Service" description="It hooks into the commit and collects a ChangeSet of changed items of a commit which is then used to speed up observation processing">
+    <AD id="maxItems" type="Integer" name="Maximum Number of Collected Items (per type)" description="Integer value indicating maximum number of individual items of changes - such as property, nodeType, node name, path - to be collected. If there are more changes, the collection is considered failed and marked as such. Default is 50" default="50"/>
+    <AD id="maxPathDepth" type="Integer" name="Maximum depth of paths to collect" description="Integer value indicating maximum depth of paths to collect. Paths deeper than this will not be individually reported, and instead a path at this max depth will be added. Note that this doesn't affect any other collected item such as property, nodeType - ie those will all be collected irrespective of this config param.Default is 9" default="9"/>
+    <AD id="enabled" type="Boolean" name="enable/disable this validator" description="Whether this validator is enabled. If disabled no ChangeSet will be generated. Default is true" default="true"/>
+  </OCD>
+  <Designate pid="org.apache.jackrabbit.oak.plugins.observation.ChangeCollectorProvider">
+    <Object ocdref="org.apache.jackrabbit.oak.plugins.observation.ChangeCollectorProvider$Configuration"/>
+  </Designate>
+</metatype:MetaData>
