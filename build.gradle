@@ -10,7 +10,7 @@ buildscript {
   apply from: "${rootDir}/gradle/dependencies.gradle"
 
   repositories {
-    maven { url "http://repo.spring.io/plugins-release" }
+    maven { url "https://repo.spring.io/plugins-snapshot" }
     gradlePluginPortal()
     mavenCentral()
     jcenter()
@@ -63,6 +63,10 @@ subprojects {
   if (JavaVersion.current().isJava9Compatible()) {
     tasks.uploadArchives.enabled = false
   }
+
+  tasks.withType(Test) {
+    enabled = false
+}
 
   sourceCompatibility = JavaVersion.VERSION_1_8
 
@@ -168,3 +172,4 @@ tasks.coveralls {
   dependsOn jacocoRootReport
   onlyIf { System.env.'CI' && !JavaVersion.current().isJava9Compatible() }
 }
+

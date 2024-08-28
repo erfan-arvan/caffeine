@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.3.0" name="org.apache.jackrabbit.oak.plugins.index.IndexInfoServiceImpl">
+  <implementation class="org.apache.jackrabbit.oak.plugins.index.IndexInfoServiceImpl"/>
+  <service>
+    <provide interface="org.apache.jackrabbit.oak.plugins.index.IndexInfoService"/>
+  </service>
+  <reference name="indexPathService" interface="org.apache.jackrabbit.oak.plugins.index.IndexPathService" field="indexPathService"/>
+  <reference name="infoProviders" cardinality="0..n" policy="dynamic" interface="org.apache.jackrabbit.oak.plugins.index.IndexInfoProvider" bind="bindInfoProviders" unbind="unbindInfoProviders" policy-option="greedy"/>
+  <reference name="nodeStore" interface="org.apache.jackrabbit.oak.spi.state.NodeStore" field="nodeStore"/>
+</scr:component>

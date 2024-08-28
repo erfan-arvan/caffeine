@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>javax.jcr</groupId>
+    <artifactId>jcr</artifactId>
+    <version>2.0</version>
+    <packaging>bundle</packaging>
+
+    <name>Content Repository for JavaTM Technology API</name>
+    <description>
+        The Content Repository API for JavaTM Technology Version 2.0 is specified by JSR-283.
+        This module contains the complete API as specified.
+    </description>
+    <inceptionYear>2009</inceptionYear>
+    <organization>
+        <name>Day Software</name>
+        <url>http://www.day.com</url>
+    </organization>
+
+    <build>
+        <sourceDirectory>${basedir}/src/java</sourceDirectory>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.0.2</version>
+                <configuration>
+                    <source>1.4</source>
+                    <target>1.4</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>2.0.4</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>2.5</version>
+                <configuration>
+                    <links>
+                        <link>http://java.sun.com/j2se/1.4.2/docs/api</link>
+                    </links>
+                    <windowtitle>Content Repository for Java Technology API Version 2.0</windowtitle>
+                    <doctitle>Content Repository for Java Technology API Version 2.0</doctitle>
+                    <bottom><![CDATA[Copyright &copy; 2009 <a target="_new" href="http://www.day.com">Day Software</a>. All Rights Reserved.]]></bottom>
+                    <encoding>ISO-8859-1</encoding>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-bundle-plugin</artifactId>
+                <version>1.4.3</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <instructions>
+                        <Bundle-Category>jcr</Bundle-Category>
+                        <Bundle-DocURL>
+                            http://www.jcp.org/en/jsr/detail?id=283
+                        </Bundle-DocURL>
+                        <Bundle-SymbolicName>
+                            javax.jcr
+                        </Bundle-SymbolicName>
+                        <Export-Package>
+                            javax.jcr.*;version=${pom.version}
+                        </Export-Package>
+                    </instructions>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

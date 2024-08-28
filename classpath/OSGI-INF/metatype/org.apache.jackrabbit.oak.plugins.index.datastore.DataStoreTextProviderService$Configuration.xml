@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metatype:MetaData xmlns:metatype="http://www.osgi.org/xmlns/metatype/v1.2.0" localization="OSGI-INF/l10n/org.apache.jackrabbit.oak.plugins.index.datastore.DataStoreTextProviderService$Configuration">
+  <OCD id="org.apache.jackrabbit.oak.plugins.index.datastore.DataStoreTextProviderService$Configuration" name="Apache Jackrabbit Oak DataStore PreExtractedTextProvider" description="Configures a PreExtractedTextProvider based on extracted text stored on FileSystem">
+    <AD id="dir" type="String" name="Path" description="Local file system path where extracted text is stored in files."/>
+  </OCD>
+  <Designate pid="org.apache.jackrabbit.oak.plugins.blob.datastore.DataStoreTextProviderService">
+    <Object ocdref="org.apache.jackrabbit.oak.plugins.index.datastore.DataStoreTextProviderService$Configuration"/>
+  </Designate>
+</metatype:MetaData>

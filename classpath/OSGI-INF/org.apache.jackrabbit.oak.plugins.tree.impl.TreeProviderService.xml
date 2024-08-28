@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="org.apache.jackrabbit.oak.plugins.tree.impl.TreeProviderService">
+  <implementation class="org.apache.jackrabbit.oak.plugins.tree.impl.TreeProviderService"/>
+  <service>
+    <provide interface="org.apache.jackrabbit.oak.plugins.tree.TreeProvider"/>
+  </service>
+</component>

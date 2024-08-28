@@ -1,0 +1,25 @@
+configurations {
+    checkerFramework
+}
+
+dependencies {
+    if (project.hasProperty("cfLocal")) {
+        def cfHome = System.getenv("CHECKERFRAMEWORK")
+        compileOnly files("${cfHome}/checker/dist/checker-qual.jar")
+        testCompileOnly files("${cfHome}/checker/dist/checker-qual.jar")
+        checkerFramework files("${cfHome}/checker/dist/checker.jar")
+    } else {
+        compileOnly 'org.checkerframework:checker-qual:3.45.0'
+        checkerFramework 'org.checkerframework:checker:3.45.0'
+    }
+}
+
+tasks.withType(JavaCompile) {
+    options.annotationProcessorPath = configurations.checkerFramework
+    options.compilerArgs += [
+        "-Xmaxerrs", "10000",
+        "-processor", "org.checkerframework.checker.nullness.NullnessChecker"
+    ]
+
+    println "Checker Framework JARs: ${configurations.checkerFramework.files}"
+}
