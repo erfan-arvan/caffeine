@@ -1,0 +1,640 @@
+/*
+ * Copyright 2018 Ben Manes. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package com.github.benmanes.caffeine.cache;
+
+import static java.util.Objects.requireNonNull;
+import java.io.Serializable;
+import java.util.AbstractCollection;
+import java.util.AbstractMap;
+import java.util.AbstractSet;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
+import java.util.Map;
+import java.util.NoSuchElementException;
+import java.util.Set;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.CompletionException;
+import java.util.concurrent.ConcurrentMap;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Executor;
+import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.function.BiFunction;
+import java.util.function.Function;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
+import com.github.benmanes.caffeine.cache.stats.CacheStats;
+
+/**
+ * This class provides a skeletal implementation of the {@link AsyncCache} interface to minimize the
+ * effort required to implement a {@link LocalCache}.
+ *
+ * @author ben.manes@gmail.com (Ben Manes)
+ */
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.KeyForSubchecker")
+interface LocalAsyncCache<K, V> extends AsyncCache<K, V> {
+
+     Logger logger = Logger.getLogger(LocalAsyncCache.class.getName());
+
+    /**
+     * Returns the backing {@link LocalCache} data store.
+     */
+    @org.checkerframework.dataflow.qual.Pure
+    LocalCache<K, CompletableFuture<V>> cache( LocalAsyncCache<K, V> this);
+
+    /**
+     * Returns the policy supported by this implementation and its configuration.
+     */
+    @org.checkerframework.dataflow.qual.Pure
+    Policy<K, V> policy( LocalAsyncCache<K, V> this);
+
+    @org.checkerframework.dataflow.qual.Impure
+    default  CompletableFuture<V> getIfPresent( LocalAsyncCache<K, V> this,  Object key) {
+        return cache().getIfPresent(key, /* recordStats */
+        true);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    default  CompletableFuture<V> get( LocalAsyncCache<K, V> this, K key,  Function<? super K, ? extends V> mappingFunction) {
+        requireNonNull(mappingFunction);
+        return get(key, (k1, executor) -> CompletableFuture.supplyAsync(() -> mappingFunction.apply(key), executor));
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    default  CompletableFuture<V> get( LocalAsyncCache<K, V> this, K key,  BiFunction<? super K, Executor, CompletableFuture<V>> mappingFunction) {
+        return get(key, mappingFunction, /* recordStats */
+        true);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    default  CompletableFuture<V> get( LocalAsyncCache<K, V> this, K key,  BiFunction<? super K, Executor, CompletableFuture<V>> mappingFunction,   boolean recordStats) {
+        long startTime = cache().statsTicker().read();
+        CompletableFuture<V>[] result = new CompletableFuture[1];
+        CompletableFuture<V> future = cache().computeIfAbsent(key, k -> {
+            result[0] = mappingFunction.apply(key, cache().executor());
+            return requireNonNull(result[0]);
+        }, recordStats, /* recordLoad */
+        false);
+        if (result[0] != null) {
+            AtomicBoolean completed = new AtomicBoolean();
+            result[0].whenComplete((value, error) -> {
+                if (!completed.compareAndSet(false, true)) {
+                    // Ignore multiple invocations due to ForkJoinPool retrying on delays
+                    return;
+                }
+                long loadTime = cache().statsTicker().read() - startTime;
+                if (value == null) {
+                    if (error != null) {
+                        logger.log(Level.WARNING, "Exception thrown during asynchronous load", error);
+                    }
+                    cache().statsCounter().recordLoadFailure(loadTime);
+                    cache().remove(key, result[0]);
+                } else {
+                    // update the weight and expiration timestamps
+                    cache().replace(key, result[0], result[0]);
+                    cache().statsCounter().recordLoadSuccess(loadTime);
+                }
+            });
+        }
+        return future;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    default void put( LocalAsyncCache<K, V> this, K key,  CompletableFuture<V> valueFuture) {
+        if (valueFuture.isCompletedExceptionally() || (valueFuture.isDone() && (valueFuture.join() == null))) {
+            cache().statsCounter().recordLoadFailure(0L);
+            cache().remove(key);
+            return;
+        }
+        AtomicBoolean completed = new AtomicBoolean();
+        long startTime = cache().statsTicker().read();
+        cache().put(key, valueFuture);
+        valueFuture.whenComplete((value, error) -> {
+            if (!completed.compareAndSet(false, true)) {
+                // Ignore multiple invocations due to ForkJoinPool retrying on delays
+                return;
+            }
+            long loadTime = cache().statsTicker().read() - startTime;
+            if (value == null) {
+                if (error != null) {
+                    logger.log(Level.WARNING, "Exception thrown during asynchronous load", error);
+                }
+                cache().remove(key, valueFuture);
+                cache().statsCounter().recordLoadFailure(loadTime);
+            } else {
+                // update the weight and expiration timestamps
+                cache().replace(key, valueFuture, valueFuture);
+                cache().statsCounter().recordLoadSuccess(loadTime);
+            }
+        });
+    }
+
+    /* ---------------- Synchronous views -------------- */
+    final class CacheView<K, V> extends AbstractCacheView<K, V> {
+
+        private static final   long serialVersionUID = 1L;
+
+        final  LocalAsyncCache<K, V> asyncCache;
+
+        @org.checkerframework.dataflow.qual.Impure
+        CacheView(LocalAsyncCache<K, V> asyncCache) {
+            this.asyncCache = requireNonNull(asyncCache);
+        }
+
+        @org.checkerframework.dataflow.qual.Pure
+         LocalAsyncCache<K, V> asyncCache( CacheView<K, V> this) {
+            return asyncCache;
+        }
+    }
+
+    abstract class AbstractCacheView<K, V> implements Cache<K, V>, Serializable {
+
+        transient  AsMapView<K, V> asMapView;
+
+        @org.checkerframework.dataflow.qual.Pure
+        abstract  LocalAsyncCache<K, V> asyncCache( AbstractCacheView<K, V> this);
+
+        @org.checkerframework.dataflow.qual.Impure
+        public V getIfPresent( AbstractCacheView<K, V> this,  Object key) {
+            CompletableFuture<V> future = asyncCache().cache().getIfPresent(key, /* recordStats */
+            true);
+            return Async.getIfReady(future);
+        }
+
+        @org.checkerframework.dataflow.qual.Impure
+        public  Map<K, V> getAllPresent( AbstractCacheView<K, V> this,  Iterable<?> keys) {
+            Set<Object> uniqueKeys = new LinkedHashSet<>();
+            for (Object key : keys) {
+                uniqueKeys.add(key);
+            }
+            int misses = 0;
+            Map<Object, Object> result = new LinkedHashMap<>();
+            for (Object key : uniqueKeys) {
+                CompletableFuture<V> future = asyncCache().cache().get(key);
+                Object value = Async.getIfReady(future);
+                if (value == null) {
+                    misses++;
+                } else {
+                    result.put(key, value);
+                }
+            }
+            asyncCache().cache().statsCounter().recordMisses(misses);
+            asyncCache().cache().statsCounter().recordHits(result.size());
+            Map<K, V> castedResult = (Map<K, V>) result;
+            return Collections.unmodifiableMap(castedResult);
+        }
+
+        @org.checkerframework.dataflow.qual.Impure
+        public V get( AbstractCacheView<K, V> this, K key,  Function<? super K, ? extends V> mappingFunction) {
+            requireNonNull(mappingFunction);
+            CompletableFuture<V> future = asyncCache().get(key, (k, executor) -> CompletableFuture.supplyAsync(() -> mappingFunction.apply(key), executor));
+            try {
+                return future.get();
+            } catch (ExecutionException e) {
+                if (e.getCause() instanceof RuntimeException) {
+                    throw (RuntimeException) e.getCause();
+                } else if (e.getCause() instanceof Error) {
+                    throw (Error) e.getCause();
+                }
+                throw new CompletionException(e.getCause());
+            } catch (InterruptedException e) {
+                throw new CompletionException(e);
+            }
+        }
+
+        @org.checkerframework.dataflow.qual.Impure
+        public void put( AbstractCacheView<K, V> this, K key, V value) {
+            requireNonNull(value);
+            asyncCache().cache().put(key, CompletableFuture.completedFuture(value));
+        }
+
+        @org.checkerframework.dataflow.qual.Impure
+        public void putAll( AbstractCacheView<K, V> this,  Map<? extends K, ? extends V> map) {
+            map.forEach(this::put);
+        }
+
+        @org.checkerframework.dataflow.qual.Impure
+        public void invalidate( AbstractCacheView<K, V> this,  Object key) {
+            asyncCache().cache().remove(key);
+        }
+
+        @org.checkerframework.dataflow.qual.Impure
+        public void invalidateAll( AbstractCacheView<K, V> this,  Iterable<?> keys) {
+            asyncCache().cache().invalidateAll(keys);
+        }
+
+        @org.checkerframework.dataflow.qual.Impure
+        public void invalidateAll( AbstractCacheView<K, V> this) {
+            asyncCache().cache().clear();
+        }
+
+        @org.checkerframework.dataflow.qual.Impure
+        public   long estimatedSize( AbstractCacheView<K, V> this) {
+            return asyncCache().cache().size();
+        }
+
+        @org.checkerframework.dataflow.qual.Impure
+        public  CacheStats stats( AbstractCacheView<K, V> this) {
+            return asyncCache().cache().statsCounter().snapshot();
+        }
+
+        @org.checkerframework.dataflow.qual.Impure
+        public void cleanUp( AbstractCacheView<K, V> this) {
+            asyncCache().cache().cleanUp();
+        }
+
+        @org.checkerframework.dataflow.qual.Impure
+        public  Policy<K, V> policy( AbstractCacheView<K, V> this) {
+            return asyncCache().policy();
+        }
+
+        @org.checkerframework.dataflow.qual.Impure
+        public  ConcurrentMap<K, V> asMap( AbstractCacheView<K, V> this) {
+            return (asMapView == null) ? (asMapView = new AsMapView<>(asyncCache().cache())) : asMapView;
+        }
+    }
+
+    final class AsMapView<K, V> extends AbstractMap<K, V> implements ConcurrentMap<K, V> {
+
+        final  LocalCache<K, CompletableFuture<V>> delegate;
+
+         Collection<V> values;
+
+         Set<Entry<K, V>> entries;
+
+        @org.checkerframework.dataflow.qual.SideEffectFree
+        AsMapView( LocalCache<K, CompletableFuture<V>> delegate) {
+            this.delegate = delegate;
+        }
+
+        @org.checkerframework.dataflow.qual.Pure
+        public   boolean isEmpty( AsMapView<K, V> this) {
+            return delegate.isEmpty();
+        }
+
+        @org.checkerframework.dataflow.qual.Pure
+        public   int size( AsMapView<K, V> this) {
+            return delegate.size();
+        }
+
+        @org.checkerframework.dataflow.qual.Impure
+        public void clear( AsMapView<K, V> this) {
+            delegate.clear();
+        }
+
+        @org.checkerframework.dataflow.qual.Pure
+        public   boolean containsKey( AsMapView<K, V> this,  Object key) {
+            return delegate.containsKey(key);
+        }
+
+        @org.checkerframework.dataflow.qual.Impure
+        public   boolean containsValue( AsMapView<K, V> this,  Object value) {
+            requireNonNull(value);
+            for (CompletableFuture<V> valueFuture : delegate.values()) {
+                if (value.equals(Async.getIfReady(valueFuture))) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        @org.checkerframework.dataflow.qual.Impure
+        public V get( AsMapView<K, V> this,  Object key) {
+            return Async.getIfReady(delegate.get(key));
+        }
+
+        @org.checkerframework.dataflow.qual.Impure
+        public V putIfAbsent( AsMapView<K, V> this, K key, V value) {
+            requireNonNull(value);
+            CompletableFuture<V> valueFuture = delegate.putIfAbsent(key, CompletableFuture.completedFuture(value));
+            return Async.getWhenSuccessful(valueFuture);
+        }
+
+        @org.checkerframework.dataflow.qual.Impure
+        public V put( AsMapView<K, V> this, K key, V value) {
+            requireNonNull(value);
+            CompletableFuture<V> oldValueFuture = delegate.put(key, CompletableFuture.completedFuture(value));
+            return Async.getWhenSuccessful(oldValueFuture);
+        }
+
+        @org.checkerframework.dataflow.qual.Impure
+        public V remove( AsMapView<K, V> this,  Object key) {
+            CompletableFuture<V> oldValueFuture = delegate.remove(key);
+            return Async.getWhenSuccessful(oldValueFuture);
+        }
+
+        @org.checkerframework.dataflow.qual.Impure
+        public   boolean remove( AsMapView<K, V> this,  Object key,  Object value) {
+            requireNonNull(key);
+            if (value == null) {
+                return false;
+            }
+            K castedKey = (K) key;
+            boolean[] removed = { false };
+            boolean[] done = { false };
+            for (; ; ) {
+                CompletableFuture<V> future = delegate.get(key);
+                V oldValue = Async.getWhenSuccessful(future);
+                if ((future != null) && !value.equals(oldValue)) {
+                    // Optimistically check if the current value is equal, but don't skip if it may be loading
+                    return false;
+                }
+                delegate.compute(castedKey, (k, oldValueFuture) -> {
+                    if (future != oldValueFuture) {
+                        return oldValueFuture;
+                    }
+                    done[0] = true;
+                    removed[0] = value.equals(oldValue);
+                    return removed[0] ? null : oldValueFuture;
+                }, /* recordStats */
+                false, /* recordLoad */
+                false);
+                if (done[0]) {
+                    return removed[0];
+                }
+            }
+        }
+
+        @org.checkerframework.dataflow.qual.Impure
+        public V replace( AsMapView<K, V> this, K key, V value) {
+            requireNonNull(value);
+            CompletableFuture<V> oldValueFuture = delegate.replace(key, CompletableFuture.completedFuture(value));
+            return Async.getWhenSuccessful(oldValueFuture);
+        }
+
+        @org.checkerframework.dataflow.qual.Impure
+        public   boolean replace( AsMapView<K, V> this, K key, V oldValue, V newValue) {
+            requireNonNull(oldValue);
+            requireNonNull(newValue);
+            CompletableFuture<V> oldValueFuture = delegate.get(key);
+            if ((oldValueFuture != null) && !oldValue.equals(Async.getWhenSuccessful(oldValueFuture))) {
+                // Optimistically check if the current value is equal, but don't skip if it may be loading
+                return false;
+            }
+            K castedKey = key;
+            boolean[] replaced = { false };
+            delegate.compute(castedKey, (k, value) -> {
+                replaced[0] = oldValue.equals(Async.getWhenSuccessful(value));
+                return replaced[0] ? CompletableFuture.completedFuture(newValue) : value;
+            }, /* recordStats */
+            false, /* recordLoad */
+            false);
+            return replaced[0];
+        }
+
+        @org.checkerframework.dataflow.qual.Impure
+        public V computeIfAbsent( AsMapView<K, V> this, K key,  Function<? super K, ? extends V> mappingFunction) {
+            requireNonNull(mappingFunction);
+            CompletableFuture<V> valueFuture = delegate.computeIfAbsent(key, k -> {
+                V newValue = mappingFunction.apply(key);
+                return (newValue == null) ? null : CompletableFuture.completedFuture(newValue);
+            });
+            return Async.getWhenSuccessful(valueFuture);
+        }
+
+        @org.checkerframework.dataflow.qual.Impure
+        public V computeIfPresent( AsMapView<K, V> this, K key,  BiFunction<? super K, ? super V, ? extends V> remappingFunction) {
+            requireNonNull(remappingFunction);
+            boolean[] computed = { false };
+            for (; ; ) {
+                CompletableFuture<V> future = delegate.get(key);
+                V oldValue = Async.getWhenSuccessful(future);
+                if (oldValue == null) {
+                    return null;
+                }
+                CompletableFuture<V> valueFuture = delegate.computeIfPresent(key, (k, oldValueFuture) -> {
+                    if (future != oldValueFuture) {
+                        return oldValueFuture;
+                    }
+                    computed[0] = true;
+                    V newValue = remappingFunction.apply(key, oldValue);
+                    return (newValue == null) ? null : CompletableFuture.completedFuture(newValue);
+                });
+                if (computed[0] || (valueFuture == null)) {
+                    return Async.getWhenSuccessful(valueFuture);
+                }
+            }
+        }
+
+        @org.checkerframework.dataflow.qual.Impure
+        public V compute( AsMapView<K, V> this, K key,  BiFunction<? super K, ? super V, ? extends V> remappingFunction) {
+            requireNonNull(remappingFunction);
+            boolean[] computed = { false };
+            for (; ; ) {
+                CompletableFuture<V> future = delegate.get(key);
+                V oldValue = Async.getWhenSuccessful(future);
+                CompletableFuture<V> valueFuture = delegate.compute(key, (k, oldValueFuture) -> {
+                    if (future != oldValueFuture) {
+                        return oldValueFuture;
+                    }
+                    computed[0] = true;
+                    long startTime = delegate.statsTicker().read();
+                    V newValue = remappingFunction.apply(key, oldValue);
+                    long loadTime = delegate.statsTicker().read() - startTime;
+                    if (newValue == null) {
+                        delegate.statsCounter().recordLoadFailure(loadTime);
+                        return null;
+                    }
+                    delegate.statsCounter().recordLoadSuccess(loadTime);
+                    return CompletableFuture.completedFuture(newValue);
+                }, /* recordMiss */
+                false, /* recordLoad */
+                false);
+                if (computed[0]) {
+                    return Async.getWhenSuccessful(valueFuture);
+                }
+            }
+        }
+
+        @org.checkerframework.dataflow.qual.Impure
+        public V merge( AsMapView<K, V> this, K key, V value,  BiFunction<? super V, ? super V, ? extends V> remappingFunction) {
+            requireNonNull(value);
+            requireNonNull(remappingFunction);
+            CompletableFuture<V> newValueFuture = CompletableFuture.completedFuture(value);
+            boolean[] merged = { false };
+            for (; ; ) {
+                CompletableFuture<V> future = delegate.get(key);
+                V oldValue = Async.getWhenSuccessful(future);
+                CompletableFuture<V> mergedValueFuture = delegate.merge(key, newValueFuture, (oldValueFuture, valueFuture) -> {
+                    if (future != oldValueFuture) {
+                        return oldValueFuture;
+                    }
+                    merged[0] = true;
+                    if (oldValue == null) {
+                        return valueFuture;
+                    }
+                    V mergedValue = remappingFunction.apply(oldValue, value);
+                    if (mergedValue == null) {
+                        return null;
+                    } else if (mergedValue == oldValue) {
+                        return oldValueFuture;
+                    } else if (mergedValue == value) {
+                        return valueFuture;
+                    }
+                    return CompletableFuture.completedFuture(mergedValue);
+                });
+                if (merged[0] || (mergedValueFuture == newValueFuture)) {
+                    return Async.getWhenSuccessful(mergedValueFuture);
+                }
+            }
+        }
+
+        @org.checkerframework.dataflow.qual.Pure
+        public  Set<K> keySet( AsMapView<K, V> this) {
+            return delegate.keySet();
+        }
+
+        @org.checkerframework.dataflow.qual.Impure
+        public  Collection<V> values( AsMapView<K, V> this) {
+            return (values == null) ? (values = new Values()) : values;
+        }
+
+        @org.checkerframework.dataflow.qual.Impure
+        public  Set<Entry<K, V>> entrySet( AsMapView<K, V> this) {
+            return (entries == null) ? (entries = new EntrySet()) : entries;
+        }
+
+        private final class Values extends AbstractCollection<V> {
+
+            @org.checkerframework.dataflow.qual.Pure
+            public   boolean isEmpty( Values this) {
+                return AsMapView.this.isEmpty();
+            }
+
+            @org.checkerframework.dataflow.qual.Pure
+            public   int size( Values this) {
+                return AsMapView.this.size();
+            }
+
+            @org.checkerframework.dataflow.qual.Pure
+            public   boolean contains( Values this,  Object o) {
+                return AsMapView.this.containsValue(o);
+            }
+
+            @org.checkerframework.dataflow.qual.Impure
+            public void clear( Values this) {
+                AsMapView.this.clear();
+            }
+
+            @org.checkerframework.dataflow.qual.Impure
+            public  Iterator<V> iterator( Values this) {
+                return new Iterator<V>() {
+
+                     Iterator<Entry<K, V>> iterator = entrySet().iterator();
+
+                    @org.checkerframework.dataflow.qual.Pure
+                    public   boolean hasNext() {
+                        return iterator.hasNext();
+                    }
+
+                    @org.checkerframework.dataflow.qual.Impure
+                    public V next() {
+                        return iterator.next().getValue();
+                    }
+
+                    @org.checkerframework.dataflow.qual.Impure
+                    public void remove() {
+                        iterator.remove();
+                    }
+                };
+            }
+        }
+
+        private final class EntrySet extends AbstractSet<Entry<K, V>> {
+
+            @org.checkerframework.dataflow.qual.Pure
+            public   boolean isEmpty( EntrySet this) {
+                return AsMapView.this.isEmpty();
+            }
+
+            @org.checkerframework.dataflow.qual.Pure
+            public   int size( EntrySet this) {
+                return AsMapView.this.size();
+            }
+
+            @org.checkerframework.dataflow.qual.Pure
+            public   boolean contains( EntrySet this,  Object o) {
+                if (!(o instanceof Entry<?, ?>)) {
+                    return false;
+                }
+                Entry<?, ?> entry = (Entry<?, ?>) o;
+                V value = AsMapView.this.get(entry.getKey());
+                return (value != null) && value.equals(entry.getValue());
+            }
+
+            @org.checkerframework.dataflow.qual.Impure
+            public   boolean remove( EntrySet this,  Object obj) {
+                if (!(obj instanceof Entry<?, ?>)) {
+                    return false;
+                }
+                Entry<?, ?> entry = (Entry<?, ?>) obj;
+                return AsMapView.this.remove(entry.getKey(), entry.getValue());
+            }
+
+            @org.checkerframework.dataflow.qual.Impure
+            public void clear( EntrySet this) {
+                AsMapView.this.clear();
+            }
+
+            @org.checkerframework.dataflow.qual.Impure
+            public  Iterator<Entry<K, V>> iterator( EntrySet this) {
+                return new Iterator<Entry<K, V>>() {
+
+                     Iterator<Entry<K, CompletableFuture<V>>> iterator = delegate.entrySet().iterator();
+
+                     Entry<K, V> cursor;
+
+                    K removalKey;
+
+                    @org.checkerframework.dataflow.qual.Impure
+                    public   boolean hasNext() {
+                        while ((cursor == null) && iterator.hasNext()) {
+                            Entry<K, CompletableFuture<V>> entry = iterator.next();
+                            V value = Async.getIfReady(entry.getValue());
+                            if (value != null) {
+                                cursor = new WriteThroughEntry<>(AsMapView.this, entry.getKey(), value);
+                            }
+                        }
+                        return (cursor != null);
+                    }
+
+                    @org.checkerframework.dataflow.qual.Impure
+                    public  Entry<K, V> next() {
+                        if (!hasNext()) {
+                            throw new NoSuchElementException();
+                        }
+                        K key = cursor.getKey();
+                        Entry<K, V> entry = cursor;
+                        removalKey = key;
+                        cursor = null;
+                        return entry;
+                    }
+
+                    @org.checkerframework.dataflow.qual.Impure
+                    public void remove() {
+                        Caffeine.requireState(removalKey != null);
+                        delegate.remove(removalKey);
+                        removalKey = null;
+                    }
+                };
+            }
+        }
+    }
+}

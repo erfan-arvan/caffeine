@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metatype:MetaData xmlns:metatype="http://www.osgi.org/xmlns/metatype/v1.2.0" localization="OSGI-INF/l10n/org.apache.jackrabbit.oak.security.authentication.token.TokenConfigurationImpl$Configuration">
+  <OCD id="org.apache.jackrabbit.oak.security.authentication.token.TokenConfigurationImpl$Configuration" name="Apache Jackrabbit Oak TokenConfiguration" description="">
+    <AD id="tokenExpiration" type="String" name="Token Expiration" description="Expiration time of login tokens in ms."/>
+    <AD id="tokenLength" type="String" name="Token Length" description="Length of the generated token."/>
+    <AD id="tokenRefresh" type="Boolean" name="Token Refresh" description="Enable/disable refresh of login tokens (i.e. resetting the expiration time)." default="true"/>
+    <AD id="tokenCleanupThreshold" type="Long" name="Token Cleanup Threshold" description="Setting this option to a value &gt; 0 will trigger a cleanup upon token creation: if the number of existing token matches/exceeds the configured value an attempt is made to removed expired tokens." default="0"/>
+    <AD id="passwordHashAlgorithm" type="String" name="Hash Algorithm" description="Name of the algorithm to hash the token." default="SHA-256"/>
+    <AD id="passwordHashIterations" type="Integer" name="Hash Iterations" description="Number of iterations used to hash the token." default="1000"/>
+    <AD id="passwordSaltSize" type="Integer" name="Hash Salt Size" description="Size of the salt used to generate the hash." default="8"/>
+  </OCD>
+  <Designate pid="org.apache.jackrabbit.oak.security.authentication.token.TokenConfigurationImpl">
+    <Object ocdref="org.apache.jackrabbit.oak.security.authentication.token.TokenConfigurationImpl$Configuration"/>
+  </Designate>
+</metatype:MetaData>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.3.0" name="org.apache.jackrabbit.oak.security.user.UserConfigurationImpl" activate="activate">
+  <implementation class="org.apache.jackrabbit.oak.security.user.UserConfigurationImpl"/>
+  <service>
+    <provide interface="org.apache.jackrabbit.oak.spi.security.user.UserConfiguration"/>
+    <provide interface="org.apache.jackrabbit.oak.spi.security.SecurityConfiguration"/>
+  </service>
+  <property name="passwordSaltSize" type="Integer" value="8"/>
+  <property name="systemRelativePath" type="String" value="system"/>
+  <property name="enableRFC7613UsercaseMappedProfile" type="Boolean" value="false"/>
+  <property name="groupsPath" type="String" value="/rep:security/rep:authorizables/rep:groups"/>
+  <property name="passwordHashIterations" type="Integer" value="1000"/>
+  <property name="cacheExpiration" type="Long" value="0"/>
+  <property name="usersPath" type="String" value="/rep:security/rep:authorizables/rep:users"/>
+  <property name="initialPasswordChange" type="Boolean" value="false"/>
+  <property name="passwordHistorySize" type="Integer" value="0"/>
+  <property name="supportAutoSave" type="Boolean" value="false"/>
+  <property name="importBehavior" type="String" value="ignore"/>
+  <property name="defaultDepth" type="Integer" value="2"/>
+  <property name="passwordMaxAge" type="Integer" value="0"/>
+  <property name="passwordHashAlgorithm" type="String" value="SHA-256"/>
+  <property name="omitAdminPw" type="Boolean" value="false"/>
+</scr:component>

@@ -46,6 +46,6 @@ public interface RemovalListener<K, V> {
      * @param value the value represented by this entry, or {@code null} if collected
      * @param cause the reason for which the entry was removed
      */
-    @org.checkerframework.dataflow.qual.Impure
-    void onRemoval(K key, V value, RemovalCause cause);
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    void onRemoval(K key, V value, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull RemovalCause cause);
 }

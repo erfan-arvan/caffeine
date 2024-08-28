@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.3.0" name="org.apache.jackrabbit.oak.plugins.metric.StatisticsProviderFactory" activate="activate" deactivate="deactivate">
+  <implementation class="org.apache.jackrabbit.oak.plugins.metric.StatisticsProviderFactory"/>
+  <reference name="server" cardinality="0..1" interface="javax.management.MBeanServer" field="server"/>
+  <property name="providerType" type="String" value="AUTO"/>
+</scr:component>

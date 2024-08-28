@@ -138,18 +138,16 @@ public final class SingleConsumerQueue<E> extends SCQHeader.HeadAndTailRef<E> im
      */
     static final   long PROBE = UnsafeAccess.objectFieldOffset(Thread.class, "threadLocalRandomProbe");
 
-    @org.checkerframework.dataflow.qual.Pure
     static   int ceilingPowerOfTwo(  int x) {
         // From Hacker's Delight, Chapter 3, Harry S. Warren Jr.
         return 1 << -Integer.numberOfLeadingZeros(x - 1);
     }
 
-    final  AtomicReference<Node<E>>  [] arena;
+    final AtomicReference<Node<E>>[] arena;
 
-    final  Function<E, Node<E>> factory;
+    final Function<E, Node<E>> factory;
 
-    @org.checkerframework.dataflow.qual.Impure
-    private SingleConsumerQueue( Function<E, Node<E>> factory) {
+    private SingleConsumerQueue(Function<E, Node<E>> factory) {
         arena = new AtomicReference[ARENA_LENGTH];
         for (int i = 0; i < ARENA_LENGTH; i++) {
             arena[i] = new AtomicReference<>();
@@ -170,8 +168,7 @@ public final class SingleConsumerQueue<E> extends SCQHeader.HeadAndTailRef<E> im
      * @return a new queue where producers complete their operation immediately if combined with
      *         another producing thread's
      */
-    @org.checkerframework.dataflow.qual.Pure
-    public static <E>  SingleConsumerQueue<E> optimistic() {
+    public static <E> SingleConsumerQueue<E> optimistic() {
         Function<E, Node<E>> factory = (Function<E, Node<E>>) OPTIMISIC;
         return new SingleConsumerQueue<>(factory);
     }
@@ -185,18 +182,15 @@ public final class SingleConsumerQueue<E> extends SCQHeader.HeadAndTailRef<E> im
      * @return a new queue where producers wait for a completion signal after combining its addition
      *         with another producing thread's
      */
-    @org.checkerframework.dataflow.qual.Pure
-    public static <E>  SingleConsumerQueue<E> linearizable() {
+    public static <E> SingleConsumerQueue<E> linearizable() {
         return new SingleConsumerQueue<>(LinearizableNode<E>::new);
     }
 
-    @org.checkerframework.dataflow.qual.Pure
-    public   boolean isEmpty( SingleConsumerQueue<E> this) {
+    public boolean isEmpty() {
         return (head == tail);
     }
 
-    @org.checkerframework.dataflow.qual.Impure
-    public   int size( SingleConsumerQueue<E> this) {
+    public int size() {
         Node<E> cursor = head;
         Node<E> t = tail;
         int size = 0;
@@ -212,8 +206,7 @@ public final class SingleConsumerQueue<E> extends SCQHeader.HeadAndTailRef<E> im
         return size;
     }
 
-    @org.checkerframework.dataflow.qual.Impure
-    public   boolean contains( SingleConsumerQueue<E> this,  Object o) {
+    public boolean contains(Object o) {
         if (o == null) {
             return false;
         }
@@ -225,8 +218,7 @@ public final class SingleConsumerQueue<E> extends SCQHeader.HeadAndTailRef<E> im
         return false;
     }
 
-    @org.checkerframework.dataflow.qual.Impure
-    public E peek( SingleConsumerQueue<E> this) {
+    public E peek() {
         Node<E> h = head;
         Node<E> t = tail;
         if (h == t) {
@@ -240,16 +232,14 @@ public final class SingleConsumerQueue<E> extends SCQHeader.HeadAndTailRef<E> im
         return next.value;
     }
 
-    @org.checkerframework.dataflow.qual.Impure
-    public   boolean offer( SingleConsumerQueue<E> this, E e) {
+    public boolean offer(E e) {
         requireNonNull(e);
         Node<E> node = factory.apply(e);
         append(node, node);
         return true;
     }
 
-    @org.checkerframework.dataflow.qual.Impure
-    public E poll( SingleConsumerQueue<E> this) {
+    public E poll() {
         Node<E> h = head;
         Node<E> next = h.getNextRelaxed();
         if (next == null) {
@@ -270,13 +260,11 @@ public final class SingleConsumerQueue<E> extends SCQHeader.HeadAndTailRef<E> im
         return e;
     }
 
-    @org.checkerframework.dataflow.qual.Impure
-    public   boolean add( SingleConsumerQueue<E> this, E e) {
+    public boolean add(E e) {
         return offer(e);
     }
 
-    @org.checkerframework.dataflow.qual.Impure
-    public   boolean addAll( SingleConsumerQueue<E> this,  Collection<? extends E> c) {
+    public boolean addAll(Collection<? extends E> c) {
         requireNonNull(c);
         Node<E> first = null;
         Node<E> last = null;
@@ -301,8 +289,7 @@ public final class SingleConsumerQueue<E> extends SCQHeader.HeadAndTailRef<E> im
     /**
      * Adds the linked list of nodes to the queue.
      */
-    @org.checkerframework.dataflow.qual.Impure
-    void append( SingleConsumerQueue<E> this,  Node<E> first,  Node<E> last) {
+    void append(Node<E> first, Node<E> last) {
         for (; ; ) {
             Node<E> t = tail;
             if (casTail(t, last)) {
@@ -342,8 +329,7 @@ public final class SingleConsumerQueue<E> extends SCQHeader.HeadAndTailRef<E> im
      * @return either {@code null} if the element was transferred, the first node if neither a
      *         transfer nor receive were successful, or the received last element from a producer
      */
-    @org.checkerframework.dataflow.qual.Impure
-     Node<E> transferOrCombine( SingleConsumerQueue<E> this,  Node<E> first,  Node<E> last) {
+    Node<E> transferOrCombine(Node<E> first, Node<E> last) {
         int index = index();
         AtomicReference<Node<E>> slot = arena[index];
         for (; ; ) {
@@ -376,8 +362,7 @@ public final class SingleConsumerQueue<E> extends SCQHeader.HeadAndTailRef<E> im
     /**
      * Returns the arena index for the current thread.
      */
-    @org.checkerframework.dataflow.qual.Impure
-    static   int index() {
+    static int index() {
         int probe = UnsafeAccess.UNSAFE.getInt(Thread.currentThread(), PROBE);
         if (probe == 0) {
             // force initialization
@@ -390,8 +375,7 @@ public final class SingleConsumerQueue<E> extends SCQHeader.HeadAndTailRef<E> im
     /**
      * Returns the last node in the linked list.
      */
-    @org.checkerframework.dataflow.qual.Impure
-    static <E>  Node<E> findLast( Node<E> node) {
+    static <E> Node<E> findLast(Node<E> node) {
         Node<E> next;
         while ((next = node.getNextRelaxed()) != null) {
             node = next;
@@ -399,24 +383,21 @@ public final class SingleConsumerQueue<E> extends SCQHeader.HeadAndTailRef<E> im
         return node;
     }
 
-    @org.checkerframework.dataflow.qual.Impure
-    public  Iterator<E> iterator( SingleConsumerQueue<E> this) {
+    public Iterator<E> iterator() {
         return new Iterator<E>() {
 
-             Node<E> prev;
+            Node<E> prev;
 
-             Node<E> t = tail;
+            Node<E> t = tail;
 
-             Node<E> cursor = head;
+            Node<E> cursor = head;
 
-              boolean failOnRemoval = true;
+            boolean failOnRemoval = true;
 
-            @org.checkerframework.dataflow.qual.Pure
-            public   boolean hasNext() {
+            public boolean hasNext() {
                 return (cursor != t);
             }
 
-            @org.checkerframework.dataflow.qual.Impure
             public E next() {
                 if (!hasNext()) {
                     throw new NoSuchElementException();
@@ -426,7 +407,6 @@ public final class SingleConsumerQueue<E> extends SCQHeader.HeadAndTailRef<E> im
                 return cursor.value;
             }
 
-            @org.checkerframework.dataflow.qual.Impure
             private void advance() {
                 if ((prev == null) || !failOnRemoval) {
                     prev = cursor;
@@ -434,7 +414,6 @@ public final class SingleConsumerQueue<E> extends SCQHeader.HeadAndTailRef<E> im
                 cursor = awaitNext();
             }
 
-            @org.checkerframework.dataflow.qual.Impure
             public void remove() {
                 if (failOnRemoval) {
                     throw new IllegalStateException();
@@ -450,8 +429,7 @@ public final class SingleConsumerQueue<E> extends SCQHeader.HeadAndTailRef<E> im
                 prev.lazySetNext(awaitNext());
             }
 
-            @org.checkerframework.dataflow.qual.Impure
-             Node<E> awaitNext() {
+            Node<E> awaitNext() {
                 if (cursor.getNextRelaxed() == null) {
                     while (cursor.next == null) {
                     }
@@ -464,12 +442,10 @@ public final class SingleConsumerQueue<E> extends SCQHeader.HeadAndTailRef<E> im
     /* ---------------- Serialization Support -------------- */
     static final   long serialVersionUID = 1;
 
-    @org.checkerframework.dataflow.qual.Pure
-     Object writeReplace() {
+    Object writeReplace() {
         return new SerializationProxy<>(this);
     }
 
-    @org.checkerframework.dataflow.qual.SideEffectFree
     private void readObject(ObjectInputStream stream) throws InvalidObjectException {
         throw new InvalidObjectException("Proxy required");
     }
@@ -479,82 +455,72 @@ public final class SingleConsumerQueue<E> extends SCQHeader.HeadAndTailRef<E> im
      */
     static final class SerializationProxy<E> implements Serializable {
 
-        final   boolean linearizable;
+        final boolean linearizable;
 
-        final  List<E> elements;
+        final List<E> elements;
 
-        @org.checkerframework.dataflow.qual.Impure
-        SerializationProxy( SingleConsumerQueue<E> queue) {
+        SerializationProxy(SingleConsumerQueue<E> queue) {
             linearizable = (queue.factory.apply(null) instanceof LinearizableNode<?>);
             elements = new ArrayList<>(queue);
         }
 
-        @org.checkerframework.dataflow.qual.Impure
-         Object readResolve() {
+        Object readResolve() {
             SingleConsumerQueue<E> queue = linearizable ? linearizable() : optimistic();
             queue.addAll(elements);
             return queue;
         }
 
-        static final   long serialVersionUID = 1;
+        static final long serialVersionUID = 1;
     }
 
     static class Node<E> {
 
-        static final   long NEXT_OFFSET = UnsafeAccess.objectFieldOffset(Node.class, "next");
+        static final long NEXT_OFFSET = UnsafeAccess.objectFieldOffset(Node.class, "next");
 
         E value;
 
         volatile Node<E> next;
 
-        @org.checkerframework.dataflow.qual.SideEffectFree
         Node(E value) {
             this.value = value;
         }
 
-        @org.checkerframework.dataflow.qual.Impure
-         Node<E> getNextRelaxed( Node<E> this) {
+        Node<E> getNextRelaxed() {
             return (Node<E>) UnsafeAccess.UNSAFE.getObject(this, NEXT_OFFSET);
         }
 
-        @org.checkerframework.dataflow.qual.Impure
-        void lazySetNext( Node<E> this,  Node<E> newNext) {
+        void lazySetNext(Node<E> newNext) {
             UnsafeAccess.UNSAFE.putOrderedObject(this, NEXT_OFFSET, newNext);
         }
 
         /**
          * A no-op notification that the element was added to the queue.
          */
-        @org.checkerframework.dataflow.qual.Impure
-        void complete( Node<E> this) {
+        void complete() {
         }
 
         /**
          * A no-op wait until the operation has completed.
          */
-        @org.checkerframework.dataflow.qual.SideEffectFree
-        void await( Node<E> this) {
+        void await() {
         }
 
         /**
          * Always returns that the operation completed.
          */
-        @org.checkerframework.dataflow.qual.Pure
-          boolean isDone( Node<E> this) {
+        boolean isDone() {
             return true;
         }
 
-        @org.checkerframework.dataflow.qual.Impure
-        public  String toString( Node<E> this) {
+        public String toString() {
             return getClass().getSimpleName() + "[" + value + "]";
         }
     }
 
     static final class LinearizableNode<E> extends Node<E> {
 
-        volatile   boolean done;
+        volatile boolean done;
 
-        @org.checkerframework.dataflow.qual.Impure
         LinearizableNode(E value) {
             super(value);
         }
@@ -562,16 +528,14 @@ public final class SingleConsumerQueue<E> extends SCQHeader.HeadAndTailRef<E> im
         /**
          * A notification that the element was added to the queue.
          */
-        @org.checkerframework.dataflow.qual.Impure
-        void complete( LinearizableNode<E> this) {
+        void complete() {
             done = true;
         }
 
         /**
          * A busy wait until the operation has completed.
          */
-        @org.checkerframework.dataflow.qual.SideEffectFree
-        void await( LinearizableNode<E> this) {
+        void await() {
             while (!done) {
             }
         }
@@ -579,8 +543,7 @@ public final class SingleConsumerQueue<E> extends SCQHeader.HeadAndTailRef<E> im
         /**
          * Returns whether the operation completed.
          */
-        @org.checkerframework.dataflow.qual.Pure
-          boolean isDone( LinearizableNode<E> this) {
+        boolean isDone() {
             return done;
         }
     }
@@ -604,7 +567,7 @@ final class SCQHeader {
      */
     abstract static class HeadRef<E> extends PadHead<E> {
 
-         Node<E> head;
+        Node<E> head;
     }
 
     abstract static class PadHeadAndTail<E> extends HeadRef<E> {
@@ -624,12 +587,12 @@ final class SCQHeader {
         volatile Node<E> tail;
 
         @org.checkerframework.dataflow.qual.Impure
-        void lazySetTail( HeadAndTailRef<E> this,  Node<E> next) {
+        void lazySetTail(Node<E> next) {
             UnsafeAccess.UNSAFE.putOrderedObject(this, TAIL_OFFSET, next);
         }
 
         @org.checkerframework.dataflow.qual.Impure
-          boolean casTail( HeadAndTailRef<E> this,  Node<E> expect,  Node<E> update) {
+          boolean casTail(Node<E> expect, Node<E> update) {
             return UnsafeAccess.UNSAFE.compareAndSwapObject(this, TAIL_OFFSET, expect, update);
         }
     }

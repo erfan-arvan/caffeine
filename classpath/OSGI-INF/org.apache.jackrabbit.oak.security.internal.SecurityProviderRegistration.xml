@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.3.0" name="org.apache.jackrabbit.oak.security.internal.SecurityProviderRegistration" immediate="true" activate="activate" deactivate="deactivate" modified="modified">
+  <implementation class="org.apache.jackrabbit.oak.security.internal.SecurityProviderRegistration"/>
+  <reference name="authenticationConfiguration" interface="org.apache.jackrabbit.oak.spi.security.authentication.AuthenticationConfiguration" bind="bindAuthenticationConfiguration" unbind="unbindAuthenticationConfiguration"/>
+  <reference name="authorizableActionProvider" cardinality="0..n" policy="dynamic" interface="org.apache.jackrabbit.oak.spi.security.user.action.AuthorizableActionProvider" bind="bindAuthorizableActionProvider" unbind="unbindAuthorizableActionProvider"/>
+  <reference name="authorizableNodeName" cardinality="0..n" policy="dynamic" interface="org.apache.jackrabbit.oak.spi.security.user.AuthorizableNodeName" bind="bindAuthorizableNodeName" unbind="unbindAuthorizableNodeName"/>
+  <reference name="authorizationConfiguration" cardinality="0..n" policy="dynamic" interface="org.apache.jackrabbit.oak.spi.security.authorization.AuthorizationConfiguration" bind="bindAuthorizationConfiguration" unbind="unbindAuthorizationConfiguration"/>
+  <reference name="principalConfiguration" cardinality="0..n" policy="dynamic" interface="org.apache.jackrabbit.oak.spi.security.principal.PrincipalConfiguration" bind="bindPrincipalConfiguration" unbind="unbindPrincipalConfiguration"/>
+  <reference name="privilegeConfiguration" interface="org.apache.jackrabbit.oak.spi.security.privilege.PrivilegeConfiguration" bind="bindPrivilegeConfiguration" unbind="unbindPrivilegeConfiguration"/>
+  <reference name="restrictionProvider" cardinality="0..n" policy="dynamic" interface="org.apache.jackrabbit.oak.spi.security.authorization.restriction.RestrictionProvider" bind="bindRestrictionProvider" unbind="unbindRestrictionProvider"/>
+  <reference name="rootProvider" interface="org.apache.jackrabbit.oak.plugins.tree.RootProvider" bind="bindRootProvider" unbind="unbindRootProvider"/>
+  <reference name="tokenConfiguration" cardinality="0..n" policy="dynamic" interface="org.apache.jackrabbit.oak.spi.security.authentication.token.TokenConfiguration" bind="bindTokenConfiguration" unbind="unbindTokenConfiguration"/>
+  <reference name="treeProvider" interface="org.apache.jackrabbit.oak.plugins.tree.TreeProvider" bind="bindTreeProvider" unbind="unbindTreeProvider"/>
+  <reference name="userAuthenticationFactory" cardinality="0..n" policy="dynamic" interface="org.apache.jackrabbit.oak.spi.security.user.UserAuthenticationFactory" bind="bindUserAuthenticationFactory" unbind="unbindUserAuthenticationFactory"/>
+  <reference name="userConfiguration" interface="org.apache.jackrabbit.oak.spi.security.user.UserConfiguration" bind="bindUserConfiguration" unbind="unbindUserConfiguration"/>
+  <property name="requiredServicePids" type="String">org.apache.jackrabbit.oak.security.authorization.AuthorizationConfigurationImpl
+org.apache.jackrabbit.oak.security.principal.PrincipalConfigurationImpl
+org.apache.jackrabbit.oak.security.authentication.token.TokenConfigurationImpl
+org.apache.jackrabbit.oak.spi.security.user.action.DefaultAuthorizableActionProvider
+org.apache.jackrabbit.oak.security.authorization.restriction.RestrictionProviderImpl
+org.apache.jackrabbit.oak.security.user.UserAuthenticationFactoryImpl</property>
+  <property name="authorizationCompositionType" type="String" value="AND"/>
+</scr:component>

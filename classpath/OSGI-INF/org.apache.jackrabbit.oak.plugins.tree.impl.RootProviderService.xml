@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="org.apache.jackrabbit.oak.plugins.tree.impl.RootProviderService">
+  <implementation class="org.apache.jackrabbit.oak.plugins.tree.impl.RootProviderService"/>
+  <service>
+    <provide interface="org.apache.jackrabbit.oak.plugins.tree.RootProvider"/>
+  </service>
+</component>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.3.0" name="org.apache.jackrabbit.oak.plugins.index.reference.ReferenceEditorProvider">
+  <implementation class="org.apache.jackrabbit.oak.plugins.index.reference.ReferenceEditorProvider"/>
+  <service>
+    <provide interface="org.apache.jackrabbit.oak.plugins.index.IndexEditorProvider"/>
+  </service>
+  <reference name="mountInfoProvider" interface="org.apache.jackrabbit.oak.spi.mount.MountInfoProvider" field="mountInfoProvider"/>
+  <property name="type" type="String" value="reference"/>
+</scr:component>

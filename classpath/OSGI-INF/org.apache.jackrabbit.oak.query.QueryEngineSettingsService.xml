@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.3.0" name="org.apache.jackrabbit.oak.query.QueryEngineSettingsService" configuration-policy="require" activate="activate">
+  <implementation class="org.apache.jackrabbit.oak.query.QueryEngineSettingsService"/>
+  <reference name="queryEngineSettings" interface="org.apache.jackrabbit.oak.api.jmx.QueryEngineSettingsMBean" field="queryEngineSettings"/>
+  <property name="queryFailTraversal" type="Boolean" value="false"/>
+  <property name="fastQuerySize" type="Boolean" value="false"/>
+  <property name="queryLimitInMemory" type="Integer" value="500000"/>
+  <property name="queryLimitReads" type="Integer" value="100000"/>
+</scr:component>

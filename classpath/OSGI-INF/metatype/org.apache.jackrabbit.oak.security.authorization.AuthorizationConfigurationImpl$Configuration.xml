@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metatype:MetaData xmlns:metatype="http://www.osgi.org/xmlns/metatype/v1.2.0" localization="OSGI-INF/l10n/org.apache.jackrabbit.oak.security.authorization.AuthorizationConfigurationImpl$Configuration">
+  <OCD id="org.apache.jackrabbit.oak.security.authorization.AuthorizationConfigurationImpl$Configuration" name="Apache Jackrabbit Oak AuthorizationConfiguration" description="">
+    <AD id="permissionsJr2" type="String" cardinality="2" name="Jackrabbit 2.x Permissions" description="Enforce backwards compatible permission validation with respect to the configurable options.">
+      <Option label="USER_MANAGEMENT" value="USER_MANAGEMENT"/>
+      <Option label="REMOVE_NODE" value="REMOVE_NODE"/>
+    </AD>
+    <AD id="importBehavior" type="String" name="Import Behavior" description="Behavior for access control related items upon XML import." default="abort">
+      <Option label="abort" value="abort"/>
+      <Option label="besteffort" value="besteffort"/>
+      <Option label="ignore" value="ignore"/>
+    </AD>
+    <AD id="readPaths" type="String" cardinality="2147483647" name="Readable Paths" description="Enable full read access to regular nodes and properties at the specified paths irrespective of other policies that may take effective." default="/jcr:system/rep:namespaces,/jcr:system/jcr:nodeTypes,/jcr:system/rep:privileges"/>
+    <AD id="administrativePrincipals" type="String" cardinality="10" name="Administrative Principals" description="Allows to specify principals that should be granted full permissions on the complete repository content."/>
+    <AD id="configurationRanking" type="Integer" name="Ranking" description="Ranking of this configuration in a setup with multiple authorization configurations." default="100"/>
+  </OCD>
+  <Designate pid="org.apache.jackrabbit.oak.security.authorization.AuthorizationConfigurationImpl">
+    <Object ocdref="org.apache.jackrabbit.oak.security.authorization.AuthorizationConfigurationImpl$Configuration"/>
+  </Designate>
+</metatype:MetaData>

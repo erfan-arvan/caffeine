@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="org.apache.jackrabbit.oak.spi.blob.osgi.SplitBlobStoreService" configuration-policy="require" activate="activate" deactivate="deactivate">
+    <property name="repository.home"/>
+    <property name="split.old.blobstore.type"/>
+    <reference name="oldBlobStore" interface="org.apache.jackrabbit.oak.spi.blob.BlobStore" cardinality="0..1" policy="dynamic" target="(split.blobstore=old)" bind="bindOldBlobStore" unbind="unbindOldBlobStore"/>
+    <reference name="newBlobStore" interface="org.apache.jackrabbit.oak.spi.blob.BlobStore" cardinality="0..1" policy="dynamic" target="(split.blobstore=new)" bind="bindNewBlobStore" unbind="unbindNewBlobStore"/>
+    <implementation class="org.apache.jackrabbit.oak.spi.blob.osgi.SplitBlobStoreService"/>
+</scr:component>

@@ -1,0 +1,415 @@
+/*
+ * Copyright 2014 Ben Manes. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package com.github.benmanes.caffeine.cache;
+
+import java.util.AbstractCollection;
+import java.util.Collection;
+import java.util.NoSuchElementException;
+import org.checkerframework.checker.nullness.qual.Nullable;
+
+/**
+ * This class provides a skeletal implementation of the {@link LinkedDeque} interface to minimize
+ * the effort required to implement this interface.
+ *
+ * @author ben.manes@gmail.com (Ben Manes)
+ * @param <E> the type of elements held in this collection
+ */
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.KeyForSubchecker")
+abstract class AbstractLinkedDeque<E> extends AbstractCollection<E> implements LinkedDeque<E> {
+
+    // This class provides a doubly-linked list that is optimized for the virtual machine. The first
+    // and last elements are manipulated instead of a slightly more convenient sentinel element to
+    // avoid the insertion of null checks with NullPointerException throws in the byte code. The links
+    // to a removed element are cleared to help a generational garbage collector if the discarded
+    // elements inhabit more than one generation.
+    /**
+     * Pointer to first node.
+     * Invariant: (first == null && last == null) ||
+     *            (first.prev == null)
+     */
+     E first;
+
+    /**
+     * Pointer to last node.
+     * Invariant: (first == null && last == null) ||
+     *            (last.next == null)
+     */
+    E last;
+
+    /**
+     * Links the element to the front of the deque so that it becomes the first element.
+     *
+     * @param e the unlinked element
+     */
+    @org.checkerframework.dataflow.qual.Impure
+    void linkFirst( AbstractLinkedDeque<E> this, final E e) {
+        final E f = first;
+        first = e;
+        if (f == null) {
+            last = e;
+        } else {
+            setPrevious(f, e);
+            setNext(e, f);
+        }
+    }
+
+    /**
+     * Links the element to the back of the deque so that it becomes the last element.
+     *
+     * @param e the unlinked element
+     */
+    @org.checkerframework.dataflow.qual.Impure
+    void linkLast( AbstractLinkedDeque<E> this, final E e) {
+        final E l = last;
+        last = e;
+        if (l == null) {
+            first = e;
+        } else {
+            setNext(l, e);
+            setPrevious(e, l);
+        }
+    }
+
+    /**
+     * Unlinks the non-null first element.
+     */
+    @org.checkerframework.dataflow.qual.Impure
+    E unlinkFirst( AbstractLinkedDeque<E> this) {
+        final E f = first;
+        final E next = getNext(f);
+        setNext(f, null);
+        first = next;
+        if (next == null) {
+            last = null;
+        } else {
+            setPrevious(next, null);
+        }
+        return f;
+    }
+
+    /**
+     * Unlinks the non-null last element.
+     */
+    @org.checkerframework.dataflow.qual.Impure
+    E unlinkLast( AbstractLinkedDeque<E> this) {
+        final E l = last;
+        final E prev = getPrevious(l);
+        setPrevious(l, null);
+        last = prev;
+        if (prev == null) {
+            first = null;
+        } else {
+            setNext(prev, null);
+        }
+        return l;
+    }
+
+    /**
+     * Unlinks the non-null element.
+     */
+    @org.checkerframework.dataflow.qual.Impure
+    void unlink( AbstractLinkedDeque<E> this, E e) {
+        final E prev = getPrevious(e);
+        final E next = getNext(e);
+        if (prev == null) {
+            first = next;
+        } else {
+            setNext(prev, next);
+            setPrevious(e, null);
+        }
+        if (next == null) {
+            last = prev;
+        } else {
+            setPrevious(next, prev);
+            setNext(e, null);
+        }
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public   boolean isEmpty( AbstractLinkedDeque<E> this) {
+        return (first == null);
+    }
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    void checkNotEmpty( AbstractLinkedDeque<E> this) {
+        if (isEmpty()) {
+            throw new NoSuchElementException();
+        }
+    }
+
+    /**
+     * {@inheritDoc}
+     * <p>
+     * Beware that, unlike in most collections, this method is <em>NOT</em> a constant-time operation.
+     */
+    @org.checkerframework.dataflow.qual.Pure
+    public   int size( AbstractLinkedDeque<E> this) {
+        int size = 0;
+        for (E e = first; e != null; e = getNext(e)) {
+            size++;
+        }
+        return size;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void clear( AbstractLinkedDeque<E> this) {
+        for (E e = first; e != null; ) {
+            E next = getNext(e);
+            setPrevious(e, null);
+            setNext(e, null);
+            e = next;
+        }
+        first = last = null;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public abstract   boolean contains( AbstractLinkedDeque<E> this, Object o);
+
+    @org.checkerframework.dataflow.qual.Pure
+    public   boolean isFirst( AbstractLinkedDeque<E> this, E e) {
+        return (e != null) && (e == first);
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public   boolean isLast( AbstractLinkedDeque<E> this, E e) {
+        return (e != null) && (e == last);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void moveToFront( AbstractLinkedDeque<E> this, E e) {
+        if (e != first) {
+            unlink(e);
+            linkFirst(e);
+        }
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void moveToBack( AbstractLinkedDeque<E> this, E e) {
+        if (e != last) {
+            unlink(e);
+            linkLast(e);
+        }
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public E peek( AbstractLinkedDeque<E> this) {
+        return peekFirst();
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public E peekFirst( AbstractLinkedDeque<E> this) {
+        return first;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public E peekLast( AbstractLinkedDeque<E> this) {
+        return last;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public E getFirst( AbstractLinkedDeque<E> this) {
+        checkNotEmpty();
+        return peekFirst();
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public E getLast( AbstractLinkedDeque<E> this) {
+        checkNotEmpty();
+        return peekLast();
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public E element( AbstractLinkedDeque<E> this) {
+        return getFirst();
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public   boolean offer( AbstractLinkedDeque<E> this, E e) {
+        return offerLast(e);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public   boolean offerFirst( AbstractLinkedDeque<E> this, E e) {
+        if (contains(e)) {
+            return false;
+        }
+        linkFirst(e);
+        return true;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public   boolean offerLast( AbstractLinkedDeque<E> this, E e) {
+        if (contains(e)) {
+            return false;
+        }
+        linkLast(e);
+        return true;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public   boolean add( AbstractLinkedDeque<E> this, E e) {
+        return offerLast(e);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void addFirst( AbstractLinkedDeque<E> this, E e) {
+        if (!offerFirst(e)) {
+            throw new IllegalArgumentException();
+        }
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void addLast( AbstractLinkedDeque<E> this, E e) {
+        if (!offerLast(e)) {
+            throw new IllegalArgumentException();
+        }
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public E poll( AbstractLinkedDeque<E> this) {
+        return pollFirst();
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public E pollFirst( AbstractLinkedDeque<E> this) {
+        return isEmpty() ? null : unlinkFirst();
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public E pollLast( AbstractLinkedDeque<E> this) {
+        return isEmpty() ? null : unlinkLast();
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public E remove( AbstractLinkedDeque<E> this) {
+        return removeFirst();
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public E removeFirst( AbstractLinkedDeque<E> this) {
+        checkNotEmpty();
+        return pollFirst();
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public   boolean removeFirstOccurrence( AbstractLinkedDeque<E> this,  Object o) {
+        return remove(o);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public E removeLast( AbstractLinkedDeque<E> this) {
+        checkNotEmpty();
+        return pollLast();
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public   boolean removeLastOccurrence( AbstractLinkedDeque<E> this,  Object o) {
+        return remove(o);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public   boolean removeAll( AbstractLinkedDeque<E> this,  Collection<?> c) {
+        boolean modified = false;
+        for (Object o : c) {
+            modified |= remove(o);
+        }
+        return modified;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void push( AbstractLinkedDeque<E> this, E e) {
+        addFirst(e);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public E pop( AbstractLinkedDeque<E> this) {
+        return removeFirst();
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public  PeekingIterator<E> iterator( AbstractLinkedDeque<E> this) {
+        return new AbstractLinkedIterator(first) {
+
+            @org.checkerframework.dataflow.qual.Pure
+            E computeNext() {
+                return getNext(cursor);
+            }
+        };
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public  PeekingIterator<E> descendingIterator( AbstractLinkedDeque<E> this) {
+        return new AbstractLinkedIterator(last) {
+
+            @org.checkerframework.dataflow.qual.Pure
+            E computeNext() {
+                return getPrevious(cursor);
+            }
+        };
+    }
+
+    abstract class AbstractLinkedIterator implements PeekingIterator<E> {
+
+        E previous;
+
+        E cursor;
+
+        /**
+         * Creates an iterator that can can traverse the deque.
+         *
+         * @param start the initial element to begin traversal from
+         */
+        @org.checkerframework.dataflow.qual.SideEffectFree
+        AbstractLinkedIterator(E start) {
+            cursor = start;
+        }
+
+        @org.checkerframework.dataflow.qual.Pure
+        public   boolean hasNext( AbstractLinkedIterator this) {
+            return (cursor != null);
+        }
+
+        @org.checkerframework.dataflow.qual.Pure
+        public E peek( AbstractLinkedIterator this) {
+            return cursor;
+        }
+
+        @org.checkerframework.dataflow.qual.Impure
+        public E next( AbstractLinkedIterator this) {
+            if (!hasNext()) {
+                throw new NoSuchElementException();
+            }
+            previous = cursor;
+            cursor = computeNext();
+            return previous;
+        }
+
+        /**
+         * Retrieves the next element to traverse to or <tt>null</tt> if there are no more elements.
+         */
+        @org.checkerframework.dataflow.qual.Pure
+        abstract E computeNext( AbstractLinkedIterator this);
+
+        @org.checkerframework.dataflow.qual.Impure
+        public void remove( AbstractLinkedIterator this) {
+            if (previous == null) {
+                throw new IllegalStateException();
+            }
+            AbstractLinkedDeque.this.remove(previous);
+            previous = null;
+        }
+    }
+}
