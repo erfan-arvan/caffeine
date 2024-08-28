@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metatype:MetaData xmlns:metatype="http://www.osgi.org/xmlns/metatype/v1.2.0" localization="OSGI-INF/l10n/org.apache.jackrabbit.oak.security.internal.SecurityProviderRegistration$Configuration">
+  <OCD id="org.apache.jackrabbit.oak.security.internal.SecurityProviderRegistration$Configuration" name="Apache Jackrabbit Oak SecurityProvider" description="The default SecurityProvider embedded in Apache Jackrabbit Oak">
+    <AD id="requiredServicePids" type="String" cardinality="2147483647" name="Required Services" description="The SecurityProvider will not register itself unless the services identified by the following service pids or the oak.security.name properties are registered first. The class name is identified by checking the service.pid property. If that property does not exist, the oak.security.name property is used as a fallback.Only implementations of the following interfaces are checked :AuthorizationConfiguration, PrincipalConfiguration, TokenConfiguration, AuthorizableActionProvider, RestrictionProvider and UserAuthenticationFactory." default="org.apache.jackrabbit.oak.security.authorization.AuthorizationConfigurationImpl,org.apache.jackrabbit.oak.security.principal.PrincipalConfigurationImpl,org.apache.jackrabbit.oak.security.authentication.token.TokenConfigurationImpl,org.apache.jackrabbit.oak.spi.security.user.action.DefaultAuthorizableActionProvider,org.apache.jackrabbit.oak.security.authorization.restriction.RestrictionProviderImpl,org.apache.jackrabbit.oak.security.user.UserAuthenticationFactoryImpl"/>
+    <AD id="authorizationCompositionType" type="String" name="Authorization Composition Type" description="The Composite Authorization model uses this flag to determine what type of logic to apply to the existing providers (default value is AND)." default="AND">
+      <Option label="AND" value="AND"/>
+      <Option label="OR" value="OR"/>
+    </AD>
+  </OCD>
+  <Designate pid="org.apache.jackrabbit.oak.security.internal.SecurityProviderRegistration">
+    <Object ocdref="org.apache.jackrabbit.oak.security.internal.SecurityProviderRegistration$Configuration"/>
+  </Designate>
+</metatype:MetaData>

@@ -1,0 +1,323 @@
+/*
+ * Copyright 2015 Ben Manes. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package com.github.benmanes.caffeine.cache;
+
+import java.lang.ref.ReferenceQueue;
+import javax.annotation.Nonnegative;
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+import javax.annotation.concurrent.GuardedBy;
+import com.github.benmanes.caffeine.cache.AccessOrderDeque.AccessOrder;
+import com.github.benmanes.caffeine.cache.WriteOrderDeque.WriteOrder;
+
+/**
+ * An entry in the cache containing the key, value, weight, access, and write metadata. The key
+ * or value may be held weakly or softly requiring identity comparison.
+ *
+ * @author ben.manes@gmail.com (Ben Manes)
+ */
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+abstract class Node<K, V> implements AccessOrder<Node<K, V>>, WriteOrder<Node<K, V>> {
+
+    /**
+     * Return the key or {@code null} if it has been reclaimed by the garbage collector.
+     */
+    @org.checkerframework.dataflow.qual.Pure
+    public abstract K getKey();
+
+    /**
+     * Returns the reference that the cache is holding the entry by. This is either the key if
+     * strongly held or a {@link java.lang.ref.WeakReference} to that key.
+     */
+    @org.checkerframework.dataflow.qual.Pure
+    public abstract Object getKeyReference();
+
+    /**
+     * Return the value or {@code null} if it has been reclaimed by the garbage collector.
+     */
+    @org.checkerframework.dataflow.qual.Pure
+    public abstract V getValue();
+
+    /**
+     * Returns the reference to the value. This is either the value if strongly held or a
+     * {@link java.lang.ref.Reference} to that value.
+     */
+    @org.checkerframework.dataflow.qual.Pure
+    public abstract Object getValueReference();
+
+    /**
+     * Sets the value, which may be held strongly, weakly, or softly. This update may be set lazily
+     * and rely on the memory fence when the lock is released.
+     */
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public abstract void setValue(V value, @org.checkerframework.checker.initialization.qual.FBCBottom @org.checkerframework.checker.nullness.qual.Nullable ReferenceQueue<V> referenceQueue);
+
+    /**
+     * Returns {@code true} if the given objects are considered equivalent. A strongly held value is
+     * compared by equality and a weakly or softly held value is compared by identity.
+     */
+    @org.checkerframework.dataflow.qual.Pure
+    public abstract  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean containsValue(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Object value);
+
+    /**
+     * Returns the weight of this entry from the entry's perspective.
+     */
+    @org.checkerframework.dataflow.qual.Pure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int getWeight() {
+        return 1;
+    }
+
+    /**
+     * Sets the weight from the entry's perspective.
+     */
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public void setWeight( @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int weight) {
+    }
+
+    /**
+     * Returns the weight of this entry from the policy's perspective.
+     */
+    @org.checkerframework.dataflow.qual.Pure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int getPolicyWeight() {
+        return 1;
+    }
+
+    /**
+     * Sets the weight from the policy's perspective.
+     */
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public void setPolicyWeight( @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int weight) {
+    }
+
+    /* ---------------- Health -------------- */
+    /**
+     * If the entry is available in the hash-table and page replacement policy.
+     */
+    @org.checkerframework.dataflow.qual.Pure
+    public abstract  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean isAlive();
+
+    /**
+     * If the entry was removed from the hash-table and is awaiting removal from the page
+     * replacement policy.
+     */
+    @org.checkerframework.dataflow.qual.Pure
+    public abstract  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean isRetired();
+
+    /**
+     * If the entry was removed from the hash-table and the page replacement policy.
+     */
+    @org.checkerframework.dataflow.qual.Pure
+    public abstract  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean isDead();
+
+    /**
+     * Sets the node to the <tt>retired</tt> state.
+     */
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public abstract void retire();
+
+    /**
+     * Sets the node to the <tt>dead</tt> state.
+     */
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public abstract void die();
+
+    /* ---------------- Variable order -------------- */
+    /**
+     * Returns the time that this entry was last accessed, in ns.
+     */
+    @org.checkerframework.dataflow.qual.Pure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull long getVariableTime() {
+        return 0L;
+    }
+
+    /**
+     * Sets the variable expiration time in nanoseconds. This update may be set lazily and rely on the
+     * memory fence when the lock is released.
+     */
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public void setVariableTime( @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull long time) {
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable Node<K, V> getPreviousInVariableOrder() {
+        throw new UnsupportedOperationException();
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void setPreviousInVariableOrder(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable Node<K, V> prev) {
+        throw new UnsupportedOperationException();
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.UnknownInitialization(java.lang.Object.class) @org.checkerframework.checker.nullness.qual.Nullable Node<K, V> getNextInVariableOrder() {
+        throw new UnsupportedOperationException();
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void setNextInVariableOrder(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable Node<K, V> prev) {
+        throw new UnsupportedOperationException();
+    }
+
+    /* ---------------- Access order -------------- */
+    public static final  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int EDEN = 0;
+
+    public static final  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int PROBATION = 1;
+
+    public static final  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int PROTECTED = 2;
+
+    /**
+     * Returns if the entry is in the Eden or Main space.
+     */
+    @org.checkerframework.dataflow.qual.Pure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean inEden() {
+        return getQueueType() == EDEN;
+    }
+
+    /**
+     * Returns if the entry is in the Main space's probation queue.
+     */
+    @org.checkerframework.dataflow.qual.Pure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean inMainProbation() {
+        return getQueueType() == PROBATION;
+    }
+
+    /**
+     * Returns if the entry is in the Main space's protected queue.
+     */
+    @org.checkerframework.dataflow.qual.Pure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean inMainProtected() {
+        return getQueueType() == PROTECTED;
+    }
+
+    /**
+     * Sets the status to the Main space's probation queue.
+     */
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public void makeMainProbation() {
+        setQueueType(PROBATION);
+    }
+
+    /**
+     * Sets the status to the Main space's protected queue.
+     */
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public void makeMainProtected() {
+        setQueueType(PROTECTED);
+    }
+
+    /**
+     * Returns the queue that the entry's resides in (eden, probation, or protected).
+     */
+    @org.checkerframework.dataflow.qual.Pure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int getQueueType() {
+        return EDEN;
+    }
+
+    /**
+     * Set queue that the entry resides in (eden, probation, or protected).
+     */
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public void setQueueType( @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int queueType) {
+        throw new UnsupportedOperationException();
+    }
+
+    /**
+     * Returns the time that this entry was last accessed, in ns.
+     */
+    @org.checkerframework.dataflow.qual.Pure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull long getAccessTime() {
+        return 0L;
+    }
+
+    /**
+     * Sets the access time in nanoseconds. This update may be set lazily and rely on the memory fence
+     * when the lock is released.
+     */
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public void setAccessTime( @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull long time) {
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.FBCBottom @org.checkerframework.checker.nullness.qual.Nullable Node<K, V> getPreviousInAccessOrder(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Node<K, V> this) {
+        return null;
+    }
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public void setPreviousInAccessOrder(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Node<K, V> this, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable Node<K, V> prev) {
+        throw new UnsupportedOperationException();
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.FBCBottom @org.checkerframework.checker.nullness.qual.Nullable Node<K, V> getNextInAccessOrder(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Node<K, V> this) {
+        return null;
+    }
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public void setNextInAccessOrder(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Node<K, V> this, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable Node<K, V> next) {
+        throw new UnsupportedOperationException();
+    }
+
+    /* ---------------- Write order -------------- */
+    /**
+     * Returns the time that this entry was last written, in ns.
+     */
+    @org.checkerframework.dataflow.qual.Pure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull long getWriteTime() {
+        return 0L;
+    }
+
+    /**
+     * Sets the write time in nanoseconds. This update may be set lazily and rely on the memory fence
+     * when the lock is released.
+     */
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public void setWriteTime( @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull long time) {
+    }
+
+    /**
+     * Atomically sets the write time to the given updated value if the current value equals the
+     * expected value and returns if the update was successful.
+     */
+    @org.checkerframework.dataflow.qual.Pure
+    public boolean casWriteTime( @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull long expect,  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull long update) {
+        throw new UnsupportedOperationException();
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.FBCBottom @org.checkerframework.checker.nullness.qual.Nullable Node<K, V> getPreviousInWriteOrder(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Node<K, V> this) {
+        return null;
+    }
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public void setPreviousInWriteOrder(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Node<K, V> this, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable Node<K, V> prev) {
+        throw new UnsupportedOperationException();
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.FBCBottom @org.checkerframework.checker.nullness.qual.Nullable Node<K, V> getNextInWriteOrder(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Node<K, V> this) {
+        return null;
+    }
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public void setNextInWriteOrder(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Node<K, V> this, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable Node<K, V> next) {
+        throw new UnsupportedOperationException();
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public final @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String toString(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Node<K, V> this) {
+        return String.format("%s=[key=%s, value=%s, weight=%d, queueType=%,d, accessTimeNS=%,d, writeTimeNS=%,d, varTimeNs=%,d, prevInAccess=%s, nextInAccess=%s, prevInWrite=%s, nextInWrite=%s]", getClass().getSimpleName(), getKey(), getValue(), getWeight(), getQueueType(), getAccessTime(), getWriteTime(), getVariableTime(), getPreviousInAccessOrder() != null, getNextInAccessOrder() != null, getPreviousInWriteOrder() != null, getNextInWriteOrder() != null);
+    }
+}

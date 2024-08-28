@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metatype:MetaData xmlns:metatype="http://www.osgi.org/xmlns/metatype/v1.2.0" localization="OSGI-INF/l10n/org.apache.jackrabbit.oak.spi.security.user.action.DefaultAuthorizableActionProvider$Configuration">
+  <OCD id="org.apache.jackrabbit.oak.spi.security.user.action.DefaultAuthorizableActionProvider$Configuration" name="Apache Jackrabbit Oak AuthorizableActionProvider" description="">
+    <AD id="enabledActions" type="String" cardinality="4" name="Authorizable Actions" description="The set of actions that is supported by this provider implementation.">
+      <Option label="AccessControlAction" value="org.apache.jackrabbit.oak.spi.security.user.action.AccessControlAction"/>
+      <Option label="PasswordValidationAction" value="org.apache.jackrabbit.oak.spi.security.user.action.PasswordValidationAction"/>
+      <Option label="PasswordChangeAction" value="org.apache.jackrabbit.oak.spi.security.user.action.PasswordChangeAction"/>
+      <Option label="ClearMembershipAction" value="org.apache.jackrabbit.oak.spi.security.user.action.ClearMembershipAction"/>
+    </AD>
+    <AD id="userPrivilegeNames" type="String" cardinality="2147483647" name="Configure AccessControlAction: User Privileges" description="The name of the privileges that should be granted to a given user on it's home."/>
+    <AD id="groupPrivilegeNames" type="String" cardinality="2147483647" name="Configure AccessControlAction: Group Privileges" description="The name of the privileges that should be granted to a given group on it's home."/>
+    <AD id="constraint" type="String" name="Configure PasswordValidationAction: Password Constraint" description="A regular expression specifying the pattern that must be matched by a user's password."/>
+  </OCD>
+  <Designate pid="org.apache.jackrabbit.oak.spi.security.user.action.DefaultAuthorizableActionProvider">
+    <Object ocdref="org.apache.jackrabbit.oak.spi.security.user.action.DefaultAuthorizableActionProvider$Configuration"/>
+  </Designate>
+</metatype:MetaData>

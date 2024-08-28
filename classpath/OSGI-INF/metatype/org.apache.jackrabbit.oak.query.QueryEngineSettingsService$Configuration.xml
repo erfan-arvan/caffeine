@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metatype:MetaData xmlns:metatype="http://www.osgi.org/xmlns/metatype/v1.2.0" localization="OSGI-INF/l10n/org.apache.jackrabbit.oak.query.QueryEngineSettingsService$Configuration">
+  <OCD id="org.apache.jackrabbit.oak.query.QueryEngineSettingsService$Configuration" name="Apache Jackrabbit Query Engine Settings Service" description="Various settings exposed by Oak QueryEngine. Note that settings done by system property supersedes the one defined via OSGi config">
+    <AD id="queryLimitInMemory" type="Integer" name="In memory limit" description="Maximum number of entries that can be held in memory while evaluating any query" default="500000"/>
+    <AD id="queryLimitReads" type="Integer" name="In memory read limit" description="Maximum number of results which can be read by any query" default="100000"/>
+    <AD id="queryFailTraversal" type="Boolean" name="Fail traversal" description="If enabled any query execution which results in traversal would fail." default="false"/>
+    <AD id="fastQuerySize" type="Boolean" name="Fast result size" description="Whether the query result size (QueryResult.getSize()) should return an estimation for queries that return many nodes. The estimate will be larger or equal the actual result size, as it includes unindexed properties and nodes that are not accessible. If disabled, for such cases -1 is returned. Note: even if enabled, getSize may still return -1 if the index used does not support the feature." default="false"/>
+  </OCD>
+  <Designate pid="org.apache.jackrabbit.oak.query.QueryEngineSettingsService">
+    <Object ocdref="org.apache.jackrabbit.oak.query.QueryEngineSettingsService$Configuration"/>
+  </Designate>
+</metatype:MetaData>

@@ -1,0 +1,728 @@
++ PROJECT_PATH=../dataset/pre_wpi_with_s_caffeine_CFNullness
++ CF_BINARY=../scripts/tools/checker-framework-3.34.0/checker/bin/javac
++ COMPILED_CLASSES_FOLDER=../dataset/pre_wpi_with_s_caffeine_CFNullness/classes
++ LIB_FOLDER=../dataset/pre_wpi_with_s_caffeine_CFNullness/lib
++ SRC_FILES=../dataset/pre_wpi_with_s_caffeine_CFNullness/cf_srcs.txt
++ CLASSPATH_DIR=../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ echo 'CF_BINARY: ../scripts/tools/checker-framework-3.34.0/checker/bin/javac'
+CF_BINARY: ../scripts/tools/checker-framework-3.34.0/checker/bin/javac
++ unzip_jars ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ local lib_folder=../dataset/pre_wpi_with_s_caffeine_CFNullness/lib
++ local extract_to=../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ '[' -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath ']'
++ rm -rf ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ mkdir -p ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/HdrHistogram-2.1.4.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/HdrHistogram-2.1.9.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/aether-api-1.0.2.v20150114.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/aether-impl-1.0.2.v20150114.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/aether-spi-1.0.2.v20150114.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/aether-util-1.0.2.v20150114.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/animal-sniffer-annotations-1.14.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/aopalliance-1.0.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/asm-5.0.3.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/awaitility-3.1.0.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/bndlib-2.4.0.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/bsh-2.0b6.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/byte-buddy-1.8.5.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/byte-buddy-agent-1.8.5.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/cache-api-1.0.0.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/cache2k-api-1.0.2.Final.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/cache2k-core-1.0.2.Final.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/caffeine-2.7.0-SNAPSHOT-javadoc.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/caffeine-2.7.0-SNAPSHOT-sources.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/caffeine-2.7.0-SNAPSHOT-tests.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/checker-qual-2.0.0.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/collision-0.3.3.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/commons-codec-1.11.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/commons-io-2.6.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/commons-lang3-3.7.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/commons-math3-3.2.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/concurrentlinkedhashmap-lru-1.4.2.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/core-0.13.0.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/ehcache-3.5.2.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/elasticsearch-6.2.4.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/elasticsearch-cli-6.2.4.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/elasticsearch-core-6.2.4.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/expiringmap-0.5.8.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/fastutil-8.1.1.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/fliptables-1.0.2.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/guava-25.1-jre.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/guava-testlib-25.1-jre.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/guice-4.2.0.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/hamcrest-core-1.3.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/hppc-0.7.1.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/htrace-core4-4.1.0-incubating.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q '../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/j2objc-annotations-1.1 4.58.17 AM.jar' -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/j2objc-annotations-1.1.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/jackrabbit-api-2.17.3.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/jackrabbit-data-2.17.3.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/jackrabbit-jcr-commons-2.17.3.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/jackson-annotations-2.8.5.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/jackson-core-2.8.10.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/jackson-core-asl-1.9.4.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/jackson-databind-2.8.5.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/jackson-dataformat-cbor-2.8.10.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/jackson-dataformat-smile-2.8.10.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/jackson-dataformat-xml-2.8.5.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/jackson-dataformat-yaml-2.8.10.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/jackson-mapper-asl-1.9.4.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/jackson-module-afterburner-2.8.5.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/jackson-module-jaxb-annotations-2.8.5.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/jamm-0.3.2.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/java-hamcrest-2.0.0.0.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/javapoet-1.11.1.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/javassist-3.22.0-GA.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/javax.inject-1.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/jcl-over-slf4j-1.6.6.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/jcl-over-slf4j-1.7.25.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/jcommander-1.72.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/jcr-2.0.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/jctools-core-2.1.2.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/jmh-core-1.21.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/jmh-generator-asm-1.21.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/jmh-generator-bytecode-1.21.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/jmh-generator-reflection-1.21.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/jna-4.5.1.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/joda-time-2.9.9.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/jopt-simple-5.0.2.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/jsr305-3.0.2.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/junit-4.12.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/koloboke-api-jdk8-0.6.8.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/koloboke-impl-jdk8-0.6.8.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/log4j-api-2.9.1.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/mockito-core-2.18.3.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/oak-api-1.9.2.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/oak-blob-1.9.2.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/oak-blob-plugins-1.9.2.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/oak-commons-1.9.2.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/oak-core-1.9.2.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/oak-core-spi-1.9.2.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/oak-query-spi-1.9.2.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/oak-security-spi-1.9.2.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/oak-store-spi-1.9.2.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/objenesis-2.6.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/ops4j-base-io-1.5.0.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/ops4j-base-lang-1.5.0.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/ops4j-base-monitors-1.5.0.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/ops4j-base-net-1.5.0.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/ops4j-base-spi-1.5.0.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/ops4j-base-store-1.5.0.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/ops4j-base-util-property-1.5.0.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/org.apache.felix.framework-5.6.10.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/org.osgi.service.component.annotations-1.3.0.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/org.osgi.service.metatype.annotations-1.3.0.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/pax-exam-4.11.0.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/pax-exam-container-native-4.11.0.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/pax-exam-junit4-4.11.0.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/pax-exam-link-mvn-4.11.0.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/pax-exam-spi-4.11.0.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/pax-swissbox-core-1.8.2.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/pax-swissbox-lifecycle-1.8.2.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/pax-swissbox-optional-jcl-1.8.2.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/pax-swissbox-property-1.8.2.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/pax-swissbox-tracker-1.8.2.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/pax-url-aether-2.5.4.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/pax-url-aether-support-2.5.4.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/pax-url-classpath-2.4.5.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/pax-url-commons-2.4.5.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/pax-url-link-2.4.5.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/rapidoid-commons-5.5.4.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/rapidoid-essentials-5.5.4.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/securesm-1.2.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/slf4j-api-1.6.6.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/slf4j-api-1.7.25.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/slf4j-nop-1.7.25.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/snakeyaml-1.17.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/stax2-api-3.1.4.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/t-digest-3.0.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/testng-6.14.3.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/tinybundles-2.1.1.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/triava-1.0.5.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ for jar_file in '"$lib_folder"/*.jar'
++ unzip -o -q ../dataset/pre_wpi_with_s_caffeine_CFNullness/lib/woodstox-core-5.0.3.jar -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath
++ find ../dataset/pre_wpi_with_s_caffeine_CFNullness/src -name '*.java'
++ BUILD_CMD='../scripts/tools/checker-framework-3.34.0/checker/bin/javac -processor org.checkerframework.checker.nullness.NullnessChecker -AassumePure -Adetailedmsgtext -Aajava=../dataset/pre_wpi_with_s_caffeine_CFNullness/wpi-out -Ainfer=ajava -Awarns -AshowPrefixInWarningMessages -J-Xmx32G -Xmaxerrs 10000 -g -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classes -cp ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath @../dataset/pre_wpi_with_s_caffeine_CFNullness/cf_srcs.txt'
++ CLEAN_CMD='rm -rf ../dataset/pre_wpi_with_s_caffeine_CFNullness/classes'
++ ../scripts/tools/checker-framework-3.34.0/checker/bin/javac -processor org.checkerframework.checker.nullness.NullnessChecker -AassumePure -Adetailedmsgtext -Aajava=../dataset/pre_wpi_with_s_caffeine_CFNullness/wpi-out -Ainfer=ajava -Awarns -AshowPrefixInWarningMessages -J-Xmx32G -Xmaxerrs 10000 -g -d ../dataset/pre_wpi_with_s_caffeine_CFNullness/classes -cp ../dataset/pre_wpi_with_s_caffeine_CFNullness/classpath @../dataset/pre_wpi_with_s_caffeine_CFNullness/cf_srcs.txt
+../dataset/pre_wpi_with_s_caffeine_CFNullness/src/main/java/com/github/benmanes/caffeine/base/UnsafeAccess.java:22: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+../dataset/pre_wpi_with_s_caffeine_CFNullness/src/main/java/com/github/benmanes/caffeine/base/UnsafeAccess.java:22: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+../dataset/pre_wpi_with_s_caffeine_CFNullness/src/main/java/com/github/benmanes/caffeine/base/UnsafeAccess.java:22: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+../dataset/pre_wpi_with_s_caffeine_CFNullness/src/main/java/com/github/benmanes/caffeine/cache/Caffeine.java:282: warning: (monotonic) $$ 3 $$ MonotonicNonNull $$ MonotonicNonNull $$ @Initialized @MonotonicNonNull Executor $$ ( 12805, 12818 ) $$ cannot assign MonotonicNonNull to MonotonicNonNull (monotonic type).
+    requireState(this.executor == null, "executor was already set to %s", this.executor);
+                                                                              ^
+  type of right-hand-side: @Initialized @MonotonicNonNull Executor
+../dataset/pre_wpi_with_s_caffeine_CFNullness/src/main/java/com/github/benmanes/caffeine/cache/Caffeine.java:390: warning: (monotonic) $$ 3 $$ MonotonicNonNull $$ MonotonicNonNull $$ @Initialized @MonotonicNonNull Weigher<? extends @Initialized @Nullable Object super K extends @Initialized @Nullable Object, ? extends @Initialized @Nullable Object super V extends @Initialized @Nullable Object> $$ ( 18692, 18704 ) $$ cannot assign MonotonicNonNull to MonotonicNonNull (monotonic type).
+    requireState(this.weigher == null, "weigher was already set to %s", this.weigher);
+                                                                            ^
+  type of right-hand-side: @Initialized @MonotonicNonNull Weigher<? extends @Initialized @Nullable Object super K extends @Initialized @Nullable Object, ? extends @Initialized @Nullable Object super V extends @Initialized @Nullable Object>
+../dataset/pre_wpi_with_s_caffeine_CFNullness/src/main/java/com/github/benmanes/caffeine/cache/Caffeine.java:415: warning: (purity.not.deterministic.not.sideeffectfree.call) $$ 1 $$ Weigher.singletonWeigher $$ ( 19406, 19432 ) $$ call to non-deterministic side-effecting Weigher.singletonWeigher not allowed in deterministic side-effect-free method
+    Weigher<K1, V1> delegate = (weigher == null) || (weigher == Weigher.singletonWeigher())
+                                                                                        ^
+../dataset/pre_wpi_with_s_caffeine_CFNullness/src/main/java/com/github/benmanes/caffeine/cache/Caffeine.java:416: warning: (purity.not.deterministic.not.sideeffectfree.call) $$ 1 $$ Weigher.singletonWeigher $$ ( 19444, 19470 ) $$ call to non-deterministic side-effecting Weigher.singletonWeigher not allowed in deterministic side-effect-free method
+        ? Weigher.singletonWeigher()
+                                  ^
+../dataset/pre_wpi_with_s_caffeine_CFNullness/src/main/java/com/github/benmanes/caffeine/cache/Caffeine.java:417: warning: (purity.not.deterministic.not.sideeffectfree.call) $$ 1 $$ Weigher.boundedWeigher $$ ( 19481, 19530 ) $$ call to non-deterministic side-effecting Weigher.boundedWeigher not allowed in deterministic side-effect-free method
+        : Weigher.boundedWeigher((Weigher<K1, V1>) weigher);
+                                ^
+../dataset/pre_wpi_with_s_caffeine_CFNullness/src/main/java/com/github/benmanes/caffeine/cache/Caffeine.java:441: warning: (monotonic) $$ 3 $$ MonotonicNonNull $$ MonotonicNonNull $$ @Initialized @MonotonicNonNull Strength $$ ( 20725, 20736 ) $$ cannot assign MonotonicNonNull to MonotonicNonNull (monotonic type).
+    requireState(keyStrength == null, "Key strength was already set to %s", keyStrength);
+                                                                            ^
+  type of right-hand-side: @Initialized @MonotonicNonNull Strength
+../dataset/pre_wpi_with_s_caffeine_CFNullness/src/main/java/com/github/benmanes/caffeine/cache/Caffeine.java:473: warning: (monotonic) $$ 3 $$ MonotonicNonNull $$ MonotonicNonNull $$ @Initialized @MonotonicNonNull Strength $$ ( 22058, 22071 ) $$ cannot assign MonotonicNonNull to MonotonicNonNull (monotonic type).
+    requireState(valueStrength == null, "Value strength was already set to %s", valueStrength);
+                                                                                ^
+  type of right-hand-side: @Initialized @MonotonicNonNull Strength
+../dataset/pre_wpi_with_s_caffeine_CFNullness/src/main/java/com/github/benmanes/caffeine/cache/Caffeine.java:510: warning: (monotonic) $$ 3 $$ MonotonicNonNull $$ MonotonicNonNull $$ @Initialized @MonotonicNonNull Strength $$ ( 23645, 23658 ) $$ cannot assign MonotonicNonNull to MonotonicNonNull (monotonic type).
+    requireState(valueStrength == null, "Value strength was already set to %s", valueStrength);
+                                                                                ^
+  type of right-hand-side: @Initialized @MonotonicNonNull Strength
+../dataset/pre_wpi_with_s_caffeine_CFNullness/src/main/java/com/github/benmanes/caffeine/cache/Caffeine.java:650: warning: (monotonic) $$ 3 $$ MonotonicNonNull $$ MonotonicNonNull $$ @FBCBottom @MonotonicNonNull Expiry<? extends @Initialized @Nullable Object super K extends @Initialized @Nullable Object, ? extends @Initialized @Nullable Object super V extends @Initialized @Nullable Object> $$ ( 30674, 30685 ) $$ cannot assign MonotonicNonNull to MonotonicNonNull (monotonic type).
+    requireState(this.expiry == null, "Expiry was already set to %s", this.expiry);
+                                                                          ^
+  type of right-hand-side: @FBCBottom @MonotonicNonNull Expiry<? extends @Initialized @Nullable Object super K extends @Initialized @Nullable Object, ? extends @Initialized @Nullable Object super V extends @Initialized @Nullable Object>
+../dataset/pre_wpi_with_s_caffeine_CFNullness/src/main/java/com/github/benmanes/caffeine/cache/Caffeine.java:748: warning: (monotonic) $$ 3 $$ MonotonicNonNull $$ MonotonicNonNull $$ @Initialized @MonotonicNonNull Ticker $$ ( 35060, 35071 ) $$ cannot assign MonotonicNonNull to MonotonicNonNull (monotonic type).
+    requireState(this.ticker == null, "Ticker was already set to %s", this.ticker);
+                                                                          ^
+  type of right-hand-side: @Initialized @MonotonicNonNull Ticker
+../dataset/pre_wpi_with_s_caffeine_CFNullness/src/main/java/com/github/benmanes/caffeine/cache/Caffeine.java:791: warning: (monotonic) $$ 3 $$ MonotonicNonNull $$ MonotonicNonNull $$ @Initialized @MonotonicNonNull RemovalListener<? extends @Initialized @Nullable Object super K extends @Initialized @Nullable Object, ? extends @Initialized @Nullable Object super V extends @Initialized @Nullable Object> $$ ( 37330, 37350 ) $$ cannot assign MonotonicNonNull to MonotonicNonNull (monotonic type).
+        "removal listener was already set to %s", this.removalListener);
+                                                      ^
+  type of right-hand-side: @Initialized @MonotonicNonNull RemovalListener<? extends @Initialized @Nullable Object super K extends @Initialized @Nullable Object, ? extends @Initialized @Nullable Object super V extends @Initialized @Nullable Object>
+../dataset/pre_wpi_with_s_caffeine_CFNullness/src/main/java/com/github/benmanes/caffeine/cache/Caffeine.java:838: warning: (monotonic) $$ 3 $$ MonotonicNonNull $$ MonotonicNonNull $$ @Initialized @MonotonicNonNull CacheWriter<? extends @Initialized @Nullable Object super K extends @Initialized @Nullable Object, ? extends @Initialized @Nullable Object super V extends @Initialized @Nullable Object> $$ ( 39938, 39949 ) $$ cannot assign MonotonicNonNull to MonotonicNonNull (monotonic type).
+    requireState(this.writer == null, "Writer was already set to %s", this.writer);
+                                                                          ^
+  type of right-hand-side: @Initialized @MonotonicNonNull CacheWriter<? extends @Initialized @Nullable Object super K extends @Initialized @Nullable Object, ? extends @Initialized @Nullable Object super V extends @Initialized @Nullable Object>
+../dataset/pre_wpi_with_s_caffeine_CFNullness/src/main/java/com/github/benmanes/caffeine/cache/Caffeine.java:850: warning: (purity.not.deterministic.not.sideeffectfree.call) $$ 1 $$ CacheWriter.disabledWriter $$ ( 40400, 40428 ) $$ call to non-deterministic side-effecting CacheWriter.disabledWriter not allowed in deterministic side-effect-free method
+    return (castedWriter == null) ? CacheWriter.disabledWriter() : castedWriter;
+                                                              ^
+../dataset/pre_wpi_with_s_caffeine_CFNullness/src/main/java/com/github/benmanes/caffeine/cache/Caffeine.java:1074: warning: (purity.not.sideeffectfree.call) $$ 1 $$ s.append $$ ( 50138, 50174 ) $$ call to side-effecting s.append not allowed in side-effect-free method
+    s.append(getClass().getSimpleName()).append('{');
+            ^
+../dataset/pre_wpi_with_s_caffeine_CFNullness/src/main/java/com/github/benmanes/caffeine/cache/Caffeine.java:1074: warning: (purity.not.sideeffectfree.call) $$ 1 $$ getClass().getSimpleName $$ ( 50147, 50173 ) $$ call to side-effecting getClass().getSimpleName not allowed in side-effect-free method
+    s.append(getClass().getSimpleName()).append('{');
+                                     ^
+../dataset/pre_wpi_with_s_caffeine_CFNullness/src/main/java/com/github/benmanes/caffeine/cache/Caffeine.java:1074: warning: (purity.not.sideeffectfree.call) $$ 1 $$ s.append(getClass().getSimpleName()).append $$ ( 50138, 50186 ) $$ call to side-effecting s.append(getClass().getSimpleName()).append not allowed in side-effect-free method
+    s.append(getClass().getSimpleName()).append('{');
+                                               ^
+../dataset/pre_wpi_with_s_caffeine_CFNullness/src/main/java/com/github/benmanes/caffeine/cache/Caffeine.java:1077: warning: (purity.not.sideeffectfree.call) $$ 1 $$ s.append $$ ( 50267, 50295 ) $$ call to side-effecting s.append not allowed in side-effect-free method
+      s.append("initialCapacity=").append(initialCapacity).append(", ");
+              ^
+../dataset/pre_wpi_with_s_caffeine_CFNullness/src/main/java/com/github/benmanes/caffeine/cache/Caffeine.java:1077: warning: (purity.not.sideeffectfree.call) $$ 1 $$ s.append("initialCapacity=").append $$ ( 50267, 50319 ) $$ call to side-effecting s.append("initialCapacity=").append not allowed in side-effect-free method
+      s.append("initialCapacity=").append(initialCapacity).append(", ");
+                                         ^
+../dataset/pre_wpi_with_s_caffeine_CFNullness/src/main/java/com/github/benmanes/caffeine/cache/Caffeine.java:1077: warning: (purity.not.sideeffectfree.call) $$ 1 $$ s.append("initialCapacity=").append(initialCapacity).append $$ ( 50267, 50332 ) $$ call to side-effecting s.append("initialCapacity=").append(initialCapacity).append not allowed in side-effect-free method
+      s.append("initialCapacity=").append(initialCapacity).append(", ");
+                                                                 ^
+../dataset/pre_wpi_with_s_caffeine_CFNullness/src/main/java/com/github/benmanes/caffeine/cache/Caffeine.java:1080: warning: (purity.not.sideeffectfree.call) $$ 1 $$ s.append $$ ( 50382, 50406 ) $$ call to side-effecting s.append not allowed in side-effect-free method
+      s.append("maximumSize=").append(maximumSize).append(", ");
+              ^
+../dataset/pre_wpi_with_s_caffeine_CFNullness/src/main/java/com/github/benmanes/caffeine/cache/Caffeine.java:1080: warning: (purity.not.sideeffectfree.call) $$ 1 $$ s.append("maximumSize=").append $$ ( 50382, 50426 ) $$ call to side-effecting s.append("maximumSize=").append not allowed in side-effect-free method
+      s.append("maximumSize=").append(maximumSize).append(", ");
+                                     ^
+../dataset/pre_wpi_with_s_caffeine_CFNullness/src/main/java/com/github/benmanes/caffeine/cache/Caffeine.java:1080: warning: (purity.not.sideeffectfree.call) $$ 1 $$ s.append("maximumSize=").append(maximumSize).append $$ ( 50382, 50439 ) $$ call to side-effecting s.append("maximumSize=").append(maximumSize).append not allowed in side-effect-free method
+      s.append("maximumSize=").append(maximumSize).append(", ");
+                                                         ^
+../dataset/pre_wpi_with_s_caffeine_CFNullness/src/main/java/com/github/benmanes/caffeine/cache/Caffeine.java:1083: warning: (purity.not.sideeffectfree.call) $$ 1 $$ s.append $$ ( 50491, 50517 ) $$ call to side-effecting s.append not allowed in side-effect-free method
+      s.append("maximumWeight=").append(maximumWeight).append(", ");
+              ^
+../dataset/pre_wpi_with_s_caffeine_CFNullness/src/main/java/com/github/benmanes/caffeine/cache/Caffeine.java:1083: warning: (purity.not.sideeffectfree.call) $$ 1 $$ s.append("maximumWeight=").append $$ ( 50491, 50539 ) $$ call to side-effecting s.append("maximumWeight=").append not allowed in side-effect-free method
+      s.append("maximumWeight=").append(maximumWeight).append(", ");
+                                       ^
+../dataset/pre_wpi_with_s_caffeine_CFNullness/src/main/java/com/github/benmanes/caffeine/cache/Caffeine.java:1083: warning: (purity.not.sideeffectfree.call) $$ 1 $$ s.append("maximumWeight=").append(maximumWeight).append $$ ( 50491, 50552 ) $$ call to side-effecting s.append("maximumWeight=").append(maximumWeight).append not allowed in side-effect-free method
+      s.append("maximumWeight=").append(maximumWeight).append(", ");
+                                                             ^
+../dataset/pre_wpi_with_s_caffeine_CFNullness/src/main/java/com/github/benmanes/caffeine/cache/Caffeine.java:1086: warning: (purity.not.sideeffectfree.call) $$ 1 $$ s.append $$ ( 50612, 50641 ) $$ call to side-effecting s.append not allowed in side-effect-free method
+      s.append("expireAfterWrite=").append(expireAfterWriteNanos).append("ns, ");
+              ^
+../dataset/pre_wpi_with_s_caffeine_CFNullness/src/main/java/com/github/benmanes/caffeine/cache/Caffeine.java:1086: warning: (purity.not.sideeffectfree.call) $$ 1 $$ s.append("expireAfterWrite=").append $$ ( 50612, 50671 ) $$ call to side-effecting s.append("expireAfterWrite=").append not allowed in side-effect-free method
+      s.append("expireAfterWrite=").append(expireAfterWriteNanos).append("ns, ");
+                                          ^
+../dataset/pre_wpi_with_s_caffeine_CFNullness/src/main/java/com/github/benmanes/caffeine/cache/Caffeine.java:1086: warning: (purity.not.sideeffectfree.call) $$ 1 $$ s.append("expireAfterWrite=").append(expireAfterWriteNanos).append $$ ( 50612, 50686 ) $$ call to side-effecting s.append("expireAfterWrite=").append(expireAfterWriteNanos).append not allowed in side-effect-free method
+      s.append("expireAfterWrite=").append(expireAfterWriteNanos).append("ns, ");
+                                                                        ^
+../dataset/pre_wpi_with_s_caffeine_CFNullness/src/main/java/com/github/benmanes/caffeine/cache/Caffeine.java:1089: warning: (purity.not.sideeffectfree.call) $$ 1 $$ s.append $$ ( 50747, 50777 ) $$ call to side-effecting s.append not allowed in side-effect-free method
+      s.append("expireAfterAccess=").append(expireAfterAccessNanos).append("ns, ");
+              ^
+../dataset/pre_wpi_with_s_caffeine_CFNullness/src/main/java/com/github/benmanes/caffeine/cache/Caffeine.java:1089: warning: (purity.not.sideeffectfree.call) $$ 1 $$ s.append("expireAfterAccess=").append $$ ( 50747, 50808 ) $$ call to side-effecting s.append("expireAfterAccess=").append not allowed in side-effect-free method
+      s.append("expireAfterAccess=").append(expireAfterAccessNanos).append("ns, ");
+                                           ^
+../dataset/pre_wpi_with_s_caffeine_CFNullness/src/main/java/com/github/benmanes/caffeine/cache/Caffeine.java:1089: warning: (purity.not.sideeffectfree.call) $$ 1 $$ s.append("expireAfterAccess=").append(expireAfterAccessNanos).append $$ ( 50747, 50823 ) $$ call to side-effecting s.append("expireAfterAccess=").append(expireAfterAccessNanos).append not allowed in side-effect-free method
+      s.append("expireAfterAccess=").append(expireAfterAccessNanos).append("ns, ");
+                                                                          ^
+../dataset/pre_wpi_with_s_caffeine_CFNullness/src/main/java/com/github/benmanes/caffeine/cache/Caffeine.java:1092: warning: (purity.not.sideeffectfree.call) $$ 1 $$ s.append $$ ( 50863, 50883 ) $$ call to side-effecting s.append not allowed in side-effect-free method
+      s.append("expiry, ");
+              ^
+../dataset/pre_wpi_with_s_caffeine_CFNullness/src/main/java/com/github/benmanes/caffeine/cache/Caffeine.java:1095: warning: (purity.not.sideeffectfree.call) $$ 1 $$ s.append $$ ( 50934, 50959 ) $$ call to side-effecting s.append not allowed in side-effect-free method
+      s.append("refreshNanos=").append(refreshNanos).append("ns, ");
+              ^
+../dataset/pre_wpi_with_s_caffeine_CFNullness/src/main/java/com/github/benmanes/caffeine/cache/Caffeine.java:1095: warning: (purity.not.sideeffectfree.call) $$ 1 $$ s.append("refreshNanos=").append $$ ( 50934, 50980 ) $$ call to side-effecting s.append("refreshNanos=").append not allowed in side-effect-free method
+      s.append("refreshNanos=").append(refreshNanos).append("ns, ");
+                                      ^
+../dataset/pre_wpi_with_s_caffeine_CFNullness/src/main/java/com/github/benmanes/caffeine/cache/Caffeine.java:1095: warning: (purity.not.sideeffectfree.call) $$ 1 $$ s.append("refreshNanos=").append(refreshNanos).append $$ ( 50934, 50995 ) $$ call to side-effecting s.append("refreshNanos=").append(refreshNanos).append not allowed in side-effect-free method
+      s.append("refreshNanos=").append(refreshNanos).append("ns, ");
+                                                           ^
+../dataset/pre_wpi_with_s_caffeine_CFNullness/src/main/java/com/github/benmanes/caffeine/cache/Caffeine.java:1098: warning: (purity.not.sideeffectfree.call) $$ 1 $$ s.append $$ ( 51040, 51064 ) $$ call to side-effecting s.append not allowed in side-effect-free method
+      s.append("keyStrength=").append(keyStrength.toString().toLowerCase(US)).append(", ");
+              ^
+../dataset/pre_wpi_with_s_caffeine_CFNullness/src/main/java/com/github/benmanes/caffeine/cache/Caffeine.java:1098: warning: (purity.not.sideeffectfree.call) $$ 1 $$ s.append("keyStrength=").append $$ ( 51040, 51111 ) $$ call to side-effecting s.append("keyStrength=").append not allowed in side-effect-free method
+      s.append("keyStrength=").append(keyStrength.toString().toLowerCase(US)).append(", ");
+                                     ^
+../dataset/pre_wpi_with_s_caffeine_CFNullness/src/main/java/com/github/benmanes/caffeine/cache/Caffeine.java:1098: warning: (purity.not.sideeffectfree.call) $$ 1 $$ s.append("keyStrength=").append(keyStrength.toString().toLowerCase(US)).append $$ ( 51040, 51124 ) $$ call to side-effecting s.append("keyStrength=").append(keyStrength.toString().toLowerCase(US)).append not allowed in side-effect-free method
+      s.append("keyStrength=").append(keyStrength.toString().toLowerCase(US)).append(", ");
+                                                                                    ^
+../dataset/pre_wpi_with_s_caffeine_CFNullness/src/main/java/com/github/benmanes/caffeine/cache/Caffeine.java:1101: warning: (purity.not.sideeffectfree.call) $$ 1 $$ s.append $$ ( 51171, 51197 ) $$ call to side-effecting s.append not allowed in side-effect-free method
+      s.append("valueStrength=").append(valueStrength.toString().toLowerCase(US)).append(", ");
+              ^
+../dataset/pre_wpi_with_s_caffeine_CFNullness/src/main/java/com/github/benmanes/caffeine/cache/Caffeine.java:1101: warning: (purity.not.sideeffectfree.call) $$ 1 $$ s.append("valueStrength=").append $$ ( 51171, 51246 ) $$ call to side-effecting s.append("valueStrength=").append not allowed in side-effect-free method
+      s.append("valueStrength=").append(valueStrength.toString().toLowerCase(US)).append(", ");
+                                       ^
+../dataset/pre_wpi_with_s_caffeine_CFNullness/src/main/java/com/github/benmanes/caffeine/cache/Caffeine.java:1101: warning: (purity.not.sideeffectfree.call) $$ 1 $$ s.append("valueStrength=").append(valueStrength.toString().toLowerCase(US)).append $$ ( 51171, 51259 ) $$ call to side-effecting s.append("valueStrength=").append(valueStrength.toString().toLowerCase(US)).append not allowed in side-effect-free method
+      s.append("valueStrength=").append(valueStrength.toString().toLowerCase(US)).append(", ");
+                                                                                        ^
+../dataset/pre_wpi_with_s_caffeine_CFNullness/src/main/java/com/github/benmanes/caffeine/cache/Caffeine.java:1104: warning: (purity.not.sideeffectfree.call) $$ 1 $$ s.append $$ ( 51308, 51337 ) $$ call to side-effecting s.append not allowed in side-effect-free method
+      s.append("removalListener, ");
+              ^
+../dataset/pre_wpi_with_s_caffeine_CFNullness/src/main/java/com/github/benmanes/caffeine/cache/Caffeine.java:1107: warning: (purity.not.sideeffectfree.call) $$ 1 $$ s.append $$ ( 51377, 51397 ) $$ call to side-effecting s.append not allowed in side-effect-free method
+      s.append("writer, ");
+              ^
+../dataset/pre_wpi_with_s_caffeine_CFNullness/src/main/java/com/github/benmanes/caffeine/cache/Caffeine.java:1110: warning: (purity.not.sideeffectfree.call) $$ 1 $$ s.deleteCharAt $$ ( 51446, 51476 ) $$ call to side-effecting s.deleteCharAt not allowed in side-effect-free method
+      s.deleteCharAt(s.length() - 2);
+                    ^
+../dataset/pre_wpi_with_s_caffeine_CFNullness/src/main/java/com/github/benmanes/caffeine/cache/Caffeine.java:1112: warning: (purity.not.sideeffectfree.call) $$ 1 $$ s.append $$ ( 51495, 51508 ) $$ call to side-effecting s.append not allowed in side-effect-free method
+    return s.append('}').toString();
+                   ^
+../dataset/pre_wpi_with_s_caffeine_CFNullness/src/main/java/com/github/benmanes/caffeine/cache/AccessOrderDeque.java:41: warning: (method.invocation) $$ 3 $$ getPreviousInAccessOrder() $$ @UnknownInitialization @NonNull AccessOrder</*RAW*/> $$ @Initialized @NonNull AccessOrder</*RAW*/> $$ ( 1349, 1377 ) $$ call to getPreviousInAccessOrder() not allowed on the given receiver.
+    return (e.getPreviousInAccessOrder() != null)
+                                      ^
+  found   : @UnknownInitialization @NonNull AccessOrder</*RAW*/>
+  required: @Initialized @NonNull AccessOrder</*RAW*/>
+../dataset/pre_wpi_with_s_caffeine_CFNullness/src/main/java/com/github/benmanes/caffeine/cache/AccessOrderDeque.java:42: warning: (method.invocation) $$ 3 $$ getNextInAccessOrder() $$ @UnknownInitialization @NonNull AccessOrder</*RAW*/> $$ @Initialized @NonNull AccessOrder</*RAW*/> $$ ( 1399, 1423 ) $$ call to getNextInAccessOrder() not allowed on the given receiver.
+        || (e.getNextInAccessOrder() != null)
+                                  ^
+  found   : @UnknownInitialization @NonNull AccessOrder</*RAW*/>
+  required: @Initialized @NonNull AccessOrder</*RAW*/>
+../dataset/pre_wpi_with_s_caffeine_CFNullness/src/main/java/com/github/benmanes/caffeine/cache/AccessOrderDeque.java:68: warning: (method.invocation) $$ 3 $$ setPreviousInAccessOrder(T) $$ @UnknownInitialization @NonNull AccessOrder</*RAW*/> $$ @Initialized @NonNull AccessOrder</*RAW*/> $$ ( 1910, 1942 ) $$ call to setPreviousInAccessOrder(T) not allowed on the given receiver.
+    e.setPreviousInAccessOrder(prev);
+                              ^
+  found   : @UnknownInitialization @NonNull AccessOrder</*RAW*/>
+  required: @Initialized @NonNull AccessOrder</*RAW*/>
+../dataset/pre_wpi_with_s_caffeine_CFNullness/src/main/java/com/github/benmanes/caffeine/cache/AccessOrderDeque.java:73: warning: (method.invocation) $$ 3 $$ getNextInAccessOrder() $$ @UnknownInitialization @NonNull AccessOrder</*RAW*/> $$ @Initialized @NonNull AccessOrder</*RAW*/> $$ ( 2008, 2032 ) $$ call to getNextInAccessOrder() not allowed on the given receiver.
+    return e.getNextInAccessOrder();
+                                 ^
+  found   : @UnknownInitialization @NonNull AccessOrder</*RAW*/>
+  required: @Initialized @NonNull AccessOrder</*RAW*/>
+../dataset/pre_wpi_with_s_caffeine_CFNullness/src/main/java/com/github/benmanes/caffeine/cache/AccessOrderDeque.java:73: warning: (return) $$ 2 $$ E[ extends @UnknownInitialization @Nullable AccessOrder<E> super @UnknownInitialization @Nullable Void] $$ E[ extends @Initialized @Nullable AccessOrder<E> super @Initialized @Nullable Void] $$ ( 2008, 2032 ) $$ incompatible types in return.
+    return e.getNextInAccessOrder();
+                                 ^
+  type of expression: E[ extends @UnknownInitialization @Nullable AccessOrder<E> super @UnknownInitialization @Nullable Void]
+  method return type: E[ extends @Initialized @Nullable AccessOrder<E> super @Initialized @Nullable Void]
+../dataset/pre_wpi_with_s_caffeine_CFNullness/src/main/java/com/github/benmanes/caffeine/cache/AccessOrderDeque.java:78: warning: (method.invocation) $$ 3 $$ setNextInAccessOrder(T) $$ @UnknownInitialization @NonNull AccessOrder</*RAW*/> $$ @Initialized @NonNull AccessOrder</*RAW*/> $$ ( 2102, 2130 ) $$ call to setNextInAccessOrder(T) not allowed on the given receiver.
+    e.setNextInAccessOrder(next);
+                          ^
+  found   : @UnknownInitialization @NonNull AccessOrder</*RAW*/>
+  required: @Initialized @NonNull AccessOrder</*RAW*/>
+../dataset/pre_wpi_with_s_caffeine_CFNullness/src/main/java/com/github/benmanes/caffeine/cache/AbstractLinkedDeque.java:93: warning: (argument) $$ 4 $$ e $$ LinkedDeque.getNext $$ E[ extends @Initialized @Nullable Object super @Initialized @Nullable Void] $$ E[ extends @Initialized @Nullable Object super @Initialized @NonNull Void] $$ ( 2740, 2741 ) $$ incompatible argument for parameter e of LinkedDeque.getNext.
+    final E next = getNext(f);
+                           ^
+  found   : E[ extends @Initialized @Nullable Object super @Initialized @Nullable Void]
+  required: E[ extends @Initialized @Nullable Object super @Initialized @NonNull Void]
+../dataset/pre_wpi_with_s_caffeine_CFNullness/src/main/java/com/github/benmanes/caffeine/cache/AbstractLinkedDeque.java:94: warning: (argument) $$ 4 $$ e $$ LinkedDeque.setNext $$ E[ extends @Initialized @Nullable Object super @Initialized @Nullable Void] $$ E[ extends @Initialized @Nullable Object super @Initialized @NonNull Void] $$ ( 2756, 2757 ) $$ incompatible argument for parameter e of LinkedDeque.setNext.
+    setNext(f, null);
+            ^
+  found   : E[ extends @Initialized @Nullable Object super @Initialized @Nullable Void]
+  required: E[ extends @Initialized @Nullable Object super @Initialized @NonNull Void]
+../dataset/pre_wpi_with_s_caffeine_CFNullness/src/main/java/com/github/benmanes/caffeine/cache/AbstractLinkedDeque.java:102: warning: (return) $$ 2 $$ E[ extends @Initialized @Nullable Object super @Initialized @Nullable Void] $$ E[ extends @Initialized @Nullable Object super @Initialized @NonNull Void] $$ ( 2889, 2890 ) $$ incompatible types in return.
+    return f;
+           ^
+  type of expression: E[ extends @Initialized @Nullable Object super @Initialized @Nullable Void]
+  method return type: E[ extends @Initialized @Nullable Object super @Initialized @NonNull Void]
+../dataset/pre_wpi_with_s_caffeine_CFNullness/src/main/java/com/github/benmanes/caffeine/cache/AbstractLinkedDeque.java:109: warning: (argument) $$ 4 $$ e $$ LinkedDeque.getPrevious $$ E[ extends @Initialized @Nullable Object super @Initialized @Nullable Void] $$ E[ extends @Initialized @Nullable Object super @Initialized @NonNull Void] $$ ( 3045, 3046 ) $$ incompatible argument for parameter e of LinkedDeque.getPrevious.
+    final E prev = getPrevious(l);
+                               ^
+  found   : E[ extends @Initialized @Nullable Object super @Initialized @Nullable Void]
+  required: E[ extends @Initialized @Nullable Object super @Initialized @NonNull Void]
+../dataset/pre_wpi_with_s_caffeine_CFNullness/src/main/java/com/github/benmanes/caffeine/cache/AbstractLinkedDeque.java:110: warning: (argument) $$ 4 $$ e $$ LinkedDeque.setPrevious $$ E[ extends @Initialized @Nullable Object super @Initialized @Nullable Void] $$ E[ extends @Initialized @Nullable Object super @Initialized @NonNull Void] $$ ( 3065, 3066 ) $$ incompatible argument for parameter e of LinkedDeque.setPrevious.
+    setPrevious(l, null);
+                ^
+  found   : E[ extends @Initialized @Nullable Object super @Initialized @Nullable Void]
+  required: E[ extends @Initialized @Nullable Object super @Initialized @NonNull Void]
+../dataset/pre_wpi_with_s_caffeine_CFNullness/src/main/java/com/github/benmanes/caffeine/cache/AbstractLinkedDeque.java:117: warning: (return) $$ 2 $$ E[ extends @Initialized @Nullable Object super @Initialized @Nullable Void] $$ E[ extends @Initialized @Nullable Object super @Initialized @NonNull Void] $$ ( 3193, 3194 ) $$ incompatible types in return.
+    return l;
+           ^
+  type of expression: E[ extends @Initialized @Nullable Object super @Initialized @Nullable Void]
+  method return type: E[ extends @Initialized @Nullable Object super @Initialized @NonNull Void]
+../dataset/pre_wpi_with_s_caffeine_CFNullness/src/main/java/com/github/benmanes/caffeine/cache/AbstractLinkedDeque.java:122: warning: (argument) $$ 4 $$ e $$ LinkedDeque.getPrevious $$ E extends @UnknownInitialization @Nullable Object $$ E extends @Initialized @Nullable Object $$ ( 3292, 3293 ) $$ incompatible argument for parameter e of LinkedDeque.getPrevious.
+    final E prev = getPrevious(e);
+                               ^
+  found   : E extends @UnknownInitialization @Nullable Object
+  required: E extends @Initialized @Nullable Object
+../dataset/pre_wpi_with_s_caffeine_CFNullness/src/main/java/com/github/benmanes/caffeine/cache/AbstractLinkedDeque.java:123: warning: (argument) $$ 4 $$ e $$ LinkedDeque.getNext $$ E extends @UnknownInitialization @Nullable Object $$ E extends @Initialized @Nullable Object $$ ( 3323, 3324 ) $$ incompatible argument for parameter e of LinkedDeque.getNext.
+    final E next = getNext(e);
+                           ^
+  found   : E extends @UnknownInitialization @Nullable Object
+  required: E extends @Initialized @Nullable Object
+../dataset/pre_wpi_with_s_caffeine_CFNullness/src/main/java/com/github/benmanes/caffeine/cache/AbstractLinkedDeque.java:129: warning: (argument) $$ 4 $$ e $$ LinkedDeque.setPrevious $$ E extends @UnknownInitialization @Nullable Object $$ E extends @Initialized @Nullable Object $$ ( 3430, 3431 ) $$ incompatible argument for parameter e of LinkedDeque.setPrevious.
+      setPrevious(e, null);
+                  ^
+  found   : E extends @UnknownInitialization @Nullable Object
+  required: E extends @Initialized @Nullable Object
+../dataset/pre_wpi_with_s_caffeine_CFNullness/src/main/java/com/github/benmanes/caffeine/cache/AbstractLinkedDeque.java:136: warning: (argument) $$ 4 $$ e $$ LinkedDeque.setNext $$ E extends @UnknownInitialization @Nullable Object $$ E extends @Initialized @Nullable Object $$ ( 3548, 3549 ) $$ incompatible argument for parameter e of LinkedDeque.setNext.
+      setNext(e, null);
+              ^
+  found   : E extends @UnknownInitialization @Nullable Object
+  required: E extends @Initialized @Nullable Object
+../dataset/pre_wpi_with_s_caffeine_CFNullness/src/main/java/com/github/benmanes/caffeine/cache/AbstractLinkedDeque.java:224: warning: (return) $$ 2 $$ E[ extends @Initialized @Nullable Object super @Initialized @Nullable Void] $$ E[ extends @Initialized @Nullable Object super @Initialized @NonNull Void] $$ ( 5002, 5013 ) $$ incompatible types in return.
+    return peekFirst();
+                    ^
+  type of expression: E[ extends @Initialized @Nullable Object super @Initialized @Nullable Void]
+  method return type: E[ extends @Initialized @Nullable Object super @Initialized @NonNull Void]
+../dataset/pre_wpi_with_s_caffeine_CFNullness/src/main/java/com/github/benmanes/caffeine/cache/AbstractLinkedDeque.java:231: warning: (return) $$ 2 $$ E[ extends @Initialized @Nullable Object super @Initialized @Nullable Void] $$ E[ extends @Initialized @Nullable Object super @Initialized @NonNull Void] $$ ( 5119, 5129 ) $$ incompatible types in return.
+    return peekLast();
+                   ^
+  type of expression: E[ extends @Initialized @Nullable Object super @Initialized @Nullable Void]
+  method return type: E[ extends @Initialized @Nullable Object super @Initialized @NonNull Void]
+../dataset/pre_wpi_with_s_caffeine_CFNullness/src/main/java/com/github/benmanes/caffeine/cache/AbstractLinkedDeque.java:246: warning: (argument) $$ 4 $$ o $$ AbstractLinkedDeque.contains $$ E extends @Initialized @Nullable Object $$ @Initialized @NonNull Object $$ ( 5335, 5336 ) $$ incompatible argument for parameter o of AbstractLinkedDeque.contains.
+    if (contains(e)) {
+                 ^
+  found   : E extends @Initialized @Nullable Object
+  required: @Initialized @NonNull Object
+../dataset/pre_wpi_with_s_caffeine_CFNullness/src/main/java/com/github/benmanes/caffeine/cache/AbstractLinkedDeque.java:255: warning: (argument) $$ 4 $$ o $$ AbstractLinkedDeque.contains $$ E extends @Initialized @Nullable Object $$ @Initialized @NonNull Object $$ ( 5470, 5471 ) $$ incompatible argument for parameter o of AbstractLinkedDeque.contains.
+    if (contains(e)) {
+                 ^
+  found   : E extends @Initialized @Nullable Object
+  required: @Initialized @NonNull Object
+../dataset/pre_wpi_with_s_caffeine_CFNullness/src/main/java/com/github/benmanes/caffeine/cache/AbstractLinkedDeque.java:305: warning: (return) $$ 2 $$ E[ extends @Initialized @Nullable Object super @Initialized @Nullable Void] $$ E[ extends @Initialized @Nullable Object super @Initialized @NonNull Void] $$ ( 6286, 6297 ) $$ incompatible types in return.
+    return pollFirst();
+                    ^
+  type of expression: E[ extends @Initialized @Nullable Object super @Initialized @Nullable Void]
+  method return type: E[ extends @Initialized @Nullable Object super @Initialized @NonNull Void]
+../dataset/pre_wpi_with_s_caffeine_CFNullness/src/main/java/com/github/benmanes/caffeine/cache/AbstractLinkedDeque.java:317: warning: (return) $$ 2 $$ E[ extends @Initialized @Nullable Object super @Initialized @Nullable Void] $$ E[ extends @Initialized @Nullable Object super @Initialized @NonNull Void] $$ ( 6496, 6506 ) $$ incompatible types in return.
+    return pollLast();
+                   ^
+  type of expression: E[ extends @Initialized @Nullable Object super @Initialized @Nullable Void]
+  method return type: E[ extends @Initialized @Nullable Object super @Initialized @NonNull Void]
+../dataset/pre_wpi_with_s_caffeine_CFNullness/src/main/java/com/github/benmanes/caffeine/cache/AbstractLinkedDeque.java:329: warning: (argument) $$ 4 $$ o $$ AbstractCollection.remove $$ @Initialized @Nullable Object $$ @Initialized @NonNull Object $$ ( 6740, 6741 ) $$ incompatible argument for parameter o of AbstractCollection.remove.
+      modified |= remove(o);
+                         ^
+  found   : @Initialized @Nullable Object
+  required: @Initialized @NonNull Object
+../dataset/pre_wpi_with_s_caffeine_CFNullness/src/main/java/com/github/benmanes/caffeine/cache/AbstractLinkedDeque.java:346: warning: (purity.not.sideeffectfree.call) $$ 1 $$ super $$ ( 6996, -1 ) $$ call to side-effecting super not allowed in side-effect-free method
+    return new AbstractLinkedIterator(first) {
+                                             ^
+../dataset/pre_wpi_with_s_caffeine_CFNullness/src/main/java/com/github/benmanes/caffeine/cache/AbstractLinkedDeque.java:349: warning: (argument) $$ 4 $$ e $$ LinkedDeque.getNext $$ E[ extends @Initialized @Nullable Object super @Initialized @Nullable Void] $$ E[ extends @Initialized @Nullable Object super @Initialized @NonNull Void] $$ ( 7101, 7107 ) $$ incompatible argument for parameter e of LinkedDeque.getNext.
+        return getNext(cursor);
+                       ^
+  found   : E[ extends @Initialized @Nullable Object super @Initialized @Nullable Void]
+  required: E[ extends @Initialized @Nullable Object super @Initialized @NonNull Void]
+../dataset/pre_wpi_with_s_caffeine_CFNullness/src/main/java/com/github/benmanes/caffeine/cache/AbstractLinkedDeque.java:359: warning: (argument) $$ 4 $$ e $$ LinkedDeque.getPrevious $$ E[ extends @Initialized @Nullable Object super @Initialized @Nullable Void] $$ E[ extends @Initialized @Nullable Object super @Initialized @NonNull Void] $$ ( 7346, 7352 ) $$ incompatible argument for parameter e of LinkedDeque.getPrevious.
+        return getPrevious(cursor);
+                           ^
+  found   : E[ extends @Initialized @Nullable Object super @Initialized @Nullable Void]
+  required: E[ extends @Initialized @Nullable Object super @Initialized @NonNull Void]
+../dataset/pre_wpi_with_s_caffeine_CFNullness/src/main/java/com/github/benmanes/caffeine/cache/AbstractLinkedDeque.java:395: warning: (return) $$ 2 $$ E[ extends @Initialized @Nullable Object super @Initialized @Nullable Void] $$ E[ extends @Initialized @Nullable Object super @Initialized @NonNull Void] $$ ( 8093, 8101 ) $$ incompatible types in return.
+      return previous;
+             ^
+  type of expression: E[ extends @Initialized @Nullable Object super @Initialized @Nullable Void]
+  method return type: E[ extends @Initialized @Nullable Object super @Initialized @NonNull Void]
+../dataset/pre_wpi_with_s_caffeine_CFNullness/src/main/java/com/github/benmanes/caffeine/cache/WriteOrderDeque.java:41: warning: (method.invocation) $$ 3 $$ getPreviousInWriteOrder() $$ @UnknownInitialization @NonNull WriteOrder</*RAW*/> $$ @Initialized @NonNull WriteOrder</*RAW*/> $$ ( 1340, 1367 ) $$ call to getPreviousInWriteOrder() not allowed on the given receiver.
+    return (e.getPreviousInWriteOrder() != null)
+                                     ^
+  found   : @UnknownInitialization @NonNull WriteOrder</*RAW*/>
+  required: @Initialized @NonNull WriteOrder</*RAW*/>
+../dataset/pre_wpi_with_s_caffeine_CFNullness/src/main/java/com/github/benmanes/caffeine/cache/WriteOrderDeque.java:42: warning: (method.invocation) $$ 3 $$ getNextInWriteOrder() $$ @UnknownInitialization @NonNull WriteOrder</*RAW*/> $$ @Initialized @NonNull WriteOrder</*RAW*/> $$ ( 1389, 1412 ) $$ call to getNextInWriteOrder() not allowed on the given receiver.
+        || (e.getNextInWriteOrder() != null)
+                                 ^
+  found   : @UnknownInitialization @NonNull WriteOrder</*RAW*/>
+  required: @Initialized @NonNull WriteOrder</*RAW*/>
+../dataset/pre_wpi_with_s_caffeine_CFNullness/src/main/java/com/github/benmanes/caffeine/cache/WriteOrderDeque.java:68: warning: (method.invocation) $$ 3 $$ setPreviousInWriteOrder(T) $$ @UnknownInitialization @NonNull WriteOrder</*RAW*/> $$ @Initialized @NonNull WriteOrder</*RAW*/> $$ ( 1904, 1935 ) $$ call to setPreviousInWriteOrder(T) not allowed on the given receiver.
+    e.setPreviousInWriteOrder(prev);
+                             ^
+  found   : @UnknownInitialization @NonNull WriteOrder</*RAW*/>
+  required: @Initialized @NonNull WriteOrder</*RAW*/>
+../dataset/pre_wpi_with_s_caffeine_CFNullness/src/main/java/com/github/benmanes/caffeine/cache/WriteOrderDeque.java:73: warning: (method.invocation) $$ 3 $$ getNextInWriteOrder() $$ @UnknownInitialization @NonNull WriteOrder</*RAW*/> $$ @Initialized @NonNull WriteOrder</*RAW*/> $$ ( 2001, 2024 ) $$ call to getNextInWriteOrder() not allowed on the given receiver.
+    return e.getNextInWriteOrder();
+                                ^
+  found   : @UnknownInitialization @NonNull WriteOrder</*RAW*/>
+  required: @Initialized @NonNull WriteOrder</*RAW*/>
+../dataset/pre_wpi_with_s_caffeine_CFNullness/src/main/java/com/github/benmanes/caffeine/cache/WriteOrderDeque.java:73: warning: (return) $$ 2 $$ E[ extends @UnknownInitialization @Nullable WriteOrder<E> super @UnknownInitialization @Nullable Void] $$ E[ extends @Initialized @Nullable WriteOrder<E> super @Initialized @Nullable Void] $$ ( 2001, 2024 ) $$ incompatible types in return.
+    return e.getNextInWriteOrder();
+                                ^
+  type of expression: E[ extends @UnknownInitialization @Nullable WriteOrder<E> super @UnknownInitialization @Nullable Void]
+  method return type: E[ extends @Initialized @Nullable WriteOrder<E> super @Initialized @Nullable Void]
+../dataset/pre_wpi_with_s_caffeine_CFNullness/src/main/java/com/github/benmanes/caffeine/cache/WriteOrderDeque.java:78: warning: (method.invocation) $$ 3 $$ setNextInWriteOrder(T) $$ @UnknownInitialization @NonNull WriteOrder</*RAW*/> $$ @Initialized @NonNull WriteOrder</*RAW*/> $$ ( 2094, 2121 ) $$ call to setNextInWriteOrder(T) not allowed on the given receiver.
+    e.setNextInWriteOrder(next);
+                         ^
+  found   : @UnknownInitialization @NonNull WriteOrder</*RAW*/>
+  required: @Initialized @NonNull WriteOrder</*RAW*/>
+../dataset/pre_wpi_with_s_caffeine_CFNullness/src/main/java/com/github/benmanes/caffeine/cache/Node.java:279: warning: (purity.not.sideeffectfree.call) $$ 1 $$ getClass().getSimpleName $$ ( 8406, 8432 ) $$ call to side-effecting getClass().getSimpleName not allowed in side-effect-free method
+        + "nextInWrite=%s]", getClass().getSimpleName(), getKey(), getValue(), getWeight(),
+                                                     ^
+../dataset/pre_wpi_with_s_caffeine_CFNullness/src/main/java/com/github/benmanes/caffeine/cache/LinkedDeque.java:143: warning: (argument) $$ 4 $$ arg0 $$ Comparator.compare $$ E[ extends @Initialized @Nullable Object super @Initialized @Nullable Void] $$ E[ extends @Initialized @Nullable Object super @Initialized @NonNull Void] $$ ( 5041, 5043 ) $$ incompatible argument for parameter arg0 of Comparator.compare.
+          boolean greaterOrEqual = (comparator.compare(o1, o2) >= 0);
+                                                       ^
+  found   : E[ extends @Initialized @Nullable Object super @Initialized @Nullable Void]
+  required: E[ extends @Initialized @Nullable Object super @Initialized @NonNull Void]
+../dataset/pre_wpi_with_s_caffeine_CFNullness/src/main/java/com/github/benmanes/caffeine/cache/LinkedDeque.java:143: warning: (argument) $$ 4 $$ arg1 $$ Comparator.compare $$ E[ extends @Initialized @Nullable Object super @Initialized @Nullable Void] $$ E[ extends @Initialized @Nullable Object super @Initialized @NonNull Void] $$ ( 5045, 5047 ) $$ incompatible argument for parameter arg1 of Comparator.compare.
+          boolean greaterOrEqual = (comparator.compare(o1, o2) >= 0);
+                                                           ^
+  found   : E[ extends @Initialized @Nullable Object super @Initialized @Nullable Void]
+  required: E[ extends @Initialized @Nullable Object super @Initialized @NonNull Void]
+../dataset/pre_wpi_with_s_caffeine_CFNullness/src/main/java/com/github/benmanes/caffeine/cache/LinkedDeque.java:154: warning: (argument) $$ 4 $$ arg0 $$ Comparator.compare $$ E[ extends @Initialized @Nullable Object super @Initialized @Nullable Void] $$ E[ extends @Initialized @Nullable Object super @Initialized @NonNull Void] $$ ( 5449, 5451 ) $$ incompatible argument for parameter arg0 of Comparator.compare.
+          boolean greaterOrEqual = (comparator.compare(o1, o2) >= 0);
+                                                       ^
+  found   : E[ extends @Initialized @Nullable Object super @Initialized @Nullable Void]
+  required: E[ extends @Initialized @Nullable Object super @Initialized @NonNull Void]
+../dataset/pre_wpi_with_s_caffeine_CFNullness/src/main/java/com/github/benmanes/caffeine/cache/LinkedDeque.java:154: warning: (argument) $$ 4 $$ arg1 $$ Comparator.compare $$ E[ extends @Initialized @Nullable Object super @Initialized @Nullable Void] $$ E[ extends @Initialized @Nullable Object super @Initialized @NonNull Void] $$ ( 5453, 5455 ) $$ incompatible argument for parameter arg1 of Comparator.compare.
+          boolean greaterOrEqual = (comparator.compare(o1, o2) >= 0);
+                                                           ^
+  found   : E[ extends @Initialized @Nullable Object super @Initialized @Nullable Void]
+  required: E[ extends @Initialized @Nullable Object super @Initialized @NonNull Void]
+../dataset/pre_wpi_with_s_caffeine_CFNullness/src/main/java/com/github/benmanes/caffeine/cache/References.java:105: warning: (contracts.conditional.postcondition) $$ 4 $$ equals $$ true $$ object is @Nullable $$ object is @NonNull $$ ( 3444, 3475 ) $$ conditional postcondition is not satisfied when equals returns true.
+      return referenceEquals(object);
+      ^
+  found   : object is @Nullable
+  required: object is @NonNull
+../dataset/pre_wpi_with_s_caffeine_CFNullness/src/main/java/com/github/benmanes/caffeine/cache/References.java:123: warning: (argument) $$ 4 $$ q $$ WeakReference constructor $$ @Initialized @Nullable ReferenceQueue<K extends @Initialized @Nullable Object> $$ @Initialized @NonNull ReferenceQueue<? extends @Initialized @Nullable Object super K extends @Initialized @Nullable Object> $$ ( 4009, 4014 ) $$ incompatible argument for parameter q of WeakReference constructor.
+      super(key, queue);
+                 ^
+  found   : @Initialized @Nullable ReferenceQueue<K extends @Initialized @Nullable Object>
+  required: @Initialized @NonNull ReferenceQueue<? extends @Initialized @Nullable Object super K extends @Initialized @Nullable Object>
+../dataset/pre_wpi_with_s_caffeine_CFNullness/src/main/java/com/github/benmanes/caffeine/cache/References.java:134: warning: (contracts.conditional.postcondition) $$ 4 $$ equals $$ true $$ object is @Nullable $$ object is @NonNull $$ ( 4212, 4243 ) $$ conditional postcondition is not satisfied when equals returns true.
+      return referenceEquals(object);
+      ^
+  found   : object is @Nullable
+  required: object is @NonNull
+../dataset/pre_wpi_with_s_caffeine_CFNullness/src/main/java/com/github/benmanes/caffeine/cache/References.java:154: warning: (argument) $$ 4 $$ q $$ WeakReference constructor $$ @Initialized @Nullable ReferenceQueue<V extends @Initialized @Nullable Object> $$ @Initialized @NonNull ReferenceQueue<? extends @Initialized @Nullable Object super V extends @Initialized @Nullable Object> $$ ( 4842, 4847 ) $$ incompatible argument for parameter q of WeakReference constructor.
+      super(value, queue);
+                   ^
+  found   : @Initialized @Nullable ReferenceQueue<V extends @Initialized @Nullable Object>
+  required: @Initialized @NonNull ReferenceQueue<? extends @Initialized @Nullable Object super V extends @Initialized @Nullable Object>
+../dataset/pre_wpi_with_s_caffeine_CFNullness/src/main/java/com/github/benmanes/caffeine/cache/References.java:165: warning: (contracts.conditional.postcondition) $$ 4 $$ equals $$ true $$ object is @Nullable $$ object is @NonNull $$ ( 5046, 5077 ) $$ conditional postcondition is not satisfied when equals returns true.
+      return referenceEquals(object);
+      ^
+  found   : object is @Nullable
+  required: object is @NonNull
+../dataset/pre_wpi_with_s_caffeine_CFNullness/src/main/java/com/github/benmanes/caffeine/cache/References.java:186: warning: (argument) $$ 4 $$ q $$ SoftReference constructor $$ @Initialized @Nullable ReferenceQueue<V extends @Initialized @Nullable Object> $$ @Initialized @NonNull ReferenceQueue<? extends @Initialized @Nullable Object super V extends @Initialized @Nullable Object> $$ ( 5737, 5742 ) $$ incompatible argument for parameter q of SoftReference constructor.
+      super(value, queue);
+                   ^
+  found   : @Initialized @Nullable ReferenceQueue<V extends @Initialized @Nullable Object>
+  required: @Initialized @NonNull ReferenceQueue<? extends @Initialized @Nullable Object super V extends @Initialized @Nullable Object>
+../dataset/pre_wpi_with_s_caffeine_CFNullness/src/main/java/com/github/benmanes/caffeine/cache/References.java:197: warning: (contracts.conditional.postcondition) $$ 4 $$ equals $$ true $$ object is @Nullable $$ object is @NonNull $$ ( 5941, 5972 ) $$ conditional postcondition is not satisfied when equals returns true.
+      return referenceEquals(object);
+      ^
+  found   : object is @Nullable
+  required: object is @NonNull
+../dataset/pre_wpi_with_s_caffeine_CFNullness/src/main/java/com/github/benmanes/caffeine/cache/BoundedLocalCache.java:190: warning: (method.invocation) $$ 3 $$ evicts() $$ @UnderInitialization(com.github.benmanes.caffeine.cache.BLCHeader.DrainStatusRef.class) @NonNull BoundedLocalCache</*RAW*/> $$ @Initialized @NonNull BoundedLocalCache</*RAW*/> $$ ( 9683, 9691 ) $$ call to evicts() not allowed on the given receiver.
+    readBuffer = evicts() || collectKeys() || collectValues() || expiresAfterAccess()
+                       ^
+  found   : @UnderInitialization(com.github.benmanes.caffeine.cache.BLCHeader.DrainStatusRef.class) @NonNull BoundedLocalCache</*RAW*/>
+  required: @Initialized @NonNull BoundedLocalCache</*RAW*/>
+../dataset/pre_wpi_with_s_caffeine_CFNullness/src/main/java/com/github/benmanes/caffeine/cache/BoundedLocalCache.java:190: warning: (method.invocation) $$ 3 $$ collectKeys() $$ @UnderInitialization(com.github.benmanes.caffeine.cache.BLCHeader.DrainStatusRef.class) @NonNull BoundedLocalCache</*RAW*/> $$ @Initialized @NonNull BoundedLocalCache</*RAW*/> $$ ( 9695, 9708 ) $$ call to collectKeys() not allowed on the given receiver.
+    readBuffer = evicts() || collectKeys() || collectValues() || expiresAfterAccess()
+                                        ^
+  found   : @UnderInitialization(com.github.benmanes.caffeine.cache.BLCHeader.DrainStatusRef.class) @NonNull BoundedLocalCache</*RAW*/>
+  required: @Initialized @NonNull BoundedLocalCache</*RAW*/>
+../dataset/pre_wpi_with_s_caffeine_CFNullness/src/main/java/com/github/benmanes/caffeine/cache/BoundedLocalCache.java:190: warning: (method.invocation) $$ 3 $$ collectValues() $$ @UnderInitialization(com.github.benmanes.caffeine.cache.BLCHeader.DrainStatusRef.class) @NonNull BoundedLocalCache</*RAW*/> $$ @Initialized @NonNull BoundedLocalCache</*RAW*/> $$ ( 9712, 9727 ) $$ call to collectValues() not allowed on the given receiver.
+    readBuffer = evicts() || collectKeys() || collectValues() || expiresAfterAccess()
+                                                           ^
+  found   : @UnderInitialization(com.github.benmanes.caffeine.cache.BLCHeader.DrainStatusRef.class) @NonNull BoundedLocalCache</*RAW*/>
+  required: @Initialized @NonNull BoundedLocalCache</*RAW*/>
+../dataset/pre_wpi_with_s_caffeine_CFNullness/src/main/java/com/github/benmanes/caffeine/cache/BoundedLocalCache.java:190: warning: (method.invocation) $$ 3 $$ expiresAfterAccess() $$ @UnderInitialization(com.github.benmanes.caffeine.cache.BLCHeader.DrainStatusRef.class) @NonNull BoundedLocalCache</*RAW*/> $$ @Initialized @NonNull BoundedLocalCache</*RAW*/> $$ ( 9731, 9751 ) $$ call to expiresAfterAccess() not allowed on the given receiver.
+    readBuffer = evicts() || collectKeys() || collectValues() || expiresAfterAccess()
+                                                                                   ^
+  found   : @UnderInitialization(com.github.benmanes.caffeine.cache.BLCHeader.DrainStatusRef.class) @NonNull BoundedLocalCache</*RAW*/>
+  required: @Initialized @NonNull BoundedLocalCache</*RAW*/>
+../dataset/pre_wpi_with_s_caffeine_CFNullness/src/main/java/com/github/benmanes/caffeine/cache/BoundedLocalCache.java:193: warning: (method.invocation) $$ 3 $$ evicts() $$ @UnderInitialization(com.github.benmanes.caffeine.cache.BLCHeader.DrainStatusRef.class) @NonNull BoundedLocalCache</*RAW*/> $$ @Initialized @NonNull BoundedLocalCache</*RAW*/> $$ ( 9833, 9841 ) $$ call to evicts() not allowed on the given receiver.
+    accessPolicy = (evicts() || expiresAfterAccess()) ? this::onAccess : e -> {};
+                          ^
+  found   : @UnderInitialization(com.github.benmanes.caffeine.cache.BLCHeader.DrainStatusRef.class) @NonNull BoundedLocalCache</*RAW*/>
+  required: @Initialized @NonNull BoundedLocalCache</*RAW*/>
+../dataset/pre_wpi_with_s_caffeine_CFNullness/src/main/java/com/github/benmanes/caffeine/cache/BoundedLocalCache.java:193: warning: (method.invocation) $$ 3 $$ expiresAfterAccess() $$ @UnderInitialization(com.github.benmanes.caffeine.cache.BLCHeader.DrainStatusRef.class) @NonNull BoundedLocalCache</*RAW*/> $$ @Initialized @NonNull BoundedLocalCache</*RAW*/> $$ ( 9845, 9865 ) $$ call to expiresAfterAccess() not allowed on the given receiver.
+    accessPolicy = (evicts() || expiresAfterAccess()) ? this::onAccess : e -> {};
+                                                  ^
+  found   : @UnderInitialization(com.github.benmanes.caffeine.cache.BLCHeader.DrainStatusRef.class) @NonNull BoundedLocalCache</*RAW*/>
+  required: @Initialized @NonNull BoundedLocalCache</*RAW*/>
+../dataset/pre_wpi_with_s_caffeine_CFNullness/src/main/java/com/github/benmanes/caffeine/cache/BoundedLocalCache.java:193: warning: (methodref.receiver.bound) $$ 5 $$ @UnderInitialization(com.github.benmanes.caffeine.cache.BLCHeader.DrainStatusRef.class) @NonNull BoundedLocalCache<K extends @Initialized @Nullable Object, V extends @Initialized @Nullable Object> $$ @Initialized @NonNull BoundedLocalCache<K extends @Initialized @Nullable Object, V extends @Initialized @Nullable Object> $$ @UnderInitialization(com.github.benmanes.caffeine.cache.BLCHeader.DrainStatusRef.class) @NonNull BoundedLocalCache<K extends @Initialized @Nullable Object, V extends @Initialized @Nullable Object> $$ @UnderInitialization(com.github.benmanes.caffeine.cache.BLCHeader.DrainStatusRef.class) @NonNull BoundedLocalCache<K extends @Initialized @Nullable Object, V extends @Initialized @Nullable Object> $$ @NonNull void onAccess(@Initialized @NonNull BoundedLocalCache<K extends @Initialized @Nullable Object, V extends @Initialized @Nullable Object> this, @Initialized @NonNull Node<K extends @Initialized @Nullable Object, V extends @Initialized @Nullable Object> p0) $$ ( 9869, 9883 ) $$ Incompatible receiver type
+    accessPolicy = (evicts() || expiresAfterAccess()) ? this::onAccess : e -> {};
+                                                        ^
+  found   : @UnderInitialization(com.github.benmanes.caffeine.cache.BLCHeader.DrainStatusRef.class) @NonNull BoundedLocalCache<K extends @Initialized @Nullable Object, V extends @Initialized @Nullable Object>
+  required: @Initialized @NonNull BoundedLocalCache<K extends @Initialized @Nullable Object, V extends @Initialized @Nullable Object>
+  Consequence: method
+    @UnderInitialization(com.github.benmanes.caffeine.cache.BLCHeader.DrainStatusRef.class) @NonNull BoundedLocalCache<K extends @Initialized @Nullable Object, V extends @Initialized @Nullable Object>
+  is not a valid method reference for method in @UnderInitialization(com.github.benmanes.caffeine.cache.BLCHeader.DrainStatusRef.class) @NonNull BoundedLocalCache<K extends @Initialized @Nullable Object, V extends @Initialized @Nullable Object>
+    @NonNull void onAccess(@Initialized @NonNull BoundedLocalCache<K extends @Initialized @Nullable Object, V extends @Initialized @Nullable Object> this, @Initialized @NonNull Node<K extends @Initialized @Nullable Object, V extends @Initialized @Nullable Object> p0)
+100 warnings
+An exception has occurred in the compiler (11.0.22). Please file a bug against the Java compiler via the Java bug reporting page (https://bugreport.java.com) after checking the Bug Database (https://bugs.java.com) for duplicates. Include your program and the following diagnostic in your report. Thank you.
+com.sun.tools.javac.util.ClientCodeException: java.lang.Error: Problem while parsing ../dataset/pre_wpi_with_s_caffeine_CFNullness/wpi-out/com/github/benmanes/caffeine/cache/Ticker-org.checkerframework.checker.nullness.NullnessChecker.ajava that corresponds to ../dataset/pre_wpi_with_s_caffeine_CFNullness/src/main/java/com/github/benmanes/caffeine/cache/Ticker.java
+	at jdk.compiler/com.sun.tools.javac.api.ClientCodeWrapper$WrappedTaskListener.finished(ClientCodeWrapper.java:832)
+	at jdk.compiler/com.sun.tools.javac.api.MultiTaskListener.finished(MultiTaskListener.java:132)
+	at jdk.compiler/com.sun.tools.javac.main.JavaCompiler.flow(JavaCompiler.java:1414)
+	at jdk.compiler/com.sun.tools.javac.main.JavaCompiler.flow(JavaCompiler.java:1371)
+	at jdk.compiler/com.sun.tools.javac.main.JavaCompiler.compile(JavaCompiler.java:973)
+	at jdk.compiler/com.sun.tools.javac.main.Main.compile(Main.java:311)
+	at jdk.compiler/com.sun.tools.javac.main.Main.compile(Main.java:170)
+	at jdk.compiler/com.sun.tools.javac.Main.compile(Main.java:57)
+	at jdk.compiler/com.sun.tools.javac.Main.main(Main.java:43)
+Caused by: java.lang.Error: Problem while parsing ../dataset/pre_wpi_with_s_caffeine_CFNullness/wpi-out/com/github/benmanes/caffeine/cache/Ticker-org.checkerframework.checker.nullness.NullnessChecker.ajava that corresponds to ../dataset/pre_wpi_with_s_caffeine_CFNullness/src/main/java/com/github/benmanes/caffeine/cache/Ticker.java
+	at org.checkerframework.framework.type.AnnotatedTypeFactory.setRoot(AnnotatedTypeFactory.java:1015)
+	at org.checkerframework.framework.type.GenericAnnotatedTypeFactory.setRoot(GenericAnnotatedTypeFactory.java:449)
+	at org.checkerframework.common.basetype.BaseTypeVisitor.setRoot(BaseTypeVisitor.java:387)
+	at org.checkerframework.checker.initialization.InitializationVisitor.setRoot(InitializationVisitor.java:79)
+	at org.checkerframework.framework.source.SourceChecker.setRoot(SourceChecker.java:685)
+	at org.checkerframework.common.basetype.BaseTypeChecker.setRoot(BaseTypeChecker.java:167)
+	at org.checkerframework.framework.source.SourceChecker.typeProcess(SourceChecker.java:1074)
+	at org.checkerframework.common.basetype.BaseTypeChecker.typeProcess(BaseTypeChecker.java:559)
+	at org.checkerframework.javacutil.AbstractTypeProcessor$AttributionTaskListener.finished(AbstractTypeProcessor.java:188)
+	at jdk.compiler/com.sun.tools.javac.api.ClientCodeWrapper$WrappedTaskListener.finished(ClientCodeWrapper.java:828)
+	... 8 more
+Caused by: java.lang.AssertionError
+	at org.checkerframework.framework.ajava.JointJavacJavaParserVisitor.visitClassMembers(JointJavacJavaParserVisitor.java:571)
+	at org.checkerframework.framework.ajava.JointJavacJavaParserVisitor.visitClass(JointJavacJavaParserVisitor.java:480)
+	at org.checkerframework.framework.stub.AnnotationFileParser$AjavaAnnotationCollectorVisitor.visitClass(AnnotationFileParser.java:3123)
+	at org.checkerframework.framework.stub.AnnotationFileParser$AjavaAnnotationCollectorVisitor.visitClass(AnnotationFileParser.java:3113)
+	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCClassDecl.accept(JCTree.java:808)
+	at org.checkerframework.framework.ajava.JointJavacJavaParserVisitor.visitLists(JointJavacJavaParserVisitor.java:2301)
+	at org.checkerframework.framework.ajava.JointJavacJavaParserVisitor.visitCompilationUnit(JointJavacJavaParserVisitor.java:669)
+	at org.checkerframework.framework.ajava.JointJavacJavaParserVisitor.visitCompilationUnit(JointJavacJavaParserVisitor.java:189)
+	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCCompilationUnit.accept(JCTree.java:591)
+	at org.checkerframework.framework.stub.AnnotationFileParser.processCompilationUnit(AnnotationFileParser.java:825)
+	at org.checkerframework.framework.stub.AnnotationFileParser.processStubUnit(AnnotationFileParser.java:790)
+	at org.checkerframework.framework.stub.AnnotationFileParser.process(AnnotationFileParser.java:779)
+	at org.checkerframework.framework.stub.AnnotationFileParser.parseAjavaFile(AnnotationFileParser.java:696)
+	at org.checkerframework.framework.stub.AnnotationFileElementTypes.parseAjavaFileWithTree(AnnotationFileElementTypes.java:286)
+	at org.checkerframework.framework.type.AnnotatedTypeFactory.setRoot(AnnotatedTypeFactory.java:1013)
+	... 17 more

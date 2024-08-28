@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.3.0" name="org.apache.jackrabbit.oak.plugins.index.inventory.IndexDefinitionPrinter">
+  <implementation class="org.apache.jackrabbit.oak.plugins.index.inventory.IndexDefinitionPrinter"/>
+  <service>
+    <provide interface="org.apache.felix.inventory.InventoryPrinter"/>
+  </service>
+  <reference name="indexPathService" interface="org.apache.jackrabbit.oak.plugins.index.IndexPathService" field="indexPathService"/>
+  <reference name="nodeStore" interface="org.apache.jackrabbit.oak.spi.state.NodeStore" field="nodeStore"/>
+  <property name="felix.inventory.printer.title" type="String" value="Oak Index Definitions"/>
+  <property name="felix.inventory.printer.format" type="String" value="JSON"/>
+  <property name="felix.inventory.printer.name" type="String" value="oak-index-defn"/>
+</scr:component>

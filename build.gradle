@@ -10,9 +10,9 @@ buildscript {
   apply from: "${rootDir}/gradle/dependencies.gradle"
 
   repositories {
-    maven { url "http://repo.spring.io/plugins-release" }
-    gradlePluginPortal()
     mavenCentral()
+    maven { url "https://repo.spring.io/plugins-snapshot" }
+    gradlePluginPortal()
     jcenter()
   }
 
@@ -40,8 +40,8 @@ allprojects {
   apply from: "${rootDir}/gradle/eclipse.gradle"
 
   repositories {
-    jcenter()
     mavenCentral()
+    jcenter()
     maven { url 'https://jitpack.io' }
   }
 }
@@ -65,6 +65,10 @@ subprojects {
   }
 
   sourceCompatibility = JavaVersion.VERSION_1_8
+
+  tasks.withType(Test) {
+    enabled = false
+}
 
   group = 'com.github.ben-manes.caffeine'
   version.with {

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="org.apache.jackrabbit.oak.plugins.atomic.AtomicCounterEditorProvider" activate="activate" deactivate="deactivate">
+  <implementation class="org.apache.jackrabbit.oak.plugins.atomic.AtomicCounterEditorProvider"/>
+  <service>
+    <provide interface="org.apache.jackrabbit.oak.spi.commit.EditorProvider"/>
+  </service>
+  <reference name="cluster" cardinality="0..1" policy="dynamic" interface="org.apache.jackrabbit.oak.spi.state.Clusterable" bind="bindCluster" unbind="unbindCluster"/>
+  <reference name="store" cardinality="0..1" policy="dynamic" interface="org.apache.jackrabbit.oak.spi.state.NodeStore" bind="bindStore" unbind="unbindStore"/>
+  <property name="type" type="String" value="atomicCounter"/>
+</scr:component>

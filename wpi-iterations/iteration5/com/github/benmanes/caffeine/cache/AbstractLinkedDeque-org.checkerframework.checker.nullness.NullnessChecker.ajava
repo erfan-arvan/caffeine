@@ -1,0 +1,416 @@
+/*
+ * Copyright 2014 Ben Manes. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package com.github.benmanes.caffeine.cache;
+
+import java.util.AbstractCollection;
+import java.util.Collection;
+import java.util.NoSuchElementException;
+import javax.annotation.Nullable;
+import javax.annotation.concurrent.NotThreadSafe;
+
+/**
+ * This class provides a skeletal implementation of the {@link LinkedDeque} interface to minimize
+ * the effort required to implement this interface.
+ *
+ * @author ben.manes@gmail.com (Ben Manes)
+ * @param <E> the type of elements held in this collection
+ */
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+abstract class AbstractLinkedDeque<E> extends AbstractCollection<E> implements LinkedDeque<E> {
+
+    // This class provides a doubly-linked list that is optimized for the virtual machine. The first
+    // and last elements are manipulated instead of a slightly more convenient sentinel element to
+    // avoid the insertion of null checks with NullPointerException throws in the byte code. The links
+    // to a removed element are cleared to help a generational garbage collector if the discarded
+    // elements inhabit more than one generation.
+    /**
+     * Pointer to first node.
+     * Invariant: (first == null && last == null) ||
+     *            (first.prev == null)
+     */
+    @org.checkerframework.checker.initialization.qual.FBCBottom @org.checkerframework.checker.nullness.qual.Nullable E first;
+
+    /**
+     * Pointer to last node.
+     * Invariant: (first == null && last == null) ||
+     *            (last.next == null)
+     */
+    @org.checkerframework.checker.initialization.qual.FBCBottom @org.checkerframework.checker.nullness.qual.Nullable E last;
+
+    /**
+     * Links the element to the front of the deque so that it becomes the first element.
+     *
+     * @param e the unlinked element
+     */
+    @org.checkerframework.dataflow.qual.Impure
+    void linkFirst(final E e) {
+        final E f = first;
+        first = e;
+        if (f == null) {
+            last = e;
+        } else {
+            setPrevious(f, e);
+            setNext(e, f);
+        }
+    }
+
+    /**
+     * Links the element to the back of the deque so that it becomes the last element.
+     *
+     * @param e the unlinked element
+     */
+    @org.checkerframework.dataflow.qual.Impure
+    void linkLast(final E e) {
+        final E l = last;
+        last = e;
+        if (l == null) {
+            first = e;
+        } else {
+            setNext(l, e);
+            setPrevious(e, l);
+        }
+    }
+
+    /**
+     * Unlinks the non-null first element.
+     */
+    @org.checkerframework.dataflow.qual.Impure
+    E unlinkFirst() {
+        final E f = first;
+        final E next = getNext(f);
+        setNext(f, null);
+        first = next;
+        if (next == null) {
+            last = null;
+        } else {
+            setPrevious(next, null);
+        }
+        return f;
+    }
+
+    /**
+     * Unlinks the non-null last element.
+     */
+    @org.checkerframework.dataflow.qual.Impure
+    E unlinkLast() {
+        final E l = last;
+        final E prev = getPrevious(l);
+        setPrevious(l, null);
+        last = prev;
+        if (prev == null) {
+            first = null;
+        } else {
+            setNext(prev, null);
+        }
+        return l;
+    }
+
+    /**
+     * Unlinks the non-null element.
+     */
+    @org.checkerframework.dataflow.qual.Impure
+    void unlink(@org.checkerframework.checker.initialization.qual.UnknownInitialization(java.lang.Object.class) E e) {
+        final E prev = getPrevious(e);
+        final E next = getNext(e);
+        if (prev == null) {
+            first = next;
+        } else {
+            setNext(prev, next);
+            setPrevious(e, null);
+        }
+        if (next == null) {
+            last = prev;
+        } else {
+            setPrevious(next, prev);
+            setNext(e, null);
+        }
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean isEmpty(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull AbstractLinkedDeque<E> this) {
+        return (first == null);
+    }
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    void checkNotEmpty() {
+        if (isEmpty()) {
+            throw new NoSuchElementException();
+        }
+    }
+
+    /**
+     * {@inheritDoc}
+     * <p>
+     * Beware that, unlike in most collections, this method is <em>NOT</em> a constant-time operation.
+     */
+    @org.checkerframework.dataflow.qual.Pure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int size(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull AbstractLinkedDeque<E> this) {
+        int size = 0;
+        for (E e = first; e != null; e = getNext(e)) {
+            size++;
+        }
+        return size;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void clear(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull AbstractLinkedDeque<E> this) {
+        for (E e = first; e != null; ) {
+            E next = getNext(e);
+            setPrevious(e, null);
+            setNext(e, null);
+            e = next;
+        }
+        first = last = null;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public abstract  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean contains(Object o);
+
+    @org.checkerframework.dataflow.qual.Pure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean isFirst(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull AbstractLinkedDeque<E> this, E e) {
+        return (e != null) && (e == first);
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean isLast(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull AbstractLinkedDeque<E> this, E e) {
+        return (e != null) && (e == last);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void moveToFront(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull AbstractLinkedDeque<E> this, E e) {
+        if (e != first) {
+            unlink(e);
+            linkFirst(e);
+        }
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void moveToBack(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull AbstractLinkedDeque<E> this, E e) {
+        if (e != last) {
+            unlink(e);
+            linkLast(e);
+        }
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public E peek(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull AbstractLinkedDeque<E> this) {
+        return peekFirst();
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public E peekFirst(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull AbstractLinkedDeque<E> this) {
+        return first;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public E peekLast(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull AbstractLinkedDeque<E> this) {
+        return last;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public E getFirst(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull AbstractLinkedDeque<E> this) {
+        checkNotEmpty();
+        return peekFirst();
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public E getLast(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull AbstractLinkedDeque<E> this) {
+        checkNotEmpty();
+        return peekLast();
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public E element(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull AbstractLinkedDeque<E> this) {
+        return getFirst();
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean offer(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull AbstractLinkedDeque<E> this, E e) {
+        return offerLast(e);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean offerFirst(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull AbstractLinkedDeque<E> this, E e) {
+        if (contains(e)) {
+            return false;
+        }
+        linkFirst(e);
+        return true;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean offerLast(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull AbstractLinkedDeque<E> this, E e) {
+        if (contains(e)) {
+            return false;
+        }
+        linkLast(e);
+        return true;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean add(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull AbstractLinkedDeque<E> this, E e) {
+        return offerLast(e);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void addFirst(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull AbstractLinkedDeque<E> this, E e) {
+        if (!offerFirst(e)) {
+            throw new IllegalArgumentException();
+        }
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void addLast(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull AbstractLinkedDeque<E> this, E e) {
+        if (!offerLast(e)) {
+            throw new IllegalArgumentException();
+        }
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public E poll(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull AbstractLinkedDeque<E> this) {
+        return pollFirst();
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public E pollFirst(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull AbstractLinkedDeque<E> this) {
+        return isEmpty() ? null : unlinkFirst();
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public E pollLast(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull AbstractLinkedDeque<E> this) {
+        return isEmpty() ? null : unlinkLast();
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public E remove(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull AbstractLinkedDeque<E> this) {
+        return removeFirst();
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public E removeFirst(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull AbstractLinkedDeque<E> this) {
+        checkNotEmpty();
+        return pollFirst();
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean removeFirstOccurrence(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull AbstractLinkedDeque<E> this, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Object o) {
+        return remove(o);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public E removeLast(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull AbstractLinkedDeque<E> this) {
+        checkNotEmpty();
+        return pollLast();
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean removeLastOccurrence(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull AbstractLinkedDeque<E> this, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Object o) {
+        return remove(o);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean removeAll(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull AbstractLinkedDeque<E> this, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Collection<?> c) {
+        boolean modified = false;
+        for (Object o : c) {
+            modified |= remove(o);
+        }
+        return modified;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void push(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull AbstractLinkedDeque<E> this, E e) {
+        addFirst(e);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public E pop(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull AbstractLinkedDeque<E> this) {
+        return removeFirst();
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull PeekingIterator<E> iterator(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull AbstractLinkedDeque<E> this) {
+        return new AbstractLinkedIterator(first) {
+
+            @org.checkerframework.dataflow.qual.Pure
+            E computeNext() {
+                return getNext(cursor);
+            }
+        };
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull PeekingIterator<E> descendingIterator(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull AbstractLinkedDeque<E> this) {
+        return new AbstractLinkedIterator(last) {
+
+            @org.checkerframework.dataflow.qual.Pure
+            E computeNext() {
+                return getPrevious(cursor);
+            }
+        };
+    }
+
+    abstract class AbstractLinkedIterator implements PeekingIterator<E> {
+
+        @org.checkerframework.checker.initialization.qual.FBCBottom @org.checkerframework.checker.nullness.qual.Nullable E previous;
+
+        @org.checkerframework.checker.nullness.qual.Nullable E cursor;
+
+        /**
+         * Creates an iterator that can can traverse the deque.
+         *
+         * @param start the initial element to begin traversal from
+         */
+        @org.checkerframework.dataflow.qual.SideEffectFree
+        AbstractLinkedIterator(E start) {
+            cursor = start;
+        }
+
+        @org.checkerframework.dataflow.qual.Pure
+        public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean hasNext(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull AbstractLinkedIterator this) {
+            return (cursor != null);
+        }
+
+        @org.checkerframework.dataflow.qual.Pure
+        public E peek(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull AbstractLinkedIterator this) {
+            return cursor;
+        }
+
+        @org.checkerframework.dataflow.qual.Impure
+        public E next(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull AbstractLinkedIterator this) {
+            if (!hasNext()) {
+                throw new NoSuchElementException();
+            }
+            previous = cursor;
+            cursor = computeNext();
+            return previous;
+        }
+
+        /**
+         * Retrieves the next element to traverse to or <tt>null</tt> if there are no more elements.
+         */
+        @org.checkerframework.dataflow.qual.Pure
+        abstract E computeNext();
+
+        @org.checkerframework.dataflow.qual.Impure
+        public void remove(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull AbstractLinkedIterator this) {
+            if (previous == null) {
+                throw new IllegalStateException();
+            }
+            AbstractLinkedDeque.this.remove(previous);
+            previous = null;
+        }
+    }
+}
