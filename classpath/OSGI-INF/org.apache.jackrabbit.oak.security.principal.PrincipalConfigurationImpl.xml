@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="org.apache.jackrabbit.oak.security.principal.PrincipalConfigurationImpl" activate="activate">
+  <implementation class="org.apache.jackrabbit.oak.security.principal.PrincipalConfigurationImpl"/>
+  <service>
+    <provide interface="org.apache.jackrabbit.oak.spi.security.principal.PrincipalConfiguration"/>
+    <provide interface="org.apache.jackrabbit.oak.spi.security.SecurityConfiguration"/>
+  </service>
+  <property name="oak.security.name" type="String" value="org.apache.jackrabbit.oak.security.principal.PrincipalConfigurationImpl"/>
+</scr:component>

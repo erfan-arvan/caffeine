@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.3.0" name="org.apache.jackrabbit.oak.security.user.RandomAuthorizableNodeName" configuration-policy="require" activate="activate">
+  <implementation class="org.apache.jackrabbit.oak.security.user.RandomAuthorizableNodeName"/>
+  <service>
+    <provide interface="org.apache.jackrabbit.oak.spi.security.user.AuthorizableNodeName"/>
+  </service>
+  <property name="length" type="Integer" value="21"/>
+  <property name="oak.security.name" type="String" value="org.apache.jackrabbit.oak.security.user.RandomAuthorizableNodeName"/>
+</scr:component>

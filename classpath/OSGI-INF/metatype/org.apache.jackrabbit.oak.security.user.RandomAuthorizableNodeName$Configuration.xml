@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metatype:MetaData xmlns:metatype="http://www.osgi.org/xmlns/metatype/v1.2.0" localization="OSGI-INF/l10n/org.apache.jackrabbit.oak.security.user.RandomAuthorizableNodeName$Configuration">
+  <OCD id="org.apache.jackrabbit.oak.security.user.RandomAuthorizableNodeName$Configuration" name="Apache Jackrabbit Oak Random Authorizable Node Name" description="Generates a random name for the authorizable node.">
+    <AD id="length" type="Integer" name="Name Length" description="Length of the generated node name." default="21"/>
+  </OCD>
+  <Designate pid="org.apache.jackrabbit.oak.security.user.RandomAuthorizableNodeName">
+    <Object ocdref="org.apache.jackrabbit.oak.security.user.RandomAuthorizableNodeName$Configuration"/>
+  </Designate>
+</metatype:MetaData>

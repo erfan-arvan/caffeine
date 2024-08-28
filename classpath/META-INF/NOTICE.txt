@@ -1,0 +1,8 @@
+
+OPS4J Pax Tinybundles
+Copyright 2007-2015 OPS4J - Open Participation Software for Java
+
+This product includes software developed at
+Open Participation Software for Java (OPS4J) (http://team.ops4j.org/).
+
+

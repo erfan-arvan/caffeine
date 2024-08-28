@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.3.0" name="org.apache.jackrabbit.oak.plugins.index.IndexerMBeanImpl" activate="activate" deactivate="deactivate">
+  <implementation class="org.apache.jackrabbit.oak.plugins.index.IndexerMBeanImpl"/>
+  <reference name="asyncIndexInfoService" interface="org.apache.jackrabbit.oak.plugins.index.AsyncIndexInfoService" field="asyncIndexInfoService"/>
+  <reference name="nodeStore" interface="org.apache.jackrabbit.oak.spi.state.NodeStore" field="nodeStore"/>
+</scr:component>

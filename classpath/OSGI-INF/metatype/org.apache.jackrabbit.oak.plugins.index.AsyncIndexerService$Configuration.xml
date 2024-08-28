@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metatype:MetaData xmlns:metatype="http://www.osgi.org/xmlns/metatype/v1.2.0" localization="OSGI-INF/l10n/org.apache.jackrabbit.oak.plugins.index.AsyncIndexerService$Configuration">
+  <OCD id="org.apache.jackrabbit.oak.plugins.index.AsyncIndexerService$Configuration" name="Apache Jackrabbit Oak Async Indexer Service" description="Configures the async indexer services which performs periodic indexing of repository content">
+    <AD id="asyncConfigs" type="String" cardinality="1024" name="Async Indexer Configs" description="Async indexer configs in the form of &lt;name&gt;:&lt;interval in secs&gt; e.g. &quot;async:5&quot;" default="async:5"/>
+    <AD id="leaseTimeOutMinutes" type="Integer" name="Lease time out" description="Lease timeout in minutes. AsyncIndexer would wait for this timeout period before breaking async indexer lease" default="15"/>
+    <AD id="failingIndexTimeoutSeconds" type="Long" name="Failing Index Timeout (s)" description="Time interval in seconds after which a failing index is considered as corrupted and ignored from further indexing untill reindex. To disable this set it to 0" default="1800"/>
+    <AD id="errorWarnIntervalSeconds" type="Long" name="Error warn interval (s)" description="Time interval in seconds after which a warning log would be logged for skipped indexes. This is done to avoid flooding the log in case of corrupted index." default="900"/>
+  </OCD>
+  <Designate pid="org.apache.jackrabbit.oak.plugins.index.AsyncIndexerService">
+    <Object ocdref="org.apache.jackrabbit.oak.plugins.index.AsyncIndexerService$Configuration"/>
+  </Designate>
+</metatype:MetaData>

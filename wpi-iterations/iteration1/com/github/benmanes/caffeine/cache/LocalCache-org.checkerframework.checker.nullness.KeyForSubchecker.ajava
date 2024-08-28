@@ -1,0 +1,238 @@
+/*
+ * Copyright 2015 Ben Manes. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package com.github.benmanes.caffeine.cache;
+
+import java.util.Map;
+import java.util.concurrent.ConcurrentMap;
+import java.util.concurrent.Executor;
+import java.util.function.BiFunction;
+import java.util.function.Function;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
+import com.github.benmanes.caffeine.cache.stats.StatsCounter;
+
+/**
+ * An in-memory cache providing thread safety and atomicity guarantees. This interface provides an
+ * extension to {@link ConcurrentMap} for use with skeletal implementations.
+ *
+ * @author ben.manes@gmail.com (Ben Manes)
+ */
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.KeyForSubchecker")
+interface LocalCache<K, V> extends ConcurrentMap<K, V> {
+
+    /**
+     * Returns whether this cache has statistics enabled.
+     */
+    @org.checkerframework.dataflow.qual.Pure
+      boolean isRecordingStats( LocalCache<K, V> this);
+
+    /**
+     * Returns the {@link StatsCounter} used by this cache.
+     */
+    @org.checkerframework.dataflow.qual.Pure
+     StatsCounter statsCounter( LocalCache<K, V> this);
+
+    /**
+     * Returns whether this cache notifies when an entry is removed.
+     */
+    @org.checkerframework.dataflow.qual.Pure
+      boolean hasRemovalListener( LocalCache<K, V> this);
+
+    /**
+     * Returns the {@link RemovalListener} used by this cache.
+     */
+    @org.checkerframework.dataflow.qual.Pure
+    RemovalListener<K, V> removalListener();
+
+    /**
+     * Asynchronously sends a removal notification to the listener.
+     */
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    void notifyRemoval( LocalCache<K, V> this, K key, V value,  RemovalCause cause);
+
+    /**
+     * Returns the {@link Executor} used by this cache.
+     */
+    @org.checkerframework.dataflow.qual.Pure
+     Executor executor( LocalCache<K, V> this);
+
+    /**
+     * Returns whether the cache captures the write time of the entry.
+     */
+    @org.checkerframework.dataflow.qual.Pure
+      boolean hasWriteTime( LocalCache<K, V> this);
+
+    /**
+     * Returns the {@link Ticker} used by this cache for expiration.
+     */
+    @org.checkerframework.dataflow.qual.Pure
+     Ticker expirationTicker();
+
+    /**
+     * Returns the {@link Ticker} used by this cache for statistics.
+     */
+    @org.checkerframework.dataflow.qual.Pure
+     Ticker statsTicker( LocalCache<K, V> this);
+
+    /**
+     * See {@link Cache#estimatedSize()}.
+     */
+    @org.checkerframework.dataflow.qual.Pure
+    long estimatedSize( LocalCache<K, V> this);
+
+    /**
+     * See {@link Cache#getIfPresent(Object)}. This method differs by accepting a parameter of whether
+     * to record the hit and miss statistics based on the success of this operation.
+     */
+    @org.checkerframework.dataflow.qual.Pure
+    V getIfPresent( LocalCache<K, V> this,  Object key,   boolean recordStats);
+
+    /**
+     * See {@link Cache#getIfPresent(Object)}. This method differs by not recording the access with
+     * the statistics nor the eviction policy, and populates the write time if known.
+     */
+    @org.checkerframework.dataflow.qual.Pure
+    V getIfPresentQuietly( LocalCache<K, V> this, Object key,   long  [] writeTime);
+
+    /**
+     * See {@link Cache#getAllPresent}.
+     */
+    @org.checkerframework.dataflow.qual.Pure
+    Map<K, V> getAllPresent( LocalCache<K, V> this,  Iterable<?> keys);
+
+    /**
+     * See {@link Cache#put(Object, Object)}. This method differs by allowing the operation to not
+     * notify the writer when an entry was inserted or updated.
+     */
+    @org.checkerframework.dataflow.qual.Pure
+    V put(K key, V value, boolean notifyWriter);
+
+    @org.checkerframework.dataflow.qual.Impure
+    default V compute( LocalCache<K, V> this, K key,  BiFunction<? super K, ? super V, ? extends V> remappingFunction) {
+        return compute(key, remappingFunction, /* recordMiss */
+        false, /* recordLoad */
+        true);
+    }
+
+    /**
+     * See {@link ConcurrentMap#compute}. This method differs by accepting parameters indicating
+     * whether to record miss and load statistics based on the success of this operation.
+     */
+    @org.checkerframework.dataflow.qual.Pure
+    V compute( LocalCache<K, V> this, K key,  BiFunction<? super K, ? super V, ? extends V> remappingFunction,   boolean recordMiss,   boolean recordLoad);
+
+    @org.checkerframework.dataflow.qual.Impure
+    default V computeIfAbsent( LocalCache<K, V> this, K key,  Function<? super K, ? extends V> mappingFunction) {
+        return computeIfAbsent(key, mappingFunction, /* recordStats */
+        true, /* recordLoad */
+        true);
+    }
+
+    /**
+     * See {@link ConcurrentMap#computeIfAbsent}. This method differs by accepting parameters
+     * indicating how to record statistics.
+     */
+    @org.checkerframework.dataflow.qual.Pure
+    V computeIfAbsent( LocalCache<K, V> this, K key,  Function<? super K, ? extends V> mappingFunction,   boolean recordStats,   boolean recordLoad);
+
+    /**
+     * See {@link Cache#invalidateAll(Iterable)}.
+     */
+    @org.checkerframework.dataflow.qual.Impure
+    default void invalidateAll( LocalCache<K, V> this,  Iterable<?> keys) {
+        for (Object key : keys) {
+            remove(key);
+        }
+    }
+
+    /**
+     * See {@link Cache#cleanUp}.
+     */
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    void cleanUp( LocalCache<K, V> this);
+
+    /**
+     * Decorates the remapping function to record statistics if enabled.
+     */
+    @org.checkerframework.dataflow.qual.Impure
+    default  Function<? super K, ? extends V> statsAware(Function<? super K, ? extends V> mappingFunction, boolean recordLoad) {
+        if (!isRecordingStats()) {
+            return mappingFunction;
+        }
+        return key -> {
+            V value;
+            statsCounter().recordMisses(1);
+            long startTime = statsTicker().read();
+            try {
+                value = mappingFunction.apply(key);
+            } catch (RuntimeException | Error e) {
+                statsCounter().recordLoadFailure(statsTicker().read() - startTime);
+                throw e;
+            }
+            long loadTime = statsTicker().read() - startTime;
+            if (recordLoad) {
+                if (value == null) {
+                    statsCounter().recordLoadFailure(loadTime);
+                } else {
+                    statsCounter().recordLoadSuccess(loadTime);
+                }
+            }
+            return value;
+        };
+    }
+
+    /**
+     * Decorates the remapping function to record statistics if enabled.
+     */
+    @org.checkerframework.dataflow.qual.Impure
+    default <T, U, R>  BiFunction<? super T, ? super U, ? extends R> statsAware(BiFunction<? super T, ? super U, ? extends R> remappingFunction) {
+        return statsAware(remappingFunction, /* recordMiss */
+        true, /* recordLoad */
+        true);
+    }
+
+    /**
+     * Decorates the remapping function to record statistics if enabled.
+     */
+    @org.checkerframework.dataflow.qual.Impure
+    default <T, U, R>  BiFunction<? super T, ? super U, ? extends R> statsAware( LocalCache<K, V> this,  BiFunction<? super T, ? super U, ? extends R> remappingFunction,   boolean recordMiss,   boolean recordLoad) {
+        if (!isRecordingStats()) {
+            return remappingFunction;
+        }
+        return (t, u) -> {
+            R result;
+            if ((u == null) && recordMiss) {
+                statsCounter().recordMisses(1);
+            }
+            long startTime = statsTicker().read();
+            try {
+                result = remappingFunction.apply(t, u);
+            } catch (RuntimeException | Error e) {
+                statsCounter().recordLoadFailure(statsTicker().read() - startTime);
+                throw e;
+            }
+            long loadTime = statsTicker().read() - startTime;
+            if (recordLoad) {
+                if (result == null) {
+                    statsCounter().recordLoadFailure(loadTime);
+                } else {
+                    statsCounter().recordLoadSuccess(loadTime);
+                }
+            }
+            return result;
+        };
+    }
+}
