@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.3.0" name="org.apache.jackrabbit.oak.plugins.index.IndexPathServiceImpl">
+  <implementation class="org.apache.jackrabbit.oak.plugins.index.IndexPathServiceImpl"/>
+  <service>
+    <provide interface="org.apache.jackrabbit.oak.plugins.index.IndexPathService"/>
+  </service>
+  <reference name="mountInfoProvider" interface="org.apache.jackrabbit.oak.spi.mount.MountInfoProvider" field="mountInfoProvider"/>
+  <reference name="nodeStore" interface="org.apache.jackrabbit.oak.spi.state.NodeStore" field="nodeStore"/>
+</scr:component>

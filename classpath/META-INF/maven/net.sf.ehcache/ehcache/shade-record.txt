@@ -1,0 +1,7 @@
+net.sf.ehcache.internal:ehcache-terracotta-bootstrap:2.10.4
+com.terracotta:clustered-entity-management:0.10.0
+net.sf.ehcache.internal:ehcache-rest-agent:2.10.4
+net.sf.ehcache.internal:ehcache-core:2.10.4
+org.terracotta.internal:statistics:1.0.2
+net.sf.ehcache.internal:ehcache-scheduled-refresh:2.10.4
+net.sf.ehcache.internal:ehcache-search-parser:2.10.4

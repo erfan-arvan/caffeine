@@ -1,0 +1,240 @@
+/*
+ * Copyright 2015 Ben Manes. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package com.github.benmanes.caffeine.cache;
+
+import java.util.Map;
+import java.util.concurrent.ConcurrentMap;
+import java.util.concurrent.Executor;
+import java.util.function.BiFunction;
+import java.util.function.Function;
+import javax.annotation.Nonnegative;
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+import com.github.benmanes.caffeine.cache.stats.StatsCounter;
+
+/**
+ * An in-memory cache providing thread safety and atomicity guarantees. This interface provides an
+ * extension to {@link ConcurrentMap} for use with skeletal implementations.
+ *
+ * @author ben.manes@gmail.com (Ben Manes)
+ */
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+interface LocalCache<K, V> extends ConcurrentMap<K, V> {
+
+    /**
+     * Returns whether this cache has statistics enabled.
+     */
+    @org.checkerframework.dataflow.qual.Pure
+     @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean isRecordingStats();
+
+    /**
+     * Returns the {@link StatsCounter} used by this cache.
+     */
+    @org.checkerframework.dataflow.qual.Pure
+    @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull StatsCounter statsCounter();
+
+    /**
+     * Returns whether this cache notifies when an entry is removed.
+     */
+    @org.checkerframework.dataflow.qual.Pure
+     @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean hasRemovalListener();
+
+    /**
+     * Returns the {@link RemovalListener} used by this cache or <tt>null</tt> if not used.
+     */
+    @org.checkerframework.dataflow.qual.Pure
+    @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable RemovalListener<K, V> removalListener();
+
+    /**
+     * Asynchronously sends a removal notification to the listener.
+     */
+    @org.checkerframework.dataflow.qual.Impure
+    void notifyRemoval(K key, V value, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull RemovalCause cause);
+
+    /**
+     * Returns the {@link Executor} used by this cache.
+     */
+    @org.checkerframework.dataflow.qual.Pure
+    @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Executor executor();
+
+    /**
+     * Returns whether the cache captures the write time of the entry.
+     */
+    @org.checkerframework.dataflow.qual.Pure
+     @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean hasWriteTime();
+
+    /**
+     * Returns the {@link Ticker} used by this cache for expiration.
+     */
+    @org.checkerframework.dataflow.qual.Pure
+    @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Ticker expirationTicker();
+
+    /**
+     * Returns the {@link Ticker} used by this cache for statistics.
+     */
+    @org.checkerframework.dataflow.qual.Pure
+    @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Ticker statsTicker();
+
+    /**
+     * See {@link Cache#estimatedSize()}.
+     */
+    @org.checkerframework.dataflow.qual.Impure
+     @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull long estimatedSize();
+
+    /**
+     * See {@link Cache#getIfPresent(Object)}. This method differs by accepting a parameter of whether
+     * to record the hit and miss statistics based on the success of this operation.
+     */
+    @org.checkerframework.dataflow.qual.Impure
+    V getIfPresent(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Object key,  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean recordStats);
+
+    /**
+     * See {@link Cache#getIfPresent(Object)}. This method differs by not recording the access with
+     * the statistics nor the eviction policy, and populates the write time if known.
+     */
+    @org.checkerframework.dataflow.qual.Impure
+    V getIfPresentQuietly(@org.checkerframework.checker.nullness.qual.NonNull Object key,  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull long /* 1 */
+    @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull [] writeTime);
+
+    /**
+     * See {@link Cache#getAllPresent}.
+     */
+    @org.checkerframework.dataflow.qual.Impure
+    @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Map<K, V> getAllPresent(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Iterable<?> keys);
+
+    /**
+     * See {@link Cache#put(Object, Object)}. This method differs by allowing the operation to not
+     * notify the writer when an entry was inserted or updated.
+     */
+    @org.checkerframework.dataflow.qual.Impure
+    V put(K key, V value,  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean notifyWriter);
+
+    @org.checkerframework.dataflow.qual.Impure
+    default V compute(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull LocalCache<K, V> this, K key, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull BiFunction<? super K, ? super V, ? extends V> remappingFunction) {
+        return compute(key, remappingFunction, /* recordMiss */
+        false, /* recordLoad */
+        true);
+    }
+
+    /**
+     * See {@link ConcurrentMap#compute}. This method differs by accepting parameters indicating
+     * whether to record miss and load statistics based on the success of this operation.
+     */
+    @org.checkerframework.dataflow.qual.Impure
+    V compute(K key, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull BiFunction<? super K, ? super V, ? extends V> remappingFunction,  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean recordMiss,  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean recordLoad);
+
+    @org.checkerframework.dataflow.qual.Impure
+    default V computeIfAbsent(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull LocalCache<K, V> this, K key, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Function<? super K, ? extends V> mappingFunction) {
+        return computeIfAbsent(key, mappingFunction, /* recordStats */
+        true, /* recordLoad */
+        true);
+    }
+
+    /**
+     * See {@link ConcurrentMap#computeIfAbsent}. This method differs by accepting parameters
+     * indicating how to record statistics.
+     */
+    @org.checkerframework.dataflow.qual.Impure
+    V computeIfAbsent(K key, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Function<? super K, ? extends V> mappingFunction,  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean recordStats,  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean recordLoad);
+
+    /**
+     * See {@link Cache#invalidateAll(Iterable)}.
+     */
+    @org.checkerframework.dataflow.qual.Impure
+    default void invalidateAll(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Iterable<?> keys) {
+        for (Object key : keys) {
+            remove(key);
+        }
+    }
+
+    /**
+     * See {@link Cache#cleanUp}.
+     */
+    @org.checkerframework.dataflow.qual.Impure
+    void cleanUp();
+
+    /**
+     * Decorates the remapping function to record statistics if enabled.
+     */
+    @org.checkerframework.dataflow.qual.Impure
+    default @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Function<? super K, ? extends V> statsAware(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Function<? super K, ? extends V> mappingFunction,  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean recordLoad) {
+        if (!isRecordingStats()) {
+            return mappingFunction;
+        }
+        return key -> {
+            V value;
+            statsCounter().recordMisses(1);
+            long startTime = statsTicker().read();
+            try {
+                value = mappingFunction.apply(key);
+            } catch (RuntimeException | Error e) {
+                statsCounter().recordLoadFailure(statsTicker().read() - startTime);
+                throw e;
+            }
+            long loadTime = statsTicker().read() - startTime;
+            if (recordLoad) {
+                if (value == null) {
+                    statsCounter().recordLoadFailure(loadTime);
+                } else {
+                    statsCounter().recordLoadSuccess(loadTime);
+                }
+            }
+            return value;
+        };
+    }
+
+    /**
+     * Decorates the remapping function to record statistics if enabled.
+     */
+    @org.checkerframework.dataflow.qual.Impure
+    default <T, U, R> @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull BiFunction<? super T, ? super U, ? extends R> statsAware(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull BiFunction<? super T, ? super U, ? extends R> remappingFunction) {
+        return statsAware(remappingFunction, /* recordMiss */
+        true, /* recordLoad */
+        true);
+    }
+
+    /**
+     * Decorates the remapping function to record statistics if enabled.
+     */
+    @org.checkerframework.dataflow.qual.Impure
+    default <T, U, R> @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull BiFunction<? super T, ? super U, ? extends R> statsAware(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull BiFunction<? super T, ? super U, ? extends R> remappingFunction,  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean recordMiss,  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean recordLoad) {
+        if (!isRecordingStats()) {
+            return remappingFunction;
+        }
+        return (t, u) -> {
+            R result;
+            if ((u == null) && recordMiss) {
+                statsCounter().recordMisses(1);
+            }
+            long startTime = statsTicker().read();
+            try {
+                result = remappingFunction.apply(t, u);
+            } catch (RuntimeException | Error e) {
+                statsCounter().recordLoadFailure(statsTicker().read() - startTime);
+                throw e;
+            }
+            long loadTime = statsTicker().read() - startTime;
+            if (recordLoad) {
+                if (result == null) {
+                    statsCounter().recordLoadFailure(loadTime);
+                } else {
+                    statsCounter().recordLoadSuccess(loadTime);
+                }
+            }
+            return result;
+        };
+    }
+}

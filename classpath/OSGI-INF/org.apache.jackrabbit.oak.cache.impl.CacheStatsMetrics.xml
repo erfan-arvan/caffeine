@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="org.apache.jackrabbit.oak.cache.impl.CacheStatsMetrics" immediate="true">
+  <implementation class="org.apache.jackrabbit.oak.cache.impl.CacheStatsMetrics"/>
+  <reference name="CacheStatsMBean" cardinality="1..n" policy="dynamic" interface="org.apache.jackrabbit.oak.api.jmx.CacheStatsMBean" bind="addCacheStatsMBean" unbind="removeCacheStatsMBean"/>
+  <reference name="MetricRegistry" interface="com.codahale.metrics.MetricRegistry" target="(name=oak)" bind="setMetricRegistry"/>
+</scr:component>

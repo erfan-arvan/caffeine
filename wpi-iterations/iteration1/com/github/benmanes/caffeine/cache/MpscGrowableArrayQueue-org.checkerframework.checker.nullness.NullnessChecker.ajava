@@ -1,0 +1,703 @@
+/*
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package com.github.benmanes.caffeine.cache;
+
+import static com.github.benmanes.caffeine.base.UnsafeAccess.UNSAFE;
+import static com.github.benmanes.caffeine.cache.BoundedLocalCache.ceilingPowerOfTwo;
+import static com.github.benmanes.caffeine.cache.UnsafeRefArrayAccess.REF_ARRAY_BASE;
+import static com.github.benmanes.caffeine.cache.UnsafeRefArrayAccess.REF_ELEMENT_SHIFT;
+import static com.github.benmanes.caffeine.cache.UnsafeRefArrayAccess.lvElement;
+import static com.github.benmanes.caffeine.cache.UnsafeRefArrayAccess.soElement;
+import java.lang.reflect.Field;
+import java.util.AbstractQueue;
+import java.util.Iterator;
+
+/**
+ * An MPSC array queue which starts at <i>initialCapacity</i> and grows to <i>maxCapacity</i> in
+ * linked chunks of the initial size. The queue grows only when the current buffer is full and
+ * elements are not copied on resize, instead a link to the new buffer is stored in the old buffer
+ * for the consumer to follow.<br>
+ * <p>
+ * This is a shaded copy of <tt>MpscGrowableArrayQueue</tt> provided by
+ * <a href="https://github.com/JCTools/JCTools">JCTools</a> from version 2.0.
+ *
+ * @author nitsanw@yahoo.com (Nitsan Wakart)
+ */
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+final class MpscGrowableArrayQueue<E> extends MpscChunkedArrayQueue<E> {
+
+    /**
+     * @param initialCapacity the queue initial capacity. If chunk size is fixed this will be the
+     *        chunk size. Must be 2 or more.
+     * @param maxCapacity the maximum capacity will be rounded up to the closest power of 2 and will
+     *        be the upper limit of number of elements in this queue. Must be 4 or more and round up
+     *        to a larger power of 2 than initialCapacity.
+     */
+    @org.checkerframework.dataflow.qual.Impure
+    public MpscGrowableArrayQueue(int initialCapacity, int maxCapacity) {
+        super(initialCapacity, maxCapacity);
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    protected  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int getNextBufferSize(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull MpscGrowableArrayQueue<E> this, E @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull [] buffer) {
+        long maxSize = maxQueueCapacity / 2;
+        if (buffer.length > maxSize) {
+            throw new IllegalStateException();
+        }
+        final int newSize = 2 * (buffer.length - 1);
+        return newSize + 1;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    protected  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull long getCurrentBufferCapacity(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull MpscGrowableArrayQueue<E> this,  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull long mask) {
+        return (mask + 2 == maxQueueCapacity) ? maxQueueCapacity : mask;
+    }
+}
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+abstract class MpscChunkedArrayQueue<E> extends MpscChunkedArrayQueueColdProducerFields<E> {
+
+    long p0, p1, p2, p3, p4, p5, p6, p7;
+
+    long p10, p11, p12, p13, p14, p15, p16, p17;
+
+    @org.checkerframework.dataflow.qual.Impure
+    public MpscChunkedArrayQueue( @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int initialCapacity,  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int maxCapacity) {
+        super(initialCapacity, maxCapacity);
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    protected  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull long availableInQueue(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull MpscChunkedArrayQueue<E> this,  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull long pIndex,  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull long cIndex) {
+        return maxQueueCapacity - (pIndex - cIndex);
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int capacity(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull MpscChunkedArrayQueue<E> this) {
+        return (int) (maxQueueCapacity / 2);
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    protected  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int getNextBufferSize(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull MpscChunkedArrayQueue<E> this, E @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull [] buffer) {
+        return buffer.length;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    protected  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull long getCurrentBufferCapacity(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull MpscChunkedArrayQueue<E> this,  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull long mask) {
+        return mask;
+    }
+}
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+abstract class MpscChunkedArrayQueueColdProducerFields<E> extends BaseMpscLinkedArrayQueue<E> {
+
+    protected final  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull long maxQueueCapacity;
+
+    @org.checkerframework.dataflow.qual.Impure
+    public MpscChunkedArrayQueueColdProducerFields( @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int initialCapacity,  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int maxCapacity) {
+        super(initialCapacity);
+        if (maxCapacity < 4) {
+            throw new IllegalArgumentException("Max capacity must be 4 or more");
+        }
+        if (ceilingPowerOfTwo(initialCapacity) >= ceilingPowerOfTwo(maxCapacity)) {
+            throw new IllegalArgumentException("Initial capacity cannot exceed maximum capacity(both rounded up to a power of 2)");
+        }
+        maxQueueCapacity = ((long) ceilingPowerOfTwo(maxCapacity)) << 1;
+    }
+}
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+abstract class BaseMpscLinkedArrayQueuePad1<E> extends AbstractQueue<E> {
+
+    long p01, p02, p03, p04, p05, p06, p07;
+
+    long p10, p11, p12, p13, p14, p15, p16, p17;
+}
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+abstract class BaseMpscLinkedArrayQueueProducerFields<E> extends BaseMpscLinkedArrayQueuePad1<E> {
+
+    protected long producerIndex;
+}
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+abstract class BaseMpscLinkedArrayQueuePad2<E> extends BaseMpscLinkedArrayQueueProducerFields<E> {
+
+    long p01, p02, p03, p04, p05, p06, p07;
+
+    long p10, p11, p12, p13, p14, p15, p16, p17;
+}
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+abstract class BaseMpscLinkedArrayQueueConsumerFields<E> extends BaseMpscLinkedArrayQueuePad2<E> {
+
+    protected  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull long consumerMask;
+
+    protected E @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.MonotonicNonNull [] consumerBuffer;
+
+    protected long consumerIndex;
+}
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+abstract class BaseMpscLinkedArrayQueuePad3<E> extends BaseMpscLinkedArrayQueueConsumerFields<E> {
+
+    long p0, p1, p2, p3, p4, p5, p6, p7;
+
+    long p10, p11, p12, p13, p14, p15, p16, p17;
+}
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+abstract class BaseMpscLinkedArrayQueueColdProducerFields<E> extends BaseMpscLinkedArrayQueuePad3<E> {
+
+    protected volatile long producerLimit;
+
+    protected  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull long producerMask;
+
+    protected E @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.MonotonicNonNull [] producerBuffer;
+}
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+abstract class BaseMpscLinkedArrayQueue<E> extends BaseMpscLinkedArrayQueueColdProducerFields<E> {
+
+    // No post padding here, subclasses must add
+    private final static  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull long P_INDEX_OFFSET;
+
+    private final static  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull long C_INDEX_OFFSET;
+
+    private final static  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull long P_LIMIT_OFFSET;
+
+    static {
+        try {
+            Field iField = BaseMpscLinkedArrayQueueProducerFields.class.getDeclaredField("producerIndex");
+            P_INDEX_OFFSET = UNSAFE.objectFieldOffset(iField);
+        } catch (NoSuchFieldException e) {
+            throw new RuntimeException(e);
+        }
+        try {
+            Field iField = BaseMpscLinkedArrayQueueConsumerFields.class.getDeclaredField("consumerIndex");
+            C_INDEX_OFFSET = UNSAFE.objectFieldOffset(iField);
+        } catch (NoSuchFieldException e) {
+            throw new RuntimeException(e);
+        }
+        try {
+            Field iField = BaseMpscLinkedArrayQueueColdProducerFields.class.getDeclaredField("producerLimit");
+            P_LIMIT_OFFSET = UNSAFE.objectFieldOffset(iField);
+        } catch (NoSuchFieldException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private final static @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Object JUMP = new Object();
+
+    /**
+     * @param initialCapacity the queue initial capacity. If chunk size is fixed this will be the
+     *        chunk size. Must be 2 or more.
+     */
+    @org.checkerframework.dataflow.qual.Impure
+    public BaseMpscLinkedArrayQueue(final  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int initialCapacity) {
+        if (initialCapacity < 2) {
+            throw new IllegalArgumentException("Initial capacity must be 2 or more");
+        }
+        int p2capacity = ceilingPowerOfTwo(initialCapacity);
+        // leave lower bit of mask clear
+        long mask = (p2capacity - 1L) << 1;
+        // need extra element to point at next array
+        E[] buffer = allocate(p2capacity + 1);
+        producerBuffer = buffer;
+        producerMask = mask;
+        consumerBuffer = buffer;
+        consumerMask = mask;
+        // we know it's all empty to start with
+        soProducerLimit(mask);
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public final Iterator<E> iterator(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull BaseMpscLinkedArrayQueue<E> this) {
+        throw new UnsupportedOperationException();
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String toString(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull BaseMpscLinkedArrayQueue<E> this) {
+        return getClass().getName() + "@" + Integer.toHexString(hashCode());
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean offer(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull BaseMpscLinkedArrayQueue<E> this, final E e) {
+        if (null == e) {
+            throw new NullPointerException();
+        }
+        long mask;
+        E[] buffer;
+        long pIndex;
+        while (true) {
+            long producerLimit = lvProducerLimit();
+            pIndex = lvProducerIndex();
+            // lower bit is indicative of resize, if we see it we spin until it's cleared
+            if ((pIndex & 1) == 1) {
+                continue;
+            }
+            // pIndex is even (lower bit is 0) -> actual index is (pIndex >> 1)
+            // mask/buffer may get changed by resizing -> only use for array access after successful CAS.
+            mask = this.producerMask;
+            buffer = this.producerBuffer;
+            // a successful CAS ties the ordering, lv(pIndex)-[mask/buffer]->cas(pIndex)
+            // assumption behind this optimization is that queue is almost always empty or near empty
+            if (producerLimit <= pIndex) {
+                int result = offerSlowPath(mask, pIndex, producerLimit);
+                switch(result) {
+                    case 0:
+                        break;
+                    case 1:
+                        continue;
+                    case 2:
+                        return false;
+                    case 3:
+                        resize(mask, buffer, pIndex, e);
+                        return true;
+                }
+            }
+            if (casProducerIndex(pIndex, pIndex + 2)) {
+                break;
+            }
+        }
+        // INDEX visible before ELEMENT, consistent with consumer expectation
+        final long offset = modifiedCalcElementOffset(pIndex, mask);
+        soElement(buffer, offset, e);
+        return true;
+    }
+
+    /**
+     * We do not inline resize into this method because we do not resize on fill.
+     */
+    @org.checkerframework.dataflow.qual.Impure
+    private  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int offerSlowPath( @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull long mask,  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull long pIndex,  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull long producerLimit) {
+        int result;
+        final long cIndex = lvConsumerIndex();
+        long bufferCapacity = getCurrentBufferCapacity(mask);
+        // 0 - goto pIndex CAS
+        result = 0;
+        if (cIndex + bufferCapacity > pIndex) {
+            if (!casProducerLimit(producerLimit, cIndex + bufferCapacity)) {
+                // retry from top
+                result = 1;
+            }
+        } else // full and cannot grow
+        if (availableInQueue(pIndex, cIndex) <= 0) {
+            // -> return false;
+            result = 2;
+        } else // grab index for resize -> set lower bit
+        if (casProducerIndex(pIndex, pIndex + 1)) {
+            // -> resize
+            result = 3;
+        } else {
+            // failed resize attempt, retry from top
+            result = 1;
+        }
+        return result;
+    }
+
+    /**
+     * @return available elements in queue * 2
+     */
+    @org.checkerframework.dataflow.qual.Pure
+    protected abstract  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull long availableInQueue( @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull long pIndex, final  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull long cIndex);
+
+    /**
+     * This method assumes index is actually (index << 1) because lower bit is used for resize. This
+     * is compensated for by reducing the element shift. The computation is constant folded, so
+     * there's no cost.
+     */
+    @org.checkerframework.dataflow.qual.Pure
+    private static  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull long modifiedCalcElementOffset( @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull long index,  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull long mask) {
+        return REF_ARRAY_BASE + ((index & mask) << (REF_ELEMENT_SHIFT - 1));
+    }
+
+    /**
+     * {@inheritDoc}
+     * <p>
+     * This implementation is correct for single consumer thread use only.
+     */
+    @org.checkerframework.dataflow.qual.Impure
+    public E poll(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull BaseMpscLinkedArrayQueue<E> this) {
+        final E[] buffer = consumerBuffer;
+        final long index = consumerIndex;
+        final long mask = consumerMask;
+        final long offset = modifiedCalcElementOffset(index, mask);
+        // LoadLoad
+        Object e = lvElement(buffer, offset);
+        if (e == null) {
+            if (index != lvProducerIndex()) {
+                // poll() == null iff queue is empty, null element is not strong enough indicator, so we
+                // must
+                // check the producer index. If the queue is indeed not empty we spin until element is
+                // visible.
+                do {
+                    e = lvElement(buffer, offset);
+                } while (e == null);
+            } else {
+                return null;
+            }
+        }
+        if (e == JUMP) {
+            final E[] nextBuffer = getNextBuffer(buffer, mask);
+            return newBufferPoll(nextBuffer, index);
+        }
+        soElement(buffer, offset, null);
+        soConsumerIndex(index + 2);
+        return (E) e;
+    }
+
+    /**
+     * {@inheritDoc}
+     * <p>
+     * This implementation is correct for single consumer thread use only.
+     */
+    @org.checkerframework.dataflow.qual.Impure
+    public E peek(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull BaseMpscLinkedArrayQueue<E> this) {
+        final E[] buffer = consumerBuffer;
+        final long index = consumerIndex;
+        final long mask = consumerMask;
+        final long offset = modifiedCalcElementOffset(index, mask);
+        // LoadLoad
+        Object e = lvElement(buffer, offset);
+        if (e == null && index != lvProducerIndex()) {
+            // peek() == null iff queue is empty, null element is not strong enough indicator, so we must
+            // check the producer index. If the queue is indeed not empty we spin until element is
+            // visible.
+            while ((e = lvElement(buffer, offset)) == null) {
+                ;
+            }
+        }
+        if (e == JUMP) {
+            return newBufferPeek(getNextBuffer(buffer, mask), index);
+        }
+        return (E) e;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    private E @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable [] getNextBuffer(final E @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull [] buffer, final  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull long mask) {
+        final long nextArrayOffset = nextArrayOffset(mask);
+        final E[] nextBuffer = (E[]) lvElement(buffer, nextArrayOffset);
+        soElement(buffer, nextArrayOffset, null);
+        return nextBuffer;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    private static  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull long nextArrayOffset(final  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull long mask) {
+        return modifiedCalcElementOffset(mask + 2, Long.MAX_VALUE);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    private E newBufferPoll(E @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull [] nextBuffer, final  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull long index) {
+        final long offsetInNew = newBufferAndOffset(nextBuffer, index);
+        // LoadLoad
+        final E n = lvElement(nextBuffer, offsetInNew);
+        if (n == null) {
+            throw new IllegalStateException("new buffer must have at least one element");
+        }
+        // StoreStore
+        soElement(nextBuffer, offsetInNew, null);
+        soConsumerIndex(index + 2);
+        return n;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    private E newBufferPeek(E @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull [] nextBuffer, final  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull long index) {
+        final long offsetInNew = newBufferAndOffset(nextBuffer, index);
+        // LoadLoad
+        final E n = lvElement(nextBuffer, offsetInNew);
+        if (null == n) {
+            throw new IllegalStateException("new buffer must have at least one element");
+        }
+        return n;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    private  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull long newBufferAndOffset(E @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull [] nextBuffer, final  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull long index) {
+        consumerBuffer = nextBuffer;
+        consumerMask = (nextBuffer.length - 2L) << 1;
+        final long offsetInNew = modifiedCalcElementOffset(index, consumerMask);
+        return offsetInNew;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public final  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int size(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull BaseMpscLinkedArrayQueue<E> this) {
+        // NOTE: because indices are on even numbers we cannot use the size util.
+        /*
+     * It is possible for a thread to be interrupted or reschedule between the read of the producer
+     * and consumer indices, therefore protection is required to ensure size is within valid range.
+     * In the event of concurrent polls/offers to this method the size is OVER estimated as we read
+     * consumer index BEFORE the producer index.
+     */
+        long after = lvConsumerIndex();
+        long size;
+        while (true) {
+            final long before = after;
+            final long currentProducerIndex = lvProducerIndex();
+            after = lvConsumerIndex();
+            if (before == after) {
+                size = ((currentProducerIndex - after) >> 1);
+                break;
+            }
+        }
+        // Long overflow is impossible, so size is always positive. Integer overflow is possible for the
+        // unbounded
+        // indexed queues.
+        if (size > Integer.MAX_VALUE) {
+            return Integer.MAX_VALUE;
+        } else {
+            return (int) size;
+        }
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public final  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean isEmpty(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull BaseMpscLinkedArrayQueue<E> this) {
+        // Order matters!
+        // Loading consumer before producer allows for producer increments after consumer index is read.
+        // This ensures this method is conservative in it's estimate. Note that as this is an MPMC there
+        // is
+        // nothing we can do to make this an exact method.
+        return (this.lvConsumerIndex() == this.lvProducerIndex());
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    private  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull long lvProducerIndex() {
+        return UNSAFE.getLongVolatile(this, P_INDEX_OFFSET);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    private  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull long lvConsumerIndex() {
+        return UNSAFE.getLongVolatile(this, C_INDEX_OFFSET);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    private void soProducerIndex( @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull long v) {
+        UNSAFE.putOrderedLong(this, P_INDEX_OFFSET, v);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    private  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean casProducerIndex( @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull long expect,  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull long newValue) {
+        return UNSAFE.compareAndSwapLong(this, P_INDEX_OFFSET, expect, newValue);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    private void soConsumerIndex( @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull long v) {
+        UNSAFE.putOrderedLong(this, C_INDEX_OFFSET, v);
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    private  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull long lvProducerLimit() {
+        return producerLimit;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    private  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean casProducerLimit( @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull long expect,  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull long newValue) {
+        return UNSAFE.compareAndSwapLong(this, P_LIMIT_OFFSET, expect, newValue);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    private void soProducerLimit( @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull long v) {
+        UNSAFE.putOrderedLong(this, P_LIMIT_OFFSET, v);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull long currentProducerIndex() {
+        return lvProducerIndex() / 2;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull long currentConsumerIndex() {
+        return lvConsumerIndex() / 2;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public abstract  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int capacity();
+
+    @org.checkerframework.dataflow.qual.Impure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean relaxedOffer(E e) {
+        return offer(e);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public E relaxedPoll() {
+        final E[] buffer = consumerBuffer;
+        final long index = consumerIndex;
+        final long mask = consumerMask;
+        final long offset = modifiedCalcElementOffset(index, mask);
+        // LoadLoad
+        Object e = lvElement(buffer, offset);
+        if (e == null) {
+            return null;
+        }
+        if (e == JUMP) {
+            final E[] nextBuffer = getNextBuffer(buffer, mask);
+            return newBufferPoll(nextBuffer, index);
+        }
+        soElement(buffer, offset, null);
+        soConsumerIndex(index + 2);
+        return (E) e;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public E relaxedPeek() {
+        final E[] buffer = consumerBuffer;
+        final long index = consumerIndex;
+        final long mask = consumerMask;
+        final long offset = modifiedCalcElementOffset(index, mask);
+        // LoadLoad
+        Object e = lvElement(buffer, offset);
+        if (e == JUMP) {
+            return newBufferPeek(getNextBuffer(buffer, mask), index);
+        }
+        return (E) e;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    private void resize( @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull long oldMask, E @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull [] oldBuffer,  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull long pIndex, final E e) {
+        int newBufferLength = getNextBufferSize(oldBuffer);
+        final E[] newBuffer = allocate(newBufferLength);
+        producerBuffer = newBuffer;
+        final int newMask = (newBufferLength - 2) << 1;
+        producerMask = newMask;
+        final long offsetInOld = modifiedCalcElementOffset(pIndex, oldMask);
+        final long offsetInNew = modifiedCalcElementOffset(pIndex, newMask);
+        // element in new array
+        soElement(newBuffer, offsetInNew, e);
+        // buffer linked
+        soElement(oldBuffer, nextArrayOffset(oldMask), newBuffer);
+        // ASSERT code
+        final long cIndex = lvConsumerIndex();
+        final long availableInQueue = availableInQueue(pIndex, cIndex);
+        if (availableInQueue <= 0) {
+            throw new IllegalStateException();
+        }
+        // Invalidate racing CASs
+        // We never set the limit beyond the bounds of a buffer
+        soProducerLimit(pIndex + Math.min(newMask, availableInQueue));
+        // make resize visible to the other producers
+        soProducerIndex(pIndex + 2);
+        // INDEX visible before ELEMENT, consistent with consumer expectation
+        // make resize visible to consumer
+        soElement(oldBuffer, offsetInOld, JUMP);
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public static <E> E @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull [] allocate( @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int capacity) {
+        return (E[]) new Object[capacity];
+    }
+
+    /**
+     * @return next buffer size(inclusive of next array pointer)
+     */
+    @org.checkerframework.dataflow.qual.Pure
+    protected abstract  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int getNextBufferSize(E @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull [] buffer);
+
+    /**
+     * @return current buffer capacity for elements (excluding next pointer and jump entry) * 2
+     */
+    @org.checkerframework.dataflow.qual.Pure
+    protected abstract  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull long getCurrentBufferCapacity( @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull long mask);
+}
+
+/**
+ * A concurrent access enabling class used by circular array based queues this class exposes an
+ * offset computation method along with differently memory fenced load/store methods into the
+ * underlying array. The class is pre-padded and the array is padded on either side to help with
+ * False sharing prvention. It is expected theat subclasses handle post padding.
+ * <p>
+ * Offset calculation is separate from access to enable the reuse of a give compute offset.
+ * <p>
+ * Load/Store methods using a <i>buffer</i> parameter are provided to allow the prevention of final
+ * field reload after a LoadLoad barrier.
+ * <p>
+ */
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+final class UnsafeRefArrayAccess {
+
+    public static final  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull long REF_ARRAY_BASE;
+
+    public static final  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int REF_ELEMENT_SHIFT;
+
+    static {
+        final int scale = UNSAFE.arrayIndexScale(Object[].class);
+        if (4 == scale) {
+            REF_ELEMENT_SHIFT = 2;
+        } else if (8 == scale) {
+            REF_ELEMENT_SHIFT = 3;
+        } else {
+            throw new IllegalStateException("Unknown pointer size");
+        }
+        REF_ARRAY_BASE = UNSAFE.arrayBaseOffset(Object[].class);
+    }
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    private UnsafeRefArrayAccess() {
+    }
+
+    /**
+     * A plain store (no ordering/fences) of an element to a given offset
+     *
+     * @param buffer this.buffer
+     * @param offset computed via {@link UnsafeRefArrayAccess#calcElementOffset(long)}
+     * @param e an orderly kitty
+     */
+    @org.checkerframework.dataflow.qual.Impure
+    public static <E> void spElement(E[] buffer, long offset, E e) {
+        UNSAFE.putObject(buffer, offset, e);
+    }
+
+    /**
+     * An ordered store(store + StoreStore barrier) of an element to a given offset
+     *
+     * @param buffer this.buffer
+     * @param offset computed via {@link UnsafeRefArrayAccess#calcElementOffset}
+     * @param e an orderly kitty
+     */
+    @org.checkerframework.dataflow.qual.Impure
+    public static <E> void soElement(E @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull [] buffer,  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull long offset, E e) {
+        UNSAFE.putOrderedObject(buffer, offset, e);
+    }
+
+    /**
+     * A plain load (no ordering/fences) of an element from a given offset.
+     *
+     * @param buffer this.buffer
+     * @param offset computed via {@link UnsafeRefArrayAccess#calcElementOffset(long)}
+     * @return the element at the offset
+     */
+    @org.checkerframework.dataflow.qual.Impure
+    public static <E> E lpElement(E[] buffer, long offset) {
+        return (E) UNSAFE.getObject(buffer, offset);
+    }
+
+    /**
+     * A volatile load (load + LoadLoad barrier) of an element from a given offset.
+     *
+     * @param buffer this.buffer
+     * @param offset computed via {@link UnsafeRefArrayAccess#calcElementOffset(long)}
+     * @return the element at the offset
+     */
+    @org.checkerframework.dataflow.qual.Impure
+    public static <E> E lvElement(E @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull [] buffer,  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull long offset) {
+        return (E) UNSAFE.getObjectVolatile(buffer, offset);
+    }
+
+    /**
+     * @param index desirable element index
+     * @return the offset in bytes within the array for a given index.
+     */
+    @org.checkerframework.dataflow.qual.Pure
+    public static  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull long calcElementOffset(long index) {
+        return REF_ARRAY_BASE + (index << REF_ELEMENT_SHIFT);
+    }
+}

@@ -1,0 +1,3 @@
+version=1.0.1.Final
+buildNumber=undefined
+timestamp=0

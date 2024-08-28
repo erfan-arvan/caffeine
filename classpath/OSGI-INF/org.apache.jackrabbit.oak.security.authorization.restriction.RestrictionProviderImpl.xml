@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="org.apache.jackrabbit.oak.security.authorization.restriction.RestrictionProviderImpl">
+  <implementation class="org.apache.jackrabbit.oak.security.authorization.restriction.RestrictionProviderImpl"/>
+  <service>
+    <provide interface="org.apache.jackrabbit.oak.spi.security.authorization.restriction.RestrictionProvider"/>
+  </service>
+  <property name="oak.security.name" type="String" value="org.apache.jackrabbit.oak.security.authorization.restriction.RestrictionProviderImpl"/>
+</component>

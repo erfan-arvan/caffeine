@@ -1,0 +1,25 @@
+// ------------------------------------------------------------------
+// Transitive dependencies of this project determined from the
+// maven pom organized by organization.
+// ------------------------------------------------------------------
+
+OPS4J Pax Tinybundles
+
+
+From: 'aQute SARL' (http://www.aQute.biz)
+  - A Swiss Army Knife for OSGi (http://www.aQute.biz/Code/Bnd/bndlib) biz.aQute.bnd:bndlib:jar:2.4.0
+    License: Apache Software License 2.0  (http://www.opensource.org/licenses/apache2.0.php)
+
+From: 'OPS4J - Open Participation Software for Java' (http://www.ops4j.org/)
+  - OPS4J Base - IO (http://team.ops4j.org/wiki/display/base/ops4j-base-io/) org.ops4j.base:ops4j-base-io:bundle:1.5.0
+    License: ALv2  (http://www.apache.org/licenses/LICENSE-2.0.html)
+  - OPS4J Base - Lang (http://team.ops4j.org/wiki/display/base/ops4j-base-lang/) org.ops4j.base:ops4j-base-lang:bundle:1.5.0
+    License: ALv2  (http://www.apache.org/licenses/LICENSE-2.0.html)
+  - OPS4J Base - Monitors (http://team.ops4j.org/wiki/display/base/ops4j-base-monitors/) org.ops4j.base:ops4j-base-monitors:bundle:1.5.0
+    License: ALv2  (http://www.apache.org/licenses/LICENSE-2.0.html)
+  - OPS4J Base - Store (http://team.ops4j.org/wiki/display/base/ops4j-base-store/) org.ops4j.base:ops4j-base-store:bundle:1.5.0
+    License: ALv2  (http://www.apache.org/licenses/LICENSE-2.0.html)
+
+
+
+

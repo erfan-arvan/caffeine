@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.3.0" name="org.apache.jackrabbit.oak.security.authentication.token.TokenConfigurationImpl" activate="activate">
+  <implementation class="org.apache.jackrabbit.oak.security.authentication.token.TokenConfigurationImpl"/>
+  <service>
+    <provide interface="org.apache.jackrabbit.oak.spi.security.authentication.token.TokenConfiguration"/>
+    <provide interface="org.apache.jackrabbit.oak.spi.security.SecurityConfiguration"/>
+  </service>
+  <reference name="credentialsSupport" cardinality="0..n" policy="dynamic" interface="org.apache.jackrabbit.oak.spi.security.authentication.credentials.CredentialsSupport" bind="bindCredentialsSupport" unbind="unbindCredentialsSupport"/>
+  <property name="passwordSaltSize" type="Integer" value="8"/>
+  <property name="tokenCleanupThreshold" type="Long" value="0"/>
+  <property name="oak.security.name" type="String" value="org.apache.jackrabbit.oak.security.authentication.token.TokenConfigurationImpl"/>
+  <property name="passwordHashAlgorithm" type="String" value="SHA-256"/>
+  <property name="passwordHashIterations" type="Integer" value="1000"/>
+  <property name="tokenRefresh" type="Boolean" value="true"/>
+</scr:component>
